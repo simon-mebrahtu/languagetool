@@ -21,7 +21,6 @@ package org.languagetool.language;
 import org.jetbrains.annotations.NotNull;
 import org.languagetool.Language;
 import org.languagetool.UserConfig;
-import org.languagetool.language.tagging.TamilTagger;
 import org.languagetool.rules.*;
 import org.languagetool.tagging.Tagger;
 import org.languagetool.tokenizers.SRXSentenceTokenizer;

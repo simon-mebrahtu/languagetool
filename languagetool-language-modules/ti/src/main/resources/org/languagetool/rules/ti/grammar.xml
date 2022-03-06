@@ -3,8 +3,8 @@
 <?xml-stylesheet type="text/css" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.css"
         title="Easy editing stylesheet" ?>
 <!--
-Tamil Rules for LanguageTool
-Copyright (C) 2014 Elanjelian Venugopal
+Tigrinya Rules for LanguageTool
+Copyright (C) 2022 tigrinyaNLP.github.io
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -26,9 +26,11 @@ USA
 <rules lang="ta"
        xsi:noNamespaceSchemaLocation="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <!-- ====================================================================== -->
-    <!-- சொற்களைச் சேர்த்தும் இடம்விட்டும் எழுதுதல் -->
-    <!-- ====================================================================== -->
+    <!-- ======================================================================  -->
+    <!-- መፈተንታ፥                                                                -->
+    <!--  ቅኑዕ -  ቤተ ክርስትያን, ቤተ መቕደስ                                         -->
+    <!-- ግጉይ -  ቤት ክርስትያን, በት ክርስትያን, ቤት መቕደስ, በት መቕደስ                  -->
+    <!-- ======================================================================  -->
     <category id="CAT1" name="CAT1">
         <rulegroup id="noun_noun" name="GROUP1">
             <rule>
@@ -38,9 +40,9 @@ USA
                     </marker>
                     <token regexp="yes">መቕደስ|ክርስትያን</token>
                 </pattern>
-                <message>Did you mean <suggestion>ቤተ</suggestion>?</message>
-                <example correction="ቤተ">ኣማኑኤል <marker>ቤተ</marker> ክርስትያን ኤርትራውያን ሳን ድየጎ.</example>
-                <example>My car is broken.</example>
+                <message>Did you mean <suggestion>ቤተ</suggestion>፧</message>
+                <example correction="ቤተ">ኣማኑኤል <marker>ቤተ</marker> ክርስትያን ኤርትራውያን ሳን ድየጎ።</example>
+                <example>ኣማኑኤል ቤተ ክርስትያን ኤርትራውያን ሳን ድየጎ።</example>
             </rule>
         </rulegroup>
     </category>

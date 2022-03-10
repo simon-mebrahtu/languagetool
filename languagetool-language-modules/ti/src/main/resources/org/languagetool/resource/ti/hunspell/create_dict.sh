@@ -32,6 +32,7 @@ TOKENIZER_LANG=${LANG_CODE}-${COUNTRY_CODE}
 LANG_MAIN_DIR=languagetool-language-modules/${LANG_CODE}/src/main/resources/org/languagetool/resource/$LANG_CODE
 CONTENT_DIR=${LANG_MAIN_DIR}/hunspell
 INFO_FILE=${LANG_MAIN_DIR}/${PREFIX}.info
+FREQ_FILE=${CONTENT_DIR}/${PREFIX}_wordlist.info
 DIC_NO_SUFFIX=$CONTENT_DIR/$PREFIX
 DIC_FILE=$DIC_NO_SUFFIX.dic
 OUTPUT_FILE=${LANG_MAIN_DIR}/ti_ER.dict
@@ -64,6 +65,6 @@ echo "Final size:"
 wc -l $FINAL_FILE
  
 java -cp $CPATH:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/languagetool.jar:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/libs/languagetool-tools.jar \
-  org.languagetool.tools.SpellDictionaryBuilder -i $FINAL_FILE -info $INFO_FILE -o $OUTPUT_FILE 
+  org.languagetool.tools.SpellDictionaryBuilder -i $FINAL_FILE -info $INFO_FILE -o $OUTPUT_FILE  -freq
 
 rm $TEMP_FILE

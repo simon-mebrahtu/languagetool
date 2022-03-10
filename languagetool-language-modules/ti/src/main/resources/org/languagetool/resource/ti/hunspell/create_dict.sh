@@ -29,11 +29,12 @@ LANG_CODE=$1
 COUNTRY_CODE=$2
 PREFIX=${LANG_CODE}_${COUNTRY_CODE}
 TOKENIZER_LANG=${LANG_CODE}-${COUNTRY_CODE}
-CONTENT_DIR=languagetool-language-modules/${LANG_CODE}/src/main/resources/org/languagetool/resource/$LANG_CODE/hunspell
-INFO_FILE=${CONTENT_DIR}/${PREFIX}.info
+LANG_MAIN_DIR=languagetool-language-modules/${LANG_CODE}/src/main/resources/org/languagetool/resource/$LANG_CODE
+CONTENT_DIR=${LANG_MAIN_DIR}/hunspell
+INFO_FILE=${LANG_MAIN_DIR}/${PREFIX}.info
 DIC_NO_SUFFIX=$CONTENT_DIR/$PREFIX
 DIC_FILE=$DIC_NO_SUFFIX.dic
-OUTPUT_FILE=languagetool-language-modules/${LANG_CODE}/src/main/resources/org/languagetool/resource/$LANG_CODE/ti_ER.dict
+OUTPUT_FILE=${LANG_MAIN_DIR}/ti_ER.dict
 
 if [ ! -f $ADDITIONAL_DICT_FILE ]; then
     echo "File not found: $ADDITIONAL_DICT_FILE"

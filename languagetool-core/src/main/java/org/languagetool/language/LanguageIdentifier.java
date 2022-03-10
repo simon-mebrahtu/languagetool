@@ -157,6 +157,7 @@ public class LanguageIdentifier {
 
   private List<LanguageProfile> loadProfiles(List<String> langCodes) throws IOException {
     LanguageProfileReader profileReader = new LanguageProfileReader();
+    System.out.println(Arrays.toString(langCodes.toArray()));
     List<LanguageProfile> profiles = profileReader.read(langCodes);
     for (String externalLangCode : externalLangCodes) {
       String profilePath = "/" + externalLangCode + "/" + externalLangCode + ".profile";

@@ -1,0 +1,9 @@
+#
+# Dictionary properties.
+#
+# Tigrinya dictionary developed  by B. Gebremchael - http://www.cs.ru.nl/~biniam/geez/install.php
+
+fsa.dict.separator=+
+fsa.dict.encoding=utf-8
+
+fsa.dict.encoder=SUFFIX

@@ -8,9 +8,8 @@ import org.languagetool.Language;
 import org.languagetool.UserConfig;
 import org.languagetool.language.ti.MorfologikTigrinyaSpellerRule;
 import org.languagetool.rules.*;
-import org.languagetool.rules.spelling.SpellingCheckRule;
 import org.languagetool.tagging.Tagger;
-import org.languagetool.language.tagger.TigrinyaTagger;
+import org.languagetool.tagging.xx.DemoTagger;
 import org.languagetool.tokenizers.SRXSentenceTokenizer;
 import org.languagetool.tokenizers.SentenceTokenizer;
 
@@ -42,7 +41,7 @@ public class Tigrinya extends Language {
   @NotNull
   @Override
   public Tagger createDefaultTagger() {
-    return new TigrinyaTagger();
+    return new DemoTagger();
   }
 
   @Override
@@ -50,16 +49,16 @@ public class Tigrinya extends Language {
     return new Contributor[]{new Contributor("Biniam Gebremichael")};
   }
 
-    @Override
-    public List<Rule> getRelevantRules(ResourceBundle messages, UserConfig userConfig, Language motherTongue, List<Language> altLanguages) throws IOException {
-        return Arrays.asList(
-                new CommaWhitespaceRule(messages),
-                new DoublePunctuationRule(messages),
-                new MultipleWhitespaceRule(messages, this),
-                new LongSentenceRule(messages, userConfig, 50),
-                new SentenceWhitespaceRule(messages),
-          new MorfologikTigrinyaSpellerRule(messages, this, userConfig, altLanguages)
-        );
-    }
+  @Override
+  public List<Rule> getRelevantRules(ResourceBundle messages, UserConfig userConfig, Language motherTongue, List<Language> altLanguages) throws IOException {
+    return Arrays.asList(
+      new CommaWhitespaceRule(messages),
+      new DoublePunctuationRule(messages),
+      new MultipleWhitespaceRule(messages, this),
+      new LongSentenceRule(messages, userConfig, 50),
+      new SentenceWhitespaceRule(messages),
+      new MorfologikTigrinyaSpellerRule(messages, this, userConfig, altLanguages)
+    );
+  }
 
 }

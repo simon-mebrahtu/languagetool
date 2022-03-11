@@ -4,7 +4,7 @@
 # Tigrinya dictionary developed  by B. Gebremchael - http://www.cs.ru.nl/~biniam/geez/install.php
 
 fsa.dict.separator=+
-fsa.dict.encoding=utf-8
+fsa.dict.encoding=UTF-8
 fsa.dict.frequency-included=true
 
-fsa.dict.encoder=SUFFIX
+fsa.dict.encoder=NONE

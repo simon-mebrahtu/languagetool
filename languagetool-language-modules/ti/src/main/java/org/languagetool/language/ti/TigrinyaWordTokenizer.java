@@ -1,17 +1,14 @@
 package org.languagetool.language.ti;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.regex.Pattern;
 
-import org.languagetool.tokenizers.Tokenizer;
+import org.languagetool.tokenizers.WordTokenizer;
 
 
-public class TigrinyaWordTokenizer implements Tokenizer {
- private static final Pattern p = Pattern.compile("[፡።፣፤፥፦፧፨]");
+public class TigrinyaWordTokenizer extends WordTokenizer {
+
   @Override
-  public List<String> tokenize(String text) {
-    return Collections.singletonList(p.matcher(text).replaceAll(""));
+  public String getTokenizingCharacters() {
+    return super.getTokenizingCharacters() + "፡።፣፤፥፦፧፨";
   }
 }
 

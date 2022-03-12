@@ -41,7 +41,8 @@ public class Tigrinya extends Language {
   }
   @Override
   public Tokenizer createDefaultWordTokenizer() {
-    return new TigrinyaWordTokenizer();
+    return
+      new TigrinyaWordTokenizer();
   }
 
   @NotNull

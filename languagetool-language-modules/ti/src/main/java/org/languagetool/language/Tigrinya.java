@@ -7,11 +7,13 @@ import org.jetbrains.annotations.NotNull;
 import org.languagetool.Language;
 import org.languagetool.UserConfig;
 import org.languagetool.language.ti.MorfologikTigrinyaSpellerRule;
+import org.languagetool.language.ti.TigrinyaWordTokenizer;
 import org.languagetool.rules.*;
 import org.languagetool.tagging.Tagger;
 import org.languagetool.tagging.xx.DemoTagger;
 import org.languagetool.tokenizers.SRXSentenceTokenizer;
 import org.languagetool.tokenizers.SentenceTokenizer;
+import org.languagetool.tokenizers.Tokenizer;
 
 import java.io.IOException;
 import java.util.*;
@@ -36,6 +38,10 @@ public class Tigrinya extends Language {
   @Override
   public SentenceTokenizer createDefaultSentenceTokenizer() {
     return new SRXSentenceTokenizer(this);
+  }
+  @Override
+  public Tokenizer createDefaultWordTokenizer() {
+    return new TigrinyaWordTokenizer();
   }
 
   @NotNull

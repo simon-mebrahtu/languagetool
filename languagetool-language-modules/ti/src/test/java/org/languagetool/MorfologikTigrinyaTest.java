@@ -4,12 +4,14 @@ import morfologik.speller.Speller;
 import morfologik.stemming.Dictionary;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.languagetool.language.ti.MorfologikTigrinyaSpellerRule;
 import org.languagetool.rules.spelling.morfologik.MorfologikMultiSpeller;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 import static junit.framework.TestCase.*;
@@ -18,6 +20,7 @@ import static junit.framework.TestCase.*;
 
 public class MorfologikTigrinyaTest {
 
+  @Ignore
   @Test
   public void testDictionaryBuilder() throws IOException {
 //    SpellDictionaryBuilder builder = new SpellDictionaryBuilder(new File("."));
@@ -31,6 +34,7 @@ public class MorfologikTigrinyaTest {
 
   }
 
+  @Ignore
   @Test
   public void morfologikMultiSpellerTest() throws IOException {
     final String url1 = new File ("D:\\projects\\languagetool\\languagetool-language-modules\\ti\\src\\main\\resources\\org\\languagetool\\resource\\ti",

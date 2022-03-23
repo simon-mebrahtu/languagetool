@@ -1022,8 +1022,20 @@ public class JLanguageTool {
 
     ruleMatches.addAll(remoteMatches);
 
-    return ruleMatches.isEmpty() ? res :
-           new CheckResults(filterMatches(annotatedText, rules, ruleMatches), res.getIgnoredRanges());
+    if (ruleMatches.isEmpty()) {
+      return res;
+    }
+
+    ruleMatches = filterMatches(annotatedText, rules, ruleMatches);
+
+    // decide if this should be done right after performCheck, before waiting for remote rule results
+    // better for latency, remote rules probably don't need resorting
+    // complications with application of other filters?
+    for (GRPCPostProcessing postProcessing : GRPCPostProcessing.get(language)) {
+      ruleMatches = postProcessing.filter(analyzedSentences, ruleMatches, textSessionID, inputLogging);
+    }
+
+    return new CheckResults(ruleMatches, res.getIgnoredRanges());
   }
 
   private List<RuleMatch> filterMatches(AnnotatedText annotatedText, RuleSet rules, List<RuleMatch> ruleMatches) {
@@ -1083,7 +1095,7 @@ public class JLanguageTool {
         }
         try {
           //logger.info("Fetching results for remote rule for {} chars", chars);
-          RemoteRuleMetrics.inCircuitBreaker(deadlineStartNanos, rule, ruleKey, chars, () ->
+          RemoteRuleMetrics.inCircuitBreaker(deadlineStartNanos, rule.circuitBreaker(), ruleKey, chars, () ->
             fetchResults(deadlineStartNanos, mode, level, analyzedSentences, remoteMatches, matchOffset, annotatedText, textSessionID, chars, deadlineEndNanos, task, rule, ruleKey));
         } catch (InterruptedException e) {
           break;

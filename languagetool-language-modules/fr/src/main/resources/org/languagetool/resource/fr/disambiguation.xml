@@ -141,6 +141,15 @@ RB => Règles Brutes
         </pattern>
         <disambig action="remove" postag="J e s"/>
     </rule>
+    <rule id="LAMPE_TORCHE" name="lampe torche">
+        <pattern>
+            <token regexp="yes">lampes?</token>
+            <marker>
+                <token>torche</token>
+            </marker>
+        </pattern>
+        <disambig action="remove" postag="V ind pres 3 s"/>
+    </rule>
     <rulegroup id="CEUX_QUI_L_ECOUTE" name="ceux qui l'écoute">
         <rule>
         <pattern>
@@ -1030,6 +1039,16 @@ RB => Règles Brutes
     </rule>
     <!-- END: Elements dans périphrases verbals -->
     <!-- CATEGORY: Périphrases verbals -->
+    <rule id="SOUDAIN" name="soudain">
+            <pattern>
+                <token postag="V.*" postag_regexp="yes" regexp="yes" inflected="yes">demeurer|être|devenir|para[îi]tre|rester|sembler</token>
+                <marker>
+                    <token>soudain</token>
+                </marker>
+                <token postag="(V ppa|J).*" postag_regexp="yes"/>
+            </pattern>
+            <disambig action="filter" postag="A"/>
+    </rule>
     <rulegroup id="FAIT0" name="fait">
         <rule>
             <pattern>
@@ -6275,6 +6294,10 @@ RB => Règles Brutes
             <token regexp="yes">tout|frais</token>
             <token regexp="yes">de|d'|des</token>
         </antipattern>
+        <antipattern>
+            <token regexp="yes">cette|cet</token>
+            <token>ensemble</token>
+        </antipattern>
         <pattern>
             <marker>
                 <token postag="A">
@@ -7630,6 +7653,10 @@ RB => Règles Brutes
         </rule>
         <rule>
             <!--TODO: too greedy, exceptions? plein? -->
+            <antipattern>
+                <token postag="N.*" postag_regexp="yes"/>
+                <token>excepté</token>
+            </antipattern>
             <pattern>
                 <marker>
                     <token postag="P">

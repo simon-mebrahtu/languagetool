@@ -273,6 +273,8 @@ public class CaseRule extends Rule {
     "Oberkommandierende",
     "Oberkommandierender",
     "Oberkommandierenden",
+    "Werbungtreibende",
+    "Werbungtreibenden",
     "Mitangeklagte",
     "Schuhfilz",
     "Mix",
@@ -616,6 +618,7 @@ public class CaseRule extends Rule {
     "Walt",
     "Weitem",
     "Weiteres",
+    "Wohlen", // Stadt in der Schweiz
     "Wicht",
     "Wichtiges",
     "Wider",    // "das Für und Wider"

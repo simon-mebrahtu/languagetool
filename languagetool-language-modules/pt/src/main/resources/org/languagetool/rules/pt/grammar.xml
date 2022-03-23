@@ -1670,6 +1670,26 @@ THIS ANTIPATTERN IS TO TRIGGER THE RULE: CONFUSÃO_ESTA_ESTÁ
       </antipattern>
 <!-- MARCOAGPINTO 2022-02-02 (1-JAN-2022+) *END* -->
 
+<!-- MARCOAGPINTO 2022-03-08 (1-JAN-2022+) *START* -->
+<!--
+THIS ANTIPATTERN FIXES THE ISSUE: VERB + FEMALE + MALE (VERB + programação + spaghetti)
+ONLY USED NOUNS SINCE ADJECTIVES PRODUCE FALSE HITS.
+
+Tive um professor na faculdade que disse que o BASIC era programação spaghetti.
+Iniciou o Chegou a Hora em parceria, mas conquistou carreira solo e agora decola com seus novos projetos.
+Molho para acompanhar massa esparguete.
+-->
+      <antipattern>
+		<token postag='V.+' postag_regexp='yes'/>
+		<token postag='NCF.+' postag_regexp='yes'>
+			<exception postag_regexp='yes' postag='AQ.+|DI.+|PI.+|Z0.+'/>
+		</token>
+		<token postag='NCM.+' postag_regexp='yes'>
+			<exception postag_regexp='yes' postag='AQ.+|DI.+|PI.+|Z0.+'/>
+		</token>
+      </antipattern>
+<!-- MARCOAGPINTO 2022-03-08 (1-JAN-2022+) *END* -->
+
       <pattern>
           <token negate='yes' regexp='yes'>o|e|de|&hifen;</token> <!-- MARCOAGPINTO 2019-12-31 -->
         <marker>
@@ -1711,28 +1731,32 @@ THIS ANTIPATTERN IS TO TRIGGER THE RULE: CONFUSÃO_ESTA_ESTÁ
 	  <example type='correct'>Precisa agora de estar em <marker>plantão 14 horas</marker>.</example>
 	  <example type='correct'>Ao testar um modelo tendo <marker>por base dados</marker>.</example>
 	  <example type='correct'>Ao testar um modelo tendo <marker>por resultado dados</marker>.</example>
-	 
+
 	  <example type='correct'><marker>Dez funções</marker> da inteligência multifocal.</example>
-	 
+
 	  <example>O Isaac apanhou <marker>um escalda</marker> rabos tão grande.</example>
-	 
+
 	  <example>Ele confundiu o rapaz com um borrego, <marker>seu tira</marker> moncos.</example>
 	  <example>Ele confundiu o rapaz com um borrego, sua tira moncos.</example>
 	  <example>Ele confundiu o rapaz com um borrego, teu tira moncos.</example>
-	  
+
 	  <example type='correct'>Autentifique-se com a <marker>sua conta LanguageTool</marker>.</example>
 	  <example type='correct'>Autentifique-se com o <marker>seu cartão MUFON</marker>.</example>
 	  <example>Em resposta, a administração Bush lançou uma "Guerra ao Terror".</example>
 	  <example>A bacia Beethoven tem um tamanho similar de material ejetado e uma borda de 625 km de diâmetro.</example>
 	  <example>Durante a dinastia Ming (no início do século XV) havia a Cidade Proibida no centro de Pequim.</example>
 	  <example>A própria Jane escreveu a carta.</example>
-	  
+
 	  <example>Tive minhas primeiras experiências sexuais com uma mulher vários anos mais velha que eu.</example>
 	  <example>Em outra publicação sua no mesmo ano, Einstein pôs em dúvida vários princípios do eletromagnetismo clássico.</example>
 	  <example>Como incentivo a este tipo de música, a Câmara Municipal de Braga criou no estádio 1.º de Maio várias salas de ensaio.</example>
 	  <example>Série 9xx Cada série foca um determinado mercado, possuindo os aparelhos várias semelhanças entre si.</example>
-	  
-	  <example>A sua adopção no Pentium foi uma novidade significativa na linha da plataforma x86 que até então era totalmente CISC.</example>	  
+
+	  <example>A sua adopção no Pentium foi uma novidade significativa na linha da plataforma x86 que até então era totalmente CISC.</example>
+
+	  <example>Tive um professor na faculdade que disse que o BASIC era programação spaghetti.</example>
+	  <example>Iniciou o Chegou a Hora em parceria, mas conquistou carreira solo e agora decola com seus novos projetos.</example>
+	  <example>Molho para acompanhar massa esparguete.</example>
     </rule>
     <rule>
       <antipattern>
@@ -15091,7 +15115,7 @@ A definição genérica é que os terroristas são violentos. → A definição 
 
 	<!-- E QUE VERBO e verbo -->
     <rule id='E_QUE_VERBO_E_VERBO' name="E que + Verbo > E + Verbo" type='style'>
-    <!--      Created by Marco A.G.Pinto, Portuguese rule 2021-08-03 + 2021-08-04 (25-JUN-2021+)      -->
+    <!--      Created by Marco A.G.Pinto, Portuguese rule 2021-08-03 + 2021-08-04 + 2022-03-08 (25-JUN-2021+)      -->
 	<!--
 Ele é o Rui e que queria comer bem. → Ele é o Rui e queria comer bem.
 	-->
@@ -15103,7 +15127,7 @@ Uma população é um grupo de indivíduos pertencentes a determinada espécie e
 		<token>e</token>
 		<token>que</token>
 		<token postag='V.+' postag_regexp='yes'/>
-		<token postag='SPS.+|Z0.+' postag_regexp='yes'/>
+		<token postag='Z0.+' postag_regexp='yes'/> <!-- Removed "SPS.+" to hit also "à" and "a": ", e que levou à revolta em vários países árabes." -->
       </antipattern> 
 <!--
 Não esquecer os disparos e que são necessários para fragilizar o inimigo.
@@ -15125,7 +15149,43 @@ São usados vários programas escritos em Assembly, alguns escritos por humanos 
 		<token postag='CS' postag_regexp='no'/>
 		<token postag='V.+' postag_regexp='yes'/>
 		<token postag='CS|SPS.+' postag_regexp='yes'/>
-      </antipattern> 	  
+      </antipattern>
+
+<!--
+ADDED ON 2022-03-08 DUE TO THE FIX IN THE FIRST ANTIPATTERN WHERE I REMOVED SPS.+
+Imagens que me inspiram para a decoração da casa nova e que guardo no meu pinterest.
+-->
+      <antipattern>
+		<token>e</token>
+		<token>que</token>
+		<token postag='V.+' postag_regexp='yes'/>
+		<token postag='SPS.+' postag_regexp='yes'/>
+		<token postag='AP.+|DP.+' postag_regexp='yes'/>
+      </antipattern> 
+<!--
+ADDED ON 2022-03-08 DUE TO THE FIX IN THE FIRST ANTIPATTERN WHERE I REMOVED SPS.+
+A Suíça é um país muito bonito e que vale a pena visitar.
+Um sentimento que hoje tenho e que guardo no coração é o de LIBERDADE.
+Ele acredita firmemente que foi abduzido por um OVNI e que serviu de experiências para os alienígenas.
+Antracito é uma carvão duro que contém carbono quase puro e que arde com chama e fumaça mínimas.
+Até fala do passadiço que foi construído e que unificava a praça com ligação de outras casas ao paço (nos estáus).
+Capa muito bonita e que remete a atmosfera da trama.
+Um amor doce como o mel de uma flor... que desabrochou numa estrela e que veio até nós num lindo sonho!
+Uma coisa é certa: é de uma criação diferente e que sai dos parâmetros da maioria das cervejas que já bebi.
+Ele vai indicar profissionais competentes e que levam a profissão a sério.
+-->
+      <antipattern>
+		<token>e</token>
+		<token>que</token>
+		<token postag='V.+' postag_regexp='yes'/>
+		<token postag='SPS.+' postag_regexp='yes'>
+			<exception postag_regexp='no' postag='RG'/>
+		</token>
+		<token postag='NC.+|AQ.+' postag_regexp='yes'/>
+		<token postag='V.+|CC|SPS.+' postag_regexp='yes'/>
+		<token negate_pos="yes" postag='DI.+' postag_regexp='yes'/>
+      </antipattern> 
+
       <pattern>
 	    <marker>
 			<token>e</token>
@@ -15138,13 +15198,24 @@ São usados vários programas escritos em Assembly, alguns escritos por humanos 
 	  <suggestion>e \3</suggestion>
       <example correction="e queria">Ele é o Rui <marker>e que queria</marker> comer bem.</example>
 	  <example>E que se supõe que devo fazer quando me xingar?</example>
-	  
+
 	  <example>Todos dizem que Kate é um gênio e que terá um futuro próspero.</example>
 	  <example>Uma população é um grupo de indivíduos pertencentes a determinada espécie e que ocupa um espaço delimitado.</example>
-	  
+
 	  <example>Não esquecer os disparos e que são necessários para fragilizar o inimigo.</example>
-	  
+
 	  <example>São usados vários programas escritos em Assembly, alguns escritos por humanos e que se duplicam na RAM.</example>
+
+	  <example>Imagens que me inspiram para a decoração da casa nova e que guardo no meu pinterest.</example>
+	  <example>A Suíça é um país muito bonito e que vale a pena visitar.</example>
+	  <example>Um sentimento que hoje tenho e que guardo no coração é o de LIBERDADE.</example>
+	  <example>Ele acredita firmemente que foi abduzido por um OVNI e que serviu de experiências para os alienígenas.</example>
+	  <example>Antracito é uma carvão duro que contém carbono quase puro e que arde com chama e fumaça mínimas.</example>
+	  <example>Até fala do passadiço que foi construído e que unificava a praça com ligação de outras casas ao paço (nos estáus).</example>
+	  <example>Capa muito bonita e que remete a atmosfera da trama.</example>
+	  <example>Um amor doce como o mel de uma flor... que desabrochou numa estrela e que veio até nós num lindo sonho!</example>
+	  <example>Uma coisa é certa: é de uma criação diferente e que sai dos parâmetros da maioria das cervejas que já bebi.</example>
+	  <example>Ele vai indicar profissionais competentes e que levam a profissão a sério.</example>
     </rule>
 
 	<!-- QUE É/SÃO NC/ADJ COMO/POR nc/adj como/por -->
@@ -15570,105 +15641,147 @@ O edifício tem um grau de altura 5, que é também o mais alto da lista. → O 
     </rule>
   </rulegroup>	
 
+
     <!-- RULES TU/TI -> EU/MIM *START* -->
     <!-- ***************************** -->
   <rulegroup id='TU_TI_EU_MIM' name='Uso de pronomes obliquos (eu,mim;tu,ti)'>
       <url>https://duvidas.dicio.com.br/entre-mim-e-ti-ou-entre-tu-e-eu/</url>
+<!-- Rules below fixed by MARCOAGPINTO 2022-03-15 (1-JAN-2022+) -->
+ 
+<!-- MARCOAGPINTO 2022-03-15 (1-JAN-2022+) *START* -->
+<!--
+Isso é para eu e ele fazermos.
+PRODUCES 0 HITS IN 600 000 SENTENCES.
+-->
+	<antipattern>
+		<token postag='CC' postag_regexp='no'/>
+		<token postag='PP1.+' postag_regexp='yes'/>
+		<token postag='CC' postag_regexp='no'/>
+		<token postag='PP3.+' postag_regexp='yes'/>
+		<token postag='V.+' postag_regexp='yes'/>
+	</antipattern>
+
+<!--
+...malizavam os contratos em Israel. Disse então a Boaz aquele que tinha o direito de resgate: "Compra-a tu!" E tirou a sandália.
+-->
+	<antipattern>
+		<token postag='V.+' postag_regexp='yes'/>
+		<token regexp='yes' spacebefore='no'>&tracos_de_separacao;</token>
+		<token regexp='yes' spacebefore='no'>[ao]s?|l[ao]s?|lh[aeo]s?|n[ao]s?|me|se|te|vos</token>
+		<token postag='PP.+' postag_regexp='yes'/>
+	</antipattern>	
+<!-- MARCOAGPINTO 2022-03-15 (1-JAN-2022+) *END* -->
+
+   <rule>
+      <pattern>
+          <token regexp='yes'>a|à</token>
+		  <marker>
+			<token case_sensitive='yes'>eu</token>
+		  </marker>
+      </pattern>
+      <message>Substitua por <suggestion>mim</suggestion>.</message>
+      <example correction="mim">Isto deve-se a <marker>eu</marker>.</example>
+    </rule>
+
     <rule>
       <pattern>
           <token regexp='yes'>a|à</token>
-          <token>eu</token>
+		  <marker>
+			<token case_sensitive='yes'>tu</token>
+		  </marker>
       </pattern>
-      <message>Substitua por <suggestion>a mim</suggestion> ou <suggestion>a me</suggestion>.</message>
-      <example correction="a mim|a me">Isto deve-se <marker>a eu</marker>.</example>
+      <message>Substitua por <suggestion>ti</suggestion>.</message>
+      <example correction="ti">Isto deve-se a <marker>tu</marker>.</example>
     </rule>
+
     <rule>
       <pattern>
-          <token regexp='yes'>a|à</token>
-          <token>tu</token>
-      </pattern>
-      <message>Substitua por <suggestion>a ti</suggestion> ou <suggestion>a te</suggestion>.</message>
-      <example correction="a ti|a te">Isto deve-se <marker>a tu</marker>.</example>
-    </rule>
-    <rule>
-      <pattern>
-        <marker>
-          <token regexp='yes'>de|pa?ra|sem</token>
-          <token>eu</token>
+        <token regexp='yes'>de|pa?ra|sem</token>
+		<marker>
+          <token case_sensitive='yes'>eu</token>
         </marker>
-          <token postag="_PUNCT|''|CC|SPS00" postag_regexp='yes'/>
+        <token postag="_PUNCT|''|CC|SPS00" postag_regexp='yes'/>
       </pattern>
-      <message>Substitua por <suggestion>de mim</suggestion> ou <suggestion>de me</suggestion>.</message>
-      <example correction="de mim|de me">Isto é <marker>de eu</marker> para o Rui.</example>
+      <message>Substitua por <suggestion>mim</suggestion>.</message>
+      <example correction="mim">Isto é de <marker>eu</marker> para o Rui.</example>
+	  <example correction="mim">Esse livro é para <marker>eu</marker>.</example>
     </rule>
+
     <rule>
       <pattern>
         <marker>
           <token>entre</token>
-          <token>eu</token>
+          <token case_sensitive='yes'>eu</token>
         </marker>
           <token>e</token>
       </pattern>
       <message>Substitua por <suggestion>entre mim</suggestion>.</message>
       <example correction="entre mim">O que se passou <marker>entre eu</marker> e o Rui?</example>
     </rule>
+	
     <rule>
       <pattern>
           <token>entre</token>
           <token/>
           <token>e</token>
-          <token>eu</token>
+          <token case_sensitive='yes'>eu</token>
       </pattern>
       <message>Substitua por <suggestion>\1 mim e \2</suggestion>.</message>
       <example correction="entre mim e você">O que se passou <marker>entre você e eu</marker>?</example>
     </rule>
+
     <rule>
       <pattern>
         <marker>
           <token>entre</token>
-          <token>tu</token>
+          <token case_sensitive='yes'>tu</token>
         </marker>
           <token>e</token>
       </pattern>
       <message>Substitua por <suggestion>entre ti</suggestion>.</message>
       <example correction="entre ti">O que se passou <marker>entre tu</marker> e o Rui?</example>
     </rule>
+	
     <rule>
       <pattern>
           <token>entre</token>
           <token/>
           <token>e</token>
-          <token>tu</token>
+          <token case_sensitive='yes'>tu</token>
       </pattern>
       <message>Substitua por <suggestion>\1 ti e \2</suggestion>.</message>
       <example correction="entre ti e ela">Isso é <marker>entre ela e tu</marker>.</example>
     </rule>
+	
     <rule>
       <pattern>
           <token>entre</token>
-          <token>tu</token>
+          <token case_sensitive='yes'>tu</token>
           <token>e</token>
-          <token>eu</token>
+          <token case_sensitive='yes'>eu</token>
       </pattern>
       <message>Substitua por <suggestion>entre mim e ti</suggestion>.</message>
       <example correction="entre mim e ti">O que se passou <marker>entre tu e eu</marker>?</example>
     </rule>
+
     <rule>
       <pattern>
+		<token regexp='yes'>de|pa?ra|sem</token>
         <marker>
-          <token regexp='yes'>de|pa?ra|sem</token>
-          <token>tu</token>
+          <token case_sensitive='yes'>tu</token>
         </marker>
-          <token postag="_PUNCT|''|CC|SPS00" postag_regexp='yes'/>
+        <token postag="_PUNCT|''|CC|SPS00" postag_regexp='yes'/>
       </pattern>
-      <message>Substitua por <suggestion>\1 ti</suggestion> ou <suggestion>\1 te</suggestion>.</message>
-      <example correction="para ti|para te">Isto é <marker>para tu</marker>.</example>
-      <example correction="sem ti|sem te">Isto não é o mesmo <marker>sem tu</marker>.</example>
-      <example> Para tu me dizeres isso, é porque é grave.</example>
+      <message>Substitua por <suggestion>ti</suggestion>.</message>
+      <example correction="ti">Isto é para <marker>tu</marker>.</example>
+      <example correction="ti">Isto não é o mesmo sem <marker>tu</marker>.</example>
+      <example>Para tu me dizeres isso, é porque é grave.</example>
     </rule>
+
   </rulegroup>
     <!-- *************************** -->
     <!-- RULES TU/TI -> EU/MIM *END* -->
+
 
     <rule id='VOTOS_BRANCOS' name="Votos em branco">
     <!-- Created by Marco A.G. Pinto, Portuguese rule -->
@@ -24950,16 +25063,77 @@ Como nos canta Afonso X de Castela, o Rei Sábio.
 			</antipattern>		
 <!-- MARCOAGPINTO 2021-01-09 (1-JAN-2021+) *END* --> 
 
+<!-- MARCOAGPINTO 2022-03-09/10/11 (1-JAN-2022+) *START* -->
+<!--
+As carências de coordenadores até ontem ninguém sabia quando iam ser liberadas.
+Ninguém duvida que, no pensamento das massas, milagre implica a ideia de um fato extranatural.
+Tudo indica que vai chover esta tarde.
+Ninguém continua onde os valores e, portanto, os limites que acredita como corretos estejam distantes.
+-->
+      <antipattern>
+		<token negate_pos="yes" postag='V.+' postag_regexp='yes'/>
+		<token postag='PI.+' postag_regexp='yes'>
+			<exception postag_regexp="yes" postag="DI.+"/>
+		</token>
+		<token postag='V.+' postag_regexp='yes'/>
+		<token postag='CS|RG|SPS00' postag_regexp='yes'>
+			<exception postag_regexp="yes" postag="NC.+|AQ.+"/>
+			<exception regexp='yes'>com|d[aeo]s?</exception>
+		</token>
+      </antipattern>
+<!--
+Qualquer um seria melhor do que ninguém.
+Também esqueci de untar com azeite o papel alumínio pra enrolar o bolo, mas enfim, no final tudo deu certo e ficou realmente bem gostoso!
+Alguém fabrica aves que voam por entre as labaredas de azul.
+Tudo seria mais fácil se pudéssemos flutuar.
+Ninguém sabia nada sobre isso.
+-->
+      <antipattern>
+		<token postag='DI.+|NC.+|AQ.+|SENT_START|RG|CS' postag_regexp='yes'>
+			<exception postag_regexp="yes" postag="CC|V.+"/>
+			<exception regexp='no'>como</exception> <!-- "assim como" (RG+RG) + "outras vitimas" - 2022-03-10 -->
+		</token>
+		<token postag='PI.+' postag_regexp='yes'/>
+		<token postag='V.+' postag_regexp='yes'/>
+		<token postag='RM|CS|RG|NC.+|AQ.+|DI.+|_PUNCT' postag_regexp='yes'/>
+		<token negate_pos="yes" postag='SPS00' postag_regexp='no'/>
+      </antipattern>
+<!--
+Isso também indica que ninguém pronuncia essa palavra há várias décadas.
+Enfim, na iminência da derrota total, teve ainda o desplante de declarar que nada ficaria na mesma depois do Apito, pois tinha conseguido incomodar e assustar... os inocentes.
+Esta pergunta era tão difícil que ninguém seria capaz de responder.
+Ninguém sabia disso a não ser o Tom.
+Ninguém duvida da sua aptidão para o posto.
+Não fazer nada seria impossível.
+O amor tudo supera.
+-->
+      <antipattern>
+		<token postag='CS|SENT_START|CC|RG|DI.+|DA.+|PI.+|PP.+|NC.+|AQ.+|V.+|SPS.+|_PUNCT|DD.+' postag_regexp='yes'/>
+		<token regexp='yes'>mesm[ao]s?|alguém|ninguém|nada|tudo|tod[ao]</token>
+		<token postag='V.+' postag_regexp='yes'/>
+      </antipattern>
+<!--
+WHEN WE WILL HAVE THE NEW POSes WITH ":" ("dess[ae]s?|dest[ae]s?") TRY TO MOVE TO ABOVE.
+Mas pq diabos uma figura dessas seria agora plasmada à imagem de um (ex)juiz em manifestações de rua?
+-->
+      <antipattern>
+		<token postag='CS|SENT_START|CC|RG|DI.+|DA.+|PI.+|PP.+|NC.+|AQ.+|V.+|SPS.+|_PUNCT|DD.+' postag_regexp='yes'/>
+		<token regexp='yes'>dess[ae]s?|dest[ae]s?</token>
+		<token postag='V.+' postag_regexp='yes'/>
+		<token postag='RG' postag_regexp='no'/>
+      </antipattern>
+<!-- MARCOAGPINTO 2022-03-09/10/11 (1-JAN-2022+) *END* -->
+
              <!-- do paragrafo-->
              <pattern>
-                 <token postag="SPS.*" postag_regexp="yes"><exception postag="RG|.*\+P[PD].*" postag_regexp="yes"/></token>
+                 <token postag="SPS.*|PI.+" postag_regexp="yes"><exception postag="RG|.*\+P[PD].*" postag_regexp="yes"/></token> <!-- Improved by MARCOAGPINTO "Eu escrevi uma página do livro." (PI.+) 2022-03-09 -->
                  <token postag="D[AI].*" postag_regexp="yes" min="0"/>
                  <marker>
                      <token><exception postag="D.*|V.N.*|[NA].*|V.P.*" postag_regexp="yes"/><exception regexp="yes" case_sensitive="yes">\p{Lu}\p{Lu}+s|\p{Lu}\p{Lu}</exception></token>
                  </marker>
              </pattern>
              <filter class="org.languagetool.rules.pt.ConfusionCheckFilter" args="form:\3 postag:[AN].*"/>
-             <message>Esta palavra é um verbo. Se pretende referir-se a um nome ou adjetivo, deve utilizar a forma acentuada.</message>
+             <message>Sem o acento, essa é a forma verbal da palavra. Se pretende referir-se a um nome ou adjetivo, deve utilizar a forma acentuada.</message>
              <suggestion>{suggestion}</suggestion>
              <example correction='parágrafo'>A excepção do <marker>paragrafo</marker>.</example>
              <example correction="amêijoas">Voltou com as <marker>ameijoas</marker> iguais e o cliente desistiu do artigo.</example>
@@ -24971,7 +25145,34 @@ Como nos canta Afonso X de Castela, o Rei Sábio.
              <example>Uma pedra nos servia de assento.</example>
              <example>Qual deles seria o rei?</example>
              <example>Além disso pratico yoga.</example>
+
+			 <example>À semelhança de uma estrela em céu noturno, ela nos indica a direção.</example>
+			 <example>Você nos canta umas músicas em inglês?</example>
+			 <example>Você nos incomoda com sua música.</example>
+			 <example>Como nos canta Afonso X de Castela, o Rei Sábio.</example>
+
+			 <example>As carências de coordenadores até ontem ninguém sabia quando iam ser liberadas.</example>
+			 <example>Ninguém duvida que, no pensamento das massas, milagre implica a ideia de um fato extranatural.</example>
+			 <example>Tudo indica que vai chover esta tarde.</example>
+			 <example>Ninguém continua onde os valores e, portanto, os limites que acredita como corretos estejam distantes.</example>
+
+			 <example>Qualquer um seria melhor do que ninguém.</example>
+			 <example>Também esqueci de untar com azeite o papel alumínio pra enrolar o bolo, mas enfim, no final tudo deu certo e ficou realmente bem gostoso!</example>
+			 <example>Alguém fabrica aves que voam por entre as labaredas de azul.</example>
+			 <example>Tudo seria mais fácil se pudéssemos flutuar.</example>
+			 <example>Ninguém sabia nada sobre isso.</example>
+
+			 <example>Isso também indica que ninguém pronuncia essa palavra há várias décadas.</example>
+			 <example>Enfim, na iminência da derrota total, teve ainda o desplante de declarar que nada ficaria na mesma depois do Apito, pois tinha conseguido incomodar e assustar... os inocentes.</example>
+			 <example>Esta pergunta era tão difícil que ninguém seria capaz de responder.</example>
+			 <example>Ninguém sabia disso a não ser o Tom.</example>
+			 <example>Ninguém duvida da sua aptidão para o posto.</example>
+			 <example>Não fazer nada seria impossível.</example>
+			 <example>O amor tudo supera.</example>
+
+			 <example>Mas pq diabos uma figura dessas seria agora plasmada à imagem de um (ex)juiz em manifestações de rua?</example>
          </rule>
+
          <rule>
              <pattern>
                  <token>nos</token>
@@ -24980,7 +25181,7 @@ Como nos canta Afonso X de Castela, o Rei Sábio.
                  </marker>
              </pattern>
              <filter class="org.languagetool.rules.pt.ConfusionCheckFilter" args="form:\2 postag:N.[MC]P.*|A..[MC]P."/>
-             <message>Esta palavra é um verbo. Se pretende referir-se a um nome ou adjetivo, deve utilizar a forma acentuada.</message>
+             <message>Sem o acento, essa é a forma verbal da palavra. Se pretende referir-se a um nome ou adjetivo, deve utilizar a forma acentuada.</message>
              <suggestion>{suggestion}</suggestion>
              <example correction='trâmites'>Um erro nos <marker>tramites</marker>.</example>
              <example>Uma pedra nos servia de assento.</example>
@@ -25844,6 +26045,28 @@ Eu tive com dores de cabeça. → Eu estive com dores de cabeça.
 	  <message>Possível confusão de termos.</message>
       <suggestion><match no='2' postag='V.+' postag_regexp='yes'>estar</match></suggestion>
       <example correction="estive">Eu <marker>tive</marker> com a Ana ontem.</example>
+    </rule>
+
+
+	<!-- TERA terá -->
+    <rule id='CONFUSÃO_TERA_TERÁ' name="Confusão: tera/terá">
+	<!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-03-10 (1-JAN-2022+)      -->
+	<!--
+Ele tera problemas com isso. → Ele terá problemas com isso.
+O Rui tera muitos problemas com o exame. → O Rui terá muitos problemas com o exame.
+A Ana tera um sonho. → A Ana terá um sonho.
+	-->	
+      <pattern>
+		  <token min="0" max="1" postag='PP3.S.+' postag_regexp='yes'/>
+		  <marker>
+			<token>tera</token>			
+		  </marker>
+		  <token min="1" max="2" postag='NC.+|AQ.+|DI.+' postag_regexp='yes'/>
+		  <token postag='SPS.+|CS|CC|_PUNCT' postag_regexp='yes'/>
+      </pattern>
+	  <message>Sem o acento, essa palavra é o substantivo 'tera'. Se pretende referir-se ao verbo ter no futuro, deve utilizar a forma acentuada.</message>
+      <suggestion>terá</suggestion>
+      <example correction="terá">Ele <marker>tera</marker> problemas com isso.</example>
     </rule>
 
 
@@ -41942,6 +42165,46 @@ O objetivo é alcançar o terreno do inimigo. → O objetivo é alcançar o terr
     </rule>
 
 
+	<!-- FICOU DEMONSTRADO QUE demonstrámos que -->
+    <rule id='TESE_PHD_FICOU_DEMONSTRADO_QUE_DEMONSTRÁMOS_QUE' name="Tese Doutoramento: Expressões do tipo 'ficou demonstrado que' → ‘demonstrámos que'" tags="picky">
+    <!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-03-13/14 (1-JAN-2022+)      -->
+	<!--
+Ficou demonstrado que alterações nas baixas em combate degradaram a capacidade ofensiva. → Demonstrámos que alterações nas baixas em combate degradaram a capacidade ofensiva.
+Fica demonstrado que alterações nas baixas em combate degradaram a capacidade ofensiva. → Demonstrámos que alterações nas baixas em combate degradaram a capacidade ofensiva.
+Ficou provado que alterações nas baixas em combate degradaram a capacidade ofensiva. → Provámos que alterações nas baixas em combate degradaram a capacidade ofensiva.
+Fica provado que alterações nas baixas em combate degradaram a capacidade ofensiva. → Provámos que alterações nas baixas em combate degradaram a capacidade ofensiva.
+
+demonstramos
+VMIP1P0
+
+demonstrámos
+VMIS1P0
+
+demonstro
+VMIP1S0
+
+demonstrei
+VMIS1S0
+	-->
+      <pattern>
+		<marker>
+			<and>
+				<token regexp='no' inflected='yes'>ficar</token>
+				<token postag='VMI[SP]3S0' postag_regexp='yes'/>
+			</and>
+			<token postag='VMP00S.+' postag_regexp='yes'/>
+		</marker>
+		<token>que</token>
+      </pattern>
+      <message>Se for uma tese de doutoramento, verifique se o 'tom' de redação é o apropriado.</message>
+	  <suggestion><match no='2' postag='VMP00S.+' postag_regexp="yes" postag_replace='VMIP1P0'/></suggestion>
+	  <suggestion><match no='2' postag='VMP00S.+' postag_regexp="yes" postag_replace='VMIS1P0'/></suggestion>
+	  <suggestion><match no='2' postag='VMP00S.+' postag_regexp="yes" postag_replace='VMIP1S0'/></suggestion>
+	  <suggestion><match no='2' postag='VMP00S.+' postag_regexp="yes" postag_replace='VMIS1S0'/></suggestion>
+      <example correction="Demonstramos|Demonstrámos|Demonstro|Demonstrei"><marker>Ficou demonstrado</marker> que alterações nas baixas em combate degradaram a capacidade ofensiva.</example>
+    </rule>
+
+
 	<!-- POR ISSO aí/assim/daí/isso -->
     <rulegroup id='POR_ISSO_AÍ_ASSIM_DAÍ_ISSO' name="Simplificar: por isso → aí/assim/daí/isso">
     <!--      Created by Marco A.G.Pinto, Portuguese rule 2022-01-24/25 (Checked/Enhanced) (1-JAN-2022+)      -->
@@ -42491,26 +42754,26 @@ Pouco importam as notas na música, o que conta são as sensações produzidas p
     </rule>
 
 
-	<!-- ,POIS , -->
+	<!-- ,POIS : -->
     <rule id='SIMPLIFICAR_POIS_REMOVER' name="Simplificar: Remoção de “pois” com ela(s)/ele(s)" type="style">
-	<!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-03-04 (1-JAN-2022+)      -->
+	<!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-03-04/05/07 (1-JAN-2022+)      -->
 	<!--
-Não tenho médica de família, pois ela está ausente até dezembro. → Não tenho médica de família, ela está ausente até dezembro.
+Não tenho médica de família, pois ela está ausente até dezembro. → Não tenho médica de família: ela está ausente até dezembro.
 	-->
       <pattern>
 		  <token postag='NC.+|AQ.+' postag_regexp='yes'>
 			<exception postag_regexp='yes' postag='V.+'/>
 		  </token>
-		  <token regexp='yes'>[,]</token>
-		  <marker>			
-			<token>pois</token>
+		  <marker>
+			<token spacebefore='no' regexp='yes'>[,]</token>
+			<token spacebefore='yes'>pois</token>
 			<token regexp='yes'>el[ae]s?</token>
 		  </marker>
 		  <token postag='V.+' postag_regexp='yes'/>
       </pattern>
 	  <message>Esta perífrase poderá ser simplificada.</message>
-	  <suggestion>\4</suggestion>
-	  <example correction="ela">Não tenho médica de família, <marker>pois ela</marker> está ausente até dezembro.</example>
+	  <suggestion>: \4</suggestion>
+	  <example correction=": ela">Não tenho médica de família<marker>, pois ela</marker> está ausente até dezembro.</example>
     </rule>
 
 
@@ -42800,6 +43063,18 @@ Fico na cama a olhar para o relógio a ver a hora a aproximar.
       </antipattern>
 <!-- MARCOAGPINTO 2022-02-06 (1-JAN-2022+) *END* -->
 
+<!-- MARCOAGPINTO 2022-03-22 (1-JAN-2022+) *START* -->
+<!--
+TO ACTIVATE THE RULE IN WORDINESS.TXT FOR THE BROWSER ADD-ON
+ver a diferença > distinguir
+-->
+      <antipattern>
+		<token regexp='no'>ver</token>
+		<token regexp='no'>a</token>
+		<token regexp='no'>diferença</token>
+      </antipattern>
+<!-- MARCOAGPINTO 2022-03-22 (1-JAN-2022+) *END* -->
+
       <pattern>
 		<marker>
 			<token regexp='no' inflected='yes'>ver
@@ -42869,6 +43144,8 @@ Fico na cama a olhar para o relógio a ver a hora a aproximar.
 	  <example>Você viu o que o Tom fez à Mary?</example>
 	  <example>Deus vê o que o Diabo esconde.</example>
 	  <example>Veja o que o Tom tem a dizer sobre tudo isso.</example>
+	  
+	  <example>Vou ver a diferença.</example>
     </rule>
 
 
@@ -43510,7 +43787,7 @@ Vamos dormir, tomámos a medicação demasiado cedo.
      <message>Se for uma tese de doutoramento, verifique se o 'tom' de redação é o apropriado.</message>
      <suggestion>{suggestion}</suggestion>	 
      <example correction="provará|prova">A nossa tese <marker>procura provar</marker> a métrica.</example>
-     <example correction="provaremos|provamo|provamos">Na nossa tese <marker>procuramos provar</marker> a métrica.</example>
+     <example correction="provaremos|provamos">Na nossa tese <marker>procuramos provar</marker> a métrica.</example>
      <example correction="provarei|provo">Na nossa tese <marker>procuro provar</marker> a métrica.</example>
 	</rule>
 <!--
@@ -43547,7 +43824,7 @@ A primeira função de Carvalho em Londres foi obter ajuda para as forças portu
       <message>Se for uma tese de doutoramento, verifique se o 'tom' de redação é o apropriado.</message>
       <suggestion>{suggestion}</suggestion>	 
       <example correction="provou">A nossa tese <marker>procurou provar</marker> a métrica.</example>
-      <example correction="provámo|provámos">Na nossa tese <marker>procurámos provar</marker> a métrica.</example>
+      <example correction="provámos">Na nossa tese <marker>procurámos provar</marker> a métrica.</example>
       <example correction="provei">Na nossa tese <marker>procurei provar</marker> a métrica.</example>
 	  <example correction="resolveu">como o <marker>tentou resolver</marker></example>
 	  <example>Uma das críticas a Ana <marker>foi escrever</marker> no seu livro de receitas o básico.</example>

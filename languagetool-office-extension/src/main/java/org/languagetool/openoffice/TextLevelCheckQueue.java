@@ -268,7 +268,7 @@ public class TextLevelCheckQueue {
       DocumentCache docCache = document.getDocumentCache();
       if (docCache != null && nStart.number < docCache.textSize(nStart)) {
         Locale locale = docCache.getTextParagraphLocale(nStart);
-        if (multiDocHandler.hasLocale(locale)) {
+        if (locale != null && multiDocHandler.hasLocale(locale)) {
           return multiDocHandler.getLanguage(locale);
         }
         MessageHandler.printToLogFile("TextLevelCheckQueue: getLanguage: return null: locale = " + OfficeTools.localeToString(locale));
@@ -312,7 +312,7 @@ public class TextLevelCheckQueue {
   QueueEntry getNextQueueEntry(TextParagraph nPara, String docId) {
     List<SingleDocument> documents = multiDocHandler.getDocuments();
     XComponent xComponent = OfficeTools.getCurrentComponent(multiDocHandler.getContext());
-    ViewCursorTools viewCursor = new ViewCursorTools(multiDocHandler.getContext());
+    ViewCursorTools viewCursor = new ViewCursorTools(xComponent);
     TextParagraph cursorPara = viewCursor.getViewCursorParagraph();
     if (cursorPara.type != DocumentCache.CURSOR_TYPE_UNKNOWN) {
       if (lastCursorPara < 0 || cursorPara.number != lastCursorPara || lastCursorComponent == null || !lastCursorComponent.equals(xComponent)) {

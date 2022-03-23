@@ -50,6 +50,10 @@ public class ProhibitedCompoundRule extends Rule {
   private static final List<Pair> lowercasePairs = Arrays.asList(
           // NOTE: words here must be all-lowercase
           // NOTE: no need to add words from confusion_sets.txt, they will be used automatically (if starting with uppercase char)
+          new Pair("gelände", "Gebiet", "geländer", "Konstruktion zum Festhalten entlang von Treppen"),
+          new Pair("tropen", "feuchtwarme Gebiete am Äquator", "tropfen", "kleine Menge Flüssigkeit"),
+          new Pair("enge", "Mangel an Platz", "menge", "Anzahl an Einheiten"),
+          new Pair("ritt", "Reiten", "tritt", "Aufsetzen eines Fußes"),
           new Pair("beine", "Körperteil", "biene", "Insekt"),
           new Pair("rebe", "Weinrebe", "reibe", "Küchenreibe"),
           new Pair("lande", null, "landes", null),
@@ -105,7 +109,7 @@ public class ProhibitedCompoundRule extends Rule {
           new Pair("wieder", "erneut, wiederholt, nochmal (Wiederholung, Wiedervorlage, ...)", "wider", "gegen, entgegen (Widerwille, Widerstand, Widerspruch, ...)"),
           new Pair("leer", "ohne Inhalt", "lehr", "bezogen auf Ausbildung und Wissen"),
           new Pair("gewerbe", "wirtschaftliche Tätigkeit", "gewebe", "gewebter Stoff; Verbund ähnlicher Zellen"),
-          new Pair("schuh", "Fußbekleidung", "schul", "auf die Schule bezogen"),
+          //new Pair("schuh", "Fußbekleidung", "schul", "auf die Schule bezogen"),  // tends to have false alarms
           new Pair("klima", "langfristige Wetterzustände", "lima", "Hauptstadt von Peru"),
           new Pair("modell", "vereinfachtes Abbild der Wirklichkeit", "model", "Fotomodell"),
           new Pair("treppen", "Folge von Stufen (Mehrzahl)", "truppen", "Armee oder Teil einer Armee (Mehrzahl)"),
@@ -142,6 +146,29 @@ public class ProhibitedCompoundRule extends Rule {
     "Gra(ph|f)it"   // Grafit/Graphit
   );
   private static final Set<String> blacklist = new HashSet<>(Arrays.asList(
+          "Steingelände",  // vs. geländer
+          "Marktengen",  // vs. menge
+          "Stromernte",  // vs. Stroh
+          "Stromernten",  // vs. Stroh
+          "Plastikspitze",  // vs. Spritze
+          "Plastikspitzen",  // vs. Spritze
+          "Speichenmuster",  // vs. Speicher
+          "Ticketverlauf",  // vs. verkauf
+          "Ticketverlaufs",  // vs. verkauf
+          "Immobilienwelt",  // vs. wert
+          "Rhein-Ruhr",  // vs. ohr
+          "Turmbewegung",  // vs. Turn
+          "Turmbewegungen",  // vs. Turn
+          "Turmwart",  // vs. Turn
+          "Turmwarts",  // vs. Turn
+          "Reisblatt",  // vs. Kreis
+          "Reisblatts",  // vs. Kreis
+          "Reisblätter",  // vs. Kreis
+          "Reisblättern",  // vs. Kreis
+          "Reisgetränk",  // vs. Eis
+          "Reisgetränks",  // vs. Eis
+          "Reisgetränke",  // vs. Eis
+          "Reisgetränken",  // vs. Eis
           "Reiszwecke",  // vs. Reise -- handled by speller
           "Reiszwecken",  // vs. Reise -- handled by speller
           "Bankangabe",  // vs. band

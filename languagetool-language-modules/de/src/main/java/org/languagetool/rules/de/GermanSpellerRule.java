@@ -73,10 +73,8 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     "judensippe", "judensippen",
     "judensippschaft", "judensippschaften",
     "nigger", "niggern", "niggers",
-    "neger", "negern", "negers",
-    "negerin", "negerinnen",
     "rassejude", "rassejuden", "rassejüdin", "rassejüdinnen",
-    "möse", "mösen",
+    "möse", "mösen", "fotze", "fotzen",
     "judenfrei", "judenfreie", "judenfreier", "judenfreies", "judenfreien", "judenfreiem",
     "judenrein", "judenreine", "judenreiner", "judenreines", "judenreinen", "judenreinem"
   ));
@@ -878,6 +876,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     put("E-mail", "E-Mail");
     put("geleased", "geleast");
     put("released", "releast");
+    putRepl("Ballets?", "llet", "llett");
     putRepl("Saudiarabiens?", "Saudiarabien", "Saudi-Arabien");
     putRepl("eMail-Adressen?", "eMail-", "E-Mail-");
     putRepl("[hH]ats", "ats", "at es");
@@ -1084,6 +1083,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     putRepl("[fF]austig(e[mnrs]?)?", "austig", "austdick");
     putRepl("Belastungsekgs?", "ekg", "-EKG");
     putRepl("Flektion(en)?", "Flektion", "Flexion");
+    putRepl("Off-[Ss]hore-[A-Z].+", "Off-[Ss]hore-", "Offshore");
     put("Bingerloch", "Binger Loch");
     put("[nN]or[dt]rh?einwest(f|ph)alen", "Nordrhein-Westfalen");
     put("abzusolvieren", "zu absolvieren");
@@ -1232,6 +1232,12 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     put("gäng", w -> Arrays.asList("ging", "gang"));
     put("di", w -> Arrays.asList("du", "die", "Di.", "der", "den"));
     put("Di", w -> Arrays.asList("Du", "Die", "Di.", "Der", "Den"));
+    put("Aufn", w -> Arrays.asList("Auf den", "Auf einen", "Auf"));
+    put("aufn", w -> Arrays.asList("auf den", "auf einen", "auf"));
+    put("Aufm", w -> Arrays.asList("Auf dem", "Auf einem", "Auf"));
+    put("aufm", w -> Arrays.asList("auf dem", "auf einem", "auf"));
+    put("Ausm", w -> Arrays.asList("Aus dem", "Aus einem", "Aus"));
+    put("ausm", w -> Arrays.asList("aus dem", "aus einem", "aus"));
     put("mußt", "musst");
     put("müßtest", "müsstest");
     put("müßten", "müssten");
@@ -2279,7 +2285,11 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
 
   @Override
   protected List<SuggestedReplacement> filterNoSuggestWords(List<SuggestedReplacement> l) {
-    return l.stream().filter(k -> !lcDoNotSuggestWords.contains(k.getReplacement().toLowerCase())).collect(Collectors.toList());
+    return l.stream()
+      .filter(k -> !lcDoNotSuggestWords.contains(k.getReplacement().toLowerCase()))
+      .filter(k -> !k.getReplacement().toLowerCase().matches("neger.*"))
+      .filter(k -> !k.getReplacement().toLowerCase().matches(".+neger(s|n|in|innen)?"))
+      .collect(Collectors.toList());
   }
 
   @Override
@@ -2287,11 +2297,16 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     if (word.matches("[Aa]utentisch(e[nmsr]?|ste[nmsr]?|ere[nmsr]?)?")) {
       return topMatch(word.replaceFirst("utent", "uthent"));
     }
+    if (word.matches("brilliant(e[nmsr]?|ere[nmsr]?|este[nmsr]?)?")) {
+      return topMatch(word.replaceFirst("brilliant", "brillant"));
+    }
     switch (word) {
       case "Reiszwecke": return topMatch("Reißzwecke", "kurzer Nagel mit flachem Kopf");
       case "Reiszwecken": return topMatch("Reißzwecken", "kurzer Nagel mit flachem Kopf");
       case "up-to-date": return topMatch("up to date");
+      case "falscherweise": return topMatch("fälschlicherweise");
       case "daß": return topMatch("dass");
+      case "Daß": return topMatch("Dass");
       case "mußt": return topMatch("musst");
       case "mußten": return topMatch("mussten");
       case "mußte": return topMatch("musste");
@@ -2300,7 +2315,8 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
       case "müßen": return topMatch("müssen");
       case "müßten": return topMatch("müssten");
       case "müßte": return topMatch("müsste");
-      case "Daß": return topMatch("Dass");
+      case "wüßte": return topMatch("wüsste");
+      case "wüßten": return topMatch("wüssten");
       case "bescheid": return topMatch("Bescheid");
       case "ausversehen": return topMatch("aus Versehen");
       case "Stückweit": return topMatch("Stück weit");
@@ -2319,6 +2335,16 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
       case "Entäuschung": return topMatch("Enttäuschung");
       case "Entäuschungen": return topMatch("Enttäuschungen");
       case "Triologie": return topMatch("Trilogie", "Werk (z.B. Film), das aus drei Teilen besteht");
+      case "ausserdem": return topMatch("außerdem");
+      case "Ausserdem": return topMatch("Außerdem");
+      case "bischen": return topMatch("bisschen");
+      case "bißchen": return topMatch("bisschen");
+      case "meißt": return topMatch("meist");
+      case "meißten": return topMatch("meisten");
+      case "meißtens": return topMatch("meistens");
+      case "Babyphone": return topMatch("Babyfon");
+      case "Baby-Phone": return topMatch("Babyfon");
+      case "staubgesaugt": return topMatch("gestaubsaugt");
     }
     return Collections.emptyList();
   }

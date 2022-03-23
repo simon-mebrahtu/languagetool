@@ -4,10 +4,36 @@
 
 ...
 
+#### Catalan
+  * added and improved rules
+  * updated dictionary (catalan-pos-dict-2.18)
+
+#### French
+  * added and improved rules
+  * updated dictionary (french-pos-dict-0.5)
+
 #### Polish
   * added and improved rules, especially for frequent mistakes
   * added a rule for spelling coherency (*menedżer* or *menadżer* but not both in the same document)
   * updated the user interface translation
+
+#### Portuguese
+  * added and improved rules
+  * added words and POS data
+  * fixed tons of false positives
+
+#### Russian
+  * added and improved rules
+  * improved disambiguation
+
+#### Spanish
+  * added and improved rules
+  * updated dictionary (spanish-pos-dict-1.6)
+
+#### Ukrainian
+  * new words in the POS dictionary
+  * added and improved rules
+  * improved tagging and disambiguation
 
 ## 5.6 (2021-12-29)
 
@@ -1383,7 +1409,7 @@
     - grammar: general agreement rules, 'crase', pronomial colocations, impersonal verbs, fragment, and paronyms detection improvements
     - capitalization: AO90 and AO45 rules
     - style: repetitions and barbarism detection
-    - typography: number formating, chemical formulas, degrees signs, dash signs, and punctuation
+    - typography: number formatting, chemical formulas, degrees signs, dash signs, and punctuation
     - semantics: wrong words in the context (22 confusion pairs), url validator and date checker improvements
     - registered brands category added
     - translation errors category added

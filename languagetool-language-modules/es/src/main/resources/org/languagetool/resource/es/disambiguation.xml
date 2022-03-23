@@ -2777,6 +2777,18 @@ Copyright (C) 2011 Juan Martorell
             <wd pos="_GV_"/>
         </disambig>
     </rule>
+    <rule id="dar_de_alta" name="dar de alta">
+        <pattern>
+            <token postag="V.*" postag_regexp="yes" inflected="yes">dar</token>
+            <token>de</token>
+            <marker>
+                <token regexp="yes">alta|baja</token>
+            </marker>
+        </pattern>
+        <disambig action="add">
+            <wd pos="_GV_"/>
+        </disambig>
+    </rule>
     <rule id="como_resultado" name="como resultado">
         <pattern>
             <token>como</token>
@@ -5196,7 +5208,7 @@ Copyright (C) 2011 Juan Martorell
     <rulegroup id="not_adj_but_verb" name="not adjective but verb">
         <antipattern>
             <!-- possible error esta/está -->
-            <token>esta</token>
+            <token regexp="yes">estas?</token>
             <token postag="AQ.*" postag_regexp="yes"/>
         </antipattern>
         <rule>
@@ -5472,6 +5484,12 @@ Copyright (C) 2011 Juan Martorell
             <token>este</token>
             <!-- error: esté -->
             <token postag="A.*" postag_regexp="yes"/>
+        </antipattern>
+        <antipattern>
+            <token regexp="yes">estas|esta</token>
+            <!-- error: estás -->
+            <token postag="A.*" postag_regexp="yes" skip="3"/>
+            <!--<token regexp="yes">\?|\.|que|porque</token>-->
         </antipattern>
         <pattern>
             <token><exception postag="RG_before|LOC_ADV|_GV_|SPS00|CC|UNKNOWN|V.[SI].*|_PUNCT.*|&pronombre_personal_atono_POS;" postag_regexp="yes"/><exception inflected="yes" regexp="yes">ser|estar|parecer|considerar</exception><exception regexp="yes">super|súper</exception></token>

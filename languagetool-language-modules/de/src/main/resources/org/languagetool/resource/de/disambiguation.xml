@@ -1906,9 +1906,11 @@ Copyright © 2013 Markus Brenneis, Daniel Naber, Jan Schreiber
     </rule>
     <rule name="Be- und ..." id="BE_HYPHEN">
         <pattern case_sensitive="yes">
-            <token>Be-</token>
-            <token regexp="yes">und|oder|&amp;</token>
-            <token regexp="yes">Entladen|Entladung</token>
+            <marker>
+                <token>Be-</token>
+            </marker>
+            <token regexp="yes">und|oder|&amp;|sowie</token>
+            <token regexp="yes">Ent.+</token>
         </pattern>
         <disambig action="ignore_spelling"/>
     </rule>
@@ -4715,7 +4717,7 @@ Copyright © 2013 Markus Brenneis, Daniel Naber, Jan Schreiber
         </rule>
         <rule>
             <pattern case_sensitive="yes">
-                <token regexp="yes">Advanced|Automatic|Ambient|Authori[sz]ed|Astronomical|Certified|United|Active|Electronic|Economic|Scientific|Electric|Federal|Dynamic|Black|White|Blue|Green|Big|Little|World|Travel|Director|Social|My|Deep|Dead|Dark|European|American|Australian|English|Asian|Austrian|Swiss|German|Central|Medical|Custom|Consumer|Energy|Dragon|Child|Technology|Intelligence|Conference|Communication|Freedom|Magic|Direct|Autonomous|Californian?|Climate|Managed|Sponsored|Independent|Technical|Extended|Educational|Deluxe|Public|Safety|Ultimate|Local|Heavy|Diamond|Capital|Industrial|Biomedical|Confidential|Logistic|Critical|Organic</token>
+                <token regexp="yes">Accepted|Academic|Advanced|Automatic|Ambient|Authori[sz]ed|Astronomical|Botanical|Certified|Electrical|United|Active|Electronic|Economic|Scientific|Electric|Federal|Dynamic|Black|White|Blue|Green|Big|Little|World|Travel|Director|Social|My|Deep|Dead|Dark|European|American|Australian|English|Asian|Austrian|Swiss|German|Central|Medical|Custom|Consumer|Energy|Dragon|Child|Technology|Intelligence|Conference|Communication|Freedom|Magic|Direct|Autonomous|Californian?|Climate|Managed|Sponsored|Independent|Technical|Extended|Educational|Deluxe|Public|Safety|Ultimate|Local|Heavy|Diamond|Capital|Industrial|Biomedical|Confidential|Logistic|Critical|Organic|Incorporated</token>
                 <token postag="UNKNOWN|SUB:.+" postag_regexp="yes" regexp="yes" min="0">[A-Z][a-z]+|[A-Z]+</token>
                 <token postag="UNKNOWN|SUB:.+" postag_regexp="yes" regexp="yes">[A-Z][a-z]+|[A-Z]+</token>
             </pattern>
@@ -4723,7 +4725,7 @@ Copyright © 2013 Markus Brenneis, Daniel Naber, Jan Schreiber
         </rule>
         <rule>
             <pattern case_sensitive="yes">
-                <token regexp="yes">Advanced|Automatic|Ambient|Authori[sz]ed|Astronomical|Certified|United|Active|Electronic|Economic|Scientific|Electric|Federal|Dynamic|Black|White|Blue|Green|Big|Little|World|Travel|Director|Social|My|Deep|Dead|Dark|European|American|Australian|English|Asian|Austrian|Swiss|German|Central|Medical|Custom|Consumer|Energy|Dragon|Child|Technology|Intelligence|Conference|Communication|Freedom|Magic|Direct|Autonomous|Californian?|Climate|Managed|Sponsored|Independent|Technical|Extended|Educational|Deluxe|Public|Safety|Ultimate|Local|Heavy|Diamond|Capital|Industrial|Biomedical|Confidential|Logistic|Critical|Organic</token>
+                <token regexp="yes">Accepted|Academic|Advanced|Automatic|Ambient|Authori[sz]ed|Astronomical|Botanical|Certified|Electrical|United|Active|Electronic|Economic|Scientific|Electric|Federal|Dynamic|Black|White|Blue|Green|Big|Little|World|Travel|Director|Social|My|Deep|Dead|Dark|European|American|Australian|English|Asian|Austrian|Swiss|German|Central|Medical|Custom|Consumer|Energy|Dragon|Child|Technology|Intelligence|Conference|Communication|Freedom|Magic|Direct|Autonomous|Californian?|Climate|Managed|Sponsored|Independent|Technical|Extended|Educational|Deluxe|Public|Safety|Ultimate|Local|Heavy|Diamond|Capital|Industrial|Biomedical|Confidential|Logistic|Critical|Organic|Incorporated</token>
                 <token postag="UNKNOWN|SUB:.+" postag_regexp="yes" regexp="yes">[A-Z][a-z]+|[A-Z]+</token>
                 <token regexp="yes">and|or|&amp;</token>
                 <token postag="UNKNOWN|SUB:.+" postag_regexp="yes" regexp="yes">[A-Z][a-z]+|[A-Z]+</token>
@@ -4827,6 +4829,53 @@ Copyright © 2013 Markus Brenneis, Daniel Naber, Jan Schreiber
             </marker>
         </pattern>
         <disambig action="remove" postag="SUB:.+" />
+    </rule>
+
+    <rule id="UNION_JACK" name="'Union' kein fem. Substantiv in 'Union Jack'">
+        <pattern>
+            <marker>
+                <token>Union</token>
+            </marker>
+            <token>Jack</token>
+        </pattern>
+        <disambig action="remove" postag="SUB:.+" />
+    </rule>
+
+    <rule id="UEFA_CUP" name="'Union' kein fem. Substantiv in 'UEFA Cup'">
+        <pattern>
+            <marker>
+                <token regexp="yes">UEFA|FIFA</token>
+            </marker>
+            <token regexp="yes" case_sensitive="yes">Cups?|Conference|Super|League|World</token>
+        </pattern>
+        <disambig action="remove" postag="SUB:.+" />
+    </rule>
+
+    <rule id="EUROVISION_SONG_CONTEST" name="'Eurovision' kein fem. Substantiv in 'Eurovision Song Context'">
+        <pattern>
+            <marker>
+                <token>Eurovision</token>
+            </marker>
+            <token>Song</token>
+        </pattern>
+        <disambig action="remove" postag="SUB:.+" />
+    </rule>
+
+    <rule id="GRAND_CANYON_POS" name="'Grand' kein maskulines Substantiv in 'Grand Canyon'">
+        <pattern>
+            <marker>
+                <token>Grand</token>
+            </marker>
+            <token regexp="yes">Canyons?|Theft|Tour|Budapest|Prix</token>
+        </pattern>
+        <disambig action="remove" postag="SUB:.+" />
+    </rule>
+
+    <rule id="FREI_KEIN_ZUS" name="'versandkostenfrei' kein 'ZUS'">
+        <pattern>
+            <token regexp="yes">.+frei</token>
+        </pattern>
+        <disambig action="remove" postag="ZUS" />
     </rule>
 
     <rule id="STAR_WARS" name="'Star' kein Substantiv in 'Star Wars'">
@@ -5613,6 +5662,15 @@ Copyright © 2013 Markus Brenneis, Daniel Naber, Jan Schreiber
         <disambig action="ignore_spelling"/>
     </rule>
 
+    <rule id="GPT_THREE" name="ignore spelling of 'GPT-3'">
+        <pattern>
+            <marker>
+                <token regexp="yes" case_sensitive="yes">[A-Z]{2,5}-\d+</token>
+            </marker>
+        </pattern>
+        <disambig action="ignore_spelling"/>
+    </rule>
+
     <rule id="SANKT_KEIN_VERB" name="'Sankt' kein Verb">
         <pattern>
             <marker>
@@ -5739,6 +5797,28 @@ Copyright © 2013 Markus Brenneis, Daniel Naber, Jan Schreiber
         </pattern>
         <disambig action="remove" postag="PRP.*"/>
     </rule>
+
+    <rulegroup id="HAEUFIGE_NACHNAMEN" name="Häufige Nachnamen, die nicht zur spelling.txt hhinzugefügt werden können">
+        <rule>
+            <pattern>
+                <token postag="EIG.*|UNKNOWN" case_sensitive="yes" regexp="yes">[A-ZÄÖÜ].*</token>
+                <marker>
+                    <token regexp="yes" case_sensitive="yes">Ungers?|Bischoffs?|Schwaigers?|Baumgarts?|Behrendt?s?|Wüsts?</token>
+                </marker>
+            </pattern>
+            <disambig action="ignore_spelling"/>
+        </rule>
+        <rule>
+            <pattern>
+                <token regexp="yes" case_sensitive="yes">Herr|Frau|Doktor|Professor|Prof|[HFDM]r|Mrs|.*([Pp]räsident|[Mm]inister)</token>
+                <token min="0">.</token>
+                <marker>
+                    <token regexp="yes" case_sensitive="yes">Ungers?|Bischoffs?|Schwaigers?|Baumgarts?|Behrendt?s?|Wüsts?</token>
+                </marker>
+            </pattern>
+            <disambig action="ignore_spelling"/>
+        </rule>
+    </rulegroup>
 
     <!-- TODO: (ohne meine neue ..., durch eine alte ...)-->
     <!-- <rulegroup id="EINE_ARTIKEL" name="eine/meine als Artikel">

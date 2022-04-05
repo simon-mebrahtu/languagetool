@@ -18,6 +18,13 @@ import org.languagetool.tokenizers.Tokenizer;
 import java.io.IOException;
 import java.util.*;
 
+
+/**
+ * main class for Tigrinya Language
+ *
+ * @author Biniam Gebremichael
+ */
+
 public class Tigrinya extends Language {
 
   @Override
@@ -53,14 +60,13 @@ public class Tigrinya extends Language {
 
   @Override
   public Contributor[] getMaintainers() {
-    return new Contributor[]{new Contributor("Biniam Gebremichael")};
+    return new Contributor[]{new Contributor("Biniam Gebremichael"),new Contributor("Ermias Zerazion")};
   }
 
   @Override
   public List<Rule> getRelevantRules(ResourceBundle messages, UserConfig userConfig, Language motherTongue, List<Language> altLanguages) throws IOException {
     return Arrays.asList(
       new CommaWhitespaceRule(messages),
-      new DoublePunctuationRule(messages),
       new MultipleWhitespaceRule(messages, this),
       new LongSentenceRule(messages, userConfig, 50),
       new SentenceWhitespaceRule(messages),

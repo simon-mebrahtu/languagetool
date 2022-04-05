@@ -7,6 +7,14 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
+/**
+ * Morfologik Hunspell dictionary adaptor for Tigrinya
+ *
+ * @author Biniam Gebremichael
+ */
+
+
 public class MorfologikTigrinyaSpellerRule extends MorfologikSpellerRule {
 
   public MorfologikTigrinyaSpellerRule(ResourceBundle messages, Language language, UserConfig userConfig, List<Language> altLanguages) throws IOException {

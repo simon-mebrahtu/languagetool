@@ -31,8 +31,8 @@ USA
     <!-- ግጉይ -  ቤት ክርስትያን, በት ክርስትያን, ቤት መቕደስ, በት መቕደስ                  -->
     <!-- ======================================================================  -->
     <category id="CAT1" name="CAT1">
-        <rulegroup id="noun_noun" name="GROUP1">
-            <rule>
+        <rulegroup id="CompoundRule" name="GROUP1">
+            <rule id="BETE_KRSTIAN">
                 <pattern>
                     <marker>
                         <token regexp="yes">ቤት|በት</token>
@@ -43,6 +43,18 @@ USA
                 <example correction="ቤተ">ኣማኑኤል <marker>ቤተ</marker> ክርስትያን ኤርትራውያን ሳን ድየጎ።</example>
                 <example>ኣማኑኤል ቤተ ክርስትያን ኤርትራውያን ሳን ድየጎ።</example>
             </rule>
+        </rulegroup>
+        <rulegroup id="POS_RULE" name="GROUP1">
+        <rule id="NO_NAY_BETWEEN_NOUN" name="no nay between nouns">
+            <pattern>
+                <token postag='NN'></token>
+                <token>ናይ</token>
+                <token postag='NN'></token>
+            </pattern>
+            <message>do you mean <suggestion><match no="1"/> <match no="3"/></suggestion></message>
+            <example correction='ኣድጊ በረኻ'><marker>ኣድጊ ናይ በረኻ</marker></example>
+            <example>ኣድጊ በረኻ</example>
+        </rule>
         </rulegroup>
     </category>
 </rules>

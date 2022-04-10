@@ -6,6 +6,7 @@ package org.languagetool.language;
 import org.jetbrains.annotations.NotNull;
 import org.languagetool.Language;
 import org.languagetool.UserConfig;
+import org.languagetool.language.tagger.TigrinyaTagger;
 import org.languagetool.language.ti.MorfologikTigrinyaSpellerRule;
 import org.languagetool.language.ti.TigrinyaWordTokenizer;
 import org.languagetool.rules.*;
@@ -55,7 +56,7 @@ public class Tigrinya extends Language {
   @NotNull
   @Override
   public Tagger createDefaultTagger() {
-    return new DemoTagger();
+    return new TigrinyaTagger();
   }
 
   @Override

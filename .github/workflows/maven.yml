@@ -35,7 +35,3 @@ jobs:
     - name: Step 4 - What is in the current folder?
       run: ls -ltr
 
-    - name: Step 5 - What is in the larget folder?
-      run: |
-        cd target
-        ls -ltr

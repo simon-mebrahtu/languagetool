@@ -24,7 +24,10 @@ jobs:
         cache: maven
         
     - name: Step 3 - Build with Maven
-      run: mvn -Pgithub -B package --file pom.xml
+      run: mvn -B -Pgithub package --file pom.xml
+      env:
+        GITHUB_USER_REF: ${{ secrets.GH_PACKAGE_REPO_USERNAME }}
+        GITHUB_TOKEN_REF: ${{ secrets.GH_PACKAGE_REPO_PASSWORD }}
       
     - name: Step 4 - What is in the current folder?
       run: ls -ltr

@@ -24,7 +24,7 @@ jobs:
         cache: maven
         
     - name: Step 3 - Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -Pgithub -B package --file pom.xml
       
     - name: Step 4 - What is in the current folder?
       run: ls -ltr

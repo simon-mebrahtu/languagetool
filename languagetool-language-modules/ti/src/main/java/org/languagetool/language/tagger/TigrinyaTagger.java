@@ -4,7 +4,9 @@ import org.languagetool.tagging.BaseTagger;
 import java.util.Locale;
 
 /**
- * Created by biniamg on 3/6/2022.
+ * Tigrinya Tagger
+ *
+ * @author Biniam Gebremichael
  */
 public class TigrinyaTagger extends BaseTagger {
 

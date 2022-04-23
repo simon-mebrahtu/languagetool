@@ -146,6 +146,23 @@ public class ProhibitedCompoundRule extends Rule {
     "Gra(ph|f)it"   // Grafit/Graphit
   );
   private static final Set<String> blacklist = new HashSet<>(Arrays.asList(
+          "Notfunk",  // vs. Rot
+          "Notfunks",  // vs. Rot
+          "Leerteile",  // vs. Lehr
+          "Leerteilen",  // vs. Lehr
+          "Leerteils",  // vs. Lehr
+          "Mietdiskussion",  // vs. Mit
+          "Mietdiskussionen",  // vs. Mit
+          "Mietverwalter",  // vs. Mit
+          "Mietverwaltern",  // vs. Mit
+          "Mietverwalters",  // vs. Mit
+          "Handfilter",  // vs. Sand
+          "Handfiltern",  // vs. Sand
+          "Handfilters",  // vs. Sand
+          "Fellpartie",  // vs. Fels
+          "Fellpartien",  // vs. Fels
+          "Reservesitz",  // vs. satz
+          "Energiekonten",  // vs. kosten
           "Steingelände",  // vs. geländer
           "Marktengen",  // vs. menge
           "Stromernte",  // vs. Stroh
@@ -156,7 +173,7 @@ public class ProhibitedCompoundRule extends Rule {
           "Ticketverlauf",  // vs. verkauf
           "Ticketverlaufs",  // vs. verkauf
           "Immobilienwelt",  // vs. wert
-          "Rhein-Ruhr",  // vs. ohr
+          "Rheinruhr",  // vs. ohr (eigentlich "Rhein-Ruhr")
           "Turmbewegung",  // vs. Turn
           "Turmbewegungen",  // vs. Turn
           "Turmwart",  // vs. Turn
@@ -1251,6 +1268,10 @@ public class ProhibitedCompoundRule extends Rule {
       if (prevReadings != null && prevReadings.hasAnyPartialPosTag("EIG:") && StringTools.startsWithUppercase(tmpWord) &&
         (readings.hasAnyPartialPosTag("EIG:") || readings.isPosTagUnknown())) {
         // assume name, e.g. "Bianca Baalhorn" (avoid: Baalhorn => Ballhorn)
+        continue;
+      }
+      if (prevReadings != null && prevReadings.getToken().matches("Herrn?|Frau")) {
+        // assume name, e.g. "Herr Eiswert" (avoid: Eiswert -> Eiswelt)
         continue;
       }
       List<String> wordsParts = new ArrayList<>(Arrays.asList(tmpWord.split("-")));

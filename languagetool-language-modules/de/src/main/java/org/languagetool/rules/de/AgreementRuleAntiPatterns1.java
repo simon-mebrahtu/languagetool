@@ -36,6 +36,12 @@ class AgreementRuleAntiPatterns1 {
       posRegex("SUB:.*")
     ),
     Arrays.asList(
+      tokenRegex("[(\\[]"),   // "... (ich meine Pfeil, nicht Raute) ..."
+      token("ich"),
+      token("meine"),
+      posRegex("SUB:.*")
+    ),
+    Arrays.asList(
       tokenRegex("ein|das"),   // "ein leichter handhabbares Logo"
       token("leichter"),
       posRegex("ADJ:NOM:SIN:NEU:GRU:IND"),
@@ -762,13 +768,19 @@ class AgreementRuleAntiPatterns1 {
     Arrays.asList( // Die Otto Christ AG
       csRegex("[A-ZÄÖÜ].+"),
       csRegex("[A-ZÄÖÜ].+"),
-      csRegex("AG|GmbH|SE")
+      csRegex("AG|GmbH|SE|KG")
+    ),
+    Arrays.asList( // Die Otto Christ AG
+      posRegex("ART.*"),
+      csRegex("[A-ZÄÖÜ].+"),
+      csRegex("[A-ZÄÖÜ].+"),
+      csRegex("AG|GmbH|SE|KG")
     ),
     Arrays.asList(// Die Ernst Klett Schulbuch AG
       csRegex("[A-ZÄÖÜ].+"),
       csRegex("[A-ZÄÖÜ].+"),
       csRegex("[A-ZÄÖÜ].+"),
-      csRegex("AG|GmbH|SE")
+      csRegex("AG|GmbH|SE|KG")
     ),
     Arrays.asList( // Die damalige Klett AG
       token("die"),
@@ -897,6 +909,13 @@ class AgreementRuleAntiPatterns1 {
       posRegex("SUB.*(FEM|PLU).*|EIG.*FEM.*|UNKNOWN"),
       token("("),
       token("die")
+    ),
+    Arrays.asList(
+      // Wir sind immer offen für Mitarbeiter die Teil eines der traditionellsten Malerbetriebe auf dem Platz Zürich werden möchten.
+      posRegex("PRP.*"),
+      posRegex("SUB.*PLU.*"),
+      token("die"),
+      posRegex("SUB.*SIN.*")
     ),
     Arrays.asList(
       posRegex("SUB.*MAS.*|EIG.*MAS.*|UNKNOWN"),

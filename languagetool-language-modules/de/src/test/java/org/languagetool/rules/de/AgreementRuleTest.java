@@ -436,6 +436,7 @@ public class AgreementRuleTest {
     assertGood("Dies ermöglicht Forschern, neue Versuche durchzuführen.");
     assertGood("Je länger zugewartet wird, desto schwieriger dürfte es werden, die Jungtiere von den Elterntieren zu unterscheiden.");
     assertGood("Er schrieb ein von 1237 bis 1358 reichendes Geschichtswerk, dessen Schwerpunkt auf den Ereignissen in der Lombardei liegt.");
+    assertGood("Private Veranstaltungen waren, darauf hat die Strandhaus Norderstedt GmbH im Rahmen rechtlicher Klärungen selbst bestanden, nicht Bestandteil dieser Verträge.");
     assertBad("Die erwähnt Konferenz ist am Samstag.");
     assertBad("Die erwähntes Konferenz ist am Samstag.");
     assertBad("Die erwähnten Konferenz ist am Samstag.");
@@ -592,6 +593,8 @@ public class AgreementRuleTest {
     assertGood("Die südlichste Düsseldorfer Rheinbrücke ist die Fleher Brücke, eine Schrägseilbrücke mit dem höchsten Brückenpylon in Deutschland und einer Vielzahl von fächerförmig angeordneten Seilen.");
     assertGood("Ein zeitweise wahres Stakkato an einschlägigen Patenten, das Benz & Cie.");
     assertGood("Wem Rugby nicht sehr geläufig ist, dem wird auch das Six Nations nicht viel sagen.");
+    assertGood("Eine Boeing 767 der Air China stürzt beim Landeanflug in ein Waldgebiet.");
+    assertGood("Wir sind immer offen für Mitarbeiter die Teil eines der traditionellsten Malerbetriebe auf dem Platz Zürich werden möchten.");
     // TODO: not yet detected:
     //assertBad("Erst recht wir fleißiges Arbeiter.");
     //assertBad("Erst recht ich fleißiges Arbeiter.");

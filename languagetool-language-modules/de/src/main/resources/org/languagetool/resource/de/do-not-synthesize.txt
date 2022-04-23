@@ -3065,3 +3065,14 @@ kauf	kaufen	VER:1:SIN:PRÄ:SFT
 guck	gucken	VER:1:SIN:PRÄ:SFT
 mein	meinen	VER:1:SIN:PRÄ:SFT
 brauch	brauchen	VER:1:SIN:PRÄ:SFT
+geb	geben	VER:1:SIN:PRÄ:NON
+zweifel	zweifeln	VER:1:SIN:PRÄ:SFT
+angemessner	angemessen	ADJ:PRD:KOM
+hol	holen	VER:1:SIN:PRÄ:SFT
+würd	würden	VER:1:SIN:KJ2:NON
+würd	würden	VER:AUX:1:SIN:KJ2
+änder	ändern	VER:1:SIN:PRÄ:SFT
+besprech	besprechen	VER:1:SIN:PRÄ:NON
+denk	denken	VER:1:SIN:PRÄ:NON
+verlänger	verlängern	VER:1:SIN:PRÄ:SFT
+funktionier	funktionieren	VER:1:SIN:PRÄ:SFT

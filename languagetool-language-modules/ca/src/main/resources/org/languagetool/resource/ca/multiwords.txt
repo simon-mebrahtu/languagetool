@@ -1,5 +1,13 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+cartó pedra;NCMS000
+cartró pedra;NCMS000
+programari espia;NCMS000
+programa espia;NCMS000
+Son Santjoan;NPMSG00
+Emiliano Zapata;NPMSSP0
+Liza Minnelli;NPFSSP0
+arreu del món;LOC_ADV
 Maurice Maeterlinck;NPMSSP0
 Maurice Ravel;NPMSSP0
 Jean Cocteau;NPMSSP0

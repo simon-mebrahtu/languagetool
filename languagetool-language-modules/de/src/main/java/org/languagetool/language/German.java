@@ -157,6 +157,10 @@ public class German extends Language implements AutoCloseable {
             new CompoundCoherencyRule(messages),
             new LongSentenceRule(messages, userConfig, 40),
             new GermanFillerWordsRule(messages, this, userConfig),
+            new PassiveSentenceRule(messages, this, userConfig),
+            new SentenceWithModalVerbRule(messages, this, userConfig),
+            new SentenceWithManRule(messages, this, userConfig),
+            new ConjunctionAtBeginOfSentenceRule(messages, this, userConfig),
             new NonSignificantVerbsRule(messages, this, userConfig),
             new UnnecessaryPhraseRule(messages, this, userConfig),
             new GermanParagraphRepeatBeginningRule(messages, this),
@@ -169,7 +173,7 @@ public class German extends Language implements AutoCloseable {
             new GermanReadabilityRule(messages, this, userConfig, false),
             new CompoundInfinitivRule(messages, this, userConfig),
             new StyleRepeatedVeryShortSentences(messages, this),
-            new StyleRepeatedSentenceBeginning(messages), 
+            new StyleRepeatedSentenceBeginning(messages),
             new GermanRepeatedWordsRule(messages)
     );
   }
@@ -292,6 +296,7 @@ public class German extends Language implements AutoCloseable {
       case "ERNEUERBARE_ENERGIEN": return 1; // prefer over VEREINBAREN
       case "VOR_BEI": return 1; // prefer over BEI_BEHALTEN
       case "VERWANDET_VERWANDTE": return 1; // prefer over DE_CASE
+      case "SEIT_LAENGEREN": return 1; // prefer over DE_CASE
       case "EIN_LOGGEN": return 1; // prefer over most agreement rules
       case "ZU_GENÜGE" : return 1;   // prefer over ZU_KOENNE
       case "IMPFLICHT" : return 1;   // prefer over agreement rules DE_AGREEMENT
@@ -353,6 +358,7 @@ public class German extends Language implements AutoCloseable {
       case "TYPOGRAPHIC_QUOTES": return 1; // higher prio than UNPAIRED_BRACKETS
       case "VALENZ_TEST": return 1; // see if this generates more corpus matches
       // default is 0
+      case "VER_KOMMA_PRO_RIN": return -1; // prefer WENN_WEN
       case "DE_PROHIBITED_COMPOUNDS_PREMIUM": return -1; // prefer other rules (e.g. AUS_MITTEL)
       case "VER_INF_VER_INF": return -1; // prefer case rules
       case "DE_COMPOUND_COHERENCY": return -1;  // prefer EMAIL
@@ -362,7 +368,6 @@ public class German extends Language implements AutoCloseable {
       case "DE_AGREEMENT": return -1;  // prefer RECHT_MACHEN, MONTAGS, KONJUNKTION_DASS_DAS, DESWEITEREN, DIES_BEZUEGLICH and other
       case "DE_AGREEMENT2": return -1;  // prefer WILLKOMMEN_GROSS and other rules that offer suggestions
       case "MEIN_KLEIN_HAUS": return -1; // prefer more specific rules that offer a suggestion (e.g. DIES_BEZÜGLICH)
-      case "COMMA_IN_FRONT_RELATIVE_CLAUSE": return -1; // prefer other rules (KONJUNKTION_DASS_DAS, ALL_DAS_WAS_KOMMA)
       case "CONFUSION_RULE": return -1;  // probably less specific than the rules from grammar.xml
       case "KOMMA_NEBEN_UND_HAUPTSATZ": return -1;  // prefer SAGT_RUFT
       case "FALSCHES_RELATIVPRONOMEN": return -1; // prefer dass/das rules
@@ -399,6 +404,7 @@ public class German extends Language implements AutoCloseable {
       case "PUNKT_ENDE_ABSATZ": return -10;  // should never hide other errors, as chance for a false alarm is quite high
       case "KOMMA_VOR_RELATIVSATZ": return -10;
       case "KOMMA_ZWISCHEN_HAUPT_UND_NEBENSATZ_2": return -12;
+      case "COMMA_IN_FRONT_RELATIVE_CLAUSE": return -13; // prefer other rules (KONJUNKTION_DASS_DAS, ALL_DAS_WAS_KOMMA, AI) but higher prio than style
       case "SAGT_RUFT": return -13; // prefer case rules, DE_VERBAGREEMENT, AI and speller
       case "GERMAN_WORD_REPEAT_RULE": return -14; // prefer SAGT_RUFT
       case "BEI_VERB": return -14; // prefer case, spelling and AI rules
@@ -440,6 +446,9 @@ public class German extends Language implements AutoCloseable {
         return 2;
       }
       return -11;
+    }
+    if (id.startsWith("AI_DE_KOMMA")) { // TODO: A high priority for our initial testing, afterwards we will give it a smaller priority.
+      return 50;
     }
     return super.getPriorityForId(id);
   }

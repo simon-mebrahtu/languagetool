@@ -27,6 +27,18 @@ To ignore a remote rule match, set the <marker> so that it exactly covers the te
 -->
 <rules lang="en" xsi:noNamespaceSchemaLocation="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/remote-rules.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <category name="Machine learning rules" id="AI_RULES">
+        <rulegroup id="AI_HYDRA_LEO_APOSTROPHE_S_XS" name="">
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>Teams</token>
+                    </marker>
+                    <token min="0">video</token>
+                    <token regexp="yes">chats?|calls?|meetings?|messages?</token>
+                </pattern>
+                <example correction="">I have a <marker>Teams</marker> call at 12.</example>
+            </rule>
+        </rulegroup>
         <rulegroup id="AI_HYDRA_LEO_CPT_NOW_KNOW" name="">
             <rule>
                 <pattern>
@@ -831,6 +843,134 @@ To ignore a remote rule match, set the <marker> so that it exactly covers the te
                     </marker>
                 </pattern>
                 <example correction="">Peter ultimately bought <marker>£200</marker> (270 USD) portable units for each classroom.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="SENT_START"/>
+                    <token>It</token>
+                    <token inflected="yes">be</token>
+                    <token min="0" max="2" postag="RB"/>
+                    <marker>
+                        <token postag="JJR?" postag_regexp="yes"/>
+                    </marker>
+                    <token postag="VBG"/>
+                </pattern>
+                <example correction="">It’s not always <marker>easy</marker> adding signs or symbols that aren’t typical in the English language.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token />
+                    </marker>
+                    <token>…</token>
+                </pattern>
+                <example correction="">It is amaazing how I let so many things be missing in the <marker>thesis</marker>… was I blind?</example>
+            </rule>
+            <rule>
+                <!-- copula adverb digit -->
+                <pattern>
+                    <token inflected="yes">be</token>
+                    <marker>
+                        <token regexp="yes" postag="RB">.*ly|about</token>
+                    </marker>
+                    <token regexp="yes">[$€£¥฿₹₿\u8371]?\d+</token>
+                </pattern>
+                <example correction="">Your mailbox size is <marker>currently</marker> 102530 KB.</example>
+                <example correction="">I have checked our log files, and there are <marker>about</marker> 2600 requests on March 17 from your user account.</example>
+            </rule>
+            <rule>
+                <!-- currency symbol digit -->
+                <pattern>
+                    <marker>
+                        <token />
+                    </marker>
+                    <token regexp="yes">[$€£¥฿₹₿\u8371]\d+</token>
+                </pattern>
+                <example correction="">There's no minimum contract length, but the minimum fee <marker>of</marker> €1500/month.</example>
+                <example correction="">The pricing for our on-premise solution starts <marker>at</marker> €7056 per year.</example>
+                <example correction="">The price for our on-premise version a one-time payment <marker>of</marker> €1000 for support during set-up.</example>
+            </rule>
+            <rule>
+                <!-- digit currency symbol -->
+                <pattern>
+                    <marker>
+                        <token />
+                    </marker>
+                    <token regexp="yes">\d+[$€£¥฿₹₿\u8371]</token>
+                </pattern>
+                <example correction="">There's no minimum contract length, but the minimum fee <marker>of</marker> 1500€/month.</example>
+                <example correction="">The pricing for our on-premise solution starts <marker>at</marker> 7056€ per year.</example>
+                <example correction="">The price for our on-premise version is €6427 per year plus a one-time payment <marker>of</marker> 1000€ for support during set-up.</example>
+            </rule>
+            <rule>
+                <!-- currency acronym digit -->
+                <pattern>
+                    <marker>
+                        <token regexp="yes" case_sensitive="yes">[A-Z]{3}</token>
+                    </marker>
+                     <token regexp="yes">\d+</token>
+                </pattern>
+                <example correction="">The new monthly payment will be <marker>AUD</marker> 1152.</example>
+                <example correction="">Thanks, we've wired about <marker>USD</marker> 8229.</example>
+            </rule>
+            <rule>
+                <!-- digit currency acronym -->
+                <pattern>
+                    <marker>
+                        <token />
+                    </marker>
+                    <token regexp="yes">\d+</token>
+                    <token regexp="yes" case_sensitive="yes">[A-Z]{3}</token>
+                </pattern>
+                <example correction="">Thanks, we've wired <marker>about</marker> 8229 USD.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="SENT_START"/>
+                    <token skip="1">a</token>
+                    <marker>
+                        <token postag="NN.*" postag_regexp="yes"/>
+                    </marker>
+                    <token>like</token>
+                </pattern>
+                <example correction="">A <marker>phrase</marker> like “I appreciate your prompt response,” tells the recipient that you’re waiting for a response sooner rather than later.</example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token regexp="yes" skip="-1">[„⹂“″‟”«‹›»"]</token>
+                    <token regexp="yes" skip="-1">[„⹂“″‟”«‹›»"]</token>
+                    <token regexp="yes">[„⹂“″‟”«‹›»"]</token>
+                </antipattern>
+                <pattern>
+                    <token skip="1" postag="SENT_START"/>
+                    <marker>
+                        <token skip="1" postag="NN.*" postag_regexp="yes"/>
+                    </marker>
+                    <token skip="-1" regexp="yes">[“«‹„"]</token>
+                    <token>,</token>
+                    <token regexp="yes" spacebefore="no">[”″›»"]</token>
+                </pattern>
+                <example correction="">The <marker>phrase</marker> “I appreciate your prompt response,” tells the recipient that you’re waiting for a response sooner rather than later.</example>
+                <example correction="">A <marker>phrase</marker> like “I appreciate your prompt response,” tells the recipient that you’re waiting for a response sooner rather than later.</example>
+                <example>My child " he said, "God paid your bill a long, long time ago."</example><!-- Characters missing, but rule should still match -->
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token postag="IN|VB.*" postag_regexp="yes"/>
+                    </marker>
+                    <token regexp="yes">\d+</token>
+                    <token postag="NN.*|SENT_END|PCT|POS" postag_regexp="yes"/>
+                </pattern>
+                <example correction="">It reached an all-time high <marker>of</marker> 425000.</example>
+                <example correction="">Over <marker>past</marker> 18000 years, they migrated north.</example>
+                <example correction="">And then it went up <marker>from</marker> 10000 hectares.</example>
+                <example correction="">Affected more <marker>than</marker> 8000 people</example>
+                <example correction="">It's not as old as Yamaha FZ6 <marker>with</marker> 9000 miles on it.</example>
+                <example correction="">There are an <marker>estimated</marker> 300000 ships in the gulf.</example>
+                <example correction="">It links the article which <marker>has</marker> 1674 words.</example>
+                <example correction="">We are <marker>selling</marker> 2022's (with the bonus editions included)</example>
+                <example correction="">It was calculated by <marker>feeding</marker> 32128 tokens.</example>
             </rule>
         </rulegroup>
         <rulegroup id="AI_EN_G_REPLACE_ORTH" name="">

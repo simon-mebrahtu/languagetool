@@ -680,7 +680,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                             <token>spać</token>
                         </antipattern>
                     <pattern>
-                        <token postag='verb:inf.*' postag_regexp='yes'><exception regexp="yes">zabronić|móc|umieć|(:?za)?przestać|s?kończyć|zacząć|zaczynać|nauczyć|pomóc|pomagać|iść|pójść|musieć|pozwolić|s?próbować|(:?za)?przestawać|dać|dawać|usiłować|zdołać|zapomnieć|starać|wyjść|postanowić|pozwalać|kazać|(:?ze)?chcieć|potrafić|lubić|mieć</exception></token>
+                        <token postag='verb:inf.*' postag_regexp='yes'><exception regexp="yes">zabronić|móc|umieć|(:?za)?przestać|s?kończyć|zacząć|zaczynać|nauczyć|pomóc|pomagać|jechać|iść|pójść|przyjść|musieć|pozwolić|s?próbować|(:?za)?przestawać|dać|dawać|usiłować|zdołać|zapomnieć|starać|wyjść|postanowić|pozwalać|kazać|(:?ze)?chcieć|potrafić|lubić|mieć</exception></token>
                         <token postag='verb:inf.*' postag_regexp='yes'></token>
                     </pattern>
                     <message>Dwa bezokoliczniki nierozdzielone przecinkiem. Czy chodziło o <suggestion><match no="1"/>, <match no="2"/></suggestion>?</message>
@@ -703,7 +703,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                             <token regexp="yes">kłaść|położyć</token>
                         </antipattern>
                         <pattern>
-                            <token postag='verb:inf.*' postag_regexp='yes'><exception regexp="yes">zabronić|móc|umieć|uczyć|wzdragać|silić|ośmielić|(:?za)?przestać|zacząć|zaczynać|zgadzać|zgodzić|nauczyć|pomóc|iść|musieć|pozwolić|s?próbować|(:?za)?przestawać|[bd]ać|dawać|usiłować|zdołać|zapomnieć|(:?po)?starać|wyjść|postanowić|pozwalać|kazać|chcieć|potrafić|lubić|odważ[ay]ć</exception></token>
+                            <token postag='verb:inf.*' postag_regexp='yes'><exception regexp="yes">zabronić|móc|umieć|uczyć|wzdragać|silić|ośmielić|(:?za)?przestać|zacząć|zaczynać|zgadzać|zgodzić|nauczyć|pomóc|pomagać|jechać|iść|przyjść|pójść|musieć|pozwolić|s?próbować|(:?za)?przestawać|[bd]ać|dawać|usiłować|zdołać|zapomnieć|(:?po)?starać|wyjść|postanowić|pozwalać|kazać|chcieć|potrafić|lubić|odważ[ay]ć</exception></token>
                             <token>się</token>
                             <token postag='verb:inf.*' postag_regexp='yes'></token>
                         </pattern>
@@ -712,6 +712,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                         <example correction="pozbyć, się wyeliminować|pozbyć się, wyeliminować">Muszę <marker>pozbyć się wyeliminować</marker> pryszcze.</example>
                         <example>Muszę pozbyć się, wyeliminować pryszcze.</example>
                         <example>Błagała o noc, aby spać się położyć.</example>
+                        <example>Możesz przyjść pomóc?</example>
                     </rule>
                 </rulegroup>
                 <rule id="MULTISPOJNIKI" name="Brak przecinka przed „a więc”, „a mianowicie”...">
@@ -11312,7 +11313,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 								</unify>
 						</pattern>
 						<message>Niepoprawna kalka z angielskiego. Lepiej: <suggestion><match no="1" postag="subst.*" postag_regexp="yes">sytuacja</match> <match no="2"></match></suggestion>.</message>
-						<url>http://slowniki.gazeta.pl/pl/kondycja</url>
 						<short>Błąd leksykalny</short>
 						<example>Sytuacja finansowa amerykańskich banków pozostawia wiele do życzenia.</example>
 						<example correction="Sytuacja finansowa"><marker>Kondycja finansowa</marker> amerykańskich banków pozostawia wiele do życzenia.</example>
@@ -15446,7 +15446,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                                     <token/>
                             </pattern>
                             <message>Zbędna wielka litera. To utarte wyrażenie, a nie zwrot grzecznościowy. Poprawnie: <suggestion>\2 ty</suggestion>.</message>
-                            <url>http://sjp.pwn.pl/haslo.php?id=63498</url>
+                            <url>https://dobryslownik.pl/slowo/per/74134/</url>
                             <short>Zbędna wielka litera</short>
                             <example>Z Józkiem od razu przeszliśmy na ty.</example>
                             <example correction="na ty">Z Józkiem od razu przeszliśmy <marker>na Ty</marker>.</example>
@@ -15463,10 +15463,39 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                             <token/>
                         </pattern>
                         <message>Zbędna wielka litera i cudzysłów. To utarte wyrażenie, a nie zwrot grzecznościowy. Poprawnie: <suggestion>\2 ty</suggestion>.</message>
-                        <url>http://sjp.pwn.pl/haslo.php?id=63498</url>
+                        <url>https://dobryslownik.pl/slowo/per/74134/</url>
                         <short>Zbędna wielka litera</short>
                         <example>Z Józkiem od razu przeszliśmy na ty.</example>
                         <example correction="na ty">Z Józkiem przeszliśmy od razu <marker>na „Ty”</marker>.</example>                    </rule>
+                        <rule>
+                        <pattern case_sensitive="yes">
+                            <marker>
+                                <token>per</token>
+                                <token regexp="yes">[«»„"]</token>
+                                <token>Ty</token>
+                                <token regexp="yes">[«»”"]</token>
+                            </marker>
+                            <token/>
+                        </pattern>
+                        <message>Zbędna wielka litera i cudzysłów. To utarte wyrażenie, a nie zwrot grzecznościowy. Poprawnie: <suggestion>\1 ty</suggestion>.</message>
+                        <url>https://dobryslownik.pl/slowo/per/74134/</url>
+                        <short>Zbędna wielka litera</short>
+                        <example>Z Józkiem od razu przeszliśmy na ty.</example>
+                        <example correction="per ty">Z Józkiem byłem <marker>per „Ty”</marker>.</example>                    </rule>
+                        <rule>
+                        <pattern case_sensitive="yes">
+                            <marker>
+                                <token>per</token>
+                                <token>Ty</token>
+                            </marker>
+                            <token/>
+                        </pattern>
+                        <message>Zbędna wielka litera i cudzysłów. To utarte wyrażenie, a nie zwrot grzecznościowy. Poprawnie: <suggestion>\1 ty</suggestion>.</message>
+                        <url>https://dobryslownik.pl/slowo/per/74134/</url>
+                        <short>Zbędna wielka litera</short>
+                        <example>Z Józkiem od razu przeszliśmy na ty.</example>
+                        <example correction="per ty">Z Józkiem byłem <marker>per Ty</marker>.</example>                    </rule>
+                
                 </rulegroup>
 				<rule id="JEZUITA" name="Pisownia nazw zakonników nierycerskich">
 						<pattern case_sensitive="yes">
@@ -16938,20 +16967,29 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 						<example correction="wieżą Eiffla">Spędźmy dziką noc pod <marker>wieżą Eiffela</marker>!</example>
 						<example>W Warszawie nie ma nic, co przypominałoby wieżę Eiffla.</example>
 				    </rule>
-                    <rule>
-                        <pattern case_sensitive="yes">
-                            <token regexp="yes">\p{Ll}+|[;,:]</token>
-                            <marker>
-                                <token inflected="yes">wieża<exception regexp="yes">w.*</exception></token>
-                                <token>Eiffla</token>
-                            </marker>
-                        </pattern>
-                        <message>Nieprawidłowa pisownia. Poprawnie: <suggestion><match no="2" case_conversion="alllower"/> Eiffla</suggestion>.</message>
-                        <url>https://sjp.pwn.pl/poradnia/haslo/;14712.html</url>
-                        <short>Błąd ortograficzny</short>
-                        <example correction="wieży Eiffla">W związku z remontem części wind na <marker>Wieży Eiffla</marker> bilety dostępne są na zapytanie.</example>
-                    </rule>
-                </rulegroup>
+            <rule>
+                <pattern case_sensitive="yes">
+                    <token regexp="yes">\p{Ll}+|[;,:]</token>
+                    <marker>
+                        <token inflected="yes">wieża<exception regexp="yes">w.*</exception></token>
+                        <token>Eiffla</token>
+                    </marker>
+                </pattern>
+                <message>Nieprawidłowa pisownia. Poprawnie: <suggestion><match no="2" case_conversion="alllower"/> Eiffla</suggestion>.</message>
+                <url>https://sjp.pwn.pl/poradnia/haslo/;14712.html</url>
+                <short>Błąd ortograficzny</short>
+                <example correction="wieży Eiffla">W związku z remontem części wind na <marker>Wieży Eiffla</marker> bilety dostępne są na zapytanie.</example>
+            </rule>
+            <rule>
+            <pattern>
+              <token>Eiffla<exception scope="previous" inflected="yes">wieża</exception></token>
+            </pattern>            
+            <message>Nieprawidłowa pisownia nazwiska. Jeśli nie chodzi o wieżę Eiffla, piszemy <suggestion>Eiffela</suggestion>.</message>
+            <url>https://sjp.pwn.pl/slowniki/Eiffel.html</url>
+            <short>Błąd ortograficzny</short>
+            <example correction="Eiffela">Spotkałem wczoraj w kawiarni pana <marker>Eiffla</marker>.</example>
+            </rule>
+        </rulegroup>
 				<rule id="PAR_EXCELLENCE" name="„par excellance” (par excellence)">
 						<pattern>
 								<token>par</token>
@@ -18683,12 +18721,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 				<rule id="NIE_OMAL" name="„nie omal” (nieomal)">
 						<pattern>
 								<token>nie</token>
-								<token>omal</token>
+								<token regexp="yes">omal|prawdaż</token>
 						</pattern>
-						<message>Ten wyraz piszemy łącznie: <suggestion>nieomal</suggestion>.</message>
+						<message>Ten wyraz piszemy łącznie: <suggestion>\1\2</suggestion>.</message>
 						<short>Błąd ortograficzny</short>
 						<example>Nieomal kupiłem mercedesa za bezcen.</example>
 						<example correction="Nieomal"><marker>Nie omal</marker> kupiłem mercedesa za bezcen.</example>
+						<example correction="nieprawdaż">Teściowa ma gest, <marker>nie prawdaż</marker>?</example>
 				</rule>
 				<rule id="NIE_OPODAL" name="„nie opodal” (nieopodal)">
 						<pattern>
@@ -20587,6 +20626,90 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 				</rule>
 		</category>
 		<category id="TYPOS" name="Prawdopodobne literówki" type="misspelling">
+		<rule id="TO_ZE_TO_E" name="„to, ze” (to, że)">
+      <pattern>
+      <token>to</token>
+      <token>,</token>
+      <marker>
+      <token>ze</token>
+      </marker>
+      </pattern>
+      <message>Prawdopodobna literówka. Czy chodziło o <suggestion>że</suggestion>?</message>
+      <short>Literówka</short>
+      <example correction='że'>Wygląda na to, <marker>ze</marker> źle robię.</example>
+      <example>Wygląda na to, że źle robię.</example>
+    </rule>
+  <rulegroup id="WIEKU_Z_NICH" name="„wieku z nich” (wielu z nich)">
+		<rule>
+		<antipattern>
+		    <token postag="(adj|pact):sg:(loc|gen):m1.m2.m3.n1.n2:.*|ppron3:.*:gen:.*|num:pl:.*:rec" postag_regexp="yes"/>
+		    <marker>
+          <token>wieku</token>		    
+		    </marker>
+  	</antipattern>
+  	<antipattern>
+      <marker>
+        <token>wieku</token>
+      </marker>
+        <token>z</token>
+        <token regexp="yes">\d+</token>
+        <token>do</token>
+        <token regexp="yes">\d+</token>
+  	</antipattern>
+      <pattern>
+          <marker>
+              <token>wieku<exception scope="previous" regexp="yes" case_sensitive="yes">([XVI]*\-)?(?:I{2,3}|I?([XV]+)|([XV]+I{0,3}[VX]?))</exception></token>          
+          </marker>
+          <token inflected="yes">z</token>
+      </pattern>
+      <message>Czy chodziło o <suggestion>wielu</suggestion>?</message>
+      <short>Prawdopodobna literówka</short>
+      <example correction="wielu">Po zabiegu zanika menstruacja, co dla <marker>wieku</marker> z nich jest wielką ulgą.</example>
+      <example>Dlatego osoby w rożnym wieku z nich korzystają.</example>
+      <example>Przez ponad pół wieku z jego mieszkania nie została wyrzucona żadna zadrukowana kartka.</example>
+      <example correction="wielu">I <marker>wieku</marker> z nich to kretyni.</example>
+    </rule>
+    <rule>
+      <pattern>
+      <token>od</token>
+      <marker><token>wieku</token></marker>
+      <token>lat</token>
+      <token><exception regexp="yes">\d+</exception><exception postag="num:pl:gen.*:congr" postag_regexp="yes"></exception></token>
+      </pattern>
+      <message>Czy chodziło o <suggestion>wielu</suggestion>?</message>
+      <short>Prawdopodobna literówka</short>
+      <example correction="wielu">Od <marker>wieku</marker> lat jadam rosoły.</example>
+      <example>Od wieku lat 5 wszystkie dzieci są zobowiązane do odbycia rocznego bezpłatnego przygotowania przedszkolnego do nauki w szkole.</example>
+      <example>Od wieku lat pięciu wszystkie dzieci są zobowiązane do odbycia rocznego bezpłatnego przygotowania przedszkolnego do nauki w szkole.</example>    
+    </rule>
+     <rule>
+     <antipattern>
+		    <token postag="adj:sg:(loc|gen):m1.m2.m3.n1.n2:.*:pos" postag_regexp="yes"/>
+		    <token>bardzo</token>
+		    <marker>
+          <token>wieku</token>
+		    </marker>
+  	</antipattern>
+  <antipattern>
+        <marker>
+          <token>wieku</token>
+		    </marker>
+		    <token min="0" regexp="yes">[&quot;”«»]</token>
+		    <token postag="(adj|pact):sg:(loc|gen):m1.m2.m3.n1.n2:.*|ppron3:.*:gen:.*|num:pl:.*:rec" postag_regexp="yes"/>
+  	</antipattern>	
+      <pattern>
+      <token regexp="yes">tak|bardzo|zbyt|wśród</token>
+      <marker><token>wieku<exception scope="previous" regexp="yes" case_sensitive="yes">([XVI]*\-)?(?:I{2,3}|I?([XV]+)|([XV]+I{0,3}[VX]?))</exception></token></marker>
+      </pattern>
+      <message>Czy chodziło o <suggestion>wielu</suggestion>?</message>
+      <short>Prawdopodobna literówka</short>
+      <example correction="wielu">Od bardzo <marker>wieku</marker> osób słyszałem już te bzdury.</example>
+      <example>Od wieku lat 5 wszystkie dzieci są zobowiązane do odbycia rocznego bezpłatnego przygotowania przedszkolnego do nauki w szkole.</example>
+      <example>Od wieku lat pięciu wszystkie dzieci są zobowiązane do odbycia rocznego bezpłatnego przygotowania przedszkolnego do nauki w szkole.</example>
+      <example>Warto zwrócić uwagę na trzy chaty mazurskie z XIX wieku z ciemnych drewnianych bali.</example>
+      <example>Ale i tak wieku "produkcyjnego" dożywa kilka procent narybku.</example>
+    </rule>
+		</rulegroup>
 		<rule id="CORAZ_ADJ_POS" name="„coraz mocnej” (coraz mocniej)">
       <pattern>
           <token>coraz</token>
@@ -20600,7 +20723,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
       <example>A będzie z pewnością coraz odpowiedniej.</example>
       <example>Szczyty gór płoną wieczyście w różowym obrzasku, który pada na nie z coraz innej strony.</example>
 		</rule>
-		<rulegroup id="ZLOBEK" name="„żłobek” mylone ze „żłóbek">
+		<rulegroup id="ZLOBEK" name="„żłobek” mylone ze „żłóbek”">
 		<rule>
 		  <pattern>
 		    <unify><feature id="case"></feature><feature id="gender"></feature><feature id="number"></feature>
@@ -24019,7 +24142,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 				<rulegroup id="A_WIEC" name="„wiec” (więc)">
 						<rule>
 								<pattern>
-										<token regexp="yes">a|tak</token>
+										<token regexp="yes">a|tak|można|warto|no|może|ma|jest|są|mamy|należy|dlaczego|trzeba</token>
 										<marker>
 												<token>wiec</token>
 										</marker>
@@ -24034,7 +24157,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 										<marker>
 												<token>wiec</token>
 										</marker>
-										<token regexp="yes">jeśli|jeżeli</token>
+										<token regexp="yes">jeśli|jeżeli|nie|tak|mam|może|pewnie|i|to</token>
 								</pattern>
 								<message>Prawdopodobnie chodziło o wyraz <suggestion>więc</suggestion>.</message>
 								<short>Prawdopodobna literówka</short>

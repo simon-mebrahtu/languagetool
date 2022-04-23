@@ -341,7 +341,7 @@ public class MissingCommaRelativeClauseRule extends Rule {
     if(gender.isEmpty()) {
       return false;
     }
-    return tokens[n].hasPosTagStartingWith("VER:") && tokens[n - 1].matchesPosTagRegex("(ADJ|PRO:POS):.*" + gender + ".*");
+    return tokens[n].hasPosTagStartingWith("VER:") && tokens[n - 1].matchesPosTagRegex("(ADJ|PA[12]|PRO:POS):.*" + gender + ".*");
   }
 
   /**

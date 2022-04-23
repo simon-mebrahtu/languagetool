@@ -31,6 +31,7 @@ assalto	assalto	NCFS000
 assaltos	assalto	NCFP000
 astrologia	astrologia	NCMS000
 astronomia	astronomia	NCMS000
+atê	ater	VMX0000
 aterosclerose	aterosclerose	NCMS000
 ateroscleroses	aterosclerose	NCMP000
 atração	atração	NCMS000
@@ -155,6 +156,7 @@ Graça	Graça	NPCSG00
 génesis	génesis	NCFP000
 gerado	gerar	AQ0MS0
 gerador	gerador	AQ0MP0
+guardá	guardar	VMX0000
 há	há	NCMS000
 Hispânia	Hispânia	NPMS000
 hora	horar	VMIP3S0
@@ -247,6 +249,7 @@ perdoe	perdoe	NCFS000
 perita	pêra	NCFS00D
 peritas	pêra	NCFP00D
 # remover perita evita AO45 falso positivo
+pô	pôr	VMIS3S0
 portugueses	portuguesar	VMM02S0
 portugueses	portuguesar	VMSP2S0
 portuguesas	portuguesar	VMIP2S0

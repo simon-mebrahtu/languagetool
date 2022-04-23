@@ -139,6 +139,63 @@ To ignore a remote rule match, set the <marker> so that it exactly covers the te
                     <marker>
                         <token/>
                     </marker>
+                    <token regexp="yes">\d+[°\%\$¢€£₤¥฿₹₿₱₽₪₩\u8371]</token>
+                </pattern>
+                <example correction="">Wir erhöhen die Zahlung zum 1.3. <marker>auf</marker> 1000€/Monat.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token/>
+                    </marker>
+                    <token regexp="yes">\d+</token>
+                    <token regexp="yes">[°\%\$¢€£₤¥฿₹₿₱₽₪₩\u8371](.*)?</token>
+                </pattern>
+                <example correction="">Wir erhöhen die Zahlung zum 1.3. <marker>auf</marker> 1000 €/Monat.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token/>
+                    </marker>
+                    <token regexp="yes">[°\%\$¢€£₤¥฿₹₿₱₽₪₩\u8371]</token>
+                    <token regexp="yes">\d+</token>
+                </pattern>
+                <example correction="">Wir erhöhen die Zahlung zum 1.3. <marker>auf</marker> € 1000/Monat.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token/>
+                    </marker>
+                    <token regexp="yes">[°\%\$¢€£₤¥฿₹₿₱₽₪₩\u8371]\d+</token>
+                </pattern>
+                <example correction="">Wir erhöhen die Zahlung zum 1.3. <marker>auf</marker> €1000/Monat.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">\d+</token>
+                    </marker>
+                    <token regexp="yes" case_sensitive="yes">[A-Z]{3}(/.*)?</token>
+                </pattern>
+                <example correction="">Wir erhöhen die Zahlung zum 1.3. auf <marker>1000</marker> EUR/Monat.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token skip="1">weder</token>
+                    <marker>
+                        <token regexp="yes">\w+</token>
+                    </marker>
+                    <token>noch</token>
+                </pattern>
+                <example correction="">Die Bereitstellung Ihrer Daten ist weder <marker>gesetzlich</marker> noch vertraglich vorgeschrieben.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token/>
+                    </marker>
                     <token regexp="yes">und|sowie|oder
                         <exception scope="next">dass</exception>
                     </token>
@@ -161,7 +218,7 @@ To ignore a remote rule match, set the <marker> so that it exactly covers the te
                     <marker>
                         <token regexp="yes">[−–\+-]?[0-9]+([.,]?[0-9]+)?</token>
                     </marker>
-                    <token regexp="yes">[°\%\$€£¥฿₹\u8371]</token>
+                    <token regexp="yes">[°\%\$¢€£₤¥฿₹₿₱₽₪₩\u8371]</token>
                 </pattern>
                 <example correction="">Die Wohnungsmieten oder Versicherungsbeiträge etwa (die in der Berechnung der Inflationsrate zudem eine höhere Gewichtung haben) haben sich nach der Euro-Einführung kaum verändert; sinkende Preise gab es beim Gas, Heizöl (<marker>−16</marker> %) und Telefonieren.</example>
             </rule>
@@ -440,6 +497,35 @@ To ignore a remote rule match, set the <marker> so that it exactly covers the te
                     <token>auch</token>
                 </pattern>
                 <example correction="">Es wird sowohl in der Industrie <marker>wie</marker> auch in der Bauwirtschaft eingesetzt.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token>mit</token>
+                    <token regexp="yes">freundlichen|herzlichen|lieben(vollen)?|besten</token>
+                    <marker>
+                        <token regexp="yes">Grü(ß|ss)en</token>
+                    </marker>
+                </pattern>
+                <example correction="">Mit freundlichen <marker>Grüßen</marker></example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token regexp="yes">freundlich(st)?e|herzlich(st)?e|liebe(volle)?|beste</token>
+                    <marker>
+                        <token regexp="yes">Grü(ß|ss)e</token>
+                    </marker>
+                </pattern>
+                <example correction="">Liebe <marker>Grüße</marker></example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">ok(ay)?</token>
+                    </marker>
+                    <token>für</token>
+                    <token regexp="yes">dich|euch</token>
+                </pattern>
+                <example correction=""><marker>Ok</marker> für dich, wenn ich das übernehme?</example>
             </rule>
         </rulegroup>
         <rulegroup id="AI_DE_HYDRA_LEO_CPT_DIE_CDIE" name="">

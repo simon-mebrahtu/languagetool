@@ -73,6 +73,7 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
     "hands free",
     "faggot",
     "faggots",
+    "fuckable",
     "fuck",
     "fucker",
     "fuckhead",
@@ -609,11 +610,13 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
     s.put("MWH", Arrays.asList("MWh"));
     s.put("xray", Arrays.asList("X-ray"));
     s.put("xrays", Arrays.asList("X-rays"));
+    s.put("soo", Arrays.asList("so", "too", "son"));
     return s;
   }
 
   protected static Map<String, List<String>> getTopSuggestions() {
     Map<String, List<String>> s = new HashMap<>();
+    s.put("enroute", Arrays.asList("en route"));
     s.put("whaddya", Arrays.asList("what do you"));
     s.put("Whaddya", Arrays.asList("What do you"));
     s.put("ignight", Arrays.asList("ignite"));

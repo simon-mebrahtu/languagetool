@@ -34,7 +34,9 @@ public class TigrinyaDictionaryCleaner {
       // remove words that have numbers or english characters
       new InvalidWords(),
       // remove words that start or end with '
-      new InvalidStart());
+      new InvalidStart(),
+      new SplitVerbFromProposition()
+    );
 
     Set<TigrinyaWordFreq> wordFreqs = validator.readDictionary(freq,dic, filter);
     validator.saveWordlistDictionary(freq, wordFreqs);
@@ -46,8 +48,31 @@ public class TigrinyaDictionaryCleaner {
     Pattern r = Pattern.compile(pattern);
 
     @Override
-    public String consume(String word) {
+    public String consume(String word,Integer frequency,Map<String,String> posMap) {
       return r.matcher(word).find() ? "" : word;
+    }
+  }
+
+  static class SplitVerbFromProposition implements PipeLine<String> {
+    Pattern r = Pattern.compile("^(ስለ|ምስ|ከም|እንተ|ብዘይ)(.+)$");
+
+    @Override
+    public String consume(String word,Integer frequency,Map<String,String> posMap) {
+      Matcher matcher = r.matcher(word);
+      if(matcher.find()){
+        String verb = matcher.group(2);
+        String pos = posMap.get(verb);
+        String posw = posMap.get(word);
+        //remove joined words if root exists
+        if(verb.length()>2 && posw!=null && pos!=null && (posw.startsWith("V")  || pos.startsWith("V")) ){
+          return "";
+        }
+        else if(verb.length()>3 && pos!=null ){
+          System.out.println(matcher.group(1)+" "+verb+" - "+ posw+"/"+ pos);
+          return "";
+        }
+      }
+      return word;
     }
   }
 
@@ -56,14 +81,14 @@ public class TigrinyaDictionaryCleaner {
     Pattern r2 = Pattern.compile("'$");
 
     @Override
-    public String consume(String word) {
+    public String consume(String word,Integer frequency,Map<String,String> posMap) {
       return r.matcher(word).find() || r2.matcher(word).find() ? "" : word;
     }
   }
 
   static class ReplacableWords implements PipeLine<String> {
     @Override
-    public String consume(String word) {
+    public String consume(String word,Integer frequency, Map<String,String> posMap) {
       List<String> wrongTigrinya = Arrays.asList("ፀ", "ፁ", "ፂ", "ፃ", "ፄ", "ፅ", "ፆ", "ፇ", "ኀ", "ኁ", "ኂ", "ኃ", "ኄ", "ኅ", "ኆ", "ኇ", "ሠ", "ሡ", "ሢ", "ሣ", "ሤ", "ሥ", "ሦ", "ሧ");
       List<String> correctTigrinya = Arrays.asList("ጸ", "ጹ", "ጺ", "ጻ", "ጼ", "ጽ", "ጾ", "ጿ", "ሀ", "ሁ", "ሂ", "ሃ", "ሄ", "ህ", "ሆ", "ሇ", "ሰ", "ሱ", "ሲ", "ሳ", "ሴ", "ስ", "ሶ", "ሷ");
       for (int i = 0; i < wrongTigrinya.size(); i++) {
@@ -128,16 +153,16 @@ public class TigrinyaDictionaryCleaner {
         String word = m.group(2);
         Integer frequency = Integer.valueOf(m.group(1));
         for (PipeLine<String> pipe : pipes) {
-          word = pipe.consume(word);
+          word = pipe.consume(word,frequency,posMap);
 //          if (!word.equals(line)) {
 //            System.out.println(word + " " + line);
 //          }
         }
         if (word.length() > 1 && frequency>2) {
           dictionary.add(new TigrinyaWordFreq(word, posMap.get(word), frequency));
+          count++;
         }
       }
-      count++;
     }
     reader.close();
     System.out.println("read " + count + " words. Writing " + dictionary.size() + ". Removed " + (count-dictionary.size()));
@@ -145,7 +170,7 @@ public class TigrinyaDictionaryCleaner {
   }
 
   interface PipeLine<T> {
-    String consume(T word);
+    String consume(T word,Integer frequency, Map<String,String> posMap);
   }
 
 }

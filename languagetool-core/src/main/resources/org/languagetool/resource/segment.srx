@@ -1159,7 +1159,7 @@
 <afterbreak>D\.?</afterbreak>
 </rule>
 <rule break="no"><!-- min. -->
-<beforebreak>\b([Ee]d|pp|[Vv]iz|i\.?[\s\u00A0]*e|[Vvol]|[Rr]col|maj|Lt|[Ff]ig|[Ff]igs|[Vv]iz|[Vv]ols|[Aa]pprox|[Ii]ncl?|[Aa]cc|Pres|[Cc]orp|[Ee]x|[Cc]onn|[Dd]ept|[Mm]in|[Mm]ax|[Gg]ovt|[Rr]etd|lb|lbf|ft|c\.?[\s\u00A0]*f|vs|dia|lbs|\d+-(:?oz|kc|in|h[rp]|ml)|M?sec)\.[\s\u00A0]</beforebreak>
+<beforebreak>\b([Aa]vg|[Ee]d|pp|[Vv]iz|i\.?[\s\u00A0]*e|[Vvol]|[Rr]col|maj|Lt|[Ff]ig|[Ff]igs|[Vv]iz|[Vv]ols|[Aa]pprox|[Ii]ncl?|[Aa]cc|Pres|[Cc]orp|[Ee]x|[Cc]onn|[Dd]ept|[Mm]in|[Mm]ax|[Gg]ovt|[Rr]etd|lb|lbf|ft|c\.?[\s\u00A0]*f|vs|dia|lbs|\d+-(:?oz|kc|in|h[rp]|ml)|M?sec)\.[\s\u00A0]</beforebreak>
 <afterbreak>[^\p{Lu}]|I</afterbreak>
 </rule>
 <rule break="no"><!-- hr. -->
@@ -4914,13 +4914,13 @@
 </rule>
 <!-- Don't split [.?!] when they're quoted -->
 <rule break="no">
-<beforebreak>['"„][\.!?…]['"“][\u00A0\s]</beforebreak>
+<beforebreak>['"„][\.!?…]['"“«»][\u00A0\s]</beforebreak>
 <afterbreak></afterbreak>
 </rule>
 <!-- Don't break after quote unless there's a capital letter
          e.g.: "That's right!" he said. -->
 <rule break="no">
-<beforebreak>["'“][\u00A0\s]</beforebreak>
+<beforebreak>["'“«»][\u00A0\s]</beforebreak>
 <afterbreak>\p{Ll}</afterbreak>
 </rule>
 <!-- e.g. "Das ist . so." - assume one sentence. -->
@@ -5599,7 +5599,7 @@
 </rule>
 <rule break="no">
 <!-- unfortunately \b ignores \u0301 -->
-<beforebreak>\bст\.[\h\v]</beforebreak>
+<beforebreak>\b[сС]т\.[\h\v]</beforebreak>
 <afterbreak>[\h]*(?!([АВУОІЄ]|На|Але|Так?)[\h\v])</afterbreak>
 </rule>
 <rule break="no">

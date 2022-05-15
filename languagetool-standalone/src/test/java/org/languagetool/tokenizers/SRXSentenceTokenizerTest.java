@@ -34,7 +34,7 @@ public class SRXSentenceTokenizerTest {
       if (language.getSentenceTokenizer().getClass() != SRXSentenceTokenizer.class) {
         continue;
       }
-      if (language.getShortCode().equals("km") || language.getShortCode().equals("ml")) {
+      if (language.getShortCode().equals("km") || language.getShortCode().equals("ml") || language.getShortCode().equals("ti")) {
         // TODO: I don't know about these...
         continue;
       }

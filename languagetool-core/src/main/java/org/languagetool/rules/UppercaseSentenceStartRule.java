@@ -19,6 +19,7 @@
 package org.languagetool.rules;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -29,6 +30,7 @@ import org.languagetool.AnalyzedTokenReadings;
 import org.languagetool.Language;
 import org.languagetool.tokenizers.WordTokenizer;
 import org.languagetool.tools.StringTools;
+import org.languagetool.tools.Tools;
 
 /**
  * Checks that a sentence starts with an uppercase letter.
@@ -44,6 +46,7 @@ public class UppercaseSentenceStartRule extends TextLevelRule {
   private static final Set<String> EXCEPTIONS = new HashSet<>(Arrays.asList(
           "x86",
           "ⓒ",
+          "ø", // used as bullet point
           "cc" // cc @daniel => "Cc @daniel" is strange
   ));
 
@@ -51,12 +54,21 @@ public class UppercaseSentenceStartRule extends TextLevelRule {
 
   /** @since 3.3 */
   public UppercaseSentenceStartRule(ResourceBundle messages, Language language, IncorrectExample incorrectExample, CorrectExample correctExample) {
+    this(messages, language, incorrectExample, correctExample, null);
+  }
+
+  /** @since 5.9 */
+  public UppercaseSentenceStartRule(ResourceBundle messages, Language language, IncorrectExample incorrectExample, CorrectExample correctExample,
+                                    URL url) {
     super(messages);
     super.setCategory(Categories.CASING.getCategory(messages));
     this.language = language;
     setLocQualityIssueType(ITSIssueType.Typographical);
     if (incorrectExample != null && correctExample != null) {
       addExamplePair(incorrectExample, correctExample);
+    }
+    if (url != null) {
+      setUrl(url);
     }
   }
 

@@ -40,6 +40,8 @@ abdominoplastias
 abetarda
 abetardas
 Abidjan
+abrolho
+abrolhos
 abrótea
 abróteas
 abutre-do-egipto
@@ -109,6 +111,7 @@ afrodescendente
 afrodescendentes
 agitadíssimo
 agitadíssimos
+agravação
 agrião-do-pará
 agriões-do-pará
 agrofloresta
@@ -342,6 +345,7 @@ aplicador
 aplicadores
 apneia
 apneias
+apocalipse
 ápode
 ápodes
 apolítica
@@ -455,10 +459,16 @@ atópica
 atópicas
 atópico
 atópicos
+atossegundo
+atossegundos
 atracamento
 atracamentos
 atrapalhadíssima
 atrapalhadíssimas
+atrasadinha
+atrasadinhas
+atrasadinho
+atrasadinhos
 atrator
 atratores
 atreita
@@ -742,6 +752,7 @@ bolivariana
 bolivarianas
 bolivariano
 bolivarianos
+bombar
 bombril
 bonobo
 bonobos
@@ -940,6 +951,8 @@ carochos
 carquilha
 carquilhas
 carrosséis
+cartinha
+cartinhas
 carvalho-negral
 carvalhos-negral
 casuístico
@@ -973,7 +986,7 @@ caxamolas
 Caxito
 CCAMLR
 CCDR
-CCTV # Estrangeirismo
+CCTV
 CDs
 cearense
 cearenses
@@ -1089,6 +1102,8 @@ ciprinídeo
 ciprinídeos
 circadiano
 circadianos
+circunlóquio
+circunlóquios
 circunstancialmente
 cística
 císticas
@@ -1614,6 +1629,8 @@ ecler
 ecleres
 eclusa
 eclusas
+ecobatímetro
+ecobatímetros
 ecofisiologia
 ecógrafo
 ecógrafos
@@ -1792,6 +1809,8 @@ epigenética
 epigenéticas
 epigenético
 epigenéticos
+epitalâmio
+epitalâmios
 epítome
 epítomes
 equinoderme
@@ -2150,6 +2169,8 @@ fenologia
 fenologias
 Fenprof
 FENSE
+fentossegundo
+fentossegundos
 ferino
 ferinos
 feromona
@@ -2355,6 +2376,8 @@ GeForce
 géis
 gelataria
 gelatarias
+generaleco
+generalecos
 Generalitat
 génica
 génicas
@@ -2890,6 +2913,10 @@ interbancária
 interbancárias
 interbancário
 interbancários
+interconectividade
+interconectividades
+interconetividade
+interconetividades
 interdentária
 interdentárias
 interdentário
@@ -3126,6 +3153,8 @@ laplaciano
 lapouço
 lapouços
 larguinhos
+larila
+larilas
 lastimavelmente
 Launchy
 Laurissilva
@@ -3342,6 +3371,8 @@ marfado
 marfados
 maricada
 maricadas
+mariconço
+mariconços
 mariscador
 mariscadores
 market
@@ -3637,6 +3668,7 @@ morenaça
 morenaças
 morfogénese
 morfogéneses
+morosos
 moscatéis
 motivacional
 motoclube
@@ -3846,6 +3878,7 @@ neva
 NFC
 NFL
 nham
+nhurrice
 nhurro
 nictúria
 nictúrias
@@ -3970,6 +4003,8 @@ orgástico
 orgásticos
 orofaciais
 orofacial
+orogenital
+orogenitais
 orquite
 orquites
 ortodontia
@@ -4052,6 +4087,7 @@ pandémica
 pandémicas
 pandémico
 pandémicos
+panilas
 panzer
 papanicolau
 papilar
@@ -4075,6 +4111,8 @@ paralisadoras
 paralisadores
 parangona
 parangonas
+paranoide
+paranoides
 paraolimpíada
 paraolimpíadas
 paraolímpica
@@ -4133,6 +4171,8 @@ pedopsiquiátrica
 pedopsiquiátricas
 pedopsiquiátrico
 pedopsiquiátricos
+pedrita
+pedritas
 Pedrógão
 pedroguense
 pedunculada
@@ -4141,6 +4181,8 @@ pedunculado
 pedunculados
 peida
 peidas
+peixinho
+peixinhos
 pelágica
 pelágicas
 pelágico
@@ -4150,7 +4192,8 @@ pellets
 pelotões
 Pemba
 Pencil
-Peneda-Gerês
+pensinho
+pensinhos
 pentaneta
 pentanetas
 pentaneto
@@ -4181,6 +4224,7 @@ pericianda
 periciandas
 periciando
 periciandos
+periciar
 periderme
 perineais
 perineal
@@ -4195,6 +4239,7 @@ peristilo
 peristilos
 permacultura
 Pérmico
+perplexamente
 peteiro
 peteiros
 petrolato
@@ -4428,6 +4473,8 @@ probóscide
 probóscides
 procarionte
 procariontes
+procrastinatório
+procrastinatórios
 proctoscopia
 proibicionismo
 proibicionista
@@ -4683,6 +4730,7 @@ restruturantes
 resveratrol
 retail
 retoricamente
+retroalimentação
 retroescavadora
 retroescavadoras
 retroiluminação
@@ -4892,8 +4940,11 @@ sesquizigótica
 sesquizigóticas
 sesquizigótico
 sesquizigóticos
+seviciada
+seviciadas
 seviciado
 seviciados
+seviciar
 sex-appeal
 sex-shop
 sex-shops
@@ -5019,7 +5070,7 @@ SSDs
 stakeholder
 stakeholders
 stalking
-stall # Estrangeirismo
+stall
 stand-up
 Standvirtual
 Stanford
@@ -5274,6 +5325,7 @@ Tombali
 Tomboa
 Tomboco
 Tommy
+top-down
 tordonha
 tordonhas
 tordoveia
@@ -5355,6 +5407,7 @@ triatletas
 triatlo
 triatlos
 tricloroetileno
+tricoline
 tricomoníase
 tricóptero
 tricópteros
@@ -5567,6 +5620,8 @@ VHS
 víbora-de-Seoane
 víboras-de-Seoane
 Vidal
+videochamada
+videochamadas
 videogénica
 videogénicas
 videogénico
@@ -5609,6 +5664,7 @@ vossência
 vossências
 voyeurista
 voyeuristas
+vozerio
 Vrazhdebna
 vulgarismo
 vulgarismos
@@ -8472,11 +8528,11 @@ zooms
 ##############################
 ########Estrangeirismos 2#####
 ##############################
-abstract # Estrangeirismo
-abstracts # Estrangeirismo
+abstract
+abstracts
 alien
 aliens
-ASMR # Estrangeirismo
+ASMR
 ayurveda
 banner
 banners
@@ -8486,6 +8542,9 @@ carjacking
 chef
 chefs
 clipart
+commodity
+commodities
+crossfit
 cyberbullying
 debugging
 decanter
@@ -8499,36 +8558,39 @@ flute
 flutes
 flyer
 flyers
-geek # Estrangeirismo
-geeks # Estrangeirismo
-goal # Estrangeirismo
-goals # Estrangeirismo
-half-pipe # Estrangeirismo
-half-pipes # Estrangeirismo
-hatchback # Estrangeirismo
-hatchbacks # Estrangeirismo
+geek
+geeks
+goal
+goals
+half-pipe
+half-pipes
+hatchback
+hatchbacks
 hockey
 hostel
 hostels
-LED # Estrangeirismo
+LED
+legacy
 malware
-millennial # Estrangeirismo
-millennials # Estrangeirismo
+millennial
+millennials
 mindfulness
-mocassins # Estrangeirismo
-nerd # Estrangeirismo
-nerds # Estrangeirismo
-notch # Estrangeirismo
-nugget # Estrangeirismo
-nuggets # Estrangeirismo
+mocassins
+nerd
+nerds
+notch
+nugget
+nuggets
 off-label
 on-label
+paper
+papers
 physalis
 pouf
 poufes
 reggaeton
-revanche # Estrangeirismo
-revanches # Estrangeirismo
+revanche
+revanches
 startup
 startups
 stealth
@@ -8538,6 +8600,8 @@ tawnie
 tawnies
 tweet
 tweets
+webcam
+webcams
 # Países e Capitais
 # https://pt.wikipedia.org/wiki/Lista_de_capitais_nacionais
 # Selecionados apenas os que tem grafias relativamente consensuais
@@ -9186,6 +9250,7 @@ Accenture
 AccuWeather
 Acxiom
 Adaptive
+Adobe
 Adobe Digital Government
 Aidin
 Alarm
@@ -9960,6 +10025,8 @@ Actuel
 Adamski
 ADSE
 Aerosmith
+Agripina
+Airbus
 Airport
 Akira
 al-Assad
@@ -9983,6 +10050,7 @@ Alibaba
 AliExpress
 Alisson
 Allison
+Almoçageme
 Altice
 Alvão
 Alyson
@@ -9992,6 +10060,7 @@ Amparo
 Amy
 Anacleto
 Anacom
+Anakin
 Anaxágoras
 Andrea
 Andreas
@@ -10007,6 +10076,7 @@ Aquileia
 Aracaju
 Armagedão
 Armanda
+Arnaut
 Arthur
 Ashley
 Ashtar
@@ -10017,6 +10087,7 @@ Audi
 Auguste
 Augustin
 Austin
+AutoCad
 Autoeuropa
 Axtell
 Aylmer
@@ -10032,6 +10103,7 @@ Barrett
 Bashar
 Batista
 Batman
+Bayer
 Bayer Leverkusen
 Bayern Munich
 Bayes
@@ -10077,6 +10149,7 @@ Calcas
 Calouste
 Campolide
 Canelhas
+Capes
 Cáritas
 Carrefour
 Carregosa
@@ -10212,6 +10285,7 @@ Eustáquio
 Evola
 Expo 98
 Fabiana
+Fabiano
 Fabíola
 Faculdade
 Fagilde
@@ -10220,6 +10294,7 @@ Falagueira
 Feldman
 FIA
 Fiat
+Filho
 Firetrust
 Fisher
 Fisher-Snedecor
@@ -10229,6 +10304,7 @@ Floyd
 FNAC
 Forbes
 Ford
+Forêt
 Fortaleza
 Foundation
 Fouto
@@ -10257,6 +10333,7 @@ Giovanna
 Glastonbury
 Glenn
 Globo
+Glovo
 Goes
 Goldfeld-Quandt
 Golias
@@ -10307,6 +10384,7 @@ Holmes
 Holoceno
 Honda
 Honolulu
+Homem-Aranha
 Hosmer-Lemeshow
 Houston
 HP
@@ -10323,6 +10401,7 @@ Idanha
 Ideiafix
 Iémen
 Ifigénia
+Ignatieff
 Ikea
 Ilachinski
 INE
@@ -10336,6 +10415,7 @@ Interpol
 IPAM
 Ipatinga
 Ipiranga
+IRA
 Iracema
 Isaltina
 ISCTE
@@ -10360,6 +10440,7 @@ Jimmy
 Jörg
 Jovino
 Juarez
+Juazeiro
 JUMBO
 Jumbo
 Juncker
@@ -10474,6 +10555,7 @@ Mickey
 Middlesbrough
 Mikhail
 Milão-Malpensa
+Milhazes
 Milheiro
 Millenium BCP
 Milosevic
@@ -10562,8 +10644,11 @@ Pandures
 Panoramix
 Paulinha
 Paulo-Guarulhos
+Pedrinho
+Peneda-Gerês
 Penedo
 Pescanova
+Peter
 Peterson
 Petrobrás
 Petrogal
@@ -10580,10 +10665,14 @@ Portucel
 Potsdam
 Priberam
 Princeton
+Print Express
 Prosegur
 PS-PCP-BE
 PSD-CDS
 PSV Eindhoven
+PT
+PUC
+Puma
 Putin
 Pyeongchang
 Qashqai
@@ -10628,6 +10717,7 @@ Ruhollah
 Ruzyne
 Ryanair
 Sabino
+Sacadura
 Saint-Étienne
 Saint-Exupéry
 Saladino
@@ -10641,6 +10731,7 @@ Sargan-Hansen
 Sarkozy
 Saussere
 Savimbi
+SciELO
 Schaffer
 Schiffer
 Schmid
@@ -10649,6 +10740,7 @@ Schumacher
 Schumpeter
 Seiceira
 SEIR
+Selma
 Senna
 Serrão
 Shakira
@@ -10678,11 +10770,14 @@ Skripal
 Snow
 Snowden
 Sommerville
+Star Wars
 Sotero
+Spartacus
 Sputnik
 Steckling
 Suméria
 Surrey
+SUS
 Tabatinga
 Tácito
 Talloires
@@ -10696,6 +10791,7 @@ Theodore
 Thom
 Thomaz
 Tirana
+Toninho
 Tom
 Tor
 Totta
@@ -10703,14 +10799,29 @@ Trotsky
 Trudeau
 Tzu
 Uber
+UERJ
+UFBH
+UFF
+UFPR
+UFRJ
+UFRGS
+UFRN
+UFSC
 Unabomber
+UnB
+UNESP
+UNICAMP
 Unilever
+UNINOVE
+UNIP
 Unity
 Universidade
+USP
 Valéria
 Valls
 ValPortugal
 Vargas
+Veiga
 Vélez
 Vestefália
 Viagra
@@ -10846,7 +10957,7 @@ CTCP
 DALnet
 Dark Web
 DCC
-DDoS # Estrangeirismo
+DDoS
 Deep Web
 default
 desenvolvedor
@@ -10897,6 +11008,7 @@ fps
 framework
 FreeBSD
 FTP
+Galaxy
 gateway
 gateways
 gigabit
@@ -10926,7 +11038,9 @@ https
 Hunspell
 infomercial
 Instagram
+Internet
 IOL
+IPs
 iPad
 iPads
 iPhone
@@ -10971,6 +11085,8 @@ nicks
 nickname
 nicknames
 NickServ
+notebook
+notebooks
 OEM
 off
 old school
@@ -11021,6 +11137,7 @@ scroll
 SeaMonkey
 SEO
 SimCity
+slave
 Spectrum
 SSL
 supercomputação
@@ -11281,3 +11398,72 @@ Black Panther
 Black Sabbath
 Black Mirror
 Jack Black
+PicPay
+cashback
+Pix # pt-BR
+NF
+OUVID
+Isabella
+Joyce
+Ben
+Mary
+Serasa
+Raphael
+Suellen
+Maicon
+ADM
+ADMs
+Emerson
+Nayara
+Stephen
+Luiz
+Junior
+Thais
+BO
+Thaís
+Taís
+HubSpot
+TED
+Allan
+Ben
+Juan
+Anvisa
+Gabriella
+Carl
+Darcy
+TEA
+Shirley
+Enzo
+Jordan
+Rezende
+Álvaro
+Gilson
+Adilson
+Cielo
+iOS
+javascript
+IST
+ISTs
+Samira
+TikTok
+Tinder
+GTA
+iFood
+Rappi
+Netshoes
+desktop
+Fleury
+Halloween
+fanfic
+Hernandez
+bioestimuladores
+PagSeguro
+Magalu
+minion
+minions
+bolsominion
+bolsominions
+bolsonarista
+bolsonarismo
+CTRL
+Corel

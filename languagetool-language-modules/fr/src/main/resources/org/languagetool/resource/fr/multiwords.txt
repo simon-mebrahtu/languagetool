@@ -1,5 +1,6 @@
 #French multiwords file used for chunking
 #separatorRegExp=[\t;]
+home page;N f s
 point presse; N m s
 points presse; N m p
 The American Weekly; Z e sp
@@ -15,9 +16,86 @@ Territorial Division Act; Z e sp
 native digital;Z e sp
 Global offensive;Z e sp
 Call of Duty;Z e sp
+purificateur d'air;N m s
 World of Warcraft; Z e sp
+motion design;N e sp
+gang blood;N e sp
+green zone;N f sp
+login page;N f s
+Saint-Côme-d'Olt;Z e sp
+Saint-Jean-d’Angély;Z e sp
+Saint-Laurent-de-l’île-d’Orléans;Z e sp
+chiffres marché;N m p
+panier surprise;N m s
+paniers surprises;N m p
+mise bas;N f s
+mises bas;N f p
+pass culture;N m sp
+Lions Clubs Internation;Z e sp
+Pan America;Z e sp
+Pure One;Z e sp
+club master;N m s
+Software Factory;N f s
+data center;N m s
+Mau Mau;Z e sp
+Saint-Bauzille-d'Héraud;Z e sp
+Saint-Chély-d'Apcher;Z e sp
+Saint-Rambert-d'Albon;Z e sp
+Saint-Rambert-d'Albon;Z e sp
+Saint-Aubin-d'Appenai;Z e sp
+Saint-Marcel-d'Ardèche;Z e sp
+Saint-Germain-d'Aunay;Z e sp
+Saint-Germain-d'Auxerre;Z e sp
+LL. AA.;T e p
+LL. AA. II.;T e p
+LL. AA. RR.;T e p
+MYTF1 News;Z e sp
+DZair Infos;Z e sp
+DJ Events;Z e sp
+LL. EE.;T e p
+LL. ÉÉm.;T e p
+LL. EExc.;T e p
+LL. GG.;T e p
+LL. MM.;T e p
+LL. MM. II.;T e p
+LL. MM. RR.;T e p
+RR. PP.;T e p
+R. P.;T e p
+ski bus;N m sp
+WP Themes;Z e sp
+QR code;N m s
+QR codes;N m p
+X Games;Z e sp
+Rage Against the Machine;Z e sp
+food truck;N m s
+food trucks; N m p
+Gamers Assembly;Z e sp
+Martinique Boat Show;Z e sp
+NN.SS.;T e p
+Joe le taxi; Z e sp
+Motion Design;N m sp
+Air Jordan;N m sp
+Cocci'Malins;Z e sp
+To Do List;N f sp
+la Lys;Z e sp
+digital learning;N m sp
+maître de stage;N e s
+maîtres de stage;N e p
+chiffres marché;N m s
+général Leclerc;Z e sp
+Royal Air; N f sp
+Border Terrier;Z e sp
 Grand Theft Auto; Z e sp
+Compta Online;Z e sp
+à foison;A
+Notre-Dame des Naufragés;Z e sp
+slow fashion;N f sp
+case worker;N m s
+Center Parcs;Z e sp
 The Elder Scrolls; Z e sp
+Catstair Canyon;Z e sp
+Super League;Z e sp
+Flavio Boltro;Z e sp
 League of Legends;Z e sp
 Far Cry; Z e sp
 Allo Resto;Z e sp
@@ -25,6 +103,23 @@ dirt bike;N m s
 dirt bikes;N m p
 food truck;N m s
 food trucks;N m p
+Xperia Play; Z e sp
+Renault Trucks;Z e sp
+n'importe où;A
+n'importe comment;A
+n'importe qui;A
+n'importe quoi;A
+n'importe quand;A
+Death Note;Z e sp
+Chrono Crusade;Z e sp
+Black Cat;Z e sp
+Nhà Bè;Z e sp
+Black Cat;Z e sp
+moyens métrages; J m p
+moyen métrage; J m s
+Élisabeth Borne;Z e sp
+iOS 10;Z e sp
+cane corso;Z e sp
 street food; N e sp
 Jail Rock;Z e sp
 sex friend;N e s

@@ -4782,7 +4782,9 @@ Incorrectly touched. <example type="untouched">Incorrect grammar. Those present 
                 </token>
             </marker>
             <token postag="VBN" />
-            <token postag_regexp="yes" postag="NN:.*|NNS?" />
+            <token postag_regexp="yes" postag="NN:.*|NNS?">
+                <exception postag="IN" />
+            </token>
         </pattern>
         <disambig postag="JJ"/>
         <example type="untouched">He had been proven innocent.</example>
@@ -8824,7 +8826,7 @@ Incorrectly touched. <example type="untouched">Incorrect grammar. Those present 
                 <and>
                     <token postag="VBD"/>
                     <token postag="VBN">
-                        <exception regexp='yes'>crowded|tired</exception>
+                        <exception regexp='yes'>crowded|tired|forced</exception>
                     </token>
                 </and>
             </marker>
@@ -9201,7 +9203,8 @@ Incorrectly touched. <example type="untouched">Incorrect grammar. Those present 
                 <marker>
                     <and>
                         <token postag="RB">
-                            <exception regexp="yes">supply|way</exception>
+                            <exception regexp="yes">supply|way|east|north|south|west|above</exception>
+                            <exception postag="IN" />
                             <exception scope="previous" postag="DT"/>
                             <exception scope="previous">the</exception><!-- matcing misspelled "THe" (which is not DT) -->
                         </token>
@@ -9626,6 +9629,12 @@ Incorrectly touched. <example type="untouched">Incorrect grammar. Those present 
             <token postag="DT"/>
             <token postag="CD"/>
             <token chunk="E-NP-plural" postag="NNS"/>
+        </antipattern>
+        <antipattern><!-- The dates the doctor had time -->
+            <token postag="DT|PRP\$" postag_regexp="yes" />
+            <token postag="JJ.*" postag_regexp="yes" min="0" />
+            <token postag="NNS" />
+            <token postag="DT" />
         </antipattern>
         <pattern>
             <marker>
@@ -16010,5 +16019,45 @@ Incorrectly touched. <example type="untouched">Incorrect grammar. Those present 
             <token case_sensitive="yes" regexp="yes">[AaOo]h{1,20}|[OA]H{1,20}</token>
         </pattern>
         <disambig action="ignore_spelling"/>
+    </rule>
+
+    <rule id="RETD" name="ignore spelling of 'retd.'">
+        <pattern>
+            <token case_sensitive="yes" regexp="yes">[Rr]etd</token>
+            <token spacebefore="no">.</token>
+        </pattern>
+        <disambig action="ignore_spelling"/>
+    </rule>
+
+    <rule id="FAST_FOOD" name="'fast' no verb in 'fast food'">
+        <pattern>
+            <token postag="DT|PRP\$|JJ.*" postag_regexp="yes" chunk_re=".-NP.*" />
+            <marker>
+                <token>fast</token>
+            </marker>
+            <token>food</token>
+        </pattern>
+        <disambig action="remove" postag="VB.*" />
+    </rule>
+
+    <rule id="WHEREABOUTS_NO_ADVERB" name="'whereabouts' no adverb">
+        <pattern>
+            <token regexp="yes">his|my|y?our|their|the|th[oe]se|some|many|few|any|plenty|its</token>
+            <token postag="JJ.*" postag_regexp="yes" chunk_re="I-NP.*" min="0" />
+            <marker>
+                <token>whereabouts</token>
+            </marker>
+        </pattern>
+        <disambig action="remove" postag="W.*" />
+    </rule>
+
+    <rule id="ING" name="ignore spelling of 'go(ing)'">
+        <pattern>
+            <token regexp="yes">\(|/</token>
+            <marker>
+                <token regexp="yes">ing|ed</token>
+            </marker>
+        </pattern>
+       <disambig action="ignore_spelling"/>
     </rule>
 </rules>

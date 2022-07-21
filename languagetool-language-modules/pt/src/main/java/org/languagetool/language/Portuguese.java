@@ -73,6 +73,7 @@ public class Portuguese extends Language implements AutoCloseable {
   public Contributor[] getMaintainers() {
     return new Contributor[] {
             new Contributor("Marco A.G. Pinto", "http://www.marcoagpinto.com/"),
+            new Contributor("Susana Boatto (pt-BR)"),
             new Contributor("Tiago F. Santos (3.6-4.7)", "https://github.com/TiagoSantos81"),
             new Contributor("Matheus Poletto (pt-BR)", "https://github.com/MatheusPoletto")
     };
@@ -235,6 +236,7 @@ public class Portuguese extends Language implements AutoCloseable {
       case "UNPAIRED_BRACKETS":         return -5;
       case "PROFANITY":                 return -6;
       case "PT_BARBARISMS_REPLACE":     return -10;
+      case "BARBARISMS_PT_PT_V2":       return -10;
       case "PT_PT_SIMPLE_REPLACE":      return -11;
       case "PT_REDUNDANCY_REPLACE":     return -12;
       case "PT_WORDINESS_REPLACE":      return -13;

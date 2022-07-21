@@ -1,5 +1,89 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+Benet Salellas;NPMSSP0
+Pablo Llarena;NPMSSP0
+Common Voice;NPMSO00
+top model;NCCS000
+top models;NCCP000
+pla seqüència;NCMS000
+plans seqüència;NCMP000
+Google Calendar;NPMNO00
+xec regal;NCMS000
+xecs regal;NCMP000
+Guns N' Roses;NPMPO00
+Guns N’ Roses;NPMPO00
+Led Zeppelin;NPMPO00
+herpes zòster;NCMN000
+gas propà;NCMS000
+gas butà;NCMS000
+gas ozó;NCMS000
+La Vanguardia;NPFSO00
+ed.;NCCN000 # editor, editors, editora, edició...
+es Vedrà;NPMSG00
+es Vedranell;NPMSG00
+Van den Eynde;NPCNSP0
+matràs erlenmeyer;NCMS000
+matrassos erlenmeyer;NCMP000
+port sèrie;NCMS000
+ports sèrie;NCMP000
+gota a gota;NCMS000
+Michel Houellebecq;NPMSSP0
+colla pessigolla;NCFS000
+Reus Deportiu;NPMSO00
+Reiniciem Benissa;NPCNO00
+llit bressol;NCMS000
+llits bressol;NCMP000
+data fi;NCFS000
+data inici;NCFS000
+data començament;NCFS000
+escape room;NCMS000
+escape rooms;NCMP000
+Escape Room;NCMS000
+Escape Rooms;NCMP000
+Vicente del Bosque;NPMSSP0
+carta enclícica;NCFS000
+cartes enclíciques;NCFP000
+plànol detall;NCMS000
+grup classe;NCMS000
+grups classe;NCMP000
+bar piscina;NCMS000
+teatre auditori;NCMS000
+cuina menjador;NCFS000
+cuines menjador;NCFP000
+formatge feta;NCMS000
+Hard Rock;NPMSO00
+hard rock;NCMS000
+heavy rock;NCMS000
+Prime Music;NCCNO00
+Amazon Prime Music;NCCNO00
+Prime Video;NCCNO00
+Amazon Prime Video;NCCNO00
+lean manufacturing;NCMS000
+ràdio despertador;NCFS000
+ràdios despertadors;NCFP000
+Buenos Aires;NPCSG00
+negre sobre blanc;LOC_ADV
+dona de fer feines;NCFS000
+dones de fer feines;NCFP000
+Prime Video;NPCNO00
+a Déu sien dades;LOC_ADV
+Nikola Mirotic;NPMSSP0
+Sarunas Jasikevicius;NPMSSP0
+dades massives;NCFP000
+Times Square;NPCSG00
+Antònia Vicens;NPFSSP0
+mocador de fer farcells;NCMS000
+mocadors de fer farcells;NCMP000
+Pier Paolo;NCMSSP0
+Top Gun;NPCNO00
+Tony Soprano;NPMSSP0
+Rolling Stone;NPCNO00
+Rolling Stones;NPMPO00
+The Rolling Stones;NPMPO00
+García Lorca;NPMSSP0
+Federico García Lorca;NPMSSP0
+Freddie Mercury;NPMSSP0
+Alex Salmond;NPMSSP0
 Verds-Equo;NPMPO00
 Fran Ferri;NPMSSP0
 Manolo Mata;NPMSSP0
@@ -1533,7 +1617,6 @@ de matí	LOC_ADV
 de mentida	LOC_ADJ
 de mica en mica	LOC_ADV
 de mitjan	LOC_PREP
-de moda	LOC_ADJ
 de més a més	LOC_ADV
 de nyigui-nyogui	LOC_ADJ
 de por d'	LOC_PREP
@@ -2029,6 +2112,7 @@ ultra mesura	LOC_ADV
 ultra vires	LOC_ADV
 un per un	LOC_ADV
 un poc	LOC_ADV
+un poquet	LOC_ADV
 un pèl	LOC_ADV
 un xic	LOC_ADV
 una mica	LOC_ADV

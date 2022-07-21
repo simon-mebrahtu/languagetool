@@ -18,6 +18,13 @@
  */
 package org.languagetool.remote;
 
+import org.languagetool.AnalyzedSentence;
+import org.languagetool.AnalyzedToken;
+import org.languagetool.AnalyzedTokenReadings;
+import org.languagetool.JLanguageTool;
+import org.languagetool.Language;
+import org.languagetool.Languages;
+import org.languagetool.synthesis.Synthesizer;
 import org.languagetool.tools.StringTools;
 import org.languagetool.tools.Tools;
 
@@ -30,12 +37,7 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Properties;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,14 +48,18 @@ import java.util.regex.Pattern;
 public class ArtificialErrorEval {
 
   static String[] words = new String[2];
+  static String[] lemmas = new String[2];
   static String[] fakeRuleIDs = new String[2];
   static List<String> classifyTypes = Arrays.asList("TP", "FP", "TN", "FN", "TPs");
   static int[][] results = new int[2][5]; // word0/word1 ; TP/FP/TN/FN/TP with expected suggestion
   static int[] accumulateResults = new int[5]; // totalErrors/TP/FP/TN/FN
   static RemoteLanguageTool lt;
+  static JLanguageTool localLt;
+  static Synthesizer synth;
   static int maxLines = 1000000; // decrease this number for testing
   static boolean verboseOutput = false;
   static boolean undirectional = false;
+  static boolean inflected = false;
   static Pattern pWordboundaries = Pattern.compile("\\b.+\\b");
   static int countLine = 0;
   static List<String> onlyRules = new ArrayList<String>();
@@ -63,6 +69,7 @@ public class ArtificialErrorEval {
   static String langCode = "";
   static String corpusFilePath = "";
   static String outputPathRoot = "";
+  static HashMap<String, List<RemoteRuleMatch>> cachedMatches; 
 
   public static void main(String[] args) throws IOException {
     //use configuration file
@@ -74,10 +81,12 @@ public class ArtificialErrorEval {
       String inputFolder = prop.getProperty("inputFolder");
       String outpuFolder = prop.getProperty("outputFolder");
       String remoteServer = prop.getProperty("remoteServer");
-      runEvaluationOnFolders(inputFolder, outpuFolder, remoteServer);
+      boolean printSummaryDetails = Boolean.parseBoolean(prop.getProperty("printSummaryDetails", "true"));
+      boolean printHeader = Boolean.parseBoolean(prop.getProperty("printHeader", "true"));
+      runEvaluationOnFolders(inputFolder, outpuFolder, remoteServer, printSummaryDetails, printHeader);
       System.exit(0);
     }
-    if (args.length < 4 || args.length > 11) {
+    if (args.length < 4 || args.length > 12) {
       writeHelp();
       System.exit(1);
     }
@@ -99,17 +108,25 @@ public class ArtificialErrorEval {
       if (args[k].contentEquals("-c")) {
         errorCategory = args[k + 1];
       }
+      if (args[k].contentEquals("--inflected")) {
+        inflected = true;
+      }
     }
     words[0] = args[2];
     words[1] = args[3];
+    lemmas[0] = words[0];
+    lemmas[1] = words[1];
     langCode = args[0];
     corpusFilePath = args[1];
+    Language language = Languages.getLanguageForShortCode(langCode);
+    localLt = new JLanguageTool(language);
+    synth = language.getSynthesizer();
     lt = new RemoteLanguageTool(Tools.getUrl("http://localhost:8081"));
-    run();
+    run(true);
     // end of parsing from args  
   }
   
-  private static void runEvaluationOnFolders(String inputFolder, String outputFolder, String remoteServer) throws IOException {
+  private static void runEvaluationOnFolders(String inputFolder, String outputFolder, String remoteServer, boolean printSummaryDetails, boolean printHeader) throws IOException {
     
     verboseOutput = true;
     SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
@@ -123,8 +140,10 @@ public class ArtificialErrorEval {
     for (File languageDirectory : languageDirectories) {
       langCode = languageDirectory.getName();
       Files.createDirectories(Paths.get(outputPathRoot+"/"+langCode));
-      summaryOutputFilename = outputPathRoot+"/"+langCode+".tsv";
-      appendToFile(summaryOutputFilename, "Category\tRules\tErrors\tPrecision\tRecall\tTP\tFP\tTN\tFN");
+      summaryOutputFilename = outputPathRoot+"/"+langCode+"/"+langCode+".tsv";
+      if (printHeader) {
+        appendToFile(summaryOutputFilename, "Category\tRules\tErrors\tPrecision\tRecall\tTP\tFP\tTN\tFN");
+      }
       File[] categoryDirectories = languageDirectory.listFiles(File::isDirectory);
       for (File categoryDirectory: categoryDirectories) {
         Arrays.fill(accumulateResults, 0);
@@ -143,15 +162,15 @@ public class ArtificialErrorEval {
             undirectional = parts[2].equals("u");
           }
           verboseOutputFilename = outputPathRoot+"/"+langCode+"/"+errorCategory+"/"+myCorpusFile.getName();
-          run();
+          run(printSummaryDetails);
         }
         // total by category
         float precision = accumulateResults[1] / (float) (accumulateResults[1] + accumulateResults[2]);
         float recall = accumulateResults[1] / (float) (accumulateResults[1] + accumulateResults[4]);
         appendToFile (summaryOutputFilename, errorCategory + "\t" + "TOTAL" + "\t" 
             + accumulateResults[0] + "\t" 
-            + String.format("%.4f", precision) + "\t" 
-            + String.format("%.4f", recall) + "\t"
+            + String.format(Locale.ROOT, "%.4f", precision) + "\t" 
+            + String.format(Locale.ROOT, "%.4f", recall) + "\t"
             + accumulateResults[1] + "\t"
             + accumulateResults[2] + "\t"
             + accumulateResults[3] + "\t"
@@ -161,53 +180,98 @@ public class ArtificialErrorEval {
     }
   }
   
-  private static void run() throws IOException {
+  private static void run(boolean printSummaryDetails) throws IOException {
     Arrays.fill(results[0], 0);
     Arrays.fill(results[1], 0);
     fakeRuleIDs[0] = "rules_" + words[0] + "->" + words[1]; // rules in one direction
     fakeRuleIDs[1] = "rules_" + words[1] + "->" + words[0]; // rules in the other direction
-    CheckConfiguration config = new CheckConfigurationBuilder(langCode).disabledRuleIds("WHITESPACE_RULE").build();
+    CheckConfiguration config = new CheckConfigurationBuilder(langCode)
+      .disabledRuleIds("WHITESPACE_RULE")
+      .textSessionID("-2")
+      .build();
     long start = System.currentTimeMillis();
     List<String> lines = Files.readAllLines(Paths.get(corpusFilePath));
-    final Pattern p0;
-    Matcher mWordBoundaries = pWordboundaries.matcher(words[0]);
-    if (mWordBoundaries.matches()) {
-      p0 = Pattern.compile("\\b" + words[0] + "\\b", Pattern.CASE_INSENSITIVE);
-    } else {
-      p0 = Pattern.compile(words[0], Pattern.CASE_INSENSITIVE);
-    }
-    final Pattern p1;
-    mWordBoundaries = pWordboundaries.matcher(words[1]);
-    if (mWordBoundaries.matches()) {
-      p1 = Pattern.compile("\\b" + words[1] + "\\b", Pattern.CASE_INSENSITIVE);
-    } else {
-      p1 = Pattern.compile(words[1], Pattern.CASE_INSENSITIVE);
-    }
-    countLine = 0;
-    for (String line : lines) {
-      countLine++;
-      if (countLine > maxLines) {
-        break;
+    if (!inflected) {
+      final Pattern p0;
+      Matcher mWordBoundaries = pWordboundaries.matcher(words[0]);
+      if (mWordBoundaries.matches()) {
+        p0 = Pattern.compile("\\b" + words[0] + "\\b", Pattern.CASE_INSENSITIVE);
+      } else {
+        p0 = Pattern.compile(words[0], Pattern.CASE_INSENSITIVE);
       }
-      boolean foundSomething = false;
-      if (words[0].length() > 0) {
-        Matcher m = p0.matcher(line);
-        while (m.find()) {
-          foundSomething = true;
-          analyzeSentence(line, 0, m.start(), config);
+      final Pattern p1;
+      mWordBoundaries = pWordboundaries.matcher(words[1]);
+      if (mWordBoundaries.matches()) {
+        p1 = Pattern.compile("\\b" + words[1] + "\\b", Pattern.CASE_INSENSITIVE);
+      } else {
+        p1 = Pattern.compile(words[1], Pattern.CASE_INSENSITIVE);
+      }
+      countLine = 0;
+      for (String line : lines) {
+        cachedMatches = new HashMap<>();
+        countLine++;
+        if (countLine > maxLines) {
+          break;
+        }
+        boolean foundSomething = false;
+        if (words[0].length() > 0) {
+          Matcher m = p0.matcher(line);
+          while (m.find()) {
+            foundSomething = true;
+            analyzeSentence(line, 0, m.start(), config);
+          }
+        }
+        if (words[1].length() > 0) {
+          Matcher m = p1.matcher(line);
+          while (m.find()) {
+            foundSomething = true;
+            analyzeSentence(line, 1, m.start(), config);
+          }
+        }
+        if (!foundSomething) {
+          // printSentenceOutput("Ignored, no error", line, "");
+        }
+      } 
+    } else {
+      // search lemma
+      countLine = 0;
+      for (String line : lines) {
+        cachedMatches = new HashMap<>();
+        countLine++;
+        if (countLine > maxLines) {
+          break;
+        }
+        List<AnalyzedSentence> analyzedSentences = localLt.analyzeText(line);
+        boolean foundSomething = false;
+        for (AnalyzedSentence analyzedSentence: analyzedSentences) {
+          for (AnalyzedTokenReadings token : analyzedSentence.getTokensWithoutWhitespace()) {
+            if (lemmas[0].length() > 0) {
+              if (token.hasLemma(lemmas[0])) {
+                words[0] = token.getToken();
+                AnalyzedToken atr1 = token.readingWithLemma(lemmas[0]);
+                AnalyzedToken atr2 = new AnalyzedToken(atr1.getToken(), atr1.getPOSTag(), lemmas[1]);
+                String[] syntheziedWords = synth.synthesize(atr2, atr2.getPOSTag());
+                words[1] = syntheziedWords[0];
+                foundSomething = true;
+                analyzeSentence(line, 0, token.getStartPos(), config);
+              }
+            }
+            if (lemmas[1].length() > 0) {
+              if (token.hasLemma(lemmas[1])) {
+                words[1] = token.getToken();
+                AnalyzedToken atr1 = token.readingWithLemma(lemmas[1]);
+                AnalyzedToken atr2 = new AnalyzedToken(atr1.getToken(), atr1.getPOSTag(), lemmas[0]);
+                String[] syntheziedWords = synth.synthesize(atr2, atr2.getPOSTag());
+                words[0] = syntheziedWords[0];
+                foundSomething = true;
+                analyzeSentence(line, 1, token.getStartPos(), config);
+              }
+            }
+          }
         }
       }
-      if (words[1].length() > 0) {
-        Matcher m = p1.matcher(line);
-        while (m.find()) {
-          foundSomething = true;
-          analyzeSentence(line, 1, m.start(), config);
-        }
-      }
-      if (!foundSomething) {
-        // printSentenceOutput("Ignored, no error", line, "");
-      }
     }
+    
     // print results
     int oneOrTwo = (undirectional ? 1 : 2);
     for (int i = 0; i < oneOrTwo; i++) {
@@ -223,13 +287,13 @@ public class ArtificialErrorEval {
 
       resultsString.append("-------------------------------------\n");
       resultsString.append("Results for " + fakeRuleIDs[i] + "\n");
-      resultsString.append("TP (with expected suggestion): " + results[i][4] + "\n");
+      //resultsString.append("TP (with expected suggestion): " + results[i][4] + "\n");
       for (int j = 0; j < 4; j++) {
         resultsString.append(classifyTypes.get(j) + ": " + results[i][j] + "\n");
       }
 
-      resultsString.append("Precision: " + String.format("%.4f", precision) + "\n");
-      resultsString.append("Recall: " + String.format("%.4f", recall) + "\n");
+      resultsString.append("Precision: " + String.format(Locale.ROOT, "%.4f", precision) + "\n");
+      resultsString.append("Recall: " + String.format(Locale.ROOT, "%.4f", recall) + "\n");
       // out.write("TP with expected suggestion: " + String.format("%.4f",
       // expectedSuggestionPercentage)+"\n");
       resultsString.append("Errors: " + String.valueOf(errorsTotal) + "\n");
@@ -254,13 +318,15 @@ public class ArtificialErrorEval {
 //      System.out.println("TP with expected suggestion: " + String.format("%.4f", expectedSuggestionPercentage));
 //      System.out.println("Errors: " + String.valueOf(errorsTotal));
       
+      if (printSummaryDetails) {
+          appendToFile(summaryOutputFilename, errorCategory + "\t" + fakeRuleIDs[i]
+                  + "\t" + errorsTotal + "\t" + String.format(Locale.ROOT, "%.4f", precision) + "\t" + String.format(Locale.ROOT, "%.4f", recall) + "\t"
+                  + results[i][classifyTypes.indexOf("TP")] + "\t"
+                  + results[i][classifyTypes.indexOf("FP")] + "\t"
+                  + results[i][classifyTypes.indexOf("TN")] + "\t"
+                  + results[i][classifyTypes.indexOf("FN")] + "\t");
+      }
       
-      appendToFile (summaryOutputFilename, errorCategory + "\t" + fakeRuleIDs[i] 
-          + "\t" + errorsTotal + "\t" + String.format("%.4f", precision)  + "\t" + String.format("%.4f", recall) + "\t"
-          + results[i][classifyTypes.indexOf("TP")] + "\t"
-          + results[i][classifyTypes.indexOf("FP")] + "\t"
-          + results[i][classifyTypes.indexOf("TN")] + "\t"
-          + results[i][classifyTypes.indexOf("FN")] + "\t");
       accumulateResults[0] += errorsTotal;
       accumulateResults[1] += results[i][classifyTypes.indexOf("TP")];
       accumulateResults[2] += results[i][classifyTypes.indexOf("FP")];
@@ -270,7 +336,7 @@ public class ArtificialErrorEval {
     }
     float time = (float) ((System.currentTimeMillis() - start) / 1000.0);
     System.out.println("-------------------------------------");
-    System.out.println("Total time: " + String.format("%.2f", time) + " seconds");
+    System.out.println("Total time: " + String.format(Locale.ROOT, "%.2f", time) + " seconds");
   }
   
   private static void appendToFile(String FilePath, String text) throws IOException {
@@ -287,8 +353,19 @@ public class ArtificialErrorEval {
       throws IOException {
     // Correct sentence
     if (!undirectional || j == 0) {
-      List<RemoteRuleMatch> matchesCorrect = lt.check(correctSentence, config).getMatches();
-      List<String> ruleIDs = ruleIDsAtPos(matchesCorrect, fromPos, words[1 - j]);
+      List<RemoteRuleMatch> matchesCorrect;
+      if (cachedMatches.containsKey(correctSentence)) {
+        matchesCorrect = cachedMatches.get(correctSentence);
+      } else {
+        matchesCorrect = lt.check(correctSentence, config).getMatches();
+        cachedMatches.put(correctSentence, matchesCorrect);
+      }
+      String replaceWith = words[1 - j];
+      String originalString = correctSentence.substring(fromPos, fromPos + words[j].length());
+      if (StringTools.isCapitalizedWord(originalString)) {
+        replaceWith = StringTools.uppercaseFirstChar(replaceWith);
+      }
+      List<String> ruleIDs = ruleIDsAtPos(matchesCorrect, fromPos, replaceWith);
       if (ruleIDs.size() > 0) {
         results[j][classifyTypes.indexOf("FP")]++;
         printSentenceOutput("FP", correctSentence, fakeRuleIDs[j] + ":" + String.join(",", ruleIDs));
@@ -314,12 +391,19 @@ public class ArtificialErrorEval {
         // Should not happen
         printSentenceOutput("Error: word cannot be replaced", correctSentence, "");
         return;
+      }    
+      List<RemoteRuleMatch> matchesWrong;
+      if (cachedMatches.containsKey(wrongSentence)) {
+        matchesWrong = cachedMatches.get(wrongSentence);
+      } else {
+        matchesWrong = lt.check(wrongSentence, config).getMatches();
+        cachedMatches.put(wrongSentence, matchesWrong);
       }
-      List<RemoteRuleMatch> matchesWrong = lt.check(wrongSentence, config).getMatches();
-      List<String> ruleIDs = ruleIDsAtPos(matchesWrong, fromPos, words[j]);
+      
+      List<String> ruleIDs = ruleIDsAtPos(matchesWrong, fromPos, originalString);
       if (ruleIDs.size() > 0) {
         //results[1 - j][classifyTypes.indexOf("TP")]++;
-        if (isExpectedSuggestionAtPos(matchesWrong, fromPos, words[j], wrongSentence, correctSentence)) {
+        if (isExpectedSuggestionAtPos(matchesWrong, fromPos, originalString, wrongSentence, correctSentence)) {
           //results[1 - j][classifyTypes.indexOf("TPs")]++;
           results[1 - j][classifyTypes.indexOf("TP")]++;
           printSentenceOutput("TP", wrongSentence, fakeRuleIDs[1 - j] + ":" + String.join(",", ruleIDs));
@@ -342,7 +426,7 @@ public class ArtificialErrorEval {
         System.out.println(countLine + ". " + classification + ": " + sentence + " –– " + ruleIds);
       } else {
         try (BufferedWriter out = new BufferedWriter(new FileWriter(verboseOutputFilename, true))) {
-          out.write(countLine + ". " + classification + ": " + sentence + " –– " + ruleIds+"\n");
+          out.write(countLine + "\t" + classification + "\t" + sentence + "\t" + ruleIds+"\n");
         }  
       }
       
@@ -415,10 +499,11 @@ public class ArtificialErrorEval {
     System.out.println("  <string1> is the string to be replaced by <string2>, word boundaries will be "
         + "assumed at the start and the end of the strings");
     System.out.println("  <options>");
-    System.out.println("    -v      verbose, print all false positive or false negative sentences");
-    System.out.println("    -u      unidirectional, analyze only rules for string1 (wrong) -> string2 (correct)");
-    System.out.println("    -r      list of comma-separated rules to be considered");
-    System.out.println("    -s      summary output file");
-    System.out.println("    -c      error category");
+    System.out.println("    -v           verbose, print all false positive or false negative sentences");
+    System.out.println("    -u           unidirectional, analyze only rules for string1 (wrong) -> string2 (correct)");
+    System.out.println("    -r           list of comma-separated rules to be considered");
+    System.out.println("    -s           summary output file");
+    System.out.println("    -c           error category");
+    System.out.println("    --inflected  search lemmas insted of forms");
   }
 }

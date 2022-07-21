@@ -5,7 +5,7 @@ interessant=ric;variat;divers;atractiu
 magnífic;fantàstic;meravellós;excel·lent;insuperable;extraordinari
 
 usar;fer servir;fer ús;utilitzar;emprar
-enviar;trametre;remetre
+#enviar;trametre;remetre
 usual=habitual;acostumat;comú
 habitual=usual;acostumat;comú
 actualment=ara;a hores d'ara;avui;ara com ara;en l'actualitat
@@ -22,10 +22,10 @@ aconseguir=obtenir;assolir
 assolir=aconseguir;obtenir
 obtenir=aconseguir;assolir
 explicar=contar;afirmar;declarar;detallar
-trobar=descobrir;aconseguir;jutjar;considerar
+#trobar=descobrir;aconseguir;jutjar;considerar
 #diferent=divers;distint
 problema=qüestió;punt;afer;dificultat;dubte
-treballar=fer feina;elaborar;actuar;produir;cultivar
+#treballar=fer feina;elaborar;actuar;produir;cultivar
 objectiu/N.*=finalitat;fi;propòsit;destí;meta
 
 gaudir=fruir;xalar

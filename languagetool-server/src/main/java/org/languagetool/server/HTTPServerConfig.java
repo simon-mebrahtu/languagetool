@@ -176,6 +176,17 @@ public class HTTPServerConfig {
   protected int abTestRollout = 100; // percentage [0,100]
   protected File ngramLangIdentData;
 
+    //User Settings for local-api
+  protected boolean localApiMode = false;
+  protected String motherTongue = "en-US";
+  protected List<String> preferredLanguages = new ArrayList<>();
+  
+  protected int dictLimitUser = 0;
+  protected int dictLimitTeam = 0;
+  protected int styleGuideLimitUser = 0;
+  protected int styleGuideLimitTeam = 0;
+  
+  
   private static final List<String> KNOWN_OPTION_KEYS = Arrays.asList("abTest", "abTestClients", "abTestRollout",
     "beolingusFile", "blockedReferrers", "cacheSize", "cacheTTLSeconds",
     "dbDriver", "dbPassword", "dbUrl", "dbUsername", "disabledRuleIds", "fasttextBinary", "fasttextModel", "grammalectePassword",
@@ -194,7 +205,9 @@ public class HTTPServerConfig {
     "premiumAlways",
     "redisPassword", "redisHost", "redisCertificate", "redisKey", "redisKeyPassword",
     "redisUseSentinel", "sentinelHost", "sentinelPort", "sentinelPassword", "sentinelMasterId",
-    "dbLogging", "premiumOnly", "nerUrl", "minPort", "maxPort" );
+    "dbLogging", "premiumOnly", "nerUrl", "minPort", "maxPort", "localApiMode", "motherTongue", "preferredLanguages",
+    "dictLimitUser", "dictLimitTeam", "styleGuideLimitUser", "styleGuideLimitTeam",
+    "passwortLoginAccessListPath");
 
   /**
    * Create a server configuration for the default port ({@link #DEFAULT_PORT}).
@@ -456,6 +469,17 @@ public class HTTPServerConfig {
         }
         slowRuleLoggingThreshold = Integer.valueOf(getOptionalProperty(props, "slowRuleLoggingThreshold", "-1"));
         disabledRuleIds = Arrays.asList(getOptionalProperty(props, "disabledRuleIds", "").split(",\\s*"));
+        localApiMode = Boolean.parseBoolean(getOptionalProperty(props, "localApiMode", "false"));
+        motherTongue = getOptionalProperty(props, "motherTongue", "en-US");
+        String preferredLanguages = getOptionalProperty(props, "preferredLanguages", "").replace(" ", "");
+        if (preferredLanguages != "") {
+          this.preferredLanguages = Arrays.asList(preferredLanguages.split(","));
+        }
+        dictLimitUser = Integer.valueOf(getOptionalProperty(props, "dictLimitUser", "0"));
+        dictLimitTeam = Integer.valueOf(getOptionalProperty(props, "dictLimitTeam", "0"));
+        styleGuideLimitUser = Integer.valueOf(getOptionalProperty(props, "styleGuideLimitUser", "0"));
+        styleGuideLimitTeam = Integer.valueOf(getOptionalProperty(props, "styleGuideLimitTeam", "0"));
+        
         globalConfig.setGrammalecteServer(getOptionalProperty(props, "grammalecteServer", null));
         globalConfig.setGrammalecteUser(getOptionalProperty(props, "grammalecteUser", null));
         globalConfig.setGrammalectePassword(getOptionalProperty(props, "grammalectePassword", null));
@@ -1465,6 +1489,36 @@ public class HTTPServerConfig {
   public void setRedisKeyPassword(String redisKeyPassword) {
     this.redisKeyPassword = redisKeyPassword;
   }
-  
-  public String getPasswortLoginAccessListPath() { return passwortLoginAccessListPath; }
+
+  public String getPasswortLoginAccessListPath() {
+    return passwortLoginAccessListPath;
+  }
+
+  public boolean isLocalApiMode() {
+    return localApiMode;
+  }
+
+  public String getMotherTongue() {
+    return motherTongue;
+  }
+
+  public List<String> getPreferedLanguages() {
+    return preferredLanguages;
+  }
+
+  public int getDictLimitUser() {
+    return dictLimitUser;
+  }
+
+  public int getDictLimitTeam() {
+    return dictLimitTeam;
+  }
+
+  public int getStyleGuideLimitUser() {
+    return styleGuideLimitUser;
+  }
+
+  public int getStyleGuideLimitTeam() {
+    return styleGuideLimitTeam;
+  }
 }

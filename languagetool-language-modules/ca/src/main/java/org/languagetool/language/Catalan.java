@@ -79,7 +79,7 @@ public class Catalan extends Language {
             		Example.wrong("Preus de venda al públic. <marker>han</marker> pujat molt."),
             		Example.fixed("Preus de venda al públic. <marker>Han</marker> pujat molt.")),
             new MultipleWhitespaceRule(messages, this),
-            new LongSentenceRule(messages, userConfig, 50),
+            new LongSentenceRule(messages, userConfig, 60),
             // specific to Catalan:
             new CatalanWordRepeatRule(messages, this),
             new MorfologikCatalanSpellerRule(messages, this, userConfig, altLanguages),
@@ -89,6 +89,7 @@ public class Catalan extends Language {
             new SimpleReplaceVerbsRule(messages, this),
             new SimpleReplaceBalearicRule(messages),
             new SimpleReplaceRule(messages),
+            new SimpleReplaceMultiwordsRule(messages),
             new ReplaceOperationNamesRule(messages, this),
             new SimpleReplaceDiacriticsIEC(messages),
             new SimpleReplaceAnglicism(messages), 
@@ -188,20 +189,28 @@ public class Catalan extends Language {
       case "CONFUSIONS2": return 50;
       case "MOTS_NO_SEPARATS": return 40;
       case "REPETEAD_ELEMENTS": return 40;
+      case "ESPERANT_US_AGRADI": return 40;
       case "ESPAIS_SOBRANTS": return 40; // greater than L
       case "CONCORDANCES_CASOS_PARTICULARS": return 30;
       case "CONFUSIONS_PRONOMS_FEBLES": return 30; // greater than ES (DIACRITICS)
       case "GERUNDI_PERD_T": return 30;
       case "CONFUSIONS": return 30;
+      case "PRONOMS_FEBLES_DARRERE_VERB": return 30; // greater than PRONOMS_FEBLES_SOLTS2
+      case "CA_SIMPLE_REPLACE_MULTIWORDS": return 30;
       case "CA_SIMPLE_REPLACE": return 30; // greater than CA_SIMPLE_REPLACE_VERBS
+      case "CA_SIMPLE_REPLACE_VERBS": return 28; // greater than PRONOMS_FEBLES_SOLTS2
+      case "REEMPRENDRE": return 28; // equal to CA_SIMPLE_REPLACE_VERBS
       case "INCORRECT_WORDS_IN_CONTEXT": return 25; // similar to but lower than CONFUSIONS
+      case "PRONOMS_FEBLES_SOLTS2": return 25;  // greater than PRONOMS_FEBLES_SOLTS and ES
       case "CONFUSIONS_ACCENT": return 20;
       case "DIACRITICS": return 20;
       case "MOTS_SENSE_GUIONETS": return 20; // greater than CONCORDANCES_NUMERALS
       case "PASSAT_PERIFRASTIC": return 20;
-      case "PRONOMS_FEBLES_SOLTS2": return 20;  // greater than PRONOMS_FEBLES_SOLTS
       case "ORDINALS": return 20; // greater than SEPARAT
       case "SUPER": return 20;
+      case "PRONOM_FEBLE_HI": return 20; // greater than HAVER_PARTICIPI_HAVER_IMPERSONAL
+      case "HAVER_PARTICIPI_HAVER_IMPERSONAL": return 15; // greater than ACCENTUATION_CHECK
+      case "CONCORDANCES_NUMERALS_DUES": return 10; // greater than CONCORDANCES_NUMERALS
       case "FALTA_CONDICIONAL": return 10; // greater than POTSER_SIGUI
       case "ACCENTUATION_CHECK": return 10;
       case "CONCORDANCES_NUMERALS": return 10;

@@ -10,6 +10,8 @@ title="Easy editing stylesheet" ?>
 
  Copyright © 2016-2022 Tiago F. Santos (tiagofsantos81@sapo.pt)
  Copyright © 2016-2022 Marco A.G.Pinto (www.marcoagpinto.com)
+ Copyright © 2022 Ricardo Joseh Lima
+ Copyright © 2022 Susana Boatto
 
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -29,55 +31,61 @@ title="Easy editing stylesheet" ?>
 
   <!DOCTYPE rules [
 
-    <!ENTITY meses_ano_abrev "(?:j(?:an|u[nl])|fev|ma[ir]|a(?:br|go)|set|out|nov|dez)">
-    <!ENTITY meses_ano "(?:j(?:aneiro|u[nl]ho)|fevereiro|ma(?:rço|io)|a(?:bril|gosto)|setembro|outubro|novembro|dezembro)">
-    <!ENTITY dias_semana_abrev "(?:s(?:e[gx]|áb)|ter|qu[ai]|dom)">
-    <!ENTITY dias_semana "(?:s(?:e(?:gunda|xta)|ábado)|terça|qu(?:arta|inta)|domingo)">
-    <!ENTITY expressoes_de_tempo "(?:segundo|minuto|hora|dia|semana|(?:bi|tri|quadri|se)mestre|ano|década|decénio|mil[éê]nio)s?|mês|meses">
+    <!ENTITY meses_ano_abrev "abr|ago|dez|fev|jan|jul|jun|mai|mar|nov|out|set">
+    <!ENTITY meses_ano "abril|agosto|dezembro|fevereiro|janeiro|julho|junho|maio|março|novembro|outubro|setembro">
+    <!ENTITY dias_semana_abrev "seg|sex|sáb|dom|qui|ter">
+    <!ENTITY dias_semana "domingo|quarta|quinta|sábado|segunda|sexta|terça">
+    <!ENTITY expressoes_de_tempo "ano|anos|bimestre|bimestres|década|décadas|dia|dias|hora|horas|mês|meses|milênio|milênios|minuto|minutos|quadrimestre|quadrimestres|segundo|segundos|semana|semanas|semestre|semestres|trimestre|trimestres">
 
     <!ENTITY hifen "[-‑]">
     <!ENTITY tracos_de_separacao "[-‑]|–|—">
 
-    <!ENTITY pontos_cardeais "(?:n(?:ascente|or(?:te|[do]este))|su(?:l|[do]este)|este|o(?:este|cidente|riente)|poente)">
+    <!ENTITY pontos_cardeais "este|nascente|nordeste|noroeste|norte|ocidente|oeste|oriente|poente|sudeste|sul">
     <!ENTITY pontos_cardeais_capitalizados "Norte|Sul|Este|Oeste|Ocidente|Oriente|Nascente|Poente|Nordeste|Sudeste|Noroeste|Sudoeste">
 
-    <!ENTITY contracoes_MS "(?:ao|d(?:o|um|ele|es[st]e|aquele|is[st]o|aquilo|outro)|n(?:o|um|ele|es[st]e|aquele|is[st]o|aquilo|outro)|pelo|algum|mo|to|lho)">
-    <!ENTITY contracoes_FS "(?:à|d(?:a|uma|ela|es[st]a|aquela|outra)|n(?:a|uma|ela|nes[st]a|aquela|outra)|pela|alguma|ma|ta|lha)">
-    <!ENTITY contracoes_MP "(?:aos|d(?:os|uns|eles|es[st]es|aqueles|outros)|n(?:os|uns|eles|es[st]es|aqueles|outros)|pelos|alguns|mos|tos|lhos)">
-    <!ENTITY contracoes_FP "(?:às|d(?:as|umas|elas|es[st]as|aquelas|outras)|n(?:as|umas|elas|es[st]as|aquelas|outras)|pelas|algumas|mas|tas|lhas)">
+    <!ENTITY contracoes_MS "algum|ao|daquele|daquilo|dele|desse|deste|disso|disto|do|doutro|dum|lho|mo|naquele|naquilo|nele|nesse|neste|nisso|nisto|no|noutro|num|pelo|to">
+    <!ENTITY contracoes_FS "à|alguma|da|daquela|dela|dessa|desta|doutra|duma|lha|ma|na|naquela|nela|noutra|numa|pela|ta">
+    <!ENTITY contracoes_MP "alguns|aos|daqueles|deles|desses|destes|dos|doutros|duns|lhos|mos|naqueles|neles|nesses|nestes|nos|noutros|nuns|pelos|tos">
+    <!ENTITY contracoes_FP "algumas|às|daquelas|das|delas|dessas|destas|doutras|dumas|lhas|mas|naquelas|nas|nelas|nessas|nestas|noutras|numas|pelas|tas">
 
-    <!ENTITY pronomes_retos "(?:e(?:l[ea]s?|u)|tu|nós|v(?:ós|ocês?))">
-    <!ENTITY pronomes_ambiguos "(?:[ao]s?|mas|nos|se)">
-    <!ENTITY pronomes_nao_ambiguos "(?:m(?:a|e|os?)|t(?:a|e|o)s?|lh[aeo]s?|vos)">
+    <!ENTITY pronomes_retos "ela|elas|ele|eles|eu|nós|tu|você|vocês|vós">
+    <!ENTITY pronomes_ambiguos "a|as|mas|nos|o|os|se">
+    <!ENTITY pronomes_nao_ambiguos "lha|lhas|lhe|lhes|lho|lhos|ma|me|mo|mos|ta|tas|te|to|tos|vos">
 
-    <!ENTITY verbos_de_ligacao "(?:andar|continuar|estar|ficar|p(?:arecer|ermanecer)|assemelhar|s(?:emelhar|er)|v(?:irar|viver))">
+    <!ENTITY verbos_de_ligacao "andar|assemelhar|continuar|estar|ficar|parecer|permanecer|semelhar|ser|virar">
+    <!ENTITY verbos_pronominais "apelidar|chamar|denominar">
+    <!ENTITY negacoes "jamais|nada|não|nem|nenhum|nenhuma|nenhumas|nenhuns|ninguém|nunca|sem|tampouco">
+    <!ENTITY introduz_proclise "ainda|apenas|até|bem|caso|como|conforme|consoante|embora|enquanto|já|mais|onde|para|pois|porque|portanto|quais|qual|quando|quão|quant[ao]s?|que|quem|se|sempre|talvez"><!-- XXX Excluded ali|aqui|acolá -->
 
-    <!ENTITY negacoes "(?:n(?:ão|em|unca|inguém|ada|enhu[mn]a?s?)|jamais|sem|tampouco)">
-    <!ENTITY introduz_proclise "(?:ainda|apenas|até|bem|caso|como|conforme|consoante|embora|enquanto|já|mais|onde|para|pois|porque|portanto|quais|qual|quando|quão|quant[ao]s?|que|quem|se|sempre|talvez)"><!-- XXX Excluded ali|aqui|acolá -->
-
-    <!ENTITY prefixos_i "(?:(?:p(?:(?:lu|e)r|ol)|m(?:ult|ax|in)|(?:quad|t)r|se(?:squ|m)|a(?:nt|ur)|[ou]n|hem|b)i)">
-    <!ENTITY prefixos_o "(?:(?:h(?:i(?:dr|p)|eter|om)|p(?:s(?:eud|ic)|rot)|(?:card|fis|soc|b)i|a(?:[eg]r|rteri|ut)|m(?:[ai]cr|orf)|e(?:letr|nd|x)|i(?:somacr|di)|g(?:astr|e)|r(?:etr|in)|x(?:ant|il)|ne(?:ur)?|o[cr]t|traque|lingu|quil)o)">
+    <!ENTITY prefixos_i "anti|auri|bi|hemi|maxi|mini|multi|peri|pluri|poli|semi|tri|uni">
+    <!ENTITY prefixos_o "agro|auto|eletro|endo|fisio|gastro|geo|hidro|hipo|homo|idio|macro|micro|morfo|neo|neuro|orto|proto|pseudo|psico|quilo|retro|rino|socio|xanto|xilo">
     <!ENTITY prefixos_o_2 "anarco|bio|paleo">
-    <!ENTITY prefixos_o_ambiguos "(?:(?:e(?:stere|ur|g)|(?:cent|sac)r|a(?:str|udi)|t(?:erm|urb)|f(?:il|ot)|i(?:ntr|d)|bronc|labi|mon|vas|zo)o)">
-    <!ENTITY prefixos_hifenizados_h "(?:p(?:r(?:(?:ot)?o|e)|seudo|enta|luri|an|os)|m(?:a(?:cro|xi)|i(?:cro|ni)|ulti|ega)|a(?:(?:[eg]r|ut)o|(?:rqu|nt)i)|s(?:u(?:p(?:er|ra)|b)|emi)|h(?:i(?:dro|per)|exa)|in(?:t(?:er|ra)|fra)|t(?:e(?:tra|le)|ri)|e(?:letro|xtra)|c(?:ircum|o)|re(?:tro)?|[gn]eo|ultra|bio?)">
-    <!ENTITY pronomes_de_tratamento "(?:Alteza|Beatitude|Divindade|E(?:minência|xcelência)|Graça|M(?:agnificência|ajestade)|Paternidade|R(?:ealeza|everência|everendíssim[ao])|Santidade|Senhoria)s?">
+    <!ENTITY prefixos_o_ambiguos "astro|bronco|centro|ego|euro|filo|foto|ido|mono|sacro|termo|turbo|vaso|zoo">
+    <!ENTITY prefixos_hifenizados_h "arqui|circum|co|extra|hexa|hiper|infra|inter|intra|mega|pan|penta|pre|pro|re|sub|super|supra|tele|tetra|ultra">
+    <!ENTITY pronomes_de_tratamento "Altezas?|Beatitudes?|Divindades?|Eminências?|Excelências?|Graças?|Magnificências?|Majestades?|Paternidades?|Realezas?|Reverências?|Reverendíssimas?|Reverendíssimos?|Santidades?|Senhorias?">
 
-    <!ENTITY naipes "(?:o[iu]ros|copas|espadas|paus|trunfos?)">
+    <!ENTITY naipes "o[iu]ros|copas|espadas|paus|trunfos?">
 
 	<!ENTITY gerundio_verbos "acabar|acontecer|afundar|ajudar|aumentar|criar|degradar|diminuir|disparar|elaborar|fazer|fluir|instalar|ir|lesar|quebrar|ser|travar|vir">
-
-	<!ENTITY gerundio_excecoes "abandonando|acelerando|acrescentando|acumulando|adicionando|aperfeiçoando|armazenando|aumentando|beneficiando|caindo|chegando|consolidando|crescendo|decrescendo|desaparecendo|emergindo|empregando|fazendo|ficando|ganhando|havendo|jogando|levantando|originando|perdendo|permitindo|procurando|progredindo|propagando|recorrendo|reduzindo|sabendo|saindo|sendo|surgindo|usando">
+	<!ENTITY gerundio_excecoes "abandonando|acelerando|acrescentando|acumulando|adicionando|aperfeiçoando|armazenando|aumentando|beneficiando|caindo|causando|chegando|conquistando|consolidando|crescendo|decrescendo|desaparecendo|emergindo|empregando|envolvendo|fazendo|ficando|ganhando|havendo|jogando|levantando|mudando|originando|perdendo|permitindo|pressionando|procurando|progredindo|propagando|recorrendo|reduzindo|repetindo|sabendo|saindo|sendo|surgindo|usando">
 
 	<!ENTITY cores_invariaveis "açafrão|água|alizarina|âmbar|ameixa|amêndoa|ametista|aspargo|bordô|borgonha|brasil|bronze|caqui|caramelo|cardo|carmesim|carmim|cenoura|cereja|chocolate|ciano|cinza|cobre|concha|creme|dainise|ébano|eminência|esmeralda|eucalipto|feldspato|ferrugem|fúchsia|fuligem|gainsboro|gelo|glitter|goiaba|grená|heliotrópio|independência|índigo|iris|jade|jambo|jasmine|kiwi|kobi|kobicha|laranja|lavanda|lemon|lilás|lima|linho|madeira|magenta|malva|mamão|maná|marfim|milho|mocassim|mostarda|neve|nyanza|ocre|oliva|orquídea|ouro|pêssego|prata|púrpura|quantum|quartz|renda|rosa|salmão|sépia|siena|tangerina|terracota|tijolo|tomate|triássico|trigo|turquesa|ube|urucum|vinho|violeta|xanadu|zaffre">
 	<!ENTITY cores "açafrão|água|alizarina|amarelo|âmbar|ameixa|amêndoa|ametista|aspargo|azul|bege|bordô|borgonha|branco|brasil|bronze|caqui|caramelo|cardo|carmesim|carmim|castanho|cenoura|cereja|chocolate|ciano|cinza|cobre|concha|coral|creme|dainise|dourado|ébano|eminência|encarnado|escarlate|esmeralda|eucalipto|fandango|feldspato|ferrugem|flerte|fúchsia|fuligem|gainsboro|gelo|glitter|goiaba|grená|heliotrópio|herbal|independência|índigo|iris|jade|jambo|jasmine|kiwi|kobi|kobicha|laranja|lavanda|lemon|lilás|lima|linho|madeira|magenta|malva|mamão|maná|marfim|marrom|milho|mocassim|mostarda|naval|neve|nyanza|ocre|oliva|orquídea|ouro|pardo|pêssego|prata|preto|púrpura|quantum|quartz|renda|rosa|roxo|rútilo|salmão|sépia|siena|tangerina|terracota|tijolo|tomate|triássico|trigo|turquesa|ube|urucum|verde|vermelho|vinho|violeta|xanadu|zaffre">
     <!-- Taken from: https://pt.wikipedia.org/wiki/Lista_de_cores -->
 
-	<!-- Estrangeirismos específicos pt_PT -->
-	<!ENTITY barbarismos_pt_pt "suspenses?">
-	
-    <!ENTITY expressoes_invariaveis_pt_pt "(?:algema|afazere|alvíssara|anai|antolho|apetrecho|arra|arredore|boda|brócol[io]|cã|calça|calenda|ceroula|cócega|condolência|confin|endoença|esponsai|esposório|exéquia|fasto|féria|feze|finança|hemorróida|mane|matina|nádega|núpcia|óculo|olheira|pantalona|parabén|pêsame|petrecho|pi[ck]le|primícia|reticência|suspensório|treva|víscera|vívere)">
-	
-]>
+    <!ENTITY informal "anhar|abafar|anhá|anhã|anhambi|anhambis|anhamente|anhamim|anhamins|anhanduiense|anhanduienses|anhanduizinhense|anhanduizinhenses|anhanga|anhangá|anhangaense|anhangaenses|anhangaiense|anhangaienses|anhangapa|anhangapas|anhangapiri|anhangapitã|anhangapitãs|anhangas|anhangás|anhanguense|anhanguenses|anhanguera|anhangueras|anhanguerense|anhanguerenses|anhanguerino|anhanguerinos|anhanha|anhanhas|anhanho|anhanhos|anhão|anhãos|anhapa|anhapas|anhara|anharas|anhás|anhãs|anhauiná|anhauinás|anhaúva|anhaúvas|anhembiense|anhembienses|anhice|anhices|anhima|anhimas|anhímida|anhímidas|anhimídea|anhimídeas|anhimídeo|anhimídeos|anhinga|anhingaíba|anhingaíbas|anhingas|anhingídea|anhingídeas|anhingídeo|anhingídeos|anhinho|anhinhos|anhíssima|anhíssimas|anhíssimo|anhíssimos|anho|anhonhecanhuva|anhonhecanhuvas|anhos|anhote|anhotes|anhotinho|anhotinhos|anhoto|anhotos|anhozão|anhozãos|anhuaque|anhuaques|anhuíba|anhuíbas|anhuma|anhuma-do-pantanal|anhumapoca|anhumapocas|anhumas|anhumas-do-pantanal|anhumense|anhumenses|anhupoca|anhupocas|anhuquicé|anhuquicê|anhuquicés|anhuquicês|babado|bacano|bacanos|badalhoca|badalhoco|badalo|badameca|badameco|badana|bagunça|baita|baixinha|baixinho|balofa|balofo|baril|barracada|barracadas|batelada|bate-papo|beiço|bejeca|belê|bichana|bichano|bichinha|bichinho|biscate|bitaite|blablablá|bófia|bombar|borrachão|brega|cabaço|cacilda|cadê|calhamaço|camandro|camandros|capar|caraças|carago|carango|casinha|casório|caxamola|caxamolas|certinha|certinho|chacha|chachas|chantar|chavala|chavalas|chavalo|chavalos|chilindró|chilindrós|chuto|cobrão|cocó|cocô|coisar|contigo|copião|cornear|cutucar|danada|danado|danar|desmiolada|desmiolado|docinha|docinho|doída|doído|drunfo|drunfos|encrenca|encrencas|esbardalhar|espertalhão|espertalhona|espigadote|estrambótica|estrambóticas|estrambótico|estrambóticos|estrilho|estrovenga|fartazana|fartazanas|festarola|festarolas|fezada|fezadas|filar|fixe|fofa|fofo|fuxicar|fuxiqueira|fuxiqueiro|gagá|gaja|gajas|gajo|gajos|galera|gatunar|gentinha|gentinhas|goró|gosma|granel|guita|guito|guna|gurizada|irada|irado|janado|janados|javardice|jola|laivo|laracha|lelé|logar|macarrone|magrela|magrelo|mamalhud[ao]s?|mana|mano|marada|maradas|marado|marados|maralha|maralhas|matraca|meia-boca|milhenta|milhentas|mitra|moçada|moina|morcão|morcões|motoqueira|motoqueiro|muvuca|novata|novato|oi|olhômetro|pandeiro|papão|papo|patada|peixão|pejada|pelar|perua|petiz|piegas|pindaíba|pindérico|pindéricos|porno|pornô|porrada|porrado|porre|porreiro|porreiros|poucochinho|poucochinhos|pro|pró|prum|pruma|pruns|quebra-galho|queca|rabiosque|rabiosques|racha|ranho|rapaziada|remexer|remexida|rolê|sacana|selinho|surripia|surripiá|surripia-a|surripia-as|surripiação|surripiaçãozinha|surripiações|surripiaçõezinhas|surripiaçona|surripiaçonas|surripiada|surripiadamente|surripiadão|surripiadas|surripiadinha|surripiadinhas|surripiadinho|surripiadinhos|surripiadíssima|surripiadíssimas|surripiadíssimo|surripiadíssimos|surripiado|surripiado-a|surripiado-as|surripiadões|surripiado-lhe|surripiado-lhes|surripiado-me|surripiadona|surripiadonas|surripiado-nos|surripiado-o|surripiado-os|surripiador|surripiadora|surripiadoramente|surripiadoras|surripiadorazinha|surripiadorazinhas|surripiadores|surripiadorezinhos|surripiadorezões|surripiadorona|surripiadoronas|surripiadorzão|surripiadorzinho|surripiados|surripiado-se|surripiado-se-lhe|surripiado-se-lhes|surripiado-te|surripiado-vos|surripiagem|surripiagens|surripiai|surripiai-a|surripiai-as|surripiai-lhe|surripiai-lhes|surripiai-me|surripiai-nos|surripiai-o|surripiai-os|surripiais|surripiai-se|surripiai-se-lhe|surripiai-se-lhes|surripiai-te|surripiai-vos|surripiá-la|surripia-la-á|surripia-la-ás|surripiá-la-ei|surripiá-la-emos|surripiá-la-ia|surripiá-la-iam|surripiá-las|surripia-las-á|surripia-las-ás|surripiá-las-ei|surripiá-las-emos|surripiá-las-ia|surripiá-las-iam|surripia-lhe|surripia-lhes|surripiá-lo|surripia-lo-á|surripiá-lo-á|surripiá-lo-ão|surripia-lo-ás|surripiá-lo-ás|surripiá-lo-ei|surripiá-lo-eis|surripiá-lo-emos|surripiá-lo-ia|surripiá-lo-iam|surripiá-lo-íamos|surripiá-lo-ias|surripiá-lo-íeis|surripiá-los|surripia-los-á|surripia-los-ás|surripiá-los-ei|surripiá-los-emos|surripiá-los-ia|surripiá-los-iam|surripiam|surripia-me|surripiam-lhe|surripiam-lhes|surripiam-me|surripiam-na|surripiam-nas|surripiam-no|surripiam-nos|surripiamo|surripiamo-la|surripiamo-las|surripiamo-lo|surripiamo-los|surripiamo-nos|surripiámo-nos|surripiamos|surripiámos|surripiamos-lhe|surripiamos-lhes|surripiamos-te|surripiamo-vos|surripiam-se|surripiam-se-lhe|surripiam-se-lhes|surripiam-te|surripiam-vos|surripiançamente|surripianção|surripiançãos|surripiancice|surripiancices|surripiancinho|surripiancinhos|surripiancíssima|surripiancíssimas|surripiancíssimo|surripiancíssimos|surripianço|surripianços|surripiançozão|surripiançozãos|surripiando|surripiando-a|surripiando-as|surripiando-lhe|surripiando-lhes|surripiando-me|surripiando-nos|surripiando-o|surripiando-os|surripiando-se|surripiando-se-lhe|surripiando-se-lhes|surripiando-te|surripiando-vos|surripia-nos|surripiante|surripiantes|surripia-o|surripia-os|surripiar|surripiara|surripiará|surripiara-a|surripiara-as|surripiara-lhe|surripiara-lhes|surripiaram|surripiara-me|surripiaram-lhe|surripiaram-lhes|surripiaram-me|surripiaram-na|surripiaram-nas|surripiaram-no|surripiaram-nos|surripiáramo-nos|surripiáramos|surripiaram-se|surripiaram-se-lhe|surripiaram-se-lhes|surripiaram-te|surripiaram-vos|surripiara-nos|surripiara-o|surripiarão|surripiara-os|surripiaras|surripiarás|surripiara-se|surripiara-se-lhe|surripiara-se-lhes|surripiara-te|surripiara-vos|surripiardes|surripiarei|surripiareis|surripiáreis|surripiarem|surripiarem-lhe|surripiarem-lhes|surripiarem-me|surripiarem-na|surripiarem-nas|surripiarem-no|surripiarem-nos|surripiaremo|surripiaremo-nos|surripiaremos|surripiarem-se|surripiarem-se-lhe|surripiarem-se-lhes|surripiarem-te|surripiarem-vos|surripiares|surripiaria|surripiariam|surripiaríamo-nos|surripiaríamos|surripiaríamos-lhe|surripiaríamos-lhes|surripiaríamos-te|surripiaríamo-vos|surripiarias|surripiaríeis|surripiarismo|surripiarismos|surripiarista|surripiaristas|surripiar-lha|surripiar-lhas|surripiar-lhe|surripiar-lhe-á|surripiar-lhe-ão|surripiar-lhe-ás|surripiar-lhe-ei|surripiar-lhe-eis|surripiar-lhe-emos|surripiar-lhe-ia|surripiar-lhe-iam|surripiar-lhe-íamos|surripiar-lhe-ias|surripiar-lhes|surripiar-lhes-á|surripiar-lhes-ão|surripiar-lhes-ás|surripiar-lhes-ei|surripiar-lhes-eis|surripiar-lhes-emos|surripiar-lhes-ia|surripiar-lhes-iam|surripiar-lhes-íamos|surripiar-lhes-ias|surripiar-lho|surripiar-lhos|surripiar-me|surripiar-me-á|surripiar-me-ão|surripiar-me-ás|surripiar-me-ei|surripiar-me-eis|surripiar-me-emos|surripiar-me-ia|surripiar-me-iam|surripiar-me-íamos|surripiar-me-ias|surripiarmo|surripiarmo-la|surripiarmo-las|surripiarmo-lo|surripiarmo-los|surripiarmo-nos|surripiarmos|surripiarmos-lhe|surripiarmos-lhes|surripiarmos-te|surripiarmo-vos|surripiar-na-ão|surripiar-nas-ão|surripiar-no-ão|surripiar-nos|surripiar-nos-á|surripiar-nos-ão|surripiar-nos-ás|surripiar-nos-ei|surripiar-nos-eis|surripiar-nos-emos|surripiar-nos-ia|surripiar-nos-iam|surripiar-nos-íamos|surripiar-nos-ias|surripiar-se|surripiar-se-á|surripiar-se-ão|surripiar-se-ás|surripiar-se-ei|surripiar-se-ia|surripiar-se-iam|surripiar-se-ias|surripiar-se-lhe|surripiar-se-lhes|surripiar-te|surripiar-te-á|surripiar-te-ão|surripiar-te-ás|surripiar-te-ei|surripiar-te-emos|surripiar-te-ia|surripiar-te-iam|surripiar-te-íamos|surripiar-te-ias|surripiar-vos|surripiar-vos-á|surripiar-vos-ão|surripiar-vos-ás|surripiar-vos-ei|surripiar-vos-eis|surripiar-vos-emos|surripiar-vos-ia|surripiar-vos-iam|surripiar-vos-íamos|surripiar-vos-ias|surripiar-vos-íeis|surripias|surripia-se|surripia-se-lhe|surripia-se-lhes|surripias-lhe|surripias-lhes|surripias-me|surripias-nos|surripias-se|surripiasse|surripiasse-a|surripiasse-as|surripiásseis|surripias-se-lhe|surripiasse-lhe|surripias-se-lhes|surripiasse-lhes|surripiassem|surripiasse-me|surripiassem-lhe|surripiassem-lhes|surripiassem-me|surripiassem-na|surripiassem-nas|surripiassem-no|surripiassem-nos|surripiássemo-nos|surripiássemos|surripiassem-se|surripiassem-se-lhe|surripiassem-se-lhes|surripiassem-te|surripiassem-vos|surripiasse-nos|surripiasse-o|surripiasse-os|surripiasses|surripiasse-se|surripiasse-se-lhe|surripiasse-se-lhes|surripiasse-te|surripiasse-vos|surripias-te|surripiaste|surripiaste-a|surripiaste-as|surripiaste-lhe|surripiaste-lhes|surripiaste-me|surripiaste-nos|surripiaste-o|surripiaste-os|surripiastes|surripiaste-se|surripiaste-se-lhe|surripiaste-se-lhes|surripiaste-te|surripiaste-vos|surripias-vos|surripia-te|surripiava|surripiava-a|surripiava-as|surripiava-lhe|surripiava-lhes|surripiavam|surripiava-me|surripiavam-lhe|surripiavam-lhes|surripiavam-me|surripiavam-na|surripiavam-nas|surripiavam-no|surripiavam-nos|surripiávamo-la|surripiávamo-las|surripiávamo-lo|surripiávamo-los|surripiávamo-nos|surripiávamos|surripiávamos-lhe|surripiávamos-lhes|surripiávamos-te|surripiávamo-vos|surripiavam-se|surripiavam-se-lhe|surripiavam-se-lhes|surripiavam-te|surripiavam-vos|surripiava-nos|surripiava-o|surripiava-os|surripiavas|surripiava-se|surripiava-se-lhe|surripiava-se-lhes|surripiava-te|surripiava-vos|surripiáveis|surripiável|surripia-vos|surripie|surripie-a|surripie-as|surripiei|surripiei-a|surripiei-as|surripiei-lhe|surripiei-lhes|surripiei-me|surripiei-o|surripiei-os|surripieis|surripiei-te|surripiei-vos|surripie-lhe|surripie-lhes|surripiem|surripie-me|surripiem-lhe|surripiem-lhes|surripiem-me|surripiem-na|surripiem-nas|surripiem-no|surripiem-nos|surripiemo|surripiemo-la|surripiemo-las|surripiemo-lo|surripiemo-los|surripiemo-nos|surripiemos|surripiemos-lhe|surripiemos-lhes|surripiemos-te|surripiemo-vos|surripiem-se|surripiem-se-lhe|surripiem-se-lhes|surripiem-te|surripiem-vos|surripie-nos|surripie-o|surripie-os|surripies|surripie-se|surripie-se-lhe|surripie-se-lhes|surripie-te|surripie-vos|surripilha|surripilhá|surripilha-a|surripilha-as|surripilhada|surripilhadamente|surripilhadão|surripilhadas|surripilhadinha|surripilhadinhas|surripilhadinho|surripilhadinhos|surripilhadíssima|surripilhadíssimas|surripilhadíssimo|surripilhadíssimos|surripilhado|surripilhado-a|surripilhado-as|surripilhadões|surripilhado-lhe|surripilhado-lhes|surripilhado-me|surripilhadona|surripilhadonas|surripilhado-nos|surripilhado-o|surripilhado-os|surripilhador|surripilhadora|surripilhadoramente|surripilhadoras|surripilhadorazinha|surripilhadorazinhas|surripilhadores|surripilhadorezinhos|surripilhadorezões|surripilhadorona|surripilhadoronas|surripilhadorzão|surripilhadorzinho|surripilhados|surripilhado-se|surripilhado-se-lhe|surripilhado-se-lhes|surripilhado-te|surripilhado-vos|surripilhai|surripilhai-a|surripilhai-as|surripilhai-lhe|surripilhai-lhes|surripilhai-me|surripilhai-nos|surripilhai-o|surripilhai-os|surripilhais|surripilhai-se|surripilhai-se-lhe|surripilhai-se-lhes|surripilhai-te|surripilhai-vos|surripilhá-la|surripilha-la-á|surripilha-la-ás|surripilhá-la-ei|surripilhá-la-emos|surripilhá-la-ia|surripilhá-la-iam|surripilhá-las|surripilha-las-á|surripilha-las-ás|surripilhá-las-ei|surripilhá-las-emos|surripilhá-las-ia|surripilhá-las-iam|surripilha-lhe|surripilha-lhes|surripilhá-lo|surripilha-lo-á|surripilha-lo-ás|surripilhá-lo-ei|surripilhá-lo-emos|surripilhá-lo-ia|surripilhá-lo-iam|surripilhá-los|surripilha-los-á|surripilha-los-ás|surripilhá-los-ei|surripilhá-los-emos|surripilhá-los-ia|surripilhá-los-iam|surripilham|surripilha-me|surripilhamento|surripilhamentos|surripilham-lhe|surripilham-lhes|surripilham-me|surripilham-na|surripilham-nas|surripilham-no|surripilham-nos|surripilhamo|surripilhamo-la|surripilhamo-las|surripilhamo-lo|surripilhamo-los|surripilhamo-nos|surripilhamos|surripilhamos-lhe|surripilhamos-lhes|surripilhamos-te|surripilhamo-vos|surripilham-se|surripilham-se-lhe|surripilham-se-lhes|surripilham-te|surripilham-vos|surripilhando|surripilhando-a|surripilhando-as|surripilhando-lhe|surripilhando-lhes|surripilhando-me|surripilhando-nos|surripilhando-o|surripilhando-os|surripilhando-se|surripilhando-se-lhe|surripilhando-se-lhes|surripilhando-te|surripilhando-vos|surripilha-nos|surripilhante|surripilhantes|surripilha-o|surripilha-os|surripilhar|surripilhara|surripilhará|surripilhara-a|surripilhara-as|surripilhara-lhe|surripilhara-lhes|surripilharam|surripilhara-me|surripilharam-lhe|surripilharam-lhes|surripilharam-me|surripilharam-na|surripilharam-nas|surripilharam-no|surripilharam-nos|surripilháramos|surripilharam-se|surripilharam-se-lhe|surripilharam-se-lhes|surripilharam-te|surripilharam-vos|surripilhara-nos|surripilhara-o|surripilharão|surripilhara-os|surripilharas|surripilharás|surripilhara-se|surripilhara-se-lhe|surripilhara-se-lhes|surripilhara-te|surripilhara-vos|surripilhardes|surripilharei|surripilhareis|surripilháreis|surripilharem|surripilharem-lhe|surripilharem-lhes|surripilharem-me|surripilharem-na|surripilharem-nas|surripilharem-no|surripilharem-nos|surripilharemo|surripilharemos|surripilharem-se|surripilharem-se-lhe|surripilharem-se-lhes|surripilharem-te|surripilharem-vos|surripilhares|surripilharia|surripilhariam|surripilharíamo-nos|surripilharíamos|surripilharíamos-lhe|surripilharíamos-lhes|surripilharíamos-te|surripilharíamo-vos|surripilharias|surripilharíeis|surripilhar-lha|surripilhar-lhas|surripilhar-lhe|surripilhar-lhe-á|surripilhar-lhe-ão|surripilhar-lhe-ás|surripilhar-lhe-ei|surripilhar-lhe-emos|surripilhar-lhe-ia|surripilhar-lhe-iam|surripilhar-lhe-ias|surripilhar-lhes|surripilhar-lhes-á|surripilhar-lhes-ão|surripilhar-lhes-ás|surripilhar-lhes-ei|surripilhar-lhes-emos|surripilhar-lhes-ia|surripilhar-lhes-iam|surripilhar-lhes-ias|surripilhar-lho|surripilhar-lhos|surripilhar-me|surripilhar-me-á|surripilhar-me-ão|surripilhar-me-ás|surripilhar-me-ei|surripilhar-me-ia|surripilhar-me-iam|surripilhar-me-ias|surripilharmo|surripilharmo-la|surripilharmo-las|surripilharmo-lo|surripilharmo-los|surripilharmo-nos|surripilharmos|surripilharmos-lhe|surripilharmos-lhes|surripilharmos-te|surripilharmo-vos|surripilhar-na-ão|surripilhar-nas-ão|surripilhar-no-ão|surripilhar-nos|surripilhar-nos-á|surripilhar-nos-ão|surripilhar-nos-ás|surripilhar-nos-ei|surripilhar-nos-emos|surripilhar-nos-ia|surripilhar-nos-iam|surripilhar-nos-ias|surripilhar-se|surripilhar-se-á|surripilhar-se-ão|surripilhar-se-ás|surripilhar-se-ei|surripilhar-se-ia|surripilhar-se-iam|surripilhar-se-ias|surripilhar-se-lhe|surripilhar-se-lhes|surripilhar-te|surripilhar-te-á|surripilhar-te-ão|surripilhar-te-ás|surripilhar-te-ei|surripilhar-te-emos|surripilhar-te-ia|surripilhar-te-iam|surripilhar-te-ias|surripilhar-vos|surripilhar-vos-á|surripilhar-vos-ão|surripilhar-vos-ás|surripilhar-vos-ei|surripilhar-vos-emos|surripilhar-vos-ia|surripilhar-vos-iam|surripilhar-vos-ias|surripilhas|surripilha-se|surripilha-se-lhe|surripilha-se-lhes|surripilhas-lhe|surripilhas-lhes|surripilhas-me|surripilhas-nos|surripilhas-se|surripilhasse|surripilhasse-a|surripilhasse-as|surripilhásseis|surripilhas-se-lhe|surripilhasse-lhe|surripilhas-se-lhes|surripilhasse-lhes|surripilhassem|surripilhasse-me|surripilhassem-lhe|surripilhassem-lhes|surripilhassem-me|surripilhassem-na|surripilhassem-nas|surripilhassem-no|surripilhassem-nos|surripilhássemos|surripilhassem-se|surripilhassem-se-lhe|surripilhassem-se-lhes|surripilhassem-te|surripilhassem-vos|surripilhasse-nos|surripilhasse-o|surripilhasse-os|surripilhasses|surripilhasse-se|surripilhasse-se-lhe|surripilhasse-se-lhes|surripilhasse-te|surripilhasse-vos|surripilhas-te|surripilhaste|surripilhaste-a|surripilhaste-as|surripilhaste-lhe|surripilhaste-lhes|surripilhaste-me|surripilhaste-nos|surripilhaste-o|surripilhaste-os|surripilhastes|surripilhaste-se|surripilhaste-se-lhe|surripilhaste-se-lhes|surripilhaste-te|surripilhaste-vos|surripilhas-vos|surripilha-te|surripilhava|surripilhava-a|surripilhava-as|surripilhava-lhe|surripilhava-lhes|surripilhavam|surripilhava-me|surripilhavam-lhe|surripilhavam-lhes|surripilhavam-me|surripilhavam-na|surripilhavam-nas|surripilhavam-no|surripilhavam-nos|surripilhávamo-la|surripilhávamo-las|surripilhávamo-lo|surripilhávamo-los|surripilhávamo-nos|surripilhávamos|surripilhávamos-lhe|surripilhávamos-lhes|surripilhávamos-te|surripilhávamo-vos|surripilhavam-se|surripilhavam-se-lhe|surripilhavam-se-lhes|surripilhavam-te|surripilhavam-vos|surripilhava-nos|surripilhava-o|surripilhava-os|surripilhavas|surripilhava-se|surripilhava-se-lhe|surripilhava-se-lhes|surripilhava-te|surripilhava-vos|surripilháveis|surripilha-vos|surripilhe|surripilhe-a|surripilhe-as|surripilhei|surripilhei-a|surripilhei-as|surripilhei-lhe|surripilhei-lhes|surripilhei-me|surripilhei-o|surripilhei-os|surripilheis|surripilhei-te|surripilhei-vos|surripilhe-lhe|surripilhe-lhes|surripilhem|surripilhe-me|surripilhem-lhe|surripilhem-lhes|surripilhem-me|surripilhem-na|surripilhem-nas|surripilhem-no|surripilhem-nos|surripilhemo|surripilhemo-la|surripilhemo-las|surripilhemo-lo|surripilhemo-los|surripilhemo-nos|surripilhemos|surripilhemos-lhe|surripilhemos-lhes|surripilhemos-te|surripilhemo-vos|surripilhem-se|surripilhem-se-lhe|surripilhem-se-lhes|surripilhem-te|surripilhem-vos|surripilhe-nos|surripilhe-o|surripilhe-os|surripilhes|surripilhe-se|surripilhe-se-lhe|surripilhe-se-lhes|surripilhe-te|surripilhe-vos|surripilho|surripilho-a|surripilho-as|surripilho-lhe|surripilho-lhes|surripilho-me|surripilho-o|surripilho-os|surripilho-te|surripilhou|surripilhou-a|surripilhou-as|surripilhou-lhe|surripilhou-lhes|surripilhou-me|surripilhou-nos|surripilhou-o|surripilhou-os|surripilhou-se|surripilhou-se-lhe|surripilhou-se-lhes|surripilhou-te|surripilhou-vos|surripilho-vos|surripio|surripio-a|surripio-as|surripio-lhe|surripio-lhes|surripio-me|surripio-o|surripio-os|surripio-te|surripiou|surripiou-a|surripiou-as|surripiou-lhe|surripiou-lhes|surripiou-me|surripiou-nos|surripiou-o|surripiou-os|surripiou-se|surripiou-se-lhe|surripiou-se-lhes|surripiou-te|surripiou-vos|surripio-vos|tabefe|tanas|tantã|tascar|time|trampo|transar|treta|trocentos|trouxa|trucida|trucidá|trucida-a|trucida-as|trucidabilidade|trucidabilidades|trucidabilíssima|trucidabilissimamente|trucidabilíssimas|trucidabilíssimo|trucidabilíssimos|trucidação|trucidaçãozinha|trucidações|trucidaçõezinhas|trucidaçona|trucidaçonas|trucidada|trucidadamente|trucidadão|trucidadas|trucidade|trucidades|trucidadinha|trucidadinhas|trucidadinho|trucidadinhos|trucidadíssima|trucidadíssimas|trucidadíssimo|trucidadíssimos|trucidado|trucidado-a|trucidado-as|trucidadões|trucidado-lhe|trucidado-lhes|trucidado-me|trucidadona|trucidadonas|trucidado-nos|trucidado-o|trucidado-os|trucidador|trucidadora|trucidadoramente|trucidadoras|trucidadorazinha|trucidadorazinhas|trucidadores|trucidadorezinhos|trucidadorezões|trucidadorona|trucidadoronas|trucidadorzão|trucidadorzinho|trucidados|trucidado-se|trucidado-se-lhe|trucidado-se-lhes|trucidado-te|trucidado-vos|trucidai|trucidai-a|trucidai-as|trucidai-lhe|trucidai-lhes|trucidai-me|trucidai-nos|trucidai-o|trucidai-os|trucidais|trucidai-se|trucidai-se-lhe|trucidai-se-lhes|trucidai-te|trucidai-vos|trucidá-la|trucida-la-á|trucida-la-ás|trucidá-la-ei|trucidá-la-emos|trucidá-la-ia|trucidá-la-iam|trucidá-las|trucida-las-á|trucida-las-ás|trucidá-las-ei|trucidá-las-emos|trucidá-las-ia|trucidá-las-iam|trucida-lhe|trucida-lhes|trucidá-lo|trucida-lo-á|trucidá-lo-á|trucidá-lo-ão|trucida-lo-ás|trucidá-lo-ás|trucidá-lo-ei|trucidá-lo-eis|trucidá-lo-emos|trucidá-lo-ia|trucidá-lo-iam|trucidá-lo-íamos|trucidá-lo-ias|trucidá-lo-íeis|trucidá-los|trucida-los-á|trucida-los-ás|trucidá-los-ei|trucidá-los-emos|trucidá-los-ia|trucidá-los-iam|trucidam|trucida-me|trucidamento|trucidamentos|trucidam-lhe|trucidam-lhes|trucidam-me|trucidam-na|trucidam-nas|trucidam-no|trucidam-nos|trucidamo|trucidamo-la|trucidamo-las|trucidamo-lo|trucidamo-los|trucidamo-nos|trucidámo-nos|trucidamos|trucidámos|trucidamos-lhe|trucidamos-lhes|trucidamos-te|trucidamo-vos|trucidam-se|trucidam-se-lhe|trucidam-se-lhes|trucidam-te|trucidam-vos|trucidando|trucidando-a|trucidando-as|trucidando-lhe|trucidando-lhes|trucidando-me|trucidando-nos|trucidando-o|trucidando-os|trucidando-se|trucidando-se-lhe|trucidando-se-lhes|trucidando-te|trucidando-vos|trucida-nos|trucidante|trucidantemente|trucidantes|trucidantice|trucidantices|trucidantidade|trucidantidades|trucidantíssima|trucidantíssimas|trucidantíssimo|trucidantíssimos|trucidantizada|trucidantizadas|trucidantizado|trucidantizados|trucidantizar|trucida-o|trucida-os|trucidar|trucidara|trucidará|trucidara-a|trucidara-as|trucidara-lhe|trucidara-lhes|trucidaram|trucidara-me|trucidaram-lhe|trucidaram-lhes|trucidaram-me|trucidaram-na|trucidaram-nas|trucidaram-no|trucidaram-nos|trucidáramo-nos|trucidáramos|trucidaram-se|trucidaram-se-lhe|trucidaram-se-lhes|trucidaram-te|trucidaram-vos|trucidara-nos|trucidara-o|trucidarão|trucidara-os|trucidaras|trucidarás|trucidara-se|trucidara-se-lhe|trucidara-se-lhes|trucidara-te|trucidara-vos|trucidardes|trucidarei|trucidareis|trucidáreis|trucidarem|trucidarem-lhe|trucidarem-lhes|trucidarem-me|trucidarem-na|trucidarem-nas|trucidarem-no|trucidarem-nos|trucidaremo|trucidaremo-nos|trucidaremos|trucidarem-se|trucidarem-se-lhe|trucidarem-se-lhes|trucidarem-te|trucidarem-vos|trucidares|trucidaria|trucidariam|trucidaríamo-nos|trucidaríamos|trucidaríamos-lhe|trucidaríamos-lhes|trucidaríamos-te|trucidaríamo-vos|trucidarias|trucidaríeis|trucidarismo|trucidarismos|trucidarista|trucidaristas|trucidar-lha|trucidar-lhas|trucidar-lhe|trucidar-lhe-á|trucidar-lhe-ão|trucidar-lhe-ás|trucidar-lhe-ei|trucidar-lhe-eis|trucidar-lhe-emos|trucidar-lhe-ia|trucidar-lhe-iam|trucidar-lhe-íamos|trucidar-lhe-ias|trucidar-lhes|trucidar-lhes-á|trucidar-lhes-ão|trucidar-lhes-ás|trucidar-lhes-ei|trucidar-lhes-eis|trucidar-lhes-emos|trucidar-lhes-ia|trucidar-lhes-iam|trucidar-lhes-íamos|trucidar-lhes-ias|trucidar-lho|trucidar-lhos|trucidar-me|trucidar-me-á|trucidar-me-ão|trucidar-me-ás|trucidar-me-ei|trucidar-me-eis|trucidar-me-emos|trucidar-me-ia|trucidar-me-iam|trucidar-me-íamos|trucidar-me-ias|trucidarmo|trucidarmo-la|trucidarmo-las|trucidarmo-lo|trucidarmo-los|trucidarmo-nos|trucidarmos|trucidarmos-lhe|trucidarmos-lhes|trucidarmos-te|trucidarmo-vos|trucidar-na-ão|trucidar-nas-ão|trucidar-no-ão|trucidar-nos|trucidar-nos-á|trucidar-nos-ão|trucidar-nos-ás|trucidar-nos-ei|trucidar-nos-eis|trucidar-nos-emos|trucidar-nos-ia|trucidar-nos-iam|trucidar-nos-íamos|trucidar-nos-ias|trucidar-se|trucidar-se-á|trucidar-se-ão|trucidar-se-ás|trucidar-se-ei|trucidar-se-ia|trucidar-se-iam|trucidar-se-ias|trucidar-se-lhe|trucidar-se-lhes|trucidar-te|trucidar-te-á|trucidar-te-ão|trucidar-te-ás|trucidar-te-ei|trucidar-te-emos|trucidar-te-ia|trucidar-te-iam|trucidar-te-íamos|trucidar-te-ias|trucidar-vos|trucidar-vos-á|trucidar-vos-ão|trucidar-vos-ás|trucidar-vos-ei|trucidar-vos-eis|trucidar-vos-emos|trucidar-vos-ia|trucidar-vos-iam|trucidar-vos-íamos|trucidar-vos-ias|trucidar-vos-íeis|trucidas|trucida-se|trucida-se-lhe|trucida-se-lhes|trucidas-lhe|trucidas-lhes|trucidas-me|trucidas-nos|trucidas-se|trucidasse|trucidasse-a|trucidasse-as|trucidásseis|trucidas-se-lhe|trucidasse-lhe|trucidas-se-lhes|trucidasse-lhes|trucidassem|trucidasse-me|trucidassem-lhe|trucidassem-lhes|trucidassem-me|trucidassem-na|trucidassem-nas|trucidassem-no|trucidassem-nos|trucidássemo-nos|trucidássemos|trucidassem-se|trucidassem-se-lhe|trucidassem-se-lhes|trucidassem-te|trucidassem-vos|trucidasse-nos|trucidasse-o|trucidasse-os|trucidasses|trucidasse-se|trucidasse-se-lhe|trucidasse-se-lhes|trucidasse-te|trucidasse-vos|trucidas-te|trucidaste|trucidaste-a|trucidaste-as|trucidaste-lhe|trucidaste-lhes|trucidaste-me|trucidaste-nos|trucidaste-o|trucidaste-os|trucidastes|trucidaste-se|trucidaste-se-lhe|trucidaste-se-lhes|trucidaste-te|trucidaste-vos|trucidas-vos|trucida-te|trucidava|trucidava-a|trucidava-as|trucidava-lhe|trucidava-lhes|trucidavam|trucidava-me|trucidavam-lhe|trucidavam-lhes|trucidavam-me|trucidavam-na|trucidavam-nas|trucidavam-no|trucidavam-nos|trucidávamo-la|trucidávamo-las|trucidávamo-lo|trucidávamo-los|trucidávamo-nos|trucidávamos|trucidávamos-lhe|trucidávamos-lhes|trucidávamos-te|trucidávamo-vos|trucidavam-se|trucidavam-se-lhe|trucidavam-se-lhes|trucidavam-te|trucidavam-vos|trucidava-nos|trucidava-o|trucidava-os|trucidavas|trucidava-se|trucidava-se-lhe|trucidava-se-lhes|trucidava-te|trucidava-vos|trucidáveis|trucidável|trucidavelmente|trucida-vos|trucide|trucide-a|trucide-as|trucidei|trucidei-a|trucidei-as|trucidei-lhe|trucidei-lhes|trucidei-me|trucidei-o|trucidei-os|trucideis|trucidei-te|trucidei-vos|trucide-lhe|trucide-lhes|trucidem|trucide-me|trucidem-lhe|trucidem-lhes|trucidem-me|trucidem-na|trucidem-nas|trucidem-no|trucidem-nos|trucidemo|trucidemo-la|trucidemo-las|trucidemo-lo|trucidemo-los|trucidemo-nos|trucidemos|trucidemos-lhe|trucidemos-lhes|trucidemos-te|trucidemo-vos|trucidem-se|trucidem-se-lhe|trucidem-se-lhes|trucidem-te|trucidem-vos|trucide-nos|trucide-o|trucide-os|trucides|trucide-se|trucide-se-lhe|trucide-se-lhes|trucide-te|trucide-vos|trucido|trucido-a|trucido-as|trucido-lhe|trucido-lhes|trucido-me|trucido-o|trucido-os|trucido-te|trucidou|trucidou-a|trucidou-as|trucidou-lhe|trucidou-lhes|trucidou-me|trucidou-nos|trucidou-o|trucidou-os|trucidou-se|trucidou-se-lhe|trucidou-se-lhes|trucidou-te|trucidou-vos|trucido-vos|tugandês|tugandesa|tugandesas|tugandeses|tugas|vacila|vacilá|vacila-a|vacila-as|vacilabilidade|vacilabilidades|vacilabilíssima|vacilabilissimamente|vacilabilíssimas|vacilabilíssimo|vacilabilíssimos|vacilação|vacilaçãozinha|vacilações|vacilaçõezinhas|vacilaçona|vacilaçonas|vacilada|vaciladamente|vaciladão|vaciladas|vaciladinha|vaciladinhas|vaciladinho|vaciladinhos|vaciladíssima|vaciladíssimas|vaciladíssimo|vaciladíssimos|vacilado|vacilado-a|vacilado-as|vaciladões|vacilado-lhe|vacilado-lhes|vacilado-me|vaciladona|vaciladonas|vacilado-nos|vacilado-o|vacilado-os|vacilador|vaciladora|vaciladoramente|vaciladoras|vaciladorazinha|vaciladorazinhas|vaciladores|vaciladorezinhos|vaciladorezões|vaciladorona|vaciladoronas|vaciladorzão|vaciladorzinho|vacilados|vacilado-se|vacilado-se-lhe|vacilado-se-lhes|vacilado-te|vacilado-vos|vacilai|vacilai-a|vacilai-as|vacilai-lhe|vacilai-lhes|vacilai-me|vacilai-nos|vacilai-o|vacilai-os|vacilais|vacilai-se|vacilai-se-lhe|vacilai-se-lhes|vacilai-te|vacilai-vos|vacilá-la|vacila-la-á|vacila-la-ás|vacilá-la-ei|vacilá-la-emos|vacilá-la-ia|vacilá-la-iam|vacilá-las|vacila-las-á|vacila-las-ás|vacilá-las-ei|vacilá-las-emos|vacilá-las-ia|vacilá-las-iam|vacila-lhe|vacila-lhes|vacilá-lo|vacila-lo-á|vacilá-lo-á|vacilá-lo-ão|vacila-lo-ás|vacilá-lo-ás|vacilá-lo-ei|vacilá-lo-eis|vacilá-lo-emos|vacilá-lo-ia|vacilá-lo-iam|vacilá-lo-íamos|vacilá-lo-ias|vacilá-lo-íeis|vacilá-los|vacila-los-á|vacila-los-ás|vacilá-los-ei|vacilá-los-emos|vacilá-los-ia|vacilá-los-iam|vacilam|vacila-me|vacilam-lhe|vacilam-lhes|vacilam-me|vacilam-na|vacilam-nas|vacilam-no|vacilam-nos|vacilamo|vacilamo-la|vacilamo-las|vacilamo-lo|vacilamo-los|vacilamo-nos|vacilámo-nos|vacilamos|vacilámos|vacilamos-lhe|vacilamos-lhes|vacilamos-te|vacilamo-vos|vacilam-se|vacilam-se-lhe|vacilam-se-lhes|vacilam-te|vacilam-vos|vacilância|vacilâncias|vacilando|vacilando-a|vacilando-as|vacilando-lhe|vacilando-lhes|vacilando-me|vacilando-nos|vacilando-o|vacilando-os|vacilando-se|vacilando-se-lhe|vacilando-se-lhes|vacilando-te|vacilando-vos|vacila-nos|vacilante|vacilantemente|vacilantes|vacilantice|vacilantices|vacilantidade|vacilantidades|vacilantíssima|vacilantíssimas|vacilantíssimo|vacilantíssimos|vacilantizada|vacilantizadas|vacilantizado|vacilantizados|vacilantizar|vacila-o|vacilão|vacila-os|vacilãozão|vacilãozinho|vacilãozões|vacilar|vacilara|vacilará|vacilara-a|vacilara-as|vacilara-lhe|vacilara-lhes|vacilaram|vacilara-me|vacilaram-lhe|vacilaram-lhes|vacilaram-me|vacilaram-na|vacilaram-nas|vacilaram-no|vacilaram-nos|vaciláramo-nos|vaciláramos|vacilaram-se|vacilaram-se-lhe|vacilaram-se-lhes|vacilaram-te|vacilaram-vos|vacilara-nos|vacilara-o|vacilarão|vacilara-os|vacilaras|vacilarás|vacilara-se|vacilara-se-lhe|vacilara-se-lhes|vacilara-te|vacilara-vos|vacilardes|vacilarei|vacilareis|vaciláreis|vacilarem|vacilarem-lhe|vacilarem-lhes|vacilarem-me|vacilarem-na|vacilarem-nas|vacilarem-no|vacilarem-nos|vacilaremo|vacilaremo-nos|vacilaremos|vacilarem-se|vacilarem-se-lhe|vacilarem-se-lhes|vacilarem-te|vacilarem-vos|vacilares|vacilaria|vacilariam|vacilaríamo-nos|vacilaríamos|vacilaríamos-lhe|vacilaríamos-lhes|vacilaríamos-te|vacilaríamo-vos|vacilarias|vacilaríeis|vacilarismo|vacilarismos|vacilar-lha|vacilar-lhas|vacilar-lhe|vacilar-lhe-á|vacilar-lhe-ão|vacilar-lhe-ás|vacilar-lhe-ei|vacilar-lhe-eis|vacilar-lhe-emos|vacilar-lhe-ia|vacilar-lhe-iam|vacilar-lhe-íamos|vacilar-lhe-ias|vacilar-lhes|vacilar-lhes-á|vacilar-lhes-ão|vacilar-lhes-ás|vacilar-lhes-ei|vacilar-lhes-eis|vacilar-lhes-emos|vacilar-lhes-ia|vacilar-lhes-iam|vacilar-lhes-íamos|vacilar-lhes-ias|vacilar-lho|vacilar-lhos|vacilar-me|vacilar-me-á|vacilar-me-ão|vacilar-me-ás|vacilar-me-ei|vacilar-me-eis|vacilar-me-emos|vacilar-me-ia|vacilar-me-iam|vacilar-me-íamos|vacilar-me-ias|vacilarmo|vacilarmo-la|vacilarmo-las|vacilarmo-lo|vacilarmo-los|vacilarmo-nos|vacilarmos|vacilarmos-lhe|vacilarmos-lhes|vacilarmos-te|vacilarmo-vos|vacilar-na-ão|vacilar-nas-ão|vacilar-no-ão|vacilar-nos|vacilar-nos-á|vacilar-nos-ão|vacilar-nos-ás|vacilar-nos-ei|vacilar-nos-eis|vacilar-nos-emos|vacilar-nos-ia|vacilar-nos-iam|vacilar-nos-íamos|vacilar-nos-ias|vacilar-se|vacilar-se-á|vacilar-se-ão|vacilar-se-ás|vacilar-se-ei|vacilar-se-ia|vacilar-se-iam|vacilar-se-ias|vacilar-se-lhe|vacilar-se-lhes|vacilar-te|vacilar-te-á|vacilar-te-ão|vacilar-te-ás|vacilar-te-ei|vacilar-te-emos|vacilar-te-ia|vacilar-te-iam|vacilar-te-íamos|vacilar-te-ias|vacilar-vos|vacilar-vos-á|vacilar-vos-ão|vacilar-vos-ás|vacilar-vos-ei|vacilar-vos-eis|vacilar-vos-emos|vacilar-vos-ia|vacilar-vos-iam|vacilar-vos-íamos|vacilar-vos-ias|vacilar-vos-íeis|vacilas|vacila-se|vacila-se-lhe|vacila-se-lhes|vacilas-lhe|vacilas-lhes|vacilas-me|vacilas-nos|vacilas-se|vacilasse|vacilasse-a|vacilasse-as|vacilásseis|vacilas-se-lhe|vacilasse-lhe|vacilas-se-lhes|vacilasse-lhes|vacilassem|vacilasse-me|vacilassem-lhe|vacilassem-lhes|vacilassem-me|vacilassem-na|vacilassem-nas|vacilassem-no|vacilassem-nos|vacilássemo-nos|vacilássemos|vacilassem-se|vacilassem-se-lhe|vacilassem-se-lhes|vacilassem-te|vacilassem-vos|vacilasse-nos|vacilasse-o|vacilasse-os|vacilasses|vacilasse-se|vacilasse-se-lhe|vacilasse-se-lhes|vacilasse-te|vacilasse-vos|vacilas-te|vacilaste|vacilaste-a|vacilaste-as|vacilaste-lhe|vacilaste-lhes|vacilaste-me|vacilaste-nos|vacilaste-o|vacilaste-os|vacilastes|vacilaste-se|vacilaste-se-lhe|vacilaste-se-lhes|vacilaste-te|vacilaste-vos|vacilas-vos|vacila-te|vacilatória|vacilatóriamente|vacilatórias|vacilatoriedade|vacilatoriedades|vacilatóriice|vacilatóriices|vacilatóriíssima|vacilatóriíssimas|vacilatóriíssimo|vacilatóriíssimos|vacilatóriizada|vacilatóriizadas|vacilatóriizado|vacilatóriizados|vacilatóriizar|vacilatório|vacilatórios|vacilava|vacilava-a|vacilava-as|vacilava-lhe|vacilava-lhes|vacilavam|vacilava-me|vacilavam-lhe|vacilavam-lhes|vacilavam-me|vacilavam-na|vacilavam-nas|vacilavam-no|vacilavam-nos|vacilávamo-la|vacilávamo-las|vacilávamo-lo|vacilávamo-los|vacilávamo-nos|vacilávamos|vacilávamos-lhe|vacilávamos-lhes|vacilávamos-te|vacilávamo-vos|vacilavam-se|vacilavam-se-lhe|vacilavam-se-lhes|vacilavam-te|vacilavam-vos|vacilava-nos|vacilava-o|vacilava-os|vacilavas|vacilava-se|vacilava-se-lhe|vacilava-se-lhes|vacilava-te|vacilava-vos|vaciláveis|vacilável|vacilavelmente|vacila-vos|vacile|vacile-a|vacile-as|vacilei|vacilei-a|vacilei-as|vacilei-lhe|vacilei-lhes|vacilei-me|vacilei-o|vacilei-os|vacileis|vacilei-te|vacilei-vos|vacile-lhe|vacile-lhes|vacilem|vacile-me|vacilem-lhe|vacilem-lhes|vacilem-me|vacilem-na|vacilem-nas|vacilem-no|vacilem-nos|vacilemo|vacilemo-la|vacilemo-las|vacilemo-lo|vacilemo-los|vacilemo-nos|vacilemos|vacilemos-lhe|vacilemos-lhes|vacilemos-te|vacilemo-vos|vacilem-se|vacilem-se-lhe|vacilem-se-lhes|vacilem-te|vacilem-vos|vacile-nos|vacile-o|vacile-os|vaciles|vacile-se|vacile-se-lhe|vacile-se-lhes|vacile-te|vacile-vos|vacilo|vacilo-a|vacilo-as|vacilões|vacilõezinhos|vacilo-lhe|vacilo-lhes|vacilo-me|vacilo-o|vacilo-os|vacilos|vacilo-te|vacilou|vacilou-a|vacilou-as|vacilou-lhe|vacilou-lhes|vacilou-me|vacilou-nos|vacilou-o|vacilou-os|vacilou-se|vacilou-se-lhe|vacilou-se-lhes|vacilou-te|vacilou-vos|vacilo-vos|vaquinha|vegetar|velhota|velhote|vó|vô|xi|xixi|zen|zilhão|zilhões">
+
+    <!-- Termos depreciativos específicos pt_PT -->
+    <!ENTITY depreciativo "baianada|bandalho|brasuca|caguinchas|campónio|china|chinoca|chulo|chunga|chungaria|chunguice|ciganada|ciganagem|coirão|crápula|cretino|fufa|gandulo|generaleco|imbecil|indigente|japa|labrego|larilas?|lorpa|maldito|maltrapilho|maricão|mariconço|mentecapto|monhé|morcão|negralhada|nhurrice|nhurro|pacóvio|panasca|panilas|patego|pelintra|portuga|pretalhada|pretaria|pulha|rabeta|tuga">
+
+    <!-- Estrangeirismos específicos pt_PT -->
+    <!ENTITY barbarismos "accelerandos?|agitato|alibi|allegretto|allegro|amabile|apartheid|apfelstrudel|baby-dolls?|backups?|badine|bavaroise|beagle|becquerel|bip|blague|blister|blog|blues|boate|bonsai|breakdance|brie|cache-sexe|calzone|camber|campus|caniche|cânon|cantabile|cantata|carpaccio|chaise-longue|charleston|chartreuse|cheddar|clarke|clear|clearance|cloisonné|códex|coloratura|continuum|cookies?|cordon-bleu|corpus|coulomb|cowboys?|crevasse|croissant|cumbia|czarina|datcha|debye|deficit|design|designers?|dojo|doping|doppler|drives?|drivers?|drugstores?|duce|duplex|ecstasy|ensalada|ensemble|entente|evasé|fait-divers|fanfreluche|farads?|fatwa|fax|fermata|flamenco|flash|flashes|fondue|forint|fortran|fox|freeware|fugato|funk|gay|glamour|glide|gospel|gouda|grunge|guaracha|habanera|habitat|habitus|hip-hop|hippies?|homo|horseball|hype|ibidem|id|impedimenta|influenza|in-octavo|interface|interferon|internet|item|jacuzzi|jamboree|jazz|joint-venture|joule|junkies?|kamikazes?|karaoke|karting|kasba|ketchup|kina|kitchenette|kits?|kuna|kung-fu|kwacha|kwanza|lamé|larghetto|lasers?|leasing|legato|lingerie|locus|login|maestoso|majorette|mambo|managers?|maquis|marketing|maser|matrioska|maxwell|microfarad|milcurie|miserere|misters?|modems?|moderato|modus|mohair|muesli|mvdol|napalm|necessaire|net|new-age|noir|nomenklatura|nuance|nylon|offline|offshores?|on-line|online|opus|origami|ossobuco|ouguiya|overbooking|paanga|pahoehoe|palmiers?|paparazzi|parsec|patchouli|pecorino|pence|perestroika|petit-suisse|pianoforte|pickles?|piercing|pilé|pince-nez|pinscher|playboys?|playstations?|poche|pogrom|poise|poodle|pop|posteriori|pot-pourri|práxis|priori|prise|promenade|punks?|putter|puzzle|quantum|quark|quiche|ralenti|rallentando|rave|ready-made|reggae|régie|reprise|reps|réveillon|rickettsia|rinforzando|ritardando|rocaille|rock|rodeo|roentgen|rookie|rubato|samples?|sashimi|scherzando|scherzo|scone|scope|set|setter|sexy|sfogato|sforzando|shareware|shar-pei|shiatsu|shopping|shows?|sic|sidecar|sievert|single|skates?|slalom|slogan|smorzando|snob|socialite|sottovoce|soul|spa|spam|spas|spins?|sprays?|sprue|staccato|standards?|stands?|steps?|stilb|stock|stop|stress|stressa|stressada|stressadas|stressado|stressados|stressai|stressais|stressam|stressamos|stressámos|stressando|stressante|stressantes|stressantice|stressantices|stressar|stressara|stressará|stressarão|stressaram|stressáramos|stressaras|stressarás|stressardes|stressarei|stressareis|stressáreis|stressarem|stressaremos|stressares|stressaria|stressariam|stressarias|stressarice|stressarices|stressarismo|stressarismos|stressarmos|stressas|stressasse|stressásseis|stressassem|stressássemos|stressasses|stressaste|stressastes|stressava|stressavam|stressávamos|stressavas|stressáveis|stressável|stresse|stressei|stresseis|stressem|stressemos|stresses|stressmente|stresso|stressou|strippers?|superstars?|surf|sushi|taekwondo|tai-chi|tandem|task-forces?|tavolatura|techno|teflon|telemarketing|telex|terylene|tickets?|timeshare|time-sharing|tiramisu|tofu|toner|top|topless|tópos|tops|tori|trailer|tremolo|trial|triplex|t-shirts?|tsunami|tupperware|tutilimúndi|tutti|tutu|vaudeville|velcro|vernissage|versus|vibrato|vide|videoclipes|vides|vintage|vitae|vitrine|vivace|volte-face|waffle|walkie-talkie|web|weber|western|yang|yeti|yin|yuppie|zen">
+    <!ENTITY barbarismos2 "abstracts?|applets?|apps?|backbones?|baconburgers?|banners?|bitcoins?|blue|bluetooth|bogie|boids?|boost|bottom-up|brainstorms?|bullying|burnouts?|cameraman|carjacking|chairman|commodity|commodities|contactless|crackers?|cracking|crashes|cyberbullying|czar|czares|debugging|demand|developers?|dildos?|downgrades?|downtime|drones?|e-bullying|e-commerce|e-learning|e-manuals?|e-newsletters?|e-readers?|fair-play|feeders?|flats?|flyers?|forward|führers?|gaming|gangbang|geeks?|goals?|gold|hackers?|homebanking|homepages?|idem|inputs?|items?|jiu-jitsu|know-how|KO|layers?|legacy|lob|loops?|lossless|marketeers?|maydays?|milkshakes?|nerds?|netiquette|newsgroups?|off-label|offside|on-label|outputs?|overflows?|p-values?|papers?|patch|patches|pens?|pizzas?|players?|preview|ransomware|reboot|red|reggaeton|restart|réveillons?|roadmaps?|royalty|royalties|scams?|scammers?|screenshots?|scroll|seals?|shell|shelters?|slides?|smartphones?|sockets?|softwares?|stalking|stealth|streaming|strings?|strogonoffs?|suspenses?|swarms?|tablets?|tagging|takeovers?|thresholds?|tips?|toolkits?|tracking|triggers?|trolls?|tweeters?|underscores?|Unicode|updates?|upgrades?|uptime|Usenet|wargames?|warm-up|webcams?|webinar|webinares|webmasters?|webpages?|wireless|woofers?|yes-man">
+	<!ENTITY barbarismos3 "desktops?|futon|sudoku|rap|tweets|check-in|pidgin|cents|Stick|LEDs?|Alzheimer|Skipper|Gilbert|uploads?|blockchain|bodyboarders?|chipsets?|crowdfundings?|DNA|geocachers?|hotspots?|hoverboards?|icebergs?|jetpacks?|overclockings?|podcasts?|RNA|top-down|trackpads?|websites?|woks?">
+
+    <!ENTITY expressoes_invariaveis_pt_pt "algema|afazere|alvíssara|anai|antolho|apetrecho|arra|arredore|boda|brócol[io]|cã|calça|calenda|ceroula|cócega|condolência|confin|endoença|esponsai|esposório|exéquia|fasto|féria|feze|finança|hemorróida|mane|núpcia|óculo|olheira|pantalona|parabén|pêsame|petrecho|pi[ck]le|primícia|reticência|suspensório|treva|víscera|vívere">
+
+          ]>
 <rules lang="pt" xsi:noNamespaceSchemaLocation="../../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <!-- Unification rules retrieved from galician grammar.xml - START-->
@@ -113,7 +121,1559 @@ title="Easy editing stylesheet" ?>
     <!-- Unification rules retrieved from galician grammar.xml - END  -->
 
  <category id="EUROPEAN_PORTUGUESE" name="Português de Portugal">
+     <!-- CHAMAR/DENOMINAR DE chamar/denominar -->
+     <rulegroup id='VERBO_PRONOMINAL_DE' name="V. Pronominal + de → V. Pronominal" type="style">
+         <!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-07-10 (Checked/Enhanced) (5-JUN-2022+)      -->
+         <!--
+         Temos uma teoria denominada de matemática. → Temos uma teoria denominada matemática.
+         A teoria, denominaram-lha de matemática. → A teoria, denominaram-lha matemática.
+         -->
+         <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/a-regencia-dos-verbos-chamar-e-denominar-ii/34550</url>
+         <rule>
 
+             <antipattern>
+                 <token min="1" max="2" postag='[DP][ADIPR].MP.+|SPS00:[DP][ADIPR].MP.+|SPS00|CC|CS|RG|I|RM|RN' postag_regexp='yes'/>
+                 <token postag='VMSF2S0' postag_regexp='no'/>
+                 <token>de</token>
+                 <token min="0" max="1" postag='_QUOT' postag_regexp='no'/>
+                 <token postag='NP.+|AQ.+|NC.+|UNKNOWN' postag_regexp='yes'/>
+                 <example>Queremos os chamares de Marco.</example>
+             </antipattern>
+
+             <antipattern>
+                 <token regexp='yes' inflected='yes'>alterar|banir|bloquear|enviar|modificar|receber</token>
+                 <token min="0" max="1" postag='[DP][ADIPR].+|SPS00:[DP][ADIPR].+|SPS00|CC|CS|RG|I|RM|RN' postag_regexp='yes'/>
+                 <token inflected='yes'>chamar</token>
+                 <token>de</token>
+                 <example>Simão recebe chamada de Augusto para ir a um jantar mais logo.</example>
+                 <example>APIs também estão disponíveis para permitir que aplicativos no modo de núcleo filtrem e modifiquem chamadas de registro feitas por outros aplicativos.</example>
+                 <example>Meu primo recebeu o chamado de Deus e virou padre.</example>
+                 <example>Tom recebeu uma chamada de Mary.</example>
+             </antipattern>
+
+             <pattern>
+                 <marker>
+                     <token regexp='yes' inflected='yes'>&verbos_pronominais;</token>
+                     <token>de</token>
+                 </marker>
+                 <token min="0" max="1" postag='_QUOT' postag_regexp='no'/>
+                 <token postag='NP.+|AQ.+|NC.+|UNKNOWN' postag_regexp='yes'>
+                     <exception regexp='yes'>regresso|retorno|volta</exception>
+                 </token>
+             </pattern>
+             <message>Este verbo é pronominal, a redação correta é sem a preposição 'de'.</message>
+             <suggestion>\1</suggestion>
+             <example correction="denominada">Temos uma teoria <marker>denominada de</marker> matemática.</example>
+             <example>Ele foi chamado de volta, em meio à sua viagem.</example>
+         </rule>
+
+         <rule>
+             <pattern>
+                 <marker>
+                     <token regexp='yes' inflected='yes'>&verbos_pronominais;</token>
+                     <token regexp='yes' spacebefore='no'>&tracos_de_separacao;</token>
+                     <token regexp='yes' spacebefore='no'>[ao]s?|l[ao]s?|lh[aeo]s?|n[ao]s?|me|se|te|vos</token>
+                     <token>de</token>
+                 </marker>
+                 <token min="0" max="1" postag='_QUOT' postag_regexp='no'/>
+                 <token postag='NP.+|AQ.+|NC.+|UNKNOWN' postag_regexp='yes'>
+                     <exception regexp='yes'>regresso|retorno|volta</exception>
+                 </token>
+             </pattern>
+             <message>Este verbo é pronominal, a redação correta é sem a preposição 'de'.</message>
+             <suggestion>\1\2\3</suggestion>
+             <example correction="denominaram-lha">A teoria, <marker>denominaram-lha de</marker> matemática.</example>
+             <example>Chamaram-no de volta, em meio à sua viagem.</example>
+         </rule>
+     </rulegroup>
+     <rulegroup id='INFORMALITIES' name="4. Linguagem informal">
+         <!-- Created by Tiago F. Santos, Portuguese rule, 2017-05-09 -->
+         <url>https://pt.wiktionary.org/wiki/Categoria:Coloquialismo_(Portugu%C3%AAs)</url>
+         <short>Linguagem informal</short>
+         <rule>
+             <antipattern>
+                 <token regexp="yes">pr[oó]</token>
+                 <token regexp='yes' spacebefore='no'>&hifen;</token>
+             </antipattern>
+             <antipattern>
+                 <token>pro</token>
+                 <token>bono</token>
+             </antipattern>
+             <pattern>
+                 <token regexp="yes">(?:&informal;)s?
+                     <exception regexp='yes' case_sensitive='yes'>chinocas?|[Vv]ós|Times?|X[Ii]</exception></token> <!-- "[Vv]ós" added by MARCOAGPINTO suggested by Ricardo Joseh Lima 2021-11-09 -->
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <example type="incorrect">Passei o dia a <marker>anhar</marker>.</example>
+             <example type="correct">Passei o dia a <marker>procrastinar</marker>.</example>
+             <example>Actua ao bloquear alguns metabólitos pró-inflamatórios que aceleram e agravam o processo.</example>
+             <example>E vós sereis como deuses.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>
+                     <exception postag_regexp='yes' postag='(?:[ZN].|[ADP]..|V.....)[FC].*'/></token>
+                 <marker>
+                     <token regexp="yes">pás?</token>
+                 </marker>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <example type="incorrect">Oh <marker>pá</marker>!</example>
+             <example type="incorrect">Os <marker>pás</marker> lá da terra passam o dia a fumar.</example>
+             <example type="correct">Os <marker>jovens</marker> lá da terra passam o dia a fumar.</example>
+             <example>Leva as pás, ao Sr. António.</example>
+         </rule>
+         <!--
+         This rule needs special tagging for augmentatives and diminutives
+         <rule>
+           <antipattern>
+             <token regexp='yes'>soldadinhos?</token>
+             <token regexp='yes' spacebefore='no' min='0'>&hifen;</token>
+             <token regexp='yes' spacebefore='no'>d[eo]</token>
+             <token regexp='yes' spacebefore='no' min='0'>&hifen;</token>
+             <token regexp='yes' spacebefore='no' min='0'>araripe|chumbo</token>
+           </antipattern>
+           <pattern>
+             <token postag_regexp='yes' postag='AQC.+|N.....[AD]'>
+               <exception negate_pos='yes' postag_regexp='yes' postag='AQC.+|N.....[AD]'/>
+               <exception regexp='yes'>(?:burrito|ca(?:pita|[mn]arinh[ao])|finit[ao]|p(?:erita|intainho)|r(?:etinha|atinho)|sozinh[ao]|tainha)s?|quadrinhos?|covinhas?</exception></token>
+             <!-\- TODO Improve tagger so that it recognizes missing aumentatives and diminutives -\->
+           </pattern>
+           <message>Linguagem informal. Considere as alternativas.</message>
+           <example type="incorrect">O peixe era <marker>grandinho</marker>, mas não bati nenhum recorde.</example>
+           <example type="correct">O peixe era <marker>muito grande</marker>, mas não bati nenhum recorde.</example>
+           <example type="correct">água límpida da nascente brota entre as pedras e <marker>caminha</marker> por entre as árvores que agradecem.</example>
+           <example type="correct">Ele sustentou <marker>sozinho</marker> três crianças. por entre as árvores que agradecem.</example>
+           <example type="correct">A derrota <marker>canarinha</marker> não deixou repercussões apenas em terras brasileiras.</example>
+         </rule>-->
+         <rule>
+             <pattern>
+                 <token>a</token>
+                 <token>fim</token>
+                 <token>de</token>
+             </pattern>
+             <message>Possível linguagem informal. Considere as alternativas.</message>
+             <suggestion>de modo a</suggestion>
+             <suggestion>interessar-se</suggestion>
+             <example correction='de modo a|interessar-se'><marker>a fim de</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token postag='SENT_START|_PUNCT|C.+' postag_regexp='yes'/>
+                 <marker>
+                     <token>a</token>
+                     <token>gente</token>
+                 </marker>
+             </pattern>
+             <message>O uso de "a gente" pode ser interpretado como desrespeitoso. Considere remover ou substituí-lo pelo pronome de tratamento mais adequado.</message>
+             <suggestion>nós</suggestion>
+             <suggestion/>
+             <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/connosco-com-a-gente-e-com-nos-no-portugues-europeu/26842</url>
+             <example correction='Nós|'><marker>A gente</marker> foi à rua.</example>
+             <example correction='nós|'>Estava tudo animado, e <marker>a gente</marker> foi à rua.</example>
+             <example correction='nós|'>Estava tudo animado — <marker>a gente</marker> foi à rua.</example>
+             <example>Quase toda <marker>a gente</marker> estava insegura.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>
+                     <exception regexp='yes'>com|toda</exception></token>
+                 <marker>
+                     <token>a</token>
+                     <token>gente</token>
+                 </marker>
+                 <token postag="V.+" postag_regexp='yes'/>
+             </pattern>
+             <message>O uso de "a gente" pode ser interpretado como desrespeitoso. Considere remover ou substituí-lo pelo pronome de tratamento mais adequado.</message>
+             <suggestion/>
+             <suggestion>nós</suggestion>
+             <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/connosco-com-a-gente-e-com-nos-no-portugues-europeu/26842</url>
+             <short>Linguagem informal</short>
+             <example correction="|Nós"><marker>A gente</marker> é que sabe.</example>
+             <example correction="|nós">E depois, <marker>a gente</marker> comeu e bebeu que nem uns loucos.</example>
+             <example>Quase toda <marker>a gente</marker> estava insegura.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>toda</token>
+                 <token>a</token>
+                 <token>gente</token>
+             </pattern>
+             <message>O uso de "toda a gente" é informal.</message>
+             <suggestion>todas as pessoas</suggestion>
+             <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/connosco-com-a-gente-e-com-nos-no-portugues-europeu/26842</url>
+             <short>Linguagem informal</short>
+             <example correction="todas as pessoas">Ele veio com <marker>toda a gente</marker> para o revéillon.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>acabar</token>
+                 <token>com</token>
+                 <token>o</token>
+                 <token>sofrimento</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion><match no='1' postag='V.+' postag_regexp='yes'>matar</match></suggestion>
+             <example correction='matar'><marker>acabar com o sofrimento</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>ah</token>
+                 <token>,</token>
+                 <token>vá</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>ah, vá</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>bater</token>
+                 <token>bem</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>bater bem</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>bater</token>
+                 <token regexp='yes'>papos?</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion><match no='1' postag='V.+' postag_regexp='yes'>falar</match></suggestion>
+             <example correction='falar'><marker>bater papo</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token regexp='yes'>bichos?</token>
+                 <token regexp='yes'>geográficos?</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>bicho geográfico</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>boca</token>
+                 <token>do</token>
+                 <token>estômago</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>boca do estômago</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>boca</token>
+                 <token>livre</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>boca livre</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>bola</token>
+                 <token regexp='yes'>pa?ra</token>
+                 <token>frente</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>bola pra frente</marker>.</example>
+         </rule>
+         <!--rule>
+         <pattern>
+           <token>cartão</token>
+           <token>do</token>
+           <token>cidadão</token>
+         </pattern>
+         <message>Linguagem informal. Considere as alternativas.</message>
+         <suggestion>bilhete de identidade</suggestion>
+         <example correction='bilhete de identidade'><marker>cartão do cidadão</marker>.</example>
+         </rule-->
+         <rule>
+             <pattern>
+                 <token>coisa</token>
+                 <token>e</token>
+                 <token>tal</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>coisa e tal</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>dar</token>
+                 <token min='0'>de</token>
+                 <token>dez</token>
+                 <token>a</token>
+                 <token regexp='yes'>zeros?</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>dar dez a zero</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>dar</token>
+                 <token>uma</token>
+                 <token>de</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>dar uma de</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>de</token>
+                 <token>borla</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion>grátis</suggestion>
+             <example correction='grátis'><marker>de borla</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>de</token>
+                 <token>rachar</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>de rachar</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>do</token>
+                 <token>balacobaco</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>do balacobaco</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>e</token>
+                 <token>aí</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion>e</suggestion>
+             <suggestion>e, nessa altura</suggestion>
+             <example correction='e|e, nessa altura'><marker>e aí</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>e</token>
+                 <token regexp='yes'>olh[ae]</token>
+                 <token>lá</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>e olhe lá</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <marker>
+                     <token>e</token>
+                     <token>tal</token>
+                 </marker>
+                 <token>
+                     <exception>como</exception></token><!-- XXX Handled by wordiness rule -->
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>e tal</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>encher</token>
+                 <token>o</token>
+                 <token>saco</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion><match no='1' postag='V.+' postag_regexp='yes'>aborrecer</match></suggestion>
+             <example correction='aborrecer'><marker>encher o saco</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>fala</token>
+                 <token>aí</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion>\1</suggestion>
+             <example correction='fala'><marker>fala aí</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>falar</token>
+                 <token>mal</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion><match no='1' postag='V.[SI].+' postag_regexp='yes'>maldizer</match></suggestion>
+             <example correction='maldiz'>Ele <marker>fala mal</marker>.</example>
+         </rule>
+         <!--rule>
+         <pattern>
+           <token>falas</token>
+           <token>português</token>
+         </pattern>
+         <message>Linguagem informal. Considere as alternativas.</message>
+         <suggestion/>
+         <example correction=''><marker>falas português</marker>.</example>
+         </rule-->
+         <rule>
+             <pattern>
+                 <token inflected='yes'>fazer</token>
+                 <token>nas</token>
+                 <token>coxas</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion>\1 apressadamente</suggestion>
+             <example correction='feito apressadamente'><marker>feito nas coxas</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>ligado</token>
+                 <token>no</token>
+                 <token>220</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>ligado no 220</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>mamão</token>
+                 <token>com</token>
+                 <token>açúcar</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>mamão com açúcar</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>mas</token>
+                 <token>,</token>
+                 <token>né</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>mas, né</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>mel</token>
+                 <token>na</token>
+                 <token>chupeta</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>mel na chupeta</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>morrer</token>
+                 <token>de</token>
+                 <token>rir</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>morrer de rir</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>estar</token>
+                 <token>na</token>
+                 <token>cara</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion><match no='1' postag='V.[^M]....' postag_regexp='yes'>ser</match> óbvio</suggestion>
+             <example correction='é óbvio'><marker>está na cara</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>não</token>
+                 <token inflected='yes'>saber</token>
+                 <token>das</token>
+                 <token>quantas</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>não sei das quantas</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>necas</token>
+                 <token>de</token>
+                 <token>pitibiribas</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>necas de pitibiribas</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>estar</token>
+                 <token>no</token>
+                 <token>ar</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>estar no ar</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>no</token>
+                 <token>geral</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion>geralmente</suggestion>
+             <example correction='geralmente'><marker>no geral</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token regexp='yes'>nos?</token>
+                 <token regexp='yes'>vamos?</token>
+                 <token>ver</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>no vamo ver</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>noves</token>
+                 <token>fora</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>noves fora</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <marker>
+                     <token>numa</token>
+                     <token>boa</token>
+                 </marker>
+                 <token>
+                     <exception postag_regexp='yes' postag='N.+'/></token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion>bem</suggestion>
+             <example correction='bem'><marker>numa boa</marker>.</example>
+             <example>É mais fácil acreditar numa boa mentira do que numa verdade.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token regexp='yes'>papos?</token>
+                 <token regexp='yes'>furados?</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>papo furado</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>pensar</token>
+                 <token>na</token>
+                 <token>morte</token>
+                 <token>da</token>
+                 <token>bezerra</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>pensar na morte da bezerra</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <marker>
+                     <token>pois</token>
+                     <token>é</token>
+                 </marker>
+                 <token regexp='yes'>[.,!?]</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>pois é</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>porta</token>
+                 <token>do</token>
+                 <token>cavalo</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>porta do cavalo</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>português</token>
+                 <token>com</token>
+                 <token>açúcar</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>português com açúcar</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>querer</token>
+                 <token>por</token>
+                 <token>querer</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>querer por querer</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token regexp='yes'>ratos?</token>
+                 <token>de</token>
+                 <token>biblioteca</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>rato de biblioteca</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token min='0'>se</token>
+                 <token inflected='yes'>bobear</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>se bobear</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>bobear</token>
+                 <token min='0' regexp='yes' spacebefore='no'>&hifen;</token>
+                 <token min='0'>se</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>bobear-se</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <marker>
+                     <token>tipo</token>
+                 </marker>
+                 <token postag='(?:[NZ].|A..)F.+' postag_regexp='yes'/>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion>parecido com</suggestion>
+             <suggestion>semelhante a</suggestion>
+             <example correction="parecido com|semelhante a">Tem uma consistência <marker>tipo</marker> água.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>tirar</token>
+                 <token>água</token>
+                 <token>do</token>
+                 <token>joelho</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>tirar água do joelho</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>tosse</token>
+                 <token>de</token>
+                 <token>cachorro</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>tosse de cachorro</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>um</token>
+                 <token>bocado</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion>um pouco</suggestion>
+             <example correction='um pouco'><marker>um bocado</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>vapt</token>
+                 <token>vupt</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>vapt vupt</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>virar</token>
+                 <token>e</token>
+                 <token inflected='yes'>mexer</token>
+             </pattern>
+             <message>Linguagem informal. Considere as alternativas.</message>
+             <suggestion/>
+             <example correction=''><marker>vira e mexe</marker>.</example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>a</token>
+                 <token>nem</token>
+                 <token>-</token>
+                 <token>nem</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/a_nem-nem</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>a nem-nem</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>adeus</token>
+                 <token>de</token>
+                 <token>mão</token>
+                 <token>fechada</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/adeus_de_mão_fechada</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>adeus de mão fechada</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>advogado</token>
+                 <token>de</token>
+                 <token>porta</token>
+                 <token>de</token>
+                 <token>cadeia</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/advogado_de_porta_de_cadeia</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>advogado de porta de cadeia</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>advogado</token>
+                 <token>de</token>
+                 <token>porta</token>
+                 <token>de</token>
+                 <token>xadrez</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/advogado_de_porta_de_xadrez</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>advogado de porta de xadrez</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>aqui</token>
+                 <token>se</token>
+                 <token>faz</token>
+                 <token>,</token>
+                 <token>aqui</token>
+                 <token>se</token>
+                 <token>paga</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/aqui_se_faz,_aqui_se_paga</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>aqui se faz, aqui se paga</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>aspa</token>
+                 <token>virada</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/aspa_virada</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>aspa virada</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>assentar</token>
+                 <token>o</token>
+                 <token>braço</token>
+                 <token>em</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/assentar_o_braço_em</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>assentar o braço em</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>atirar</token>
+                 <token>com</token>
+                 <token>tudo</token>
+                 <token>pelos</token>
+                 <token>ares</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/atirar_com_tudo_pelos_ares</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>atirar com tudo pelos ares</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>barriga</token>
+                 <token>d</token>
+                 <token>'</token>
+                 <token>água</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/barriga_d'água</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>barriga d'água</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>botar</token>
+                 <token>a</token>
+                 <token>boca</token>
+                 <token>no</token>
+                 <token>trombone</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/botar_a_boca_no_trombone</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>botar a boca no trombone</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>cabide</token>
+                 <token>de</token>
+                 <token>empregos</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/cabide_de_empregos</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>cabide de empregos</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>casar</token>
+                 <token>no</token>
+                 <token>padre</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/casar_no_padre</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>casar no padre</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>colírio</token>
+                 <token>para</token>
+                 <token>os</token>
+                 <token>olhos</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/colírio_para_os_olhos</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>colírio para os olhos</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>comida</token>
+                 <token>de</token>
+                 <token>sal</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/comida_de_sal</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>comida de sal</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>dar</token>
+                 <token>com</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/dar_com</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>dar com</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>dar</token>
+                 <token>espetáculo</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/dar_espetáculo</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>dar espetáculo</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>dar</token>
+                 <token>na</token>
+                 <token>telha</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/dar_na_telha</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>dar na telha</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>dar</token>
+                 <token regexp='yes'>pa?ra</token>
+                 <token>trás</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/dar_para_trás</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>dar para trás</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>dar</token>
+                 <token>às</token>
+                 <token>gâmbias</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/dar_às_gâmbias</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>dar às gâmbias</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>de</token>
+                 <token>jeito</token>
+                 <token>nenhum</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/de_jeito_nenhum</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>de jeito nenhum</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>dizer</token>
+                 <token>-</token>
+                 <token>me</token>
+                 <token>com</token>
+                 <token>quem</token>
+                 <token>andas</token>
+                 <token>e</token>
+                 <token>eu</token>
+                 <token>te</token>
+                 <token>direi</token>
+                 <token>quem</token>
+                 <token>és</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/diga-me_com_quem_andas_e_eu_te_direi_quem_és</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>diga-me com quem andas e eu te direi quem és</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>do</token>
+                 <token>apá</token>
+                 <token>virado</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/do_apá_virado</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>do apá virado</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>entender</token>
+                 <token>do</token>
+                 <token>riscado</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/entender_do_riscado</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>entender do riscado</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>enterrar</token>
+                 <token>o</token>
+                 <token>cadáver</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/enterrar_o_cadáver</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>enterrar o cadáver</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>espírito</token>
+                 <token>de</token>
+                 <token>porco</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/espírito_de_porco</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>espírito de porco</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>estar</token>
+                 <token>apertado</token>
+                 <token>da</token>
+                 <token>brocha</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/estar_apertado_da_brocha</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>estar apertado da brocha</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>estar</token>
+                 <token>fora</token>
+                 <token>do</token>
+                 <token>ar</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/estar_fora_do_ar</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>estar fora do ar</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>estar</token>
+                 <token>à</token>
+                 <token>brocha</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/estar_à_brocha</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>estar à brocha</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>fala</token>
+                 <token>sério</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/fala_sério</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>fala sério</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>fazer</token>
+                 <token>pé</token>
+                 <token>de</token>
+                 <token>alferes</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/fazer_pé_de_alferes</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>fazer pé de alferes</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>ficar</token>
+                 <token>passado</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/ficar_passado</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>ficar passado</marker></example>
+         </rule>
+         <!--rule>
+         <pattern>
+           <token inflected='yes'>fim</token>
+           <token>de</token>
+           <token>semana</token>
+         </pattern>
+         <message>Esta é uma expressão oral. Reveja.</message>
+         <url>https://pt.wiktionary.org/wiki/fim_de_semana</url>
+         <short>Coloquialismo</short>
+         <example correction=''><marker>fim de semana</marker></example>
+         </rule-->
+         <rule>
+             <pattern>
+                 <token inflected='yes'>fora</token>
+                 <token>do</token>
+                 <token>ar</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/fora_do_ar</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>fora do ar</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>ir</token>
+                 <token>ao</token>
+                 <token>pau</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/ir_ao_pau</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>ir ao pau</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>jus</token>
+                 <token>sperniandi</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/jus_sperniandi</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>jus sperniandi</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>latim</token>
+                 <token>de</token>
+                 <token>cozinha</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/latim_de_cozinha</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>latim de cozinha</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>levar</token>
+                 <token>nas</token>
+                 <token>bitáculas</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/levar_nas_bitáculas</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>levar nas bitáculas</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>mal</token>
+                 <token>de</token>
+                 <token>amores</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/mal_de_amores</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>mal de amores</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>mal</token>
+                 <token>de</token>
+                 <token>engasgo</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/mal_de_engasgo</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>mal de engasgo</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>meia</token>
+                 <token>boca</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/meia_boca</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>meia boca</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>mão</token>
+                 <token>de</token>
+                 <token>obra</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <suggestion>trabalhadores</suggestion>
+             <url>https://pt.wiktionary.org/wiki/mão_de_obra</url>
+             <short>Coloquialismo</short>
+             <example correction='trabalhadores'><marker>mão de obra</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>nascer</token>
+                 <token>com</token>
+                 <token>a</token>
+                 <token>bunda</token>
+                 <token>para</token>
+                 <token>a</token>
+                 <token>lua</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/nascer_com_a_bunda_para_a_lua</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>nascer com a bunda para a lua</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>para</token>
+                 <token>valer</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/para_valer</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>para valer</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>passar</token>
+                 <token>por</token>
+                 <token>cima</token>
+                 <token>do</token>
+                 <token>cadáver</token>
+                 <token>de</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/passar_por_cima_do_cadáver_de</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>passar por cima do cadáver de</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>pau</token>
+                 <token>de</token>
+                 <token>virar</token>
+                 <token>tripas</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/pau_de_virar_tripas</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>pau de virar tripas</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>pirar</token>
+                 <token>na</token>
+                 <token>batatinha</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/pirar_na_batatinha</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>pirar na batatinha</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>por</token>
+                 <token>mode</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/por_mode</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>por mode</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>pra</token>
+                 <token>valer</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/pra_valer</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>pra valer</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>pular</token>
+                 <token>a</token>
+                 <token>cerca</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/pular_a_cerca</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>pular a cerca</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>puto</token>
+                 <token>da</token>
+                 <token>vida</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/puto_da_vida</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>puto da vida</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>rapar</token>
+                 <token>de</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/rapar_de</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>rapar de</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>roer</token>
+                 <token>embira</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/roer_embira</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>roer embira</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>se</token>
+                 <token>pá</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/se_pá</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>se pá</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>saber</token>
+                 <token>lá</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/sei_lá</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>sei lá</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>sentar</token>
+                 <token>a</token>
+                 <token>bunda</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/sentar_a_bunda</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>sentar a bunda</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>som</token>
+                 <token>de</token>
+                 <token>sucesso</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/som_de_sucesso</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>som de sucesso</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>só</token>
+                 <token>que</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <suggestion>contudo</suggestion> <!-- Fixed by MARCOAGPINTO - 2020-06-03 -->
+             <suggestion>entretanto</suggestion> <!-- Fixed by MARCOAGPINTO - 2020-06-03 -->
+             <suggestion>mas</suggestion> <!-- Fixed by MARCOAGPINTO - 2020-06-03 -->
+             <suggestion>porém</suggestion> <!-- Fixed by MARCOAGPINTO - 2020-06-03 -->
+             <suggestion>todavia</suggestion> <!-- Fixed by MARCOAGPINTO - 2020-06-03 -->
+             <url>https://pt.wiktionary.org/wiki/só_que</url>
+             <short>Coloquialismo</short>
+             <example correction='contudo|entretanto|mas|porém|todavia'>Queria comprar a casa, <marker>só que</marker> não é possível.</example> <!-- Fixed by MARCOAGPINTO - 2020-06-03 -->
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>ter</token>
+                 <token>rabo</token>
+                 <token>-</token>
+                 <token>de</token>
+                 <token>-</token>
+                 <token>palha</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/ter_rabo-de-palha</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>ter rabo-de-palha</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>Tio</token>
+                 <token>Sam</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/Tio_Sam</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>Tio Sam</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>tipo</token>
+                 <token>assim</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/tipo_assim</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>tipo assim</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>tirar</token>
+                 <token>o</token>
+                 <token>cavalinho</token>
+                 <token>da</token>
+                 <token>chuva</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/tirar_o_cavalinho_da_chuva</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>tirar o cavalinho da chuva</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>tirar</token>
+                 <token>o</token>
+                 <token>cavalo</token>
+                 <token>da</token>
+                 <token>chuva</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/tirar_o_cavalo_da_chuva</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>tirar o cavalo da chuva</marker></example>
+         </rule>
+         <!--rule>
+         <pattern>
+           <token inflected='yes'>Trabalho</token>
+           <token>de</token>
+           <token>Hércules</token>
+         </pattern>
+         <message>Esta é uma expressão oral. Reveja.</message>
+         <url>https://pt.wiktionary.org/wiki/Trabalhos_de_Hércules</url>
+         <short>Coloquialismo</short>
+         <example correction=''><marker>Trabalhos de Hércules</marker></example>
+         </rule-->
+         <rule>
+             <pattern>
+                 <token inflected='yes'>trocar</token>
+                 <token>ideia</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/trocar_ideia</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>trocar ideia</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>trocar</token>
+                 <token>uma</token>
+                 <token>ideia</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/trocar_uma_ideia</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>trocar uma ideia</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>vossa</token>
+                 <token>mercê</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/vossa_mercê</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>vossa mercê</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token>à</token>
+                 <token>cagadinha</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/à_cagadinha</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>à cagadinha</marker></example>
+         </rule>
+         <rule>
+             <pattern>
+                 <token inflected='yes'>ver</token>
+                 <token>-</token>
+                 <token spacebefore='no' regexp='yes'>&pronomes_nao_ambiguos;|&pronomes_ambiguos;</token>
+                 <token>à</token>
+                 <token>brocha</token>
+             </pattern>
+             <message>Esta é uma expressão oral. Reveja.</message>
+             <url>https://pt.wiktionary.org/wiki/ver-se_à_brocha</url>
+             <short>Coloquialismo</short>
+             <example correction=''><marker>ver-se à brocha</marker></example>
+         </rule>
+     </rulegroup>
+     <rule id='PHRASAL_VERB_RESIDIR_EM' name='Regência verbal: Residir em'>
+         <!--      Created by Tiago F. Santos, 2018-09-19      -->
+         <!--antipattern>
+               <token regexp='yes'>residentes?|morador(?:es)?</token>
+               <token/>
+               <token regexp='yes'>com|em|n[ao]s?</token>
+           </antipattern-->
+         <antipattern>
+             <token regexp='yes'>residentes?|morad(?:as?|or(?:es)?)</token>
+             <token postag_regexp='yes' postag='A.+'/>
+         </antipattern>
+         <!-- MARCOAGPINTO 2020-10-06 + 2020-10-27 (21-OCT-2020+) *START* -->
+         <!-- "No núcleo reside a força imprescindível dos modelos." -->
+         <antipattern>
+             <token regexp="yes">residem?</token>
+             <token regexp="yes">as?|os?|um|uns|umas?</token>
+             <token postag='NC[CFM][SP]000|AQ0[CFM][SP]0' postag_regexp='yes'/>
+         </antipattern>
+         <!-- MARCOAGPINTO 2020-10-06 + 2020-10-27 (21-OCT-2020+) *END* -->
+         <pattern>
+             <token inflected='yes' regexp='yes'>residir|morar|residente|morador</token>
+             <token postag_regexp='yes' postag='[DN].+'>
+                 <exception postag_regexp='yes' postag='[AP].+'/>
+                 <exception postag_regexp='yes' postag='R.+'/>
+                 <exception regexp='yes'>com|em|n[ao]s?</exception>
+                 <exception scope='next' regexp='yes'>perigos?</exception></token>
+         </pattern>
+         <message>Erro de regência. Dependendo do significado, escolha:</message>
+         <suggestion>\1 em \2</suggestion>
+         <suggestion>\1 com \2</suggestion>
+         <url>https://ciberduvidas.iscte-iul.pt/glossario/erros/251</url>
+         <example correction='Reside em casa|Reside com casa'><marker>Reside casa</marker> da namorada?</example>
+         <example>Lá reside o perigo.</example>
+         <example>…que residentes cubanos nos Estados Unidos…</example>
+         <example>, entre residentes estrangeiros e nacionais no regime fiscal.</example>
+         <example type='correct'>No núcleo <marker>reside a</marker> força imprescindível dos modelos.</example>
+         <example>Mora alguém nesta casa?</example>
+         <example>Moramos juntos agora.</example>
+     </rule>
+     <!-- CHEGAR AO FIM findar/terminar -->
+     <rule id='CHEGAR_AO_FIM_FINDAR_TERMINAR' name="Chegar ao fim → findar/terminar/acabar" type="style">
+         <!--      Created by Marco A.G.Pinto, Portuguese rule 2022-07-03 (Checked/Enhanced) (5-JUN-2022+)      -->
+         <!--
+     Outro ano que chega ao fim. → Outro ano que finda/termina.
+     Outro ano a chegar ao fim. → Outro ano a findar/terminar.
+         -->
+         <pattern>
+             <token/>
+             <token regexp='yes'>a|que</token>
+             <token min="0" max="1"><exception regexp='no' inflected='yes'>chegar</exception></token>
+             <marker>
+                 <token inflected='yes'>chegar</token>
+                 <token>ao</token>
+                 <token>fim</token>
+             </marker>
+         </pattern>
+         <message>Enriqueça a linguagem para causar mais impacto ao leitor.</message>
+         <suggestion><match no='4' postag='V.+' postag_regexp='yes'>findar</match></suggestion>
+         <suggestion><match no='4' postag='V.+' postag_regexp='yes'>terminar</match></suggestion>
+         <suggestion><match no='4' postag='V.+' postag_regexp='yes'>acabar</match></suggestion>
+         <example correction="finda|termina|acaba">Outro ano que <marker>chega ao fim</marker>.</example>
+     </rule>
+   <rule id="ACEITO_ACEITE" name="aceito -> aceite" >
+     <pattern>
+       <token regexp='yes' inflected='yes'>ser|estar|ficar|permanecer|parecer
+         <exception>seres</exception></token>
+       <token min="0" max="3" postag_regexp='yes' postag='R.'/>
+       <token regexp='yes'>aceit[ao]s?</token>
+     </pattern>
+     <message>Em Portugal, a forma mais comum deste particípio é <match no='3' regexp_match='(.+)([ao])(s?)' regexp_replace='$1e$3'/>.</message>
+     <suggestion>\1 <match no='2' include_skipped='all'/> <match no='3' regexp_match='(.+)([ao])(s?)' regexp_replace='$1e$3'/></suggestion>
+     <!--suggestion>\1 <match no='2' include_skipped='all'/> <match no='3' regexp_match='(.+)ad([ao]s?)' regexp_replace='$1ue' suppress_misspelled='yes'/></suggestion-->
+     <example correction='foi aceite'>O projeto <marker>foi aceito</marker>.</example>
+     <example correction='foi aceite'>A China <marker>foi aceita</marker> na Organização Mundial do Comércio.</example>
+     <example correction='serem aceites'>Que ser de um certo tamanho e qualidade antes de <marker>serem aceitas</marker> pelos praticantes da MTC e consumidores.</example>
+   </rule>
 
   <rulegroup id='INVARIABLE_NOUNS' name="Substantivos invariáveis">
     <!-- Created by Tiago F. Santos, Portuguese rule, 2017-06-18 -->
@@ -135,6 +1695,9 @@ title="Easy editing stylesheet" ?>
       <url>https://pt.wikipedia.org/wiki/Plural#Apenas_plural</url>
       <example correction="bodas">Fizeram a <marker>boda</marker> de ouro a semana passada.</example>
       <example correction="óculos">Parti <marker>óculo</marker>.</example>
+      <example>Quero acordar às cinco da matina.</example>
+      <example>Se você der cravos às 7 da matina ao invés de água, eles duram mais tempo - durante três ou quatro semanas.</example>
+      <example>Levei a injeção na nádega esquerda.</example>
     </rule>
     <rule>
       <pattern>
@@ -1307,6 +2870,7 @@ O número de desenvolvedores vem aumentando.
           <token regexp='yes'>&gerundio_excecoes;</token>
       </antipattern>  
 <!-- MARCOAGPINTO 2021-03-17 (17-MAR-2021+) *END* -->
+
 <!-- MARCOAGPINTO 2021-03-19 (17-MAR-2021+) *START* -->
 <!--
 Com efeito, vinham-se acumulando estudos e testemunhos.
@@ -1317,8 +2881,17 @@ Com efeito, vinham-se acumulando estudos e testemunhos.
 		  <token regexp='yes' spacebefore='no'>&hifen;</token>
 		  <token/>
           <token regexp='yes'>&gerundio_excecoes;</token>
-      </antipattern>  
-<!-- MARCOAGPINTO 2021-03-19 (17-MAR-2021+) *END* -->	  
+      </antipattern>
+<!-- MARCOAGPINTO 2021-03-19 (17-MAR-2021+) *END* -->	 
+
+<!-- MARCOAGPINTO 2022-06-08 (5-JUN-2022+) *START* -->
+      <antipattern>
+			<token postag='NP.+|NC.+|AQ.+|VMP00.+' postag_regexp='yes'/>
+			<token regexp='yes'>&gerundio_excecoes;</token>
+			<example>Os terroristas agem contra os Estados recorrendo à força militar.</example>
+      </antipattern>
+<!-- MARCOAGPINTO 2022-06-08 (5-JUN-2022+) *END* -->
+
     <rule>
       <pattern>
           <token inflected='yes' regexp='yes'>estar|andar|ir|vir</token><!-- TODO Review all cases and confirm it can be safely expanded to more cases-->
@@ -1547,7 +3120,7 @@ Com efeito, vinham-se acumulando estudos e testemunhos.
     <rule id="SOBRADO" name="Brasileirismo: Sobrado - Vivenda">
       <pattern>
           <token case_sensitive='yes'>sobrado
-            <exception postag_regexp='yes' postag='V.+'/></token>
+            <exception postag_regexp='yes' postag='V.[^P].+'/></token>
       </pattern>
       <message>Expressão de Português do Brasil. Substitua por <suggestion>vivenda</suggestion>.</message>
       <example correction="vivenda">O <marker>sobrado</marker> do António está à venda.</example>
@@ -1774,6 +3347,22 @@ Com efeito, vinham-se acumulando estudos e testemunhos.
   -->
 
  <category id='FORMAL_SPEECH' name='Linguagem Formal' type='register'>
+     <!-- TERMOS DEPRECIATIVOS -->
+     <rule id='DEPRECIATIVO' name="7. Termos depreciativos" type="style">
+         <!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, Portuguese rule 2022-04-18/19 (1-JAN-2022+)      -->
+         <!--
+         Vou à loja do monhé. → Vou à loja do indiano.
+         -->
+         <pattern>
+             <token regexp='yes' inflected="yes">&depreciativo;
+                 <exception postag_regexp='yes' postag='NP.+'/>
+             </token>
+         </pattern>
+         <message>Este termo é depreciativo, pondere empregar um termo alternativo.</message>
+         <short>Termo depreciativo</short>
+         <example type="incorrect">Vou à loja do <marker>monhé</marker>.</example>
+         <example>Vou à loja do <marker>indiano</marker>.</example>
+     </rule>
 
 	<!-- EDUCAÇÃO SUPERIOR Ensino Superior -->
     <rule id='ENSINO_SUPERIOR' name="Educação Superior → Ensino Superior" type="style">
@@ -1926,6 +3515,34 @@ Mordomos-mores do Reino de Portugal.
 		<token postag='SPS.+' postag_regexp='yes'/>
       </antipattern>
 <!-- MARCOAGPINTO 2021-08-10 (25-JUN-2021+) *END* -->
+
+<!-- MARCOAGPINTO 2022-06-05 (5-JUN-2022+) *START* -->
+      <antipattern>
+		<token postag='VMP00.+|[DP][ADIP].+|SPS00:D[ADIP].+' postag_regexp='yes'>
+		    <exception postag_regexp='yes' postag='RG|RN|CS|PP2.+'/>
+			<exception regexp='no'>me</exception>
+			<exception scope="previous" regexp='no'>por</exception>
+		</token>
+	    <token postag='SPS.+|RG' postag_regexp='yes'>
+			<exception regexp='no'>nunca</exception>
+		</token>
+		<token min="0" max="1" postag='[DP][ADIP].+|NC.+|AQ.+' postag_regexp='yes'>
+			<exception regexp='no'>me</exception>
+		</token>
+	    <token postag='VM[IS]P2S0' postag_regexp='yes'/>
+		<example>Se o Sol é uma estrela anã, imagine o tamanho das demais estrelas!</example>
+		<example>O que vos distingue das demais marcas?</example>
+		<example>As pessoas não gostam muito de mim aqui nas ruas.</example>
+		<example>Você está presente nos dias mais felizes da minha vida, mas também nos piores.</example>
+		<example>Mataram-se mais inocentes.</example>
+		<example>O êxito na vida não se mede pelo que você conquistou, mas sim pelas dificuldades que superou no caminho.</example>
+		<example>O tenista equivocou-se muito nos saques.</example>
+		<example>Pegam-se mais moscas com mel do que com vinagre.</example>
+		<example>Na época da feira construíam-se ali ruas inteiras de barracas.</example>
+		<example>Não há perguntas idiotas, mas sim idiotas que não fazem perguntas.</example>
+      </antipattern>
+<!-- MARCOAGPINTO 2022-06-05 (5-JUN-2022+) *END* -->
+
       <pattern case_sensitive="yes">
           <token min='0' regexp='yes'>tu|vós</token>
           <token postag="V...2S.+" postag_regexp='yes'>
@@ -2099,6 +3716,7 @@ Mordomos-mores do Reino de Portugal.
       <example>«<marker>Garanto-te</marker> que foi mesmo assim.»</example>
       <example>"<marker>Garanto-te</marker> que foi mesmo assim."</example>
     </rule>
+
     <rule>
 <!-- MARCOAGPINTO 2020-06-07 *START* -->
 <!-- "Isso dá-me uma sensação de paz." -->
@@ -2123,13 +3741,6 @@ Mordomos-mores do Reino de Portugal.
 		  <token regexp='yes'>lhe|lhes</token>
 		  <token postag="VMN0000" postag_regexp='no'/>
       </antipattern>
-<!-- "Falta-lhe talento para ser ator." -->
-      <antipattern>
-		  <token postag="NCFS000" postag_regexp='no'/>
-		  <token regexp='yes' spacebefore='no'>&hifen;</token>
-		  <token regexp='yes'>lhe|lhes</token>
-		  <token postag="VMN0000|NC[CFM]S000" postag_regexp='yes'/>
-      </antipattern>	  
 <!-- MARCOAGPINTO 2020-06-07 *END* -->
 <!-- MARCOAGPINTO 2020-10-23 (21-OCT-2020+) *START* --> 
 <!-- "E assim abri-me com ela." -->
@@ -2194,22 +3805,6 @@ A cerâmica oriental interessa-me.
       </antipattern> 
 <!-- MARCOAGPINTO 2021-04-29 + 2021-07-16 (Enhanced) (17-MAR-2021+) *END* -->
 
-<!-- MARCOAGPINTO 2021-07-16 (25-JUN-2021+) *START* -->
-<!--
-Ao pensar em AI, vem-nos à mente os robôs.
-Cabe-nos por tal entender as regras; e não impô-las à natureza.
-Ambrósio responde-lhe por um tratado "Sobre a fé para Graciano Augusto", em cinco livros.
--->
-      <antipattern>
-		<token postag='VMIP3S0|VMM0[23]S0|VMSP[13]S0' postag_regexp='yes'/>
-		<token regexp='yes' spacebefore='no'>&hifen;</token>
-		<token regexp='yes' spacebefore='no'>me|lhes?|nos</token>
-		<token postag='SPS.+' postag_regexp='yes'/>
-		<token postag='NC.+|AQ.+|DI.+' postag_regexp='yes'/>
-	    <token postag='DA.+|NC.+|AQ.+|V.+' postag_regexp='yes'/>	  
-	  </antipattern>
-<!-- MARCOAGPINTO 2021-07-16 (25-JUN-2021+) *END* -->
-
 <!-- MARCOAGPINTO 2022-01-26 (1-JAN-2022+) *START* -->
 <!--
 Dói-me o estômago.
@@ -2220,29 +3815,66 @@ Dói-me aqui.
       <antipattern>
 		  <token postag='VMIP3P0' postag_regexp='no'/>
 		  <token regexp='yes' spacebefore='no'>&tracos_de_separacao;</token>
-		  <token regexp='yes' spacebefore='no'>me|lhes?|nos</token>		  
+		  <token regexp='yes' spacebefore='no'>me|lhes?|nos</token>
       </antipattern>
-<!-- MARCOAGPINTO 2022-01-26 (1-JAN-2022+) *END* -->  
+<!-- MARCOAGPINTO 2022-01-26 (1-JAN-2022+) *END* -->
 
-<!-- MARCOAGPINTO 2022-02-24 (1-JAN-2022+) *START* -->
+<!-- MARCOAGPINTO 2022-05-29 (Checked/Enhanced) (24-MAY-2022+) *START* -->
 <!--
 Ela dá-me a chave.
 Ele dá-me a chave.
 Ele pergunta-me onde ela mora.
 Ele trata-me com rigor.
 Ele evita-me.
+Informação pessoal que é dada á Car Detail permite-nos contacta-lo e enviar facturação sempre que seja necessário.
 -->
       <antipattern>
-		  <token regexp='yes'>el[ae]</token>
+		  <token postag='P[ADIP][3N][FMN].+|D[ADIP].+' postag_regexp='yes'/>
 		  <token postag='VMIP3S0' postag_regexp='no'/>
       </antipattern>
-<!-- MARCOAGPINTO 2022-02-24 (1-JAN-2022+) *END* --> 
+<!-- MARCOAGPINTO 2022-05-29 (Checked/Enhanced) (24-MAY-2022+) *END* -->
+
+<!-- MARCOAGPINTO 2022-06-06 (Checked/Enhanced) (5-JUN-2022+) *START* -->
+      <antipattern>
+		<token postag='VMIP3S0|VMM0[23]S0|VMSP[13]S0' postag_regexp='yes'>
+            <exception scope="previous" postag="SENT_START|_PUNCT" postag_regexp='yes'/>
+		</token>
+		<token regexp='yes' spacebefore='no'>&tracos_de_separacao;</token>
+		<token regexp='yes' spacebefore='no'>lhes?|nos</token>
+		<token postag='SPS.+|CC|CS|[DP][ADIP].+|RG' postag_regexp='yes'/>
+		<token postag='NC.+|AQ.+|NP.+|[DP][ADI].+|CS|RG' postag_regexp='yes'/>
+		<example>Ambrósio responde-lhe por um tratado "Sobre a fé para Graciano Augusto", em cinco livros.</example>
+		<example>Oferteo fornece-lhe com as novas ferramentas, graças ao seu contacto com um cliente e vendas são ainda mais fácil.</example>
+		<example>Ainda não tendes fé?» Nesta tarde, Senhor, a tua Palavra atinge e toca-nos a todos.</example>
+		<example>Falta-lhes à vida um pouco de fantasia.</example>
+		<example>Lopo diz-lhe que se o cabelo for mesmo dela, Clarice terá de cumprir a promessa e beijá –lo.</example>
+		<example>Apesar de sua idade, seu enorme valor à vida devolve-lhe a mocidade.</example>
+		<example>A Rumbo oferece-lhe os melhores voos aos melhores preços.</example>
+		<example>Esteja em paz com Deus, que o criou e que quer-lhe bem.</example>		
+	  </antipattern>
+<!-- MARCOAGPINTO 2022-06-06 (Checked/Enhanced) (5-JUN-2022+) *END* -->
+
+<!-- MARCOAGPINTO 2022-06-06 (Checked/Enhanced) (5-JUN-2022+) *START* -->
+      <antipattern>
+		  <!--<token postag="AQ..S.+|NC.S.+" postag_regexp='yes'/>-->
+      <token postag="V...3S.+" postag_regexp='yes'/>
+		  <token regexp='yes' spacebefore='no'>&tracos_de_separacao;</token>
+		  <token regexp='yes'>lhes?</token>
+		  <token><exception postag='PP2CSN00|DA.+|_PUNCT|SPS00' postag_regexp='yes'/></token>
+		  <example>Falta-lhe talento para ser ator.</example>
+		  <example>À Mary, falta-lhe delicadeza.</example>
+		  <example>Falta-lhe motivação.</example>
+		  <example>Acho que deve-lhe uma explicação.</example>
+		  <example>Cláudia, maravilhada com a beleza de Lourenço manda-lhe imensos piropos.</example>
+		  <example>Falta-lhe um parafuso.</example>
+      </antipattern>
+<!-- MARCOAGPINTO 2022-06-06 (Checked/Enhanced) (5-JUN-2022+) *END* -->
 
       <pattern>
           <token min='0' regexp='yes'>tu|vós</token>
           <token postag="V...2.+" postag_regexp='yes'>
             <exception>parece</exception>
-            <exception postag="V..[^P]3.+" postag_regexp='yes'/></token>
+            <!--<exception postag="V..[^P]3.+" postag_regexp='yes'/>--></token>
           <token regexp='yes' spacebefore='no'>&hifen;</token>
           <token regexp='yes'>me|te|lhe|nos|vos|lhes</token>
       </pattern>
@@ -2272,10 +3904,6 @@ Ele evita-me.
 	  <example>Mas uma voz interior diz-me que ainda não é a teoria certa.</example>
 	  <example>A cerâmica oriental interessa-me.</example>
 
-	  <example>Ao pensar em AI, vem-nos à mente os robôs.</example>
-	  <example>Cabe-nos por tal entender as regras; e não impô-las à natureza.</example>
-	  <example>Ambrósio responde-lhe por um tratado "Sobre a fé para Graciano Augusto", em cinco livros.</example>
-
 	  <example>Dói-me o estômago.</example>
 	  <example>Dói-me a barriga.</example>
 	  <example>Dói-me um dente.</example>
@@ -2286,7 +3914,9 @@ Ele evita-me.
 	  <example>Ele pergunta-me onde ela mora.</example>
 	  <example>Ele trata-me com rigor.</example>
 	  <example>Ele evita-me.</example>
+	  <example>Informação pessoal que é dada á Car Detail permite-nos contacta-lo e enviar facturação sempre que seja necessário.</example>
     </rule>
+	
     <!--    <rule>
       <antipattern>
           <token postag='SENT_START'/>
@@ -2960,18 +4590,40 @@ Fiquei super sem jeito quando a minha mãe me beijou perto dos meus amigos.
       <example correction='jan'>1 <marker>Jan</marker> 2002 - As moedas e notas físicas de euro entraram em circulação, tornando-se a moeda de uso corrente entre os membros originais.</example>
     </rule>
 
-  <rulegroup id='AO90_WEEKDAYS_CASING' type='grammar' name='AO90: Capitalização dos Dias da Semana'>
+
+  <rulegroup id='AO90_WEEKDAYS_CASING_PT_PT' type='grammar' name='AO90: Capitalização dos Dias da Semana'>
     <!-- Created by Tiago F. Santos , Portuguese rule, 2017-01-26 -->
-    <rule>
+
+   <rule>
+
       <antipattern>
           <token postag='SENT_START'/>
           <token regexp='yes'>[“«&quot;]</token>
           <token>Ter</token>
       </antipattern>
+
       <antipattern>
           <token>Ter</token>
           <token>Stegen</token>
       </antipattern>
+
+<!-- MARCOAGPINTO 2022-05-17 (15-MAY-2022+) *START* -->
+<!--
+Os principais cuidados com seu pet Ter um cachorrinho em casa para te fazer companhia é muito bom!
+- Ter cuidado especial ao escolher sua senha, evitando senhas óbvias tais como seu nome, seu e-mail, sobr...
+· Ter desenvolvido e implantado projetos na tecnologia Sharepoint.
+– Ter um momento em família, com todos reunidos, além das refeições.
+Confessava Ter sido sempre bastante orgulhoso dos haveres herdados e sobretudo daquele filho tão perfeito...
+- Dedicação: Ter vontade de servir, ser prestável e estabelecer uma relação de empatia.
+Aprimorar a velocidade do Como Fazer Seu Website De Vendas Online Ter Sucesso - Byte A Byte a alegria do usuário (acesse o meu primeiro desse post), mas isto também poss...
+Vinte e três Plantas Pra Ter Dentro De Apartamento Com Muito Charme!
+-->
+      <antipattern>
+          <token>Ter</token>
+          <token postag='DI.+|VMP00.+|NC.+|AQ.+|RG' postag_regexp='yes'/>
+      </antipattern>
+<!-- MARCOAGPINTO 2022-05-17 (15-MAY-2022+) *END* -->
+
       <pattern case_sensitive='yes'>
           <token>
             <exception postag_regexp='yes' postag='SENT_START|NP.+'/></token>
@@ -2979,7 +4631,7 @@ Fiquei super sem jeito quando a minha mãe me beijou perto dos meus amigos.
           <token regexp='yes'>Sábados?|Domingo|(?:Seg|Ter|Qua|Qui|Sex|S[aá]b|Dom)</token>
         </marker>
           <token>
-            <exception postag_regexp='yes' postag='NP.+'/></token>
+            <exception postag_regexp='yes' postag='NP.+|UNKNOWN'/></token>
       </pattern>
       <message>Segundo o Acordo Ortográfico de 90, os dias da semana deixam de ser capitalizados.</message>
         <suggestion><match no='2' case_conversion='alllower'/></suggestion>
@@ -2990,23 +4642,33 @@ Fiquei super sem jeito quando a minha mãe me beijou perto dos meus amigos.
       <example>A data coincide com o aniversário do imperador Dom Pedro II.</example>
       <example>Nas eleições de 1946, o general Juan Domingo Perón se apresentou como candidato do Partido Lab...</example>
       <example>"Ter trabalho e despesa."</example>
+
+	  <example>Os principais cuidados com seu pet Ter um cachorrinho em casa para te fazer companhia é muito bom!</example>
+	  <example>- Ter cuidado especial ao escolher sua senha, evitando senhas óbvias tais como seu nome, seu e-mail, sobr...</example>
+	  <example>· Ter desenvolvido e implantado projetos na tecnologia Sharepoint.</example>
+	  <example>– Ter um momento em família, com todos reunidos, além das refeições.</example>
+	  <example>Confessava Ter sido sempre bastante orgulhoso dos haveres herdados e sobretudo daquele filho tão perfeito...</example>
+	  <example>- Dedicação: Ter vontade de servir, ser prestável e estabelecer uma relação de empatia.</example>
+	  <example>Aprimorar a velocidade do Como Fazer Seu Website De Vendas Online Ter Sucesso - Byte A Byte a alegria do usuário (acesse o meu primeiro desse post), mas isto também poss...</example>
+	  <example>Vinte e três Plantas Pra Ter Dentro De Apartamento Com Muito Charme!</example>
     </rule>
+
     <rule>
       <pattern case_sensitive='yes'>
           <token negate_pos='yes' postag='SENT_START'/>
         <marker>
-          <token regexp='yes'>(?:Segunda|Terça|Quarta|Quinta|Sexta)s?</token>
-          <token regexp='yes' spacebefore='no'>&hifen;</token>
-          <token regexp='yes'>[Ff]eiras?</token>
+          <token regexp='yes'>(?:Segunda|Terça|Quarta|Quinta|Sexta)s?-[Ff]eiras?</token>
         </marker>
       </pattern>
       <message>Segundo o Acordo Ortográfico de 90, os dias da semana deixam de ser capitalizados.</message>
-        <suggestion><match no='2' case_conversion='alllower'/>-<match no='4' case_conversion='alllower'/></suggestion>
+        <suggestion><match no='2' case_conversion='alllower'/></suggestion>
       <url>http://www.uc.pt/noticias/02_NL_2011/05_2011/2011_05_ManualNovoAcordoOrtografico.pdf/</url>
       <example correction='segundas-feiras'>As <marker>Segundas-feiras</marker> são sempre difíceis.</example>
       <example>Segundas-feiras são sempre difíceis.</example>
     </rule>
+
   </rulegroup>
+
 
     <rule id='AO90_CARDINAL_POINTS_CASING' type='grammar' name='AO90: Capitalização de Pontos Cardeais'>
     <!-- Created by Tiago F. Santos , Portuguese rule, 2017-01-26 -->
@@ -3133,14 +4795,13 @@ Fiquei super sem jeito quando a minha mãe me beijou perto dos meus amigos.
     </rule>
     <rule>
       <pattern case_sensitive='yes'>
-          <token regexp='yes'>(?:segunda|terça|quarta|quinta|sexta)s?|(?:seg|ter|qua|qui|sex)</token>
-          <token regexp='yes' spacebefore='no'>&hifen;</token>
-          <token regexp='yes'>[Ff]eiras?</token>
+        <token regexp='yes'>(?:segunda|terça|quarta|quinta|sexta)s?-[Ff]eiras?|(?:seg|ter|qua|qui|sex)-[Ff]eiras?</token>
       </pattern>
       <message>Segundo o Acordo Ortográfico de 45, os dias da semana são capitalizados.</message>
-        <suggestion><match no='1' case_conversion='startupper'/>-\3</suggestion>
+        <suggestion><match no='1' regexp_match="Feiras" regexp_replace="feiras" case_conversion='startupper'/></suggestion>
       <url>http://www.uc.pt/noticias/02_NL_2011/05_2011/2011_05_ManualNovoAcordoOrtografico.pdf/</url>
       <example correction='Segundas-feiras'>As <marker>segundas-feiras</marker> são sempre difíceis.</example>
+      <!-- TODO: another rule: <example correction='Segundas-feiras'>As <marker>segundas-Feiras</marker> são sempre difíceis.</example>-->
     <!--<example correction='Ter'>A última temporada estreou em <marker>ter</marker>, 27 Dez 2016.</example>--><!-- TODO seperate abrev and exclude ter -->
     </rule>
   </rulegroup>
@@ -3197,67 +4858,71 @@ Fiquei super sem jeito quando a minha mãe me beijou perto dos meus amigos.
  </category>
 
 <category id="STYLE" name="Style" type="style">
-    <rulegroup id="EMAIL" name="E-mail (correio eletrónico)">
-      <rule>
-        <pattern>
-		      <token>e-book</token>
-        </pattern>
-        <message>'e-book' é um estrangeirismo. É preferível dizer <suggestion>livro eletrónico</suggestion>.</message>
-        <url>https://pt.wikipedia.org/wiki/Livro_digital</url>
-        <example correction="livro eletrónico">O mais forte candidato a criador do <marker>e-book</marker> é Michael Stern Hart.</example>
-      </rule>
-      <rule>
-        <pattern>
-		      <token>e-books</token>
-        </pattern>
-        <message>'e-book' é um estrangeirismo. É preferível dizer <suggestion>livros eletrónicos</suggestion>.</message>
-        <url>https://pt.wikipedia.org/wiki/Livro_digital</url>
-        <example correction="livros eletrónicos">Escritores e editores possuem uma grande variedade de formatos à disposição quando se trata de <marker>e-books</marker>, cada um com suas vantagens e desvantagens.</example>
-      </rule>
-      <rule>
-        <pattern>
-          <token>e-zine</token>
-        </pattern>
-        <message>'e-zine' é um estrangeirismo. É preferível dizer <suggestion>revista eletrónica</suggestion>.</message>
-        <url>https://pt.wikipedia.org/wiki/E-zine</url>
-        <example correction="Revista eletrónica"><marker>E-zine</marker> é um "fanzine eletrónica".</example>
-      </rule>
-      <rule>
-        <pattern>
-          <token>e-zines</token>
-        </pattern>
-        <message>'e-zine' é um estrangeirismo. É preferível dizer <suggestion>revistas eletrónicas</suggestion>.</message>
-        <url>https://pt.wikipedia.org/wiki/E-zine</url>
-        <example correction="revistas eletrónicas">Existem também <marker>e-zines</marker> comerciais, mais voltados para a venda de espaços publicitários do que para a produção de conteúdo.</example>
-      </rule>
-    </rulegroup>
 
 
 	<!-- ESTRANGEIRISMOS ESPECÍFICOS pt_PT -->
-    <rule id='BARBARISMS_PT_PT' name="Estrangeirismos específicos pt_PT" type="style">
-	<!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, based on Tiago F. Santos rule, Portuguese rule 2022-02-09 (1-JAN-2022+)      -->
+    <rule id='BARBARISMS_PT_PT_V2' name="Estrangeirismos específicos pt_PT" type="style">
+	<!--      Created by Marco A.G.Pinto with Ricardo Joseh Lima suggestions, based on Tiago F. Santos rule, Portuguese rule 2022-07-09/10 (Checked/Enhanced) (5-JUN-2022+)      -->
 	<!--
+	This rule is only available to pt-PT. Dissertations, theses and academic papers in European Portuguese use this.
 	-->
+
       <antipattern>
           <token regexp='yes'>["“]</token>
-          <token regexp='yes' spacebefore='no'>&barbarismos_pt_pt;</token>
+          <token regexp='yes' spacebefore='no'>(?:&barbarismos;|&barbarismos2;|&barbarismos3;)s?</token>
           <token regexp='yes' spacebefore='no'>["”]</token>
       </antipattern>
+
       <antipattern>
           <token regexp='yes'>['‘]</token>
-          <token regexp='yes' spacebefore='no'>&barbarismos_pt_pt;</token>
+          <token regexp='yes' spacebefore='no'>(?:&barbarismos;|&barbarismos2;|&barbarismos3;)s?</token>
           <token regexp='yes' spacebefore='no'>['’]</token>
-      </antipattern>	
+      </antipattern>
+
+      <antipattern>
+        <token />
+        <token>-</token>
+        <token spacebefore="no" regexp="yes">(?:&barbarismos;|&barbarismos2;|&barbarismos3;)s?</token>
+      </antipattern>
+
+      <antipattern>
+        <token>curriculum</token>
+        <token>vitae</token>
+      </antipattern>
+
+<!-- MARCOAGPINTO 2021-12-17 (25-JUN-2021+) *START* -->
+<!--
+Acesso em: 10 set 2007.
+André 23:07, 14 nov 2004 (UTC).
+2 jul 1605.
+USED IN ABBREVIATIONS, BARBARISMS AND ALSO IN SENTENCES STARTING WITH A NUMBER.
+-->
+      <antipattern>
+		<token regexp='yes'>0?[1-9]|[12][0-9]|3[01]</token>
+		<token regexp='yes'>&meses_ano_abrev;</token>
+		<token postag='Z0.+' postag_regexp='yes'/>
+      </antipattern>
+<!-- MARCOAGPINTO 2021-12-17 (25-JUN-2021+) *END* -->
+
       <pattern>
-		<token regexp='yes'>&barbarismos_pt_pt;</token>
+		<token regexp='yes'>(?:&barbarismos;|&barbarismos2;|&barbarismos3;)s?
+			<exception postag_regexp='yes' postag='NP.+'/> <!-- "A Internet." -->
+			<exception regexp='yes'>(?:bit|kilo(?:bit|byte|volt|watt)|giga(?:byte|watt)|quilohertz|out)s?|blogs?|clubs?|DNAs?|INSS|RNAs?|versus</exception> <!-- XXX remove after regenerating regexp -->
+		</token>
       </pattern>
       <message>Os estrangeirismos devem estar entre aspas ou ser italizados.</message>
         <suggestion>‘\1’</suggestion>
         <suggestion>“\1”</suggestion>
+      <url>https://ciberduvidas.iscte-iul.pt/consultorio/perguntas/estrangeirismos-em-italico-ou-entre-aspas/7785</url>
+      <short>Estrangeirismo (Português Europeu)</short>
       <example correction='‘suspense’|“suspense”'>O <marker>suspense</marker> é imenso.</example>
       <example correction='‘suspenses’|“suspenses”'>Os <marker>suspenses</marker> são imensos.</example>
-      <example>Ainda estão a debater se adquirem ou não acesso à Internet.</example>
-      <example>O "suspense" é imenso.</example>
+<!--      <example>Ainda estão a debater se adquirem ou não acesso à Internet.</example> --> <!-- Tomorrow enable it, when "Internet" becomes a NP in the repository. -->
+      <example>O “suspense” é imenso.</example>
+
+      <example>Acesso em: 10 set 2007.</example>
+	  <example>André 23:07, 14 nov 2004 (UTC).</example>
+	  <example>2 jul 1605.</example>
     </rule>
 
 
@@ -3297,17 +4962,21 @@ Tu vens com a gente? → Tu vens connosco?
 
     <rule id='FORMAL_COM_NÓS_PT_PT' name="Expressões 'com nós'">
     <!--    Created by Tiago F. Santos, Portuguese rule, 2016-12-28      -->
-<!-- MARCOAGPINTO 2021-06-09 (17-MAR-2021+) *START* -->
-<!--
-Ele veio com nós para o revéillon. → Ele veio connosco para o revéillon.
--->
+
+<!-- MARCOAGPINTO 2022-07-12 (Checked/Enhanced) (5-JUN-2022+) *START* -->
       <antipattern>
         <token>com</token>
         <token>nós</token>
-		<token postag='Z0.+|DI.+|PI.+' postag_regexp='yes'/>
-		<token postag='_PUNCT' postag_regexp='no'/>
-	  </antipattern>
-<!-- MARCOAGPINTO 2021-06-09 (17-MAR-2021+) *END* -->
+        <token postag='Z0.+|[DP][ADIPR].+|SPS00:[DP][ADIPR].+' postag_regexp='yes'/>
+        <token postag='_PUNCT|CC' postag_regexp='yes'>
+          <exception postag_regexp='no' postag='SPS00'/>
+        </token>
+        <example>Cale a boca! Isto só tem a ver com nós dois.</example>
+        <example>A isto fomos forçados por nosso dever para com nós mesmos e também vários fregueses, entre os quais o senhor se incluía.</example>
+        <example>A vida nos ensina a ser menos severos com nós mesmos e com os outros.</example>
+      </antipattern>
+<!-- MARCOAGPINTO 2022-07-12 (Checked/Enhanced) (5-JUN-2022+) *END* -->
+
       <pattern>
           <token>com</token>
           <token>nós</token>

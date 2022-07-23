@@ -1,4 +1,104 @@
 #separatorRegExp=[\t;]
+Guns N' Roses;NPMPO00
+Guns N’ Roses;NPMPO00
+Eagle Pass;NPCSG00
+Tlalnepantla de Baz;NPCSG00
+Sarandí del Yi;NPCSG00
+Led Zeppelin;NPMPO00
+puerto serie;NCMS000
+puertos serie;NCMP000
+in medias res;LOC_ADV
+Michel Houellebecq;NPMSSP0
+escape room;NCMS000
+escape rooms;NCMP000
+Escape Room;NCMS000
+Escape Rooms;NCMP000
+just in time;NCMS000
+just-in-time;NCMS000
+Shinzo Abe;NPMSSP0
+Olof Palme;NPMSSP0
+web beacon;NCMS000
+web beacons;NCMP000
+San Vicente de Tagua Tagua;NPCSG00
+Puerto Montt;NPCSG00
+Bell Ville;NPCSG00
+Bialet Massé;NPCSG00
+Cutral Có;NPCSG00
+Plaza Huincul;NPCSG00
+Curuzú Cuatiá;NPCSG00
+Gran Corrientes;NPCSG00
+Gran Posadas;NPCSG00
+Gran Río Cuarto;NPCSG00
+Tafí Viejo;NPCSG00
+Trenque Lauquen;NPCSG00
+Río Bravo;NPMSG00
+Tingo María;NPCSG00
+Prime Music;NCCNO00
+Amazon Prime Music;NCCNO00
+Prime Video;NCCNO00
+Amazon Prime Video;NCCNO00
+lean manufacturing;NCMS000
+mujer soldado;NCFS000
+mujeres soldado;NCFP000
+big tech;NPCN000
+Big Tech;NPCN000
+Ligue 1;NPFSO00
+data set;NCMS000
+data sets;NCMP000
+don nadie;NCMS000
+don nadies;NCMP000
+gota a gota;NCMS000
+Universidad del Magdalena;NPFSO00
+Echo Show;NPMSO00
+Echo Dot;NPMSO00
+Echo Studio;NPMSO00
+Echo Plus;NPMSO00
+Times Square;NPCSG00
+Times New Roman;NPFNO00
+bajo ningún concepto;RN
+por nada del mundo;RN
+de ninguna manera;RN
+de ningún modo;RN
+de ninguna forma;RN
+Pier Paolo;NCMSSP0
+Top Gun;NPCNO00
+Tony Soprano;NPMSSP0
+en.;NCMS000
+febr.;NCMS000
+mzo.;NCMS000
+abr.;NCMS000
+my.;NCMS000
+jun.;NCMS000
+jul.;NCMS000
+ag.;NCMS000
+agt.;NCMS000
+set.;NCMS000
+sept.;NCMS000
+setbre.;NCMS000
+oct.;NCMS000
+nov.;NCMS000
+novbre.;NCMS000
+dic.;NCMS000
+dicbre.;NCMS000
+Rolling Stone;NPCNO00
+Rolling Stones;NPMPO00
+The Rolling Stones;NPMPO00
+Freddie Mercury;NPMSSP0
+Alex Salmond;NPMSSP0
+D’Artagnan;NPMSSP0
+D'Artagnan;NPMSSP0
+Pere Aragonès;NPMSSP0
+Roman Abramovich;NPMSSP0
+Liza Minnelli;NPFSSP0
+Juan del Encina;NPMSSP0
+Social Media;NCMP000
+social media;NCMP000
+Green Card;NCFS000
+green card;NCFS000
+Green Cards;NCFP000
+green cards;NCFP000
+Magdalena Medio;NPMSG00
+La Roche;NPCNSP0
 título valor;NCMS000
 títulos valores;NCMP000
 requete a gusto;LOC_ADV
@@ -30,8 +130,8 @@ Víktor Yanukóvich;NPMSSP0
 Bernard Shaw;NPMSSP0
 plan maestro;NCMS000
 planes maestros;NCMP000
-menú degustación;NCFS000
-menús degustación;NCFP000
+menú degustación;NCMS000
+menús degustación;NCMP000
 de golpe;LOC_ADV
 por completo;LOC_ADV
 Madame Pompadour;NPFSSP0
@@ -706,17 +806,17 @@ World Trade Center	NPMSG00
 Santa Coloma	NPFSG00
 Theresa May	NPFSSP0
 Star Wars	NPCNO00
-corta-pega	NPMN000
-corta y pega	NPMN000
-moto club	NPMS000
-moto clubs	NPMP000
-call center	NPMS000
-call centers	NPMP000
-call centre	NPMS000
-call centres	NPMP000
-déjà vu	NPMNO00
+corta-pega	NCMN000
+corta y pega	NCMN000
+moto club	NCMS000
+moto clubs	NCMP000
+call center	NCMS000
+call centers	NCMP000
+call centre	NCMS000
+call centres	NCMP000
+déjà vu	NCMNO00
 déjà vécu	NCMS000
-ménage à trois	NPMNO00
+ménage à trois	NCMNO00
 prêt-à-porter	AQ0CN0
 D'Hondt	NPCNSP0
 D’Hondt	NPCNSP0
@@ -1430,6 +1530,7 @@ allá se las haya	LOC_ADV
 allá se las hayan	LOC_ADV
 allá se van	LOC_ADV
 alma mater	NCFS000
+alma máter	NCFS000
 Almte.	Y
 alter ego	NCMN000
 ante diem	LOC_ADV
@@ -2863,6 +2964,8 @@ tít.	Y
 U.	Y
 Ud.	Y
 Uds.	Y
+ud.;NCFS000
+uds.;NCFP000
 un día u otro	LOC_ADV
 un día y otro	LOC_ADV
 un poco tarde	LOC_ADV

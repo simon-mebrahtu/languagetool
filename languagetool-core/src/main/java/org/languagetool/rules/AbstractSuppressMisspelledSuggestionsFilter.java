@@ -18,28 +18,23 @@
  */
 package org.languagetool.rules;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.ResourceBundle;
-
 import org.languagetool.AnalyzedTokenReadings;
-import org.languagetool.JLanguageTool;
 import org.languagetool.Language;
 import org.languagetool.rules.patterns.RuleFilter;
 import org.languagetool.rules.spelling.SpellingCheckRule;
+import org.languagetool.tools.Tools;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public abstract class AbstractSuppressMisspelledSuggestionsFilter extends RuleFilter {
 
   protected final Language language;
-  protected final ResourceBundle messages;
 
   protected AbstractSuppressMisspelledSuggestionsFilter(Language language) {
     this.language = language;
-    this.messages = JLanguageTool.getDataBroker().getResourceBundle(JLanguageTool.MESSAGE_BUNDLE,
-        new Locale(language.getShortCode()));
   }
 
   @Override
@@ -67,12 +62,14 @@ public abstract class AbstractSuppressMisspelledSuggestionsFilter extends RuleFi
   }
 
   public boolean isMisspelled(String s) throws IOException {
-    SpellingCheckRule spellerRule = language.getDefaultSpellingRule(messages);
+    SpellingCheckRule spellerRule = language.getDefaultSpellingRule();
+    if (spellerRule == null) return false;
+
     try  {
       List<String> tokens = language.getWordTokenizer().tokenize(s);
       boolean isMisspelled = false;
       for (String token : tokens) {
-        isMisspelled = isMisspelled || spellerRule.isMisspelled(token);
+        isMisspelled = isMisspelled || (spellerRule != null && spellerRule.isMisspelled(token));
       }
       return isMisspelled;
     } catch(IOException e) {

@@ -18,12 +18,14 @@
  */
 package org.languagetool.rules;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import org.languagetool.AnalyzedSentence;
 import org.languagetool.AnalyzedTokenReadings;
+import org.languagetool.tools.Tools;
 
 /**
  * A rule that matches ".." (but not "..." etc) and ",,".
@@ -33,9 +35,17 @@ import org.languagetool.AnalyzedTokenReadings;
 public class DoublePunctuationRule extends Rule {
 
   public DoublePunctuationRule(ResourceBundle messages) {
+    this(messages, null);
+  }
+
+  /** @since 5.9 */
+  public DoublePunctuationRule(ResourceBundle messages, URL url) {
     super(messages);
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
     setLocQualityIssueType(ITSIssueType.Typographical);
+    if (url != null) {
+      setUrl(url);
+    }
   }
 
   @Override
@@ -78,7 +88,7 @@ public class DoublePunctuationRule extends Rule {
         dotCount = 0;
         startPos = tokens[i].getStartPos();
       }
-      if (dotCount == 2 && !".".equals(nextToken) && !"?".equals(prevToken) && !"!".equals(prevToken)) {
+      if (dotCount == 2 && !".".equals(nextToken) && !"?".equals(prevToken) && !"!".equals(prevToken) && !"…".equals(prevToken)) {
         int fromPos = Math.max(0, startPos - 1);
         RuleMatch ruleMatch = new RuleMatch(this, sentence, fromPos, startPos + 1,
             getDotMessage(), messages.getString("double_dots_short"));

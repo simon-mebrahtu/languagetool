@@ -25,6 +25,7 @@ import java.net.URL;
 import java.util.List;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
@@ -36,6 +37,7 @@ import com.sun.star.beans.Property;
 import com.sun.star.beans.PropertyValue;
 import com.sun.star.beans.XPropertySet;
 import com.sun.star.beans.XPropertySetInfo;
+import com.sun.star.container.XNameAccess;
 import com.sun.star.frame.XController;
 import com.sun.star.frame.XDesktop;
 import com.sun.star.frame.XDispatchHelper;
@@ -46,6 +48,7 @@ import com.sun.star.frame.XModel;
 import com.sun.star.lang.Locale;
 import com.sun.star.lang.XComponent;
 import com.sun.star.lang.XMultiComponentFactory;
+import com.sun.star.lang.XMultiServiceFactory;
 import com.sun.star.linguistic2.XSearchableDictionaryList;
 import com.sun.star.text.XTextDocument;
 import com.sun.star.ui.XUIElement;
@@ -73,6 +76,7 @@ class OfficeTools {
     ONLY_GRAMMAR  //  only grammar check
   }
     
+  public static final String EXTENSION_MAINTAINER = "Fred Kruse";
   public static final String LT_SERVICE_NAME = "org.languagetool.openoffice.Main";
   public static final int PROOFINFO_UNKNOWN = 0;
   public static final int PROOFINFO_GET_PROOFRESULT = 1;
@@ -88,6 +92,7 @@ class OfficeTools {
   public static final int NUMBER_TEXTLEVEL_CACHE = 4;  // Number of caches for matches of text level rules
   public static final String MULTILINGUAL_LABEL = "99-";  // Label added in front of variant to indicate a multilingual paragraph (returned is the main language)
   public static final int CHECK_MULTIPLIKATOR = 40;   //  Number of minimum checks for a first check run
+  public static int TIME_TOLERANCE = 100;   //  Minimal milliseconds to show message in TM debug mode
   
   public static int DEBUG_MODE_SD = 0;            //  Set Debug Mode for SingleDocument
   public static int DEBUG_MODE_SC = 0;            //  Set Debug Mode for SingleCheck
@@ -101,6 +106,7 @@ class OfficeTools {
   public static boolean DEBUG_MODE_CD = false;    //  Activate Debug Mode for SpellAndGrammarCheckDialog
   public static boolean DEBUG_MODE_IO = false;    //  Activate Debug Mode for Cache save to file
   public static boolean DEBUG_MODE_SR = false;    //  Activate Debug Mode for SortedTextRules
+  public static boolean DEBUG_MODE_TM = false;    //  Activate Debug Mode for time measurements
   public static boolean DEVELOP_MODE = false;     //  Activate Development Mode
 
   public  static final String CONFIG_FILE = "Languagetool.cfg";
@@ -526,6 +532,63 @@ class OfficeTools {
   }
   
   /**
+   * Get LanguageTool Image
+   */
+  public static ImageIcon getLtImageIcon(boolean big) {
+    URL url;
+    if (big) {
+      url = OfficeTools.class.getResource("/images/LanguageToolBig.png");
+    } else {
+      url = OfficeTools.class.getResource("/images/LanguageToolSmall.png");
+    }
+    return new ImageIcon(url);
+  }
+  
+  /**
+   * get information of LO/OO office product
+   */
+  public static OfficeProductInfo getOfficeProductInfo(XComponentContext xContext) {
+    try {
+      if (xContext == null) {
+        return null;
+      }
+      XMultiServiceFactory xMSF = UnoRuntime.queryInterface(XMultiServiceFactory.class, xContext.getServiceManager());
+      if (xMSF == null) {
+        MessageHandler.printToLogFile("XMultiServiceFactory == null");
+        return null;
+      }
+      Object oConfigProvider = xMSF.createInstance("com.sun.star.configuration.ConfigurationProvider");
+      XMultiServiceFactory confMsf = UnoRuntime.queryInterface(XMultiServiceFactory.class, oConfigProvider);
+
+      final String sView = "com.sun.star.configuration.ConfigurationAccess";
+
+      Object args[] = new Object[1];
+      PropertyValue aPathArgument = new PropertyValue();
+      aPathArgument.Name = "nodepath";
+      aPathArgument.Value = "org.openoffice.Setup/Product";
+      args[0] = aPathArgument;
+      Object oConfigAccess =  confMsf.createInstanceWithArguments(sView, args);
+      XNameAccess xName = UnoRuntime.queryInterface(XNameAccess.class, oConfigAccess);
+      
+      aPathArgument.Value = "org.openoffice.Setup/L10N";
+      Object oConfigAccess1 =  confMsf.createInstanceWithArguments(sView, args);
+      
+      XNameAccess xName1 = UnoRuntime.queryInterface(XNameAccess.class, oConfigAccess1);
+      
+//      for (String name : xName.getElementNames()) {
+//        MessageHandler.printToLogFile("config Element: " + name + " = " + xName.getByName(name));
+//      }
+      return (new OfficeProductInfo(xName.getByName("ooName"), xName.getByName("ooSetupVersion"), 
+          xName.getByName("ooSetupExtension"), xName.getByName("ooVendor"), xName1.getByName("ooLocale")));
+      
+    } catch (Throwable t) {
+      MessageHandler.printException(t);     // all Exceptions thrown by UnoRuntime.queryInterface are caught
+      return null;           // Return null as method failed
+    }
+
+  }
+  
+  /**
    * Get a boolean value from an Object
    */
   public static boolean getBooleanValue(Object o) {
@@ -606,6 +669,17 @@ class OfficeTools {
           DEBUG_MODE_IO = true;
         } else if (level.equals("sr")) {
           DEBUG_MODE_SR = true;
+        } else if (level.startsWith("tm")) {
+          String[] levelTm = level.split(":");
+          if (levelTm[0].equals("tm")) {
+            DEBUG_MODE_TM = true;
+            if(levelTm.length > 1) {
+              int time = Integer.parseInt(levelTm[1]);
+              if (time >= 0) {
+                TIME_TOLERANCE = time;
+              }
+            }
+          }
         } else if (level.equals("dev")) {
           DEVELOP_MODE = true;
         }
@@ -613,4 +687,27 @@ class OfficeTools {
     }
   }
 
+  public static class OfficeProductInfo {
+    public String ooName;
+    public String ooVersion;
+    public String ooExtension;
+    public String ooVendor;
+    public String ooLocale;
+    
+    OfficeProductInfo(Object name, Object version, Object extension, Object vendor, Object locale) {
+      ooName = (String) name;
+      ooVersion = (String) version;
+      ooExtension = (String) extension;
+      ooVendor = (String) vendor;
+      ooLocale = (String) locale;
+    }
+    
+    OfficeProductInfo(String name, String version, String extension, String vendor, String locale) {
+      ooName = name;
+      ooVersion = version;
+      ooExtension = extension;
+      ooVendor = vendor;
+      ooLocale = locale;
+    }
+  }
 }

@@ -65,6 +65,7 @@ public class ConfigurationDialog implements ActionListener {
   private final Configuration config;
   private final Frame owner;
   private final boolean insideOffice;
+  private final Image ltImage;
   private boolean configChanged = false;
   private boolean profileChanged = true;
   private boolean restartShow = false;
@@ -84,10 +85,15 @@ public class ConfigurationDialog implements ActionListener {
   private Rule rule;
 
   public ConfigurationDialog(Frame owner, boolean insideOffice, Configuration config) {
+    this(owner, insideOffice, null, config);
+  }
+
+  public ConfigurationDialog(Frame owner, boolean insideOffice, Image ltImage, Configuration config) {
     this.owner = owner;
     this.insideOffice = insideOffice;
     this.original = config;
     this.config = original.copy(original);
+    this.ltImage = ltImage;
     messages = JLanguageTool.getMessageBundle();
   }
 
@@ -172,6 +178,10 @@ public class ConfigurationDialog implements ActionListener {
     return configChanged;
   }
     
+  public void close() {
+    dialog.setVisible(false);
+  }
+
   public boolean showPanel(List<Rule> rules) {
     configChanged = false;
     if (original != null && !restartShow) {
@@ -180,6 +190,9 @@ public class ConfigurationDialog implements ActionListener {
     restartShow = false;
     dialog = new JDialog(owner, true);
     dialog.setTitle(messages.getString("guiConfigWindowTitle"));
+    if (ltImage != null) {
+      ((Frame) dialog.getOwner()).setIconImage(ltImage);
+    }
     // close dialog when user presses Escape key:
     KeyStroke stroke = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0);
     ActionListener actionListener = actionEvent -> dialog.setVisible(false);
@@ -456,7 +469,9 @@ public class ConfigurationDialog implements ActionListener {
         ((SavablePanel) extra).componentShowing();
       }
     }
+    dialog.setAutoRequestFocus(true);
     dialog.setVisible(true);
+    dialog.toFront();
     return configChanged;
   }
 
@@ -1101,6 +1116,7 @@ public class ConfigurationDialog implements ActionListener {
     JPanel profilePanel = new JPanel();
     profilePanel.setLayout(new GridBagLayout());
     GridBagConstraints cons = new GridBagConstraints();
+    cons.insets = new Insets(4, 4, 0, 8);
     cons.gridx = 0;
     cons.gridy = 0;
     cons.weightx = 1.0f;
@@ -1147,7 +1163,7 @@ public class ConfigurationDialog implements ActionListener {
     });
       
     profilePanel.add(new JLabel(addColonToMessageString("guiCurrentProfile")), cons);
-    cons.insets = new Insets(6, 12, 0, 8);
+    cons.insets = new Insets(6, 16, 0, 8);
     cons.gridy++;
     profilePanel.add(profileBox, cons);
     
@@ -1230,11 +1246,11 @@ public class ConfigurationDialog implements ActionListener {
     });
     cons.gridx++;
     profilePanel.add(deleteButton, cons);
-    cons.insets = new Insets(16, 0, 0, 8);
+    cons.insets = new Insets(16, 4, 0, 8);
     cons.gridx = 0;
     cons.gridy++;
     profilePanel.add(new JLabel(addColonToMessageString("guiAddNewProfile")), cons);
-    cons.insets = new Insets(6, 12, 0, 8);
+    cons.insets = new Insets(6, 16, 0, 8);
     
     
     JButton addButton = new JButton(messages.getString("guiAddProfile") + "...");
@@ -1922,5 +1938,5 @@ public class ConfigurationDialog implements ActionListener {
     });
     return ruleOptionsPanel;
   }
-
+  
 }

@@ -71,8 +71,14 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
     "double check",
     "hard coded",
     "hands free",
+    "in flight",
+    "in car",
+    "client side",
+    "server side",
+    "in house",
     "faggot",
     "faggots",
+    "fuckable",
     "fuck",
     "fucker",
     "fuckhead",
@@ -356,10 +362,12 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
       .filter(k -> !k.getReplacement().startsWith("re ") &&
                    !k.getReplacement().startsWith("en ") &&
                    !k.getReplacement().toLowerCase().startsWith("co ") &&
+                   !k.getReplacement().toLowerCase().startsWith("cl ") &&
                    !k.getReplacement().toLowerCase().startsWith("de ") &&
                    !k.getReplacement().toLowerCase().startsWith("ex ") &&
                    !k.getReplacement().toLowerCase().startsWith("es ") &&
                    !k.getReplacement().toLowerCase().startsWith("ab ") &&
+                   !k.getReplacement().toLowerCase().startsWith("ty ") &&
                    !k.getReplacement().toLowerCase().startsWith("mid ") &&
                    !k.getReplacement().toLowerCase().startsWith("non ") &&
                    !k.getReplacement().toLowerCase().startsWith("bio ") &&
@@ -380,6 +388,7 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
                    !k.getReplacement().toLowerCase().startsWith("post ") &&
                    !k.getReplacement().toLowerCase().startsWith("sub ") &&
                    !k.getReplacement().toLowerCase().startsWith("auto ") &&
+                   !k.getReplacement().toLowerCase().startsWith("pl ") &&
                    !k.getReplacement().startsWith("sh ") &&
                    !k.getReplacement().startsWith("li ") &&
                    !k.getReplacement().startsWith("ha ") &&
@@ -417,6 +426,8 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
                    !k.getReplacement().toLowerCase().startsWith("ma ") &&
                    !k.getReplacement().toLowerCase().startsWith("la ") &&
                    !k.getReplacement().toLowerCase().startsWith("bis ") &&
+                   !k.getReplacement().toLowerCase().startsWith("ger ") &&
+                   !k.getReplacement().toLowerCase().startsWith("inf ") &&
                    !k.getReplacement().toLowerCase().startsWith("tar ") &&
                    !k.getReplacement().toLowerCase().startsWith("f ") &&
                    !k.getReplacement().toLowerCase().startsWith("k ") &&
@@ -429,6 +440,7 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
                    !k.getReplacement().toLowerCase().startsWith("r ") &&
                    !k.getReplacement().toLowerCase().startsWith("s ") &&
                    !k.getReplacement().toLowerCase().startsWith("t ") &&
+                   !k.getReplacement().toLowerCase().startsWith("w ") &&
                    !k.getReplacement().toLowerCase().startsWith("um ") &&
                    !k.getReplacement().toLowerCase().startsWith("oft ") &&
                    !k.getReplacement().endsWith(" i") &&
@@ -609,11 +621,13 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
     s.put("MWH", Arrays.asList("MWh"));
     s.put("xray", Arrays.asList("X-ray"));
     s.put("xrays", Arrays.asList("X-rays"));
+    s.put("soo", Arrays.asList("so", "too", "son"));
     return s;
   }
 
   protected static Map<String, List<String>> getTopSuggestions() {
     Map<String, List<String>> s = new HashMap<>();
+    s.put("enroute", Arrays.asList("en route"));
     s.put("whaddya", Arrays.asList("what do you"));
     s.put("Whaddya", Arrays.asList("What do you"));
     s.put("ignight", Arrays.asList("ignite"));
@@ -1131,6 +1145,8 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
     s.put("Copys", Arrays.asList("Copies"));
     s.put("copie", Arrays.asList("copy"));
     s.put("copys", Arrays.asList("copies"));
+    s.put("unconform", Arrays.asList("nonconform"));
+    s.put("Unconform", Arrays.asList("Nonconform"));
     s.put("rideshare", Arrays.asList("ride-share"));
     s.put("Rideshare", Arrays.asList("Ride-share"));
     s.put("Rideshares", Arrays.asList("Ride-shares"));
@@ -1175,6 +1191,10 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
     s.put("tarpits", Arrays.asList("tar pits"));
     s.put("Tarpit", Arrays.asList("Tar pit"));
     s.put("Tarpits", Arrays.asList("Tar pits"));
+    s.put("wheater", Arrays.asList("weather"));
+    s.put("Wheater", Arrays.asList("Weather"));
+    s.put("defi", Arrays.asList("defibrillator", "DeFi"));
+    s.put("Defi", Arrays.asList("Defibrillator", "DeFi"));
 
     return s;
   }
@@ -1249,6 +1269,7 @@ public abstract class AbstractEnglishSpellerRule extends MorfologikSpellerRule {
     if (word.matches("[Tt]ommorrows?")) return topMatch(word.replaceFirst("ommorrow", "omorrow"));
     if (word.matches("[Tt]ounges?")) return topMatch(word.replaceFirst("ounge", "ongue"));
     if (word.matches("[Ww]ierd")) return topMatch(word.replaceFirst("ierd", "eird"));
+    if (word.matches("[Ss]argent")) return topMatch(word.replaceFirst("argent", "ergeant"));
     if (word.matches("[Jj]ist")) {
       List<SuggestedReplacement> l = new ArrayList<>();
       l.add(new SuggestedReplacement("just"));

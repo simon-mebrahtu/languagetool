@@ -37,8 +37,8 @@ import org.languagetool.JLanguageTool;
 import org.languagetool.Language;
 import org.languagetool.Languages;
 import org.languagetool.UserConfig;
-import org.languagetool.gui.AboutDialog;
 import org.languagetool.gui.Configuration;
+import org.languagetool.gui.ConfigurationDialog;
 import org.languagetool.openoffice.DocumentCache.TextParagraph;
 import org.languagetool.openoffice.OfficeTools.DocumentType;
 import org.languagetool.openoffice.SingleDocument.RuleDesc;
@@ -103,6 +103,8 @@ public class MultiDocumentsHandler {
   private final List<Rule> extraRemoteRules;        //  store of rules supported by remote server but not locally
   private final LtDictionary dictionary;            //  internal dictionary of LT defined words 
   private LtCheckDialog ltDialog = null;            //  LT spelling and grammar check dialog
+  private ConfigurationDialog cfgDialog = null;     //  configuration dialog (show only one configuration panel)
+  private static AboutDialog aboutDialog = null;           //  about dialog (show only one about panel)
   private boolean dialogIsRunning = false;          //  The dialog was started     
   
   private XComponentContext xContext;               //  The context of the document
@@ -134,7 +136,7 @@ public class MultiDocumentsHandler {
     configFile = OfficeTools.CONFIG_FILE;
     configDir = OfficeTools.getLOConfigDir();
     oldConfigFile = OfficeTools.getOldConfigFile();
-    MessageHandler.init();
+    MessageHandler.init(xContext);
     documents = new ArrayList<>();
     disabledRulesUI = new HashMap<>();
     extraRemoteRules = new ArrayList<>();
@@ -192,7 +194,7 @@ public class MultiDocumentsHandler {
         isSameLanguage = langForShortName.equals(docLanguage) && lt != null;
       }
       if (!isSameLanguage || recheck) {
-        boolean initDocs = lt == null || recheck;
+        boolean initDocs = (lt == null || recheck);
         if (!isSameLanguage) {
           docLanguage = langForShortName;
           this.locale = locale;
@@ -327,6 +329,13 @@ public class MultiDocumentsHandler {
   }
   
   /**
+   *  Set pointer to configuration dialog
+   */
+  public void setConfigurationDialog(ConfigurationDialog dialog) {
+    cfgDialog = dialog;
+  }
+  
+  /**
    *  Set pointer to LT spell and grammar check dialog
    */
   public void setLtDialog(LtCheckDialog dialog) {
@@ -345,6 +354,24 @@ public class MultiDocumentsHandler {
    */
   public void setConfigFileName(String name) {
     configFile = name;
+  }
+  
+  /**
+   *  close configuration dialog
+   * @throws Throwable 
+   */
+  private void closeDialogs() throws Throwable {
+    if (ltDialog != null) {
+      ltDialog.closeDialog();
+    } 
+    if (cfgDialog != null) {
+      cfgDialog.close();
+      cfgDialog = null;
+    }
+    if (aboutDialog != null) {
+      aboutDialog.close();
+      aboutDialog = null;
+    }
   }
   
   /**
@@ -916,9 +943,7 @@ public class MultiDocumentsHandler {
         textLevelQueue.setReset();
       }
     }
-    for (SingleDocument document : documents) {
-      document.resetCache();
-    }
+    resetResultCaches();
   }
   
   /**
@@ -927,6 +952,15 @@ public class MultiDocumentsHandler {
   void resetIgnoredMatches() {
     for (SingleDocument document : documents) {
       document.resetIgnoreOnce();
+    }
+  }
+
+  /**
+   * Reset result caches
+   */
+  void resetResultCaches() {
+    for (SingleDocument document : documents) {
+      document.resetResultCache();
     }
   }
 
@@ -970,7 +1004,7 @@ public class MultiDocumentsHandler {
   /**
    * true, if LanguageTool is switched off
    */
-  public boolean isSwitchedOff() {
+  public boolean isBackgroundCheckOff() {
     return noBackgroundCheck;
   }
 
@@ -978,7 +1012,8 @@ public class MultiDocumentsHandler {
    *  Toggle Switch Off / On of LT
    *  return true if toggle was done 
    */
-  public boolean toggleSwitchedOff() throws IOException {
+  public boolean toggleNoBackgroundCheck() throws IOException {
+//    MessageHandler.printToLogFile("MultiDocumentsHandler: setNoBackgroundCheck: noCheck = " + noCheck + ", noBackgroundCheck = " + noBackgroundCheck);
     if (docLanguage == null) {
       docLanguage = getLanguage();
     }
@@ -994,6 +1029,9 @@ public class MultiDocumentsHandler {
     config.saveNoBackgroundCheck(noBackgroundCheck, docLanguage);
     for (SingleDocument document : documents) {
       document.setConfigValues(config);
+    }
+    if (noBackgroundCheck) {
+      resetResultCaches();
     }
     return true;
   }
@@ -1105,7 +1143,12 @@ public class MultiDocumentsHandler {
     for (SingleDocument document : documents) {
       if (menuDocId.equals(document.getDocID())) {
         RuleDesc ruleDesc = document.deactivateRule();
-        deactivateRule(ruleDesc.ruleID, ruleDesc.langCode, false);
+        if (ruleDesc != null) {
+          if (debugMode) {
+            MessageHandler.printToLogFile("MultiDocumentsHandler: deactivateRule: ruleID = "+ ruleDesc.ruleID + "langCode = " + ruleDesc.langCode);
+          }
+          deactivateRule(ruleDesc.ruleID, ruleDesc.langCode, false);
+        }
         return;
       }
     }
@@ -1332,8 +1375,11 @@ public class MultiDocumentsHandler {
    */
   void resetConfiguration() {
     linguServices = null;
-    noBackgroundCheck = false;
+    if (config != null) {
+      noBackgroundCheck = config.noBackgroundCheck();
+    }
     resetIgnoredMatches();
+    resetResultCaches();
     resetDocument();
   }
 
@@ -1351,17 +1397,21 @@ public class MultiDocumentsHandler {
    */
   public void trigger(String sEvent) {
     try {
+//      MessageHandler.printToLogFile("Event: " + sEvent);
       if (!testDocLanguage(true)) {
         MessageHandler.printToLogFile("Test for document language failed: Can't trigger event: " + sEvent);
         return;
       }
       if ("configure".equals(sEvent)) {
+        closeDialogs();
         runOptionsDialog();
       } else if ("about".equals(sEvent)) {
-        AboutDialogThread aboutThread = new AboutDialogThread(messages);
+        closeDialogs();
+        AboutDialogThread aboutThread = new AboutDialogThread(messages, xContext);
         aboutThread.start();
-      } else if ("switchOff".equals(sEvent)) {
-        if (toggleSwitchedOff()) {
+//      } else if ("switchOff".equals(sEvent)) {
+      } else if ("toggleNoBackgroundCheck".equals(sEvent)) {
+        if (toggleNoBackgroundCheck()) {
           resetCheck(); 
         }
       } else if ("ignoreOnce".equals(sEvent)) {
@@ -1383,9 +1433,7 @@ public class MultiDocumentsHandler {
           }
           return;
         }
-        if (ltDialog != null) {
-          ltDialog.closeDialog();
-        } 
+        closeDialogs();
         if (dialogIsRunning) {
           return;
         }
@@ -1414,20 +1462,23 @@ public class MultiDocumentsHandler {
         }
         checkDialog.start();
       } else if ("nextError".equals(sEvent)) {
-        if (this.isSwitchedOff()) {
+        if (this.isBackgroundCheckOff()) {
           MessageHandler.showMessage(messages.getString("loExtSwitchOffMessage"));
           return;
         }
         SpellAndGrammarCheckDialog checkDialog = new SpellAndGrammarCheckDialog(xContext, this, docLanguage);
         checkDialog.nextError();
       } else if ("refreshCheck".equals(sEvent)) {
-        if (this.isSwitchedOff()) {
+        if (this.isBackgroundCheckOff()) {
           MessageHandler.showMessage(messages.getString("loExtSwitchOffMessage"));
           return;
         }
         resetIgnoredMatches();
         resetDocumentCaches();
+        resetResultCaches();
         resetDocument();
+      } else if ("writeAnalyzedParagraphs".equals(sEvent)) {
+        new AnalyzedParagraphsCache(this); 
       } else if ("remoteHint".equals(sEvent)) {
         if (getConfiguration().useOtherServer()) {
           MessageHandler.showMessage(MessageFormat.format(messages.getString("loRemoteInfoOtherServer"), 
@@ -1543,6 +1594,9 @@ public class MultiDocumentsHandler {
         return true;
       } else {
         resetCheck();
+        if (showMessage) {
+          MessageHandler.showMessage(messages.getString("loNoGrammarCheckWarning"));
+        }
         return false;
       }
     }
@@ -1606,7 +1660,7 @@ public class MultiDocumentsHandler {
       setConfigValues(config, lt);
       MessageHandler.showMessage(messages.getString("loExtHeapMessage"));
       for (SingleDocument document : documents) {
-        document.resetCache();
+        document.resetResultCache();
         document.resetDocumentCache();
       }
       return false;
@@ -1640,9 +1694,11 @@ public class MultiDocumentsHandler {
   private static class AboutDialogThread extends Thread {
 
     private final ResourceBundle messages;
+    private final XComponentContext xContext;
 
-    AboutDialogThread(ResourceBundle messages) {
+    AboutDialogThread(ResourceBundle messages, XComponentContext xContext) {
       this.messages = messages;
+      this.xContext = xContext;
     }
 
     @Override
@@ -1650,9 +1706,10 @@ public class MultiDocumentsHandler {
       // Note: null can cause the dialog to appear on the wrong screen in a
       // multi-monitor setup, but we just don't have a proper java.awt.Component
       // here which we could use instead:
-      AboutDialog about = new AboutDialog(messages, null);
-      about.show();
+      aboutDialog = new AboutDialog(messages);
+      aboutDialog.show(xContext);
     }
+    
   }
 
   /**

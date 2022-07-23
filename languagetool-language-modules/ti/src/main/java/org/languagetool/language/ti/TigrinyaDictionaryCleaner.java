@@ -36,7 +36,7 @@ public class TigrinyaDictionaryCleaner {
       // remove words that start or end with '
       new InvalidStart());
 
-    Set<TigrinyaWordFreq> wordFreqs = validator.readDictionary(freq, filter);
+    Set<TigrinyaWordFreq> wordFreqs = validator.readDictionary(freq,dic, filter);
     validator.saveWordlistDictionary(freq, wordFreqs);
     validator.saveDictionary(dic, wordFreqs);
   }
@@ -64,10 +64,10 @@ public class TigrinyaDictionaryCleaner {
   static class ReplacableWords implements PipeLine<String> {
     @Override
     public String consume(String word) {
-      List<String> badTse = Arrays.asList("ፀ", "ፁ", "ፂ", "ፃ", "ፄ", "ፅ", "ፆ", "ፇ", "ኀ", "ኁ", "ኂ", "ኃ", "ኄ", "ኅ", "ኆ", "ኇ", "ሠ", "ሡ", "ሢ", "ሣ", "ሤ", "ሥ", "ሦ", "ሧ");
-      List<String> goodTse = Arrays.asList("ጸ", "ጹ", "ጺ", "ጻ", "ጼ", "ጽ", "ጾ", "ጿ", "ሀ", "ሁ", "ሂ", "ሃ", "ሄ", "ህ", "ሆ", "ሇ", "ሰ", "ሱ", "ሲ", "ሳ", "ሴ", "ስ", "ሶ", "ሷ");
-      for (int i = 0; i < badTse.size(); i++) {
-        word = word.replace(badTse.get(i), goodTse.get(i));
+      List<String> wrongTigrinya = Arrays.asList("ፀ", "ፁ", "ፂ", "ፃ", "ፄ", "ፅ", "ፆ", "ፇ", "ኀ", "ኁ", "ኂ", "ኃ", "ኄ", "ኅ", "ኆ", "ኇ", "ሠ", "ሡ", "ሢ", "ሣ", "ሤ", "ሥ", "ሦ", "ሧ");
+      List<String> correctTigrinya = Arrays.asList("ጸ", "ጹ", "ጺ", "ጻ", "ጼ", "ጽ", "ጾ", "ጿ", "ሀ", "ሁ", "ሂ", "ሃ", "ሄ", "ህ", "ሆ", "ሇ", "ሰ", "ሱ", "ሲ", "ሳ", "ሴ", "ስ", "ሶ", "ሷ");
+      for (int i = 0; i < wrongTigrinya.size(); i++) {
+        word = word.replace(wrongTigrinya.get(i), correctTigrinya.get(i));
       }
       return word;
     }
@@ -86,22 +86,40 @@ public class TigrinyaDictionaryCleaner {
     out.close();
   }
 
-  private void saveDictionary(URL url, Set<TigrinyaWordFreq> dictionary) throws IOException {
+  private Map<String,String> readPos(URL url) throws IOException {
+    Map<String,String> posMap = new HashMap<>();
+    String pattern = "(.+)\t(.+)\t(\\w+)";
+    Pattern r = Pattern.compile(pattern);
+    BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+    String line;
+    int count=0;
+    while ((line = reader.readLine()) != null) {
+      Matcher m = r.matcher(line);
+      if (m.find()) {
+        String word = m.group(1);
+        String pos = m.group(3);
+        posMap.put(word,pos);
+      }
+    }
+    return posMap;
+  }
 
+  private void saveDictionary(URL url, Set<TigrinyaWordFreq> dictionary) throws IOException {
     String file = url.getFile().replace("target/classes", "src/main/resources");
     System.out.println("saving to = " + file);
     BufferedWriter out = new BufferedWriter(new FileWriter(file));
     for (TigrinyaWordFreq wordFreq : dictionary) {
-      out.write(wordFreq.getWord() + "\n");
+      out.write(wordFreq.toDic() + "\n");
     }
     out.close();
   }
 
-  private Set<TigrinyaWordFreq> readDictionary(URL url, List<PipeLine<String>> pipes) throws IOException {
+  private Set<TigrinyaWordFreq> readDictionary(URL freq, URL dic, List<PipeLine<String>> pipes) throws IOException {
     SortedSet<TigrinyaWordFreq> dictionary = new TreeSet<>();
+    Map<String,String> posMap = readPos(dic);
     String pattern = "<w\\s+f=\"(\\d+)\"\\s+[^>]+>([^<]+)</w>";
     Pattern r = Pattern.compile(pattern);
-    BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+    BufferedReader reader = new BufferedReader(new InputStreamReader(freq.openStream()));
     String line;
     int count=0;
     while ((line = reader.readLine()) != null) {
@@ -116,7 +134,7 @@ public class TigrinyaDictionaryCleaner {
 //          }
         }
         if (word.length() > 1 && frequency>2) {
-          dictionary.add(new TigrinyaWordFreq(word, frequency));
+          dictionary.add(new TigrinyaWordFreq(word, posMap.get(word), frequency));
         }
       }
       count++;

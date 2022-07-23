@@ -76,7 +76,7 @@ public class JLanguageTool {
   private static final Logger logger = LoggerFactory.getLogger(JLanguageTool.class);
 
   /** LanguageTool version as a string like {@code 2.3} or {@code 2.4-SNAPSHOT}. */
-  public static final String VERSION = "5.7-SNAPSHOT";
+  public static final String VERSION = "5.9-SNAPSHOT";
   /** LanguageTool build date and time like {@code 2013-10-17 16:10} or {@code null} if not run from JAR. */
   @Nullable public static final String BUILD_DATE = getBuildDate();
   /**
@@ -230,7 +230,15 @@ public class JLanguageTool {
 
   public enum Level {
     DEFAULT,
-    PICKY
+    PICKY,
+    ACADEMIC,
+    CLARITY,
+    PROFESSIONAL,
+    CREATIVE,
+    CUSTOMER,
+    JOBAPP,
+    OBJECTIVE,
+    ELEGANT
   }
 
   private static final List<File> temporaryFiles = new ArrayList<>();
@@ -932,7 +940,9 @@ public class JLanguageTool {
     annotatedText = cleanText(annotatedText);
     List<String> sentences = getSentences(annotatedText, tokenizeText);
     List<AnalyzedSentence> analyzedSentences = analyzeSentences(sentences);
-    return checkInternal(annotatedText, paraMode, listener, mode, level, textSessionID, sentences, analyzedSentences);
+    CheckResults checkResults = checkInternal(annotatedText, paraMode, listener, mode, level, textSessionID, sentences, analyzedSentences);
+    checkResults.addSentenceRanges(SentenceRange.getRangesFromSentences(annotatedText, sentences));
+    return checkResults;
   }
 
   private List<String> getSentences(AnnotatedText annotatedText, boolean tokenizeText) {
@@ -948,19 +958,19 @@ public class JLanguageTool {
 
   private AnnotatedText cleanText(AnnotatedText annotatedText) {
     AnnotatedTextBuilder atb = new AnnotatedTextBuilder();
-    annotatedText.getGlobalMetaData().forEach((key, value) -> atb.addGlobalMetaData(key, value));
-    annotatedText.getCustomMetaData().forEach((key, value) -> atb.addGlobalMetaData(key, value));
+    annotatedText.getGlobalMetaData().forEach(atb::addGlobalMetaData);
+    annotatedText.getCustomMetaData().forEach(atb::addGlobalMetaData);
     List<TextPart> parts = annotatedText.getParts();
     for (TextPart part : parts) {
       if (part.getType() == TextPart.Type.TEXT) {
         String byteOrderMark = "\uFEFF";  // BOM or zero-width non-breaking space
-        StringTokenizer st = new StringTokenizer(part.getPart(), byteOrderMark, true);
-        while (st.hasMoreElements()) {
-          Object next = st.nextElement();
-          if (next.equals(byteOrderMark)) {
+        // split by byteOrderMark and let the delimiter also be part of the array
+        String[] split = part.getPart().split("(?<=\uFEFF)|(?=\uFEFF)");
+        for (String text : split) {
+          if ("\uFEFF".equals(text)) {
             atb.addMarkup(byteOrderMark);
           } else {
-            atb.addText(next.toString());
+            atb.addText(text);
           }
         }
       } else {
@@ -969,8 +979,8 @@ public class JLanguageTool {
     }
     return atb.build();
   }
-  
-  private CheckResults checkInternal(AnnotatedText annotatedText, ParagraphHandling paraMode, RuleMatchListener listener,
+
+  protected CheckResults checkInternal(AnnotatedText annotatedText, ParagraphHandling paraMode, RuleMatchListener listener,
                                      Mode mode, Level level,
                                      @Nullable Long textSessionID, List<String> sentences, List<AnalyzedSentence> analyzedSentences) throws IOException {
     RuleSet rules = getActiveRulesForLevel(level);
@@ -1022,8 +1032,20 @@ public class JLanguageTool {
 
     ruleMatches.addAll(remoteMatches);
 
-    return ruleMatches.isEmpty() ? res :
-           new CheckResults(filterMatches(annotatedText, rules, ruleMatches), res.getIgnoredRanges());
+    if (ruleMatches.isEmpty()) {
+      return res;
+    }
+
+    ruleMatches = filterMatches(annotatedText, rules, ruleMatches);
+
+    // decide if this should be done right after performCheck, before waiting for remote rule results
+    // better for latency, remote rules probably don't need resorting
+    // complications with application of other filters?
+    for (GRPCPostProcessing postProcessing : GRPCPostProcessing.get(language)) {
+      ruleMatches = postProcessing.filter(analyzedSentences, ruleMatches, textSessionID, inputLogging);
+    }
+
+    return new CheckResults(ruleMatches, res.getIgnoredRanges());
   }
 
   private List<RuleMatch> filterMatches(AnnotatedText annotatedText, RuleSet rules, List<RuleMatch> ruleMatches) {
@@ -1083,7 +1105,7 @@ public class JLanguageTool {
         }
         try {
           //logger.info("Fetching results for remote rule for {} chars", chars);
-          RemoteRuleMetrics.inCircuitBreaker(deadlineStartNanos, rule, ruleKey, chars, () ->
+          RemoteRuleMetrics.inCircuitBreaker(deadlineStartNanos, rule.circuitBreaker(), ruleKey, chars, () ->
             fetchResults(deadlineStartNanos, mode, level, analyzedSentences, remoteMatches, matchOffset, annotatedText, textSessionID, chars, deadlineEndNanos, task, rule, ruleKey));
         } catch (InterruptedException e) {
           break;

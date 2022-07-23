@@ -193,11 +193,13 @@ public class CaseRuleTest {
     assertGood("Das Gedicht “Der Panther”.");  // quotes are not correct, but leave that to the quotes rule
     assertGood("Klar, dass wir das brauchen.");
     assertGood("Das wird Scholz' engster Vertrauter Wolfgang Schmidt übernehmen.");
+    assertGood("Bei der Fülle an Vorgaben kann das schnell vergessen werden.");
 
     assertGood("Ist das eine Frage ? Müsste das nicht anders sein?");
     assertGood("Das ist ein Satz !!! Das auch.");
     assertGood("Liebe Kund:in");
     assertGood("Wir sollten das mal labeln.");
+    assertGood("Teil 1: Der unaufhaltsame Aufstieg Bonapartes");
 
     // https://github.com/languagetool-org/languagetool/issues/1515:
     assertGood("▶︎ Dies ist ein Test");
@@ -216,6 +218,10 @@ public class CaseRuleTest {
     assertGood("mit U-Bahn-ähnlichen und günstigen Verkehrsmitteln");
     assertGood("mit Ü-Ei-großen, schweren Hagelkörnern");
     assertGood("mit E-Musik-artigen, komplizierten Harmonien");
+    assertGood("eBay International AG");
+    assertGood("Harald & Schön"); // Firmenname
+    assertGood("Nicholas and Stark"); // Eigenname
+    assertGood("Die Schweizerische Bewachungsgesellschaft"); // Eigenname
 
     //assertBad("Sie sind nicht Verständlich");
     assertBad("Das machen der Töne ist schwierig.");
@@ -316,7 +322,8 @@ public class CaseRuleTest {
     
     // used to trigger error because of "abbreviation"
     assertGood("Sie fällt auf durch ihre hilfsbereite Art. Zudem zeigt sie soziale Kompetenz.");
-    
+
+    assertGood("Die Lieferadresse ist Obere Brandstr. 4-7");
     assertGood("Das ist es: kein Satz.");
     assertGood("Werner Dahlheim: Die Antike.");
     assertGood("1993: Der talentierte Mr. Ripley");
@@ -435,8 +442,9 @@ public class CaseRuleTest {
     assertGood("4.)   Bei Beschäftigung von Hilfskräften: Schadenfälle durch Hilfskräfte");
     assertGood("Es besteht aus Schülern, Arbeitstätigen und Studenten.");
     assertGood("Sie starrt ständig ins Nichts.");
-    assertGood("\\u2063Das Haus ist schlön.");
-    assertGood("\\u2063\\u2063Das Haus ist schlön.");
+    assertGood("Sowas aber auch.\u2063Das Haus ist schön.");
+    assertGood("\u2063Das Haus ist schön.");
+    assertGood("\u2063\u2063Das Haus ist schön.");
     assertGood("Die Mannschaft ist eine gelungene Mischung aus alten Haudegen und jungen Wilden.");
     assertGood("Alleine durch die bloße Einwohnerzahl des Landes leben im Land zahlreiche Kulturschaffende, nach einer Schätzung etwa 30.000 Künstler.");
     assertGood("Ich hatte das offenbar vergessen oder nicht ganz verstanden.");
@@ -444,6 +452,7 @@ public class CaseRuleTest {
     assertGood("Das ist ein zwingendes Muss.");
     assertGood("Er hält eine Handbreit Abstand.");
     assertGood("Das ist das Debakel und Aus für Podolski.");
+    assertGood("Ein Highlight für Klein und Groß!");
     assertGood("Der schwedische Psychologe Dan Katz, Autor von 'Angst kocht auch nur mit Wasser', sieht in der Corona-Krise dennoch nicht nur Negatives.");
   }
 

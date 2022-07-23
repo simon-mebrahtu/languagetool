@@ -2040,6 +2040,7 @@ Brüstungshöhe/N
 BSG
 BtM
 Bubblesort
+Büchereiausweis/E
 Büchereibesuch/S
 Büchereibesuche/NS
 Büchereiexemplar/S
@@ -3992,7 +3993,7 @@ Jesustyp
 Jesustypen
 Jhd.
 JHWH
-Jimdo #name
+Jimdo/S #name
 Jimmy Carter/S
 Jinping/S #name
 JKU #abk
@@ -4358,7 +4359,8 @@ kritikunfähig/A
 Krokodilhaut
 Kryolipolyse
 Kryostate/N
-Krypto-Crash
+Krypto-Crash/S
+Kryptocrash/S
 Kryptologieabteilung
 Kryptopyrrolurie
 Kryptotechnologie/N
@@ -4691,6 +4693,7 @@ Make-up-Stylist
 Make-up-Stylisten
 Make-up-Stylistin
 Make-up-Stylistinnen
+Make-up-Tutorial/S
 Makrelensalat/S
 Makrelensalate/N
 makrofähig/A
@@ -5718,6 +5721,20 @@ Premiumnutzerinnen
 Premiumpflege
 Premiumservice
 Premiumzugang/S
+Premiumkonto/S
+Premiumkonten
+Premiumangebot/S
+Premiumangebote/N
+Premiumautohersteller/NS
+Premiumbier/ES
+Premiumbiersorte/N
+Premiumkundin
+Premiumkundinnen
+Premiummitglied/S
+Premiummitglieder/N
+Premiummitgliedschaft
+Premiummitgliedschaften
+Premiumversand/S
 Prepaidkarte/N
 Pressbacke/N
 Pressenservice
@@ -5825,6 +5842,7 @@ Publikationsplattformen
 Publikationsprozess
 Publikationsprozesse/NS
 Publishern
+Publishers
 Publisherin
 Publisherinnen
 Puddingveganer/NS
@@ -9038,7 +9056,7 @@ vorwärtsstreben
 vorwärtsstrebend/A
 Erstsemesterstudentin
 Erstsemesterstudentinnen
-Backend #eng
+Backend/S #eng
 sags #ugs
 erzähls #ugs
 zeigs #ugs
@@ -9940,6 +9958,7 @@ Morningstar/S #name
 Pikachu/S #name
 Pizzasauce/N
 Premiumdienst/E
+Premiumdienste/NS
 Rammenau/S #name
 Sardinenbüchse/N
 Seehofer/S #name
@@ -20843,7 +20862,7 @@ zusammenbaubar/A
 vorblitzen
 los_reden
 Schlaufengriff/ES
-Wallet #eng
+Wallet/S #eng
 Präparatenamen/S
 Fersenpolster/NS
 Retourenetikett/S
@@ -23443,7 +23462,6 @@ Stornierungsfunktionen
 Brockschmidt/S #name
 Call-to-Action #eng
 Bestätigungsmail
-DS #abk
 Virtual Private Network/S #eng
 Virtual Console #eng #name
 Riskmanagement/S
@@ -25763,6 +25781,8 @@ Zwölfprophetenbuches
 batteln
 Binge-Watching/S
 Binge-Watcher/SN
+Binge-Drinking/S
+Binge-Drinker/SN
 Tiny House
 downcyceln
 Downcycling
@@ -26045,6 +26065,7 @@ Ziehbruder/S
 Dr.in
 Prof.in
 Peppa Wutz #name
+Peppa Pig/S #name
 Alexios #name
 FS #abk
 Perseveranz
@@ -27522,7 +27543,7 @@ Karl-Marx-Straße
 Conchita/S #name
 px #abk
 Nahkämpferin
-Nahkämpferinnnen
+Nahkämpferinnen
 Johns-Hopkins-Universität
 Woodrow
 Dwight
@@ -29080,7 +29101,6 @@ Schnabeltasse/N
 Schrumpfungsphase/N
 Signifikanzschwelle/N
 Snackpause/N
-SPSS #abk #name
 Stundungsmaßnahme/N
 Telefonates
 Theorietext
@@ -29285,7 +29305,6 @@ Witt/S #name
 Bender/S #name
 Seitz #name
 Wolter/S #name
-Unger/S #name
 Bruns #name
 Döring/S #name
 Kopp/S #name
@@ -31085,6 +31104,8 @@ Zyanidgas
 Zyanidgase/N
 Snowboardfahren/S
 Slide/S #eng
+Slider/SN #eng
+Logoslider/SN
 Willkommenstext/S
 Willkommenstexte/SN
 Zwingerhusten/S
@@ -32776,6 +32797,9 @@ IATA-Flughafencode/S
 IATA-Code/S
 Holiday on Ice #name
 Grimme-Preis
+Grimme-Preisträger/SN
+Grimme-Preisträgerin
+Grimme-Preisträgerinnen
 Grimme-Preise/SN
 One-Pager/SN
 Ad-hoc-Erklärung
@@ -33296,8 +33320,8 @@ Offboardingprozesses
 Offboarding-Prozesses
 Onboardingprozess/E
 Onboarding-Prozess/E
-Onboardingprozesses
-Onboarding-Prozesses
+Onboardingprozesse/SN
+Onboarding-Prozesse/NS
 Reinhart/S #name
 UniCredit/S
 On-Demand-Lieferung
@@ -37032,6 +37056,22 @@ En-suite-Bäder/N
 IVD
 Sharing #eng
 Endkund_in
+Neukund_in
+Privatkund_in
+Erstkund_in
+Altkund_in
+Kabelkund_in
+Industriekund_in
+Bahnkund_in
+Geschäftskund_in
+Unternehmenskund_in
+Bankkund_in
+Bestandskund_in
+Firmenkund_in
+Stammkund_in
+Tarifkund_in
+Großkund_in
+Anzeigenkund_in
 Businesskund_in
 Business-Kund_in
 Abc-Schütz_in
@@ -37188,7 +37228,6 @@ Grafolog_in
 Grapholog_in
 Griech_in
 Grillexpert_in
-Großkund_in
 Grundschulpädagog_in
 Gynäkolog_in
 Götterbot_in
@@ -37484,7 +37523,6 @@ Allgemeinärzt_in
 Alltagspsycholog_in
 Almhirt_in
 Altersgenoss_in
-Altkund_in
 Amateurköch_in
 Amtsärzt_in
 Amtstierärzt_in
@@ -37493,7 +37531,6 @@ Anlegerschutzanwält_in
 Anstaltsärzt_in
 Antiquariatskund_in
 Anwenderexpert_in
-Anzeigenkund_in
 Arbeitsplatzexpert_in
 Archäozoolog_in
 Armbrustschütz_in
@@ -37647,7 +37684,6 @@ Festlandchines_in
 Feuerwehrärzt_in
 Finanzmarktexpert_in
 Finnlandschwed_in
-Firmenkund_in
 Fischköch_in
 Fitnessexpert_in
 Fliegerärzt_in
@@ -37690,7 +37726,6 @@ Geographieexpert_in
 Gerichtsärzt_in
 Gerichtsexpert_in
 Gesandtschaftsbeamt_in
-Geschäftskund_in
 Geschlechtsgenoss_in
 Gesinnungsgenoss_in
 Gesundheitspsycholog_in
@@ -37991,7 +38026,6 @@ Prepaidkund_in
 Presbyterkolleg_in
 Privatärzt_in
 Privatköch_in
-Privatkund_in
 Profiköch_in
 Promiköch_in
 Prominentenanwält_in
@@ -38101,7 +38135,6 @@ Städteregionsrät_in
 Stadtgerichtsärzt_in
 Stadträt_in
 Stadtrival_in
-Stammkund_in
 Stammtischexpert_in
 Standesbeamt_in
 Starköch_in
@@ -40942,7 +40975,7 @@ Hilscher/S #name
 Oelsberg/S #name
 Mailer/SN
 Mailerin
-Mailerinnnen
+Mailerinnen
 Retourenformular/S
 Retourenformulare/N
 SLA #abk
@@ -41730,8 +41763,12 @@ durchschaubarstem
 rumms
 Okkurrenz
 Okkurrenzen
+Drag-Along-Recht/S
+Drag-Along-Rechte/SN
 Drag-Along-Klausel/N
 Tag-Along-Klausel/N
+Tag-Along-Recht/S
+Tag-Along-Rechte/SN
 mitverkaufend/A
 standardessenziell/A
 Campusnetz
@@ -44078,7 +44115,6 @@ MIME-Type/S
 van Gerwen/S #name
 Simon-Wiesenthal-Zentrum/S
 Top-Ten-Auswahl
-Top-Ten-Liste/N
 Erste-Hilfe-Kurs
 Erste-Hilfe-Kurse/NS
 Erste-Hilfe-Koffer/SN
@@ -44419,7 +44455,6 @@ Wandsbek/S
 Wandsbeker/SN
 Wandsbekerin
 Wandsbekerinnen
-Geschäftskund_in
 Content Writer/SN
 Content Writing/S
 Megahype/S
@@ -44528,7 +44563,6 @@ italienfreundlich/A
 montagefreundlich/A
 raucherfreundlich/A
 fahrgastfreundlich/A
-haustierfreundlich/A
 schwulenfreundlich/A
 aktionärsfreundlich/A
 geschäftsfreundlich/A
@@ -44662,7 +44696,6 @@ Taubengemeinschaften
 Uhrenwerkzeug/S
 Uhrenwerkzeuge/SN
 Unbehaglichkeit
-Unbehaglichkeiten
 Waffenlizenz
 Waffenlizenzen
 Zustellerbefragung
@@ -44983,7 +45016,6 @@ Steuerstundungsmodelle/N
 einkommensteuerlich/A
 umsatzsteuerlich/A
 körperschaftssteuerlich/A
-gewerbesteuerlich/A
 Sachverhaltskonstellation
 Sachverhaltskonstellationen
 Kapitalerhöhungsvorschrift
@@ -45090,9 +45122,7 @@ Olsen-Zwillinge/N
 gehaltstechnisch/A
 Kolle Rebbe/S #name
 awardgekrönt/A
-Kehlsteinhaus #name
 Kehlsteinhauses #name
-angstgesteuert/A
 Veronica Ferres #name
 Hans Clarin/S #name
 Theatrografie/N
@@ -45139,7 +45169,6 @@ Obdachlosenmisere/N
 drogengeschwängert/A
 Investorengeld
 Investorengeldes
-Investorengelder
 Ausatemventil/S
 Ausatemventile/N
 Refinanzierungsbedarf/S
@@ -45168,7 +45197,6 @@ IMK-Institutes
 bewässerungsabhängig/A
 Pokerspielerin
 Pokerspielerinnen
-Allianz Direct/S #name
 Veddel/S
 Veddeler/S
 Veddelerin
@@ -45183,7 +45211,6 @@ Prallufer/SN
 Prallreaktor/S
 Prallreaktoren
 Prallwand
-Prallwände/N
 Prallströmung
 Prallströmungen
 Vierkantholz
@@ -45245,7 +45272,6 @@ Myokardose/N
 rechnerintensiv/A
 laufintensiv/A
 lohnkostenintensiv/A
-kostenintensiv/A
 schadstoffintensiv/A
 qualifikationsintensiv/A
 an_pinseln
@@ -45385,7 +45411,6 @@ Mikroangiopathie/N
 Mauricio/S #name
 Mayrhofer/S #name
 Monatsreporting/S
-Quartalsreporting/S
 Mülltonnenbox
 Mülltonnenboxen
 Mülltonnenverkleidung
@@ -45430,7 +45455,6 @@ Sendungsinhalte/SN
 Wolodymyr Selenskyj/S #name
 Spindelapparat/S
 Spindelapparate/SN
-Stalleinrichtung
 Stalleinrichtungen
 Stilsymbol/S
 Stilsymbole/N
@@ -45493,7 +45517,6 @@ Gardasil 9 #name
 Rachenkrebs
 Zervixkarzinom/S
 Zervixkarzinome/N
-Schmidt-Chanasit/S #name
 PartG mbB #abk
 PartGmbB #abk
 PartmbB #abk
@@ -45771,13 +45794,7 @@ Digital Wallet/S #eng
 Einzeilerfrage/N
 Einzeilerantwort
 Einzeilerantworten
-emporrecken
 emporrecke
-emporreckt
-emporreckst
-emporrecktest
-emporreckte
-emporreckten
 emporgereckt/A
 Headhunter/NS
 Bitcoin-Miner/NS
@@ -45954,8 +45971,6 @@ Maßnahmenkomplexe/NS
 russlandtreu/A
 regierungsfeindlich/A
 Separatistenvertreter/SN
-Separatistengebiet/S
-Separatistengebiete/SN
 Flatexdegiro/S #name
 flatexDEGIRO/S #name
 volumenunabhängig/A
@@ -45969,9 +45984,6 @@ Beachvolleyballturniere/N
 Beachvolleyballspieler/SN
 Beachvolleyballspielerin
 Beachvolleyballspielerinnen
-Beachvolleyballer/SN
-Beachvolleyballerin
-Beachvolleyballerinnen
 Beachvolleyballnetz
 Beachvolleyballnetze/SN
 Beachvolleyballspiel/S
@@ -45982,7 +45994,6 @@ Oceansapart/S #name
 Muscle Beach #name
 intelligenzbefreit/A
 Transaktivismus
-Transaktivismuses
 intersektionell/A
 unmoderiert/A
 Alice Schwarzer/S #name
@@ -46007,8 +46018,6 @@ Qualifizierungsbetrieb/S
 Qualifizierungsbetriebe/SN
 Prämienregelung
 Prämienregelungen
-Schmand/S
-Schmandes
 Zivilisationserkrankung
 Zivilisationserkrankungen
 Mombachstraße #name
@@ -46074,8 +46083,8 @@ Stop-Loss-Marke/N
 Stop-Loss-Kurs
 Stop-Loss-Kurse/SN
 Stop-Loss-Strategie/N
-Stöckachstraße
-Stöckachstr.
+Stop-Loss-Auftrag/S
+Stop-Loss-Aufträge/N
 erbittere
 erbittern
 erbitterst
@@ -46231,8 +46240,3419 @@ Aneignungstätigkeit
 Aneignungstätigkeiten
 Binge-Eating-Störung
 Binge-Eating-Störungen
+Erneuerin
 Cecilia/S #name
 Cécilia/S #name
 Dielsdorf/S #name
 zwangsverstaatlicht/A
 up to date
+Piksieben
+Polarografie
+Tabledancebar
+Tabledance-Bar
+Komputistik
+Roskomnadsor/S #name
+Kommentarschreiber/SN
+Arbeitsunfähigkeitsmeldung
+Arbeitsunfähigkeitsmeldungen
+Aufopferungsanspruch/S
+Aufopferungsansprüche/N
+Bemerkungszeile/N
+Heißleimpistole/N
+Brazilian Waxing/S #eng
+Cargojoggers
+Dübelstange/N
+Hafterstehungsfähigkeit
+Hafterstehungsfähigkeiten
+Holstenstraße #name
+Holstenstr. #name
+Laurentiusstraße #name
+Laurentiusstr. #name
+Intimflüssigkeit
+Intimflüssigkeiten
+kulturreichste
+kulturreichster
+kulturreichstes
+kulturreichsten
+kulturreichstem
+Outdoorküche/N
+Reproduktionsversuch/S
+Reproduktionsversuche/NS
+Schewtschenko/S #name
+Trollkommentar/S
+Trollkommentare/N
+Urintropfen/S
+Wachkomapatient
+Wachkomapatienten
+Websitedesign/S
+nach_adjustieren
+Gazprom/S
+auf_knurren
+Aktivitätenleiste/N
+Anleitungsschritt/S
+Anleitungsschritte/NS
+aus_motten
+ein_motten
+Seevetal/S #name
+Eigenverbauch/S
+Erlebniszelt/S
+Erlebniszelte/SN
+Farmspiel/S
+Farmspiele/N
+dagestanisch/A
+Anbindungsleitung
+Anbindungsleitungen
+Kickback/S
+Kick-back/S
+frauenhistorisch/A
+Selleriesalz
+verdeckeln
+verdeckele
+verdeckelt
+verdeckelst
+verdeckelte
+verdeckelten
+Approximalkontakt/S
+Approximalkontakte/SN
+Ausspielungslogik
+Bewältigbarkeit
+Bewältigbarkeiten
+Anschweißring/S
+Anschweißringe/SN
+Albert-Schweitzer-Str. #name
+Albert-Schweitzer-Straße #name
+Amsinckstraße
+Amsinckstr.
+Batteriestandsanzeige/N
+Benachrichtigungszyklus
+Benachrichtigungszyklen
+Coachingziel/S
+Cyberangriff/S
+Cyberangriffe/SN
+Denkendorf/S #name
+DomainFactory/S #name
+Durchschlafproblem/S
+Durchschlafprobleme/N
+Eckenabrunder/SN
+Einmalgutschrift
+Einmalgutschriften
+Empfehlungscode/S
+Entzündungserkrankung
+Entzündungserkrankungen
+Espressokocher/S
+Evakuierungsort/S
+Evakuierungsorte/SN
+Fahrtüchtigkeitstest/S
+Fantasiespiel/S
+Fantasiespiele/N
+Fettsäureanalyse/N
+Fäkaliengeruch/S
+Fäkaliengerüche/N
+Genderhinweis
+Genderhinweise/NS
+Hawthorne-Effekt/S
+Hawthorne-Effektes
+Helfernetz
+Helfernetze/SN
+Holguín/S #name
+Jalousieanlage/N
+Juniortest/S
+Kampagnensumme/N
+Katalogartikel/SN
+Klimafondsgesetz
+Klimafondsgesetzes
+Kulanzrabatte/N
+Kulanzrabatt/S
+Kundenrückgaberegistrierung
+Kundenrückgaberegistrierungen
+Layoutvorlage/N
+Layouterfahrung
+Layouterfahrungen
+Layoutarbeit
+Layoutarbeiten
+Lieferantensuche/N
+Lenkerbreite/N
+Lenkerhöhe/N
+Luftströmungssimulation
+Luftströmungssimulationen
+Mahlzeitenversorgung
+Mahlzeitenversorgungen
+Mandatsübernahme/N
+Maßnahmenbeginn/S
+Maßnahmenprogramm/S
+Maßnahmenvorschläge/N
+Mediakosten
+Mietminderungsmöglichkeit
+Mietminderungsmöglichkeiten
+Millimeterabstand/S
+Millimeterabstände/N
+Minimalistin
+Minimalistinnen
+seidengleich/A
+schockgefrostet/A
+schockfrosten
+schockfrostet
+schockfrostest
+schockfrostete
+schockfrosteten
+Przemyśl/S #name
+Evakuierungsroute/N
+INF-Vertrag/S
+Jekaterinburg/S #name
+Kalendersync/S
+an_knurren
+Unzukömmlichkeit
+Unzukömmlichkeiten
+Dealmaker/SN
+Acrylat/S
+Acrylate/SN
+Anspruchsteller/SN
+Anspruchstellerin
+Anspruchstellerinnen
+Extrusionswerkzeug/S
+Extrusionswerkzeuge/N
+Fehlerhaftigkeit
+Fehlerhaftigkeiten
+Genesenenzertifikat/S
+Genesenenzertifikate/SN
+Halterwechsel/SN
+Palettensicherung
+Palettensicherungen
+Retourenvorgang/S
+Retourenvorgänge/N
+Unterkunftsplatz
+Unterkunftsplatzes
+Unterkunftsplätze/N
+Veranstalterseite/N
+Vorbrühphase/N
+klimafreundlichste
+klimafreundlichster
+klimafreundlichstes
+klimafreundlichstem
+klimafreundlichsten
+parasitenreich/A
+macspezifisch/A
+windowsspezifisch/A
+jumpbereit/A
+Abfuck/S #ugs
+Yoon Seok-youl/S #mame
+Seok-youl/S #mame
+landadelig/A
+bevölkerungsdichteste
+bevölkerungsdichtestes
+bevölkerungsdichtester
+bevölkerungsdichtesten
+bevölkerungsdichtestem
+Megaregion
+Megaregionen
+Clarenberg/S #name
+Ruhrachse/N
+Lagegunst
+Planaussage/N
+gemeindescharf/A
+einwohnergrößte
+einwohnergrößten
+einwohnergrößter
+einwohnergrößtes
+einwohnergrößtem
+Badisch-Schöllenbach/S #name
+Ziegelhausen/S #name
+Main-Taunus-Kreis
+Main-Taunus-Kreises
+Bad Soden/S #name
+Liederbach/S #name
+Taunusberg/S
+Taunusberge/N
+Ruppertshain/S #name
+Vordertaunuslandschaft
+RMD-Kanal/S #name
+Kanalrinne/N
+Bachhausen/S #name
+Constanța/S #name
+optimalste
+optimalster
+optimalstes
+optimalsten
+optimalstem
+Köttbullar #name
+Beauflagung
+Beauflagungen
+Dettenheim/S #name
+Dinkelkaffee/S
+Entschlüsselungsmaschine/N
+Hechtköder/SN
+Infrastrukturingenieur/S
+Infrastrukturingenieure/N
+Inspektionstermin/S
+Inspektionstermine/N
+Institutionsnr.
+Lippstadt-Eickelborn/S #name
+Spritpreisbremse/N
+entkarbonisiere
+entkarbonisierte
+entkarbonisierten
+entkarbonisiert/A
+entkarbonisieren
+kakaoartig/A
+vertriebsunterstützend/A
+Begünstigungsprogramm/S
+Begünstigungsprogramme/N
+stressreduziert/A
+geraffelt/A
+Reportingpflicht
+Reportingpflichten
+Zustimmungskatalog/S
+Zustimmungskataloge/NS
+Vertragsstrafenregelung
+Vertragsstrafenregelungen
+Verschuldensmaßstabes
+Abwerbeverbot/S
+Abwerbeverbote/NS
+grundgesetzkonform/A
+Infrastrukturgebühr
+Infrastrukturgebühren
+Traktionsbatterie/N
+Redox-Flow-Batterie/N
+Verbrennerfahrzeug/S
+Verbrennerfahrzeuge/NS
+Reichweitenanzeige/N
+Federungskomfort/S
+Premiumanspruch/S
+Reiseenduro/S
+Schwingenachse/N
+Lippenbandentfernung
+Lippenbandentfernungen
+Lippenbandkorrektur
+Lippenbandkorrekturen
+Umstyling/S
+um_stylen
+Rückgabeerfassung
+Rückgabeerfassungen
+Vernetzungsanfrage/N
+spielerspezifisch/A
+Diktatübungsheft/S
+Diktatübungshefte/SN
+Entbündelungsverfahren/S
+Max-Eyth-See/S #name
+Herpesbläschen/S
+Schamregion
+Schamregionen
+Porträt-Shooting/S
+Porträt-Fotoshooting/S
+Nacherfassung
+Nacherfassungen
+Abgleichsfunktion
+Abgleichsfunktionen
+Abizeugnis
+Abizeugnisse/SN
+Adminkonto/S
+Adminkonten
+Adrenalinproduktion
+Alptraumkreatur
+Alptraumkreaturen
+Albtraumkreatur
+Albtraumkreaturen
+Alptraumwesen/S
+Albtraumwesen/S
+Analystenaussage/N
+Anhörrecht/S
+Anhörrechte/SN
+Anknüpfpunkt/S
+Anknüpfpunkte/NS
+Anstoßwinkel/SN
+Aquariumswasser/S
+arbeitssicher/A
+Aromapflegeprodukt/S
+Aromapflegeprodukte/SN
+augenverdrehend/A
+Drittanbieterwerkzeug/S
+Drittanbieterwerkzeuge/NS
+Opt-Out-Cookie/S
+Opt-In-Cookie/S
+Browserinformation
+Browserinformationen
+Kampagnenleistung
+Kampagnenleistungen
+Ausgliederungsmanagement/S
+Auslastungsoptimieriung
+Auslastungsoptimieriungen
+Auswertungstemplate/S
+Aufteiler/SN
+Fondshaus
+Fondshauses
+Billionenrisiko/S
+Billionenrisiken
+Sanktionsfolge/N
+rüstungskritisch/A
+Russophobie
+Russenfeindlichkeit
+Antirussismus
+Logistikdrehkreuz
+Logistikdrehkreuze/NS
+Transformationsenergie/N
+Jumpstyle/S
+Max-Eyth-Str. #name
+Max-Eyth-Straße #name
+Alptraumwelt
+Alptraumwelten
+Albtraumwelt
+Albtraumwelten
+thermobarisch/A
+Federungskomfort
+batterieelektrisch/A
+Effizienzplus
+Verzögerungsleistung
+Verzögerungsleistungen
+Fantasiewährung
+Fantasiewährungen
+ovalblättrig/A
+kosteneffektiver/A
+kosteneffizienter/A
+spritschluckend/A
+strafgesetzlich/A
+hackedicht/A
+Gallagher-Brüder/N
+weg_kaschieren
+leitungsgeführt/A
+arbeitnehmerseitig/A
+arbeitgeberseitig/A
+Merinofaser/N
+Merinowolle
+Merinojersey/S
+ofenfest/A
+Schanzensprung/S
+Schanzensprünge/N
+Aktivitätenplanung
+Aktivitätenplanungen
+Allmählichkeitsschaden/S
+Allmählichkeitsschäden
+Aufteilungsstruktur
+Aufteilungsstrukturen
+Auszeichner/NS
+Auszeichnerin
+Auszeichnerinnen
+Babyphon/S
+Babyphone/N
+Babyfon/S
+Babyfone/N
+Chancenverteilung
+Chancenverteilungen
+Doppelstabmatte/N
+Downtown
+entgegengerechnet/A
+Entgrenzungsversuch/S
+Entgrenzungsversuche/SN
+Epochenbilder/N
+Eukalyptusplantage/N
+Flamingoblume/N
+geruchsabweisend/A
+gehamstert/A
+Heulkrampf/S
+Heulkrämpfe/N
+Heulkrampfes
+Konkurrentenanalyse/N
+Konsensmechanismen
+lernbar/A
+Modellierungsrichtlinie/N
+Notizfläche/N
+Pflichtteilsanspruch/S
+Pflichtteilsansprüche/N
+Regalrahmen/S
+Recruitingservice/S
+Schloßstr.
+Schloßstraße
+Raiffeisenplatz #name
+Raiffeisenplatzes #name
+Sparkassen-Card/S
+Staffelwert/S
+Staffelwerte/N
+Steuer-Nr.
+Verlaufsbericht/S
+Verlaufsberichte/N
+Verlaufsübersicht
+Verlaufsübersichten
+wohnsitzbeschränkend/A
+Zargenfassung
+Zargenfassungen
+TikToker/SN
+TikTokerin
+TikTokerinnen
+Videoschiri/S
+tumeszent/A
+Updateformular/S
+Updateformulare/NS
+Strabismologie/N
+voll_qualmen
+kulanteste
+kulantester
+kulantestes
+kulantesten
+kulantestem
+Krzysztof/S #name
+Basecap/S
+Bambusbrett/S
+Bambusbretter/N
+Bikerjacke/N
+Mopedjacke/N
+Bitumenabdichtung
+Bitumenabdichtungen
+Biografiearbeit
+Biografiearbeiten
+Bielersee/S #name
+Isolationsbestätigung
+Isolationsbestätigungen
+Siegelfolie/N
+Spritschlucker/SN
+entgegengerichtet/A
+quarze
+gequarzt/A
+quarzen
+quarzt
+quarzte
+quarzten
+quarzend/A
+voll_quarzen
+disquotal/A
+Susanne Klatten/S
+Allergietablette/N
+Theaterpyrotechnik
+Außenseiterwette/N
+Außenseitertipp/S
+Befugnisüberschreitung
+Befugnisüberschreitungen
+Casinoeingang/S
+Casinoeingänge/N
+Clusteralgorithmus
+Clusteralgorithmen
+Burgbernheim/S #name
+Çavuşoğlu/S #name
+Junk-Mail/S
+Junk-Mail-Ordner/SN
+rbb-Doku/S
+rbb-Dokumentation
+rbb-Dokumentationen
+rbb-Recherche/N
+downvoten
+downvote
+downvotet
+downvotete
+downvoteten
+downvotest
+gedownvotet/A
+Ivanka/S
+Nudging/S #eng
+Andrij Melnyk/S #name
+weg_ducken
+voll_pumpen
+ab_ferkeln
+Vermisstensuche/N
+Püschel/SN
+weg_putschen
+kokainhaltig/A
+cannabishaltig/A
+Bigband/S
+Big Band/S
+Feuchtigkeiten
+Teilhabeleistung
+Teilhabeleistungen
+verzugsgefährdet/A
+wohlfahrtsnationalistisch/A
+Prägekante/N
+Geilheit
+Geilheiten
+an_geilen
+Abholungsbenachrichtigung
+Abholungsbenachrichtigungen
+Wallringtunnel/S
+Geheimversteck/S
+Geheimverstecke/N
+Ermittlertruppe/N
+Ermittlergruppe/N
+True-Crime-Podcast/S
+True-Crime-Doku/S
+True-Crime-Dokumentation
+True-Crime-Dokumentationen
+True-Crime-Serie/N
+True-Crime-Miniserie/N
+weg_maximieren
+inflationsbedingt/A
+inflationsadjustiert/A
+weg_debattieren
+Desinvestment/S
+zoffe
+zoffen
+zofften
+zoffte
+zoffst
+gezofft/A
+Sambuca/S
+verschwörungsideologisch/A
+hoch_purzeln
+runter_purzeln
+Aufschäumvorgang
+Thrombosestrumpf
+Thrombosestrümpfe/N
+Banja Luka/S
+Pfannendeckung
+Pfannendeckungen
+Erschließungsfläche/N
+grundstücksseitig/A
+Strauchpflanzung
+Strauchpflanzungen
+kleinkronig/A
+erschließungstechnisch/A
+Gratismonat/S
+Gratismonate/N
+Handsprüher/SN
+Granulatmulde/N
+weg_mobben
+cookiebasiert/A
+pullen
+pulle
+pullt
+pullte
+pullten
+pullst
+Plattformregulierung
+Plattformregulierungen
+DSA
+Benefizwochenende/NS
+Benefizabend/S
+Benefizabende/N
+Pennystock/S
+dauergrün/A
+Attraktivierung
+Delisting/S #eng
+Elbtower/S #name
+Signa Real Estate #name
+Estrel Tower/S #name
+oscarverdächtig/A
+oscarwürdig/A
+Grimaldi/S #name
+aus_hebeln
+Heinrich-Heine-Universität
+Rubelzahlung
+Rubelzahlungen
+Rubelmarkt/S
+Rubelmärkte/N
+hin_zimmern
+Roskosmos #name
+D&O-Versicherung
+D&O-Versicherungen
+Srebrenica/S
+boarden
+boarde
+boardet
+boardest
+boardete
+boardeten
+geboardet/A
+Pitch
+Pitches
+Elevator Pitch
+Elevator Pitches
+Aufzugsfahrt
+Aufzugsfahrten
+pitchen
+pitche
+pitcht
+pitchte
+pitchten
+gepitcht/A
+pitchst
+herum_zappeln
+herum_laufen
+herum_drehen
+herum_erzählen
+herum_schreien
+herum_schicken
+Cannabisextrakte/N
+Cannabismedizin
+Drohnenbild/S
+Drohnenbilder/N
+Drohnenaufnahme/N
+Flanschplatte/N
+Full-Service-Werbeagentur
+Full-Service-Werbeagenturen
+Stanzniete/N
+Trachtenschmuck/S
+an_pachten
+Autoakku/S
+Mentorat/S
+regranuliert/A
+regranuliere
+regranulieren
+regranuliert
+regranulierte
+regranulierten
+regranulierst
+Abholungseinladung
+Abholungseinladungen
+Absperrhahn/S
+Absperrhähne/N
+Adressierungsbereich
+Adressierungsbereiche/N
+untermotiviert/A
+darauf_kommen
+Perlschlauch/S
+Perlschläuche/N
+rum_dudeln
+herum_dudeln
+#herum_reißen
+herum_reisen
+herum_erziehen
+herum_lamentieren
+herum_motzen
+herum_flanieren
+herum_experimentieren
+herum_rätseln
+Trauredner/SN
+Traurednerin
+Traurednerinnen
+Winkeljohann/S #name
+Bayer/S #name
+Investorenrevolte/N
+manager magazin/S #name
+zurück_siezen
+zurück_duzen
+Kryptoanbieter/SN
+Kryptoangebot/S
+Kryptoangebote/NS
+her_klicken
+Palettenmöbel
+Deniz Yücel/S #name
+Stadtwerkesprecher/SN
+Einmalpin/S
+Einmalpasswort/S
+Einmalpasswörter/N
+Sommernachtsluft
+rotschuppig/A
+todesnah/A
+woah #ugs
+Infrastrukturanbindung
+Infrastrukturanbindungen
+LNG-Anlandepunkt/S
+LNG-Anlandepunkte/NS
+mitternachtsschwarz/A
+Gehstab/S
+Gehstäbe/N
+axtschwingend/A
+Chancenplus
+geb #ugs
+bekomm #ugs
+nutzungseingeschränkt/A
+Flat White/S #name #eng
+Pageimpression/S
+Gazprom Germania/S #name
+wegrocken
+wegrocke
+wegrockte
+wegrockten
+wegrockt
+wegrocktest
+wegrockst
+weggerockt
+Hackfresse/N #ugs
+Bagatellbereich/S
+Bagatellbereiche/N
+Pastagericht/S
+Pastagerichte/NS
+Alcúdia/S #name
+Sekundarbildung
+Sekundarklasse/N
+Anlasstat
+Anlasstaten
+Abholungsort/S
+Abholungsorte/NS
+Dankbarkeitsritual/S
+Dankbarkeitsrituale/N
+Malset/S
+Kachelbild/S
+Kachelbilder/N
+Kulanzbestimmung
+Kulanzbestimmungen
+Klamottenwahl
+Offizierlaufbahn
+Offizierlaufbahnen
+Sendungslink/S
+entstempelt/A
+stimmungshebend/A
+zellregenerierend/A
+Toupetträger/SN
+kriminalitätsfördernd/A
+Abschichtungsvereinbarung
+Abschichtungsvereinbarungen
+Akquiseprojekt/S
+Akquiseprojekte/NS
+Aneignungsprozess
+Aneignungsprozesse/NS
+Anstoßkappe/N
+Datenschutzaudit/S
+Dispotabelle/N
+Kulanzzeit
+Kulanzzeiten
+Layoutanpassung
+Layoutanpassungen
+Maklerkonto/S
+Maklerkonten
+Martinistraße #name
+Martinistr. #name
+Sanktionspaket/S
+Sanktionspakete/N
+Semesterthema/S
+Semesterthemen
+aufgezwängt/A
+Tichys Einblick #name
+Georg Restle/S #name
+Syndikusrechtsanwalt
+Syndikusrechtsanwalts
+Syndikusrechtsanwälte
+Syndikusrechtsanwältin
+Syndikusrechtsanwältinnen
+Syndikuspatentanwalt
+Syndikuspatentanwalts
+Syndikuspatentanwältin
+Syndikuspatentanwältinnen
+jazzen
+jazzten
+jazze
+jazzt
+jazzte
+gejazzt/A
+medienverliebt/A
+aus_dribbeln
+billionenschwer/A
+Auffahrkeile/N
+Axialsicherung
+Axialsicherungen
+Epilepsiesprechstunde/N
+Leinwandbreite/N
+Mo.-Do. #abk
+Hauptmotivationsindikator/S
+Hauptmotivationsindikatoren
+Schönfeld-Weißig/S #name
+Studiengangsleitung
+Studiengangsleitungen
+Verwalterwechsel/SN
+produktentwickelnd/A
+Abkündigungsschreiben/S
+Aknefleck/S
+Akneflecken
+Akquiseaktion
+Akquiseaktionen
+Winterhärte
+um_dribbeln
+an_dribbeln
+József/S #name
+Gaudí/S #name
+Antònia/S #name
+Squashanlage/N
+Squashhalle/N
+Squashplatz
+Squashplatzes
+Squashplätze/N
+Kürbissorte/N
+Squashcourt/S
+Squashball/S
+Squashbälle/N
+Squashcenter/SN
+Squashschläger/SN
+Schlägerqualität
+Schlägerqualitäten
+Racquetball/S
+Glascourt/S
+drunter_kommentieren
+Granulatsäckchen/S
+Bildsamkeit
+Bildsamkeiten
+Blasebalgtasche/N
+Chromallergie
+Chromallergiker/SN
+Chromallergikerin
+Chromallergikerinnen
+Erörterungsaspekt/S
+Erörterungsaspekte/N
+Curry/S
+Leitmerkmalmethode/N
+Worcestershire/S #name
+Naturerlebniswanderung
+Naturerlebniswanderungen
+intelligenzmäßig
+pH-neutral/A
+pH-hautneutral/A
+Mac and Cheese
+THG-Quote/N
+Prämiengarantie/N
+Verteilmodell/S
+Rechnungslegungsgrundsatz
+Rechnungslegungsgrundsatzes
+Außerkraftsetzen/S
+Rechnungslegungsmethode/N
+Register-Nr.
+abnutzbar/A
+Erfüllungsbetrag/S
+Erfüllungsbetrages
+Erfüllungsbeträge/N
+unternehmensindividuell/A
+Realisationsprinzip/S
+Ausschüttungssperre/N
+Fridtjof/S #name
+Nachtragsbericht/S
+Nachtragsberichte/NS
+produktseitig/A
+marketingseitig/A
+Software as a Service #eng
+Umsatzerlöswachstum/S
+Zahlungsmitteläquivalent/S
+Zahlungsmitteläquivalente/N
+Gewahrsamsfähigkeit
+Elektrodenpolarisation
+Nacherhitzer/NS
+stromautark/A
+Thermenbesucher/NS
+umsatzerhöhend/A
+gewinnerhöhend/A
+Chancenbericht/S
+Chancenberichte/N
+Unabwägbarkeit
+Unabwägbarkeiten
+Employer Branding/S #eng
+Remote Work #eng
+seborrhoisch/A
+dyshidrotisch/A
+Kortisoncreme/S
+Cistustee/S
+herum_gammeln
+aus_schauen
+Deaktivierungsrate/N
+Kreativfläche/N
+Drittmeinung
+Drittmeinungen
+zurückleasen
+zurückleast
+zurücklease
+zurückleaste
+zurückleasten
+zurückgeleast/A
+weg_grätschen
+rumfackeln #ugs
+rumfackelt
+rumfackelte
+rumfackelten
+rumgefackelt/A
+Lisa Paus #name
+Frostschutzberegnung
+Frostschutzberegnungen
+Kennenlerntermin/S
+Mahnwesenschnittstelle/N
+Shopabruf/S
+Shopname
+Shopnamen/S
+Süßholzraspler/SN
+mappen
+gemappt/A
+Feenprinzessin
+Feenprinzessinnen
+Fünftelregelung
+Fünftelregelungen
+Antibiotikagruppe/N
+Erlebnishörspiele/N
+Kratzgewohnheite/N
+Nachbeobachtungszeit
+Nachbeobachtungszeiten
+Pisastudie/N
+Premierenausgabe/N
+Vollfarbenmodus
+an_docken
+weg_docken
+Malervlies
+Malervliese/N
+Strack-Zimmermann/S #name
+Bambushaus
+Bambushauses
+Bambushäuser/N
+betröpfeln
+betröpfelt
+betröpfelte
+betröpfelst
+Dissimilationsprozess
+Dissimilationsprozesse/NS
+Erlebnissituation
+Erlebnissituationen
+Feuchtarbeit
+Feuchtarbeiten
+Husarendenkmal/S
+Julieta/S #name
+Kampagnentyp/S
+Kampagnentypen
+Kampagnenleiter/SN
+Klimakonvektor/S
+Klimakonvektoren
+Malerfolie/N
+Stationsbüro/S
+Unterkunftsproblem/S
+Unterkunftsprobleme/N
+unvernetzt/A
+Premiumdomain/S
+Portierungstermin/S
+Portierungstermine/N
+sandverträglich/A
+alkoholunverträglich/A
+gewässerverträglich/A
+hardwareverträglich/A
+hitzeunverträglich/A
+salzunverträglich/A
+hautunverträglich/A
+ab_wichsen #ugs
+weg_schniefen
+Transperson
+Transpersonen
+Transmann/S
+Transmannes
+Transmänner/N
+Transmensch
+laktoseunverträglich/A
+runter_schleifen
+Bambusholz
+Bambusholzes
+Bambushölzer/N
+Bambuszaun/S
+Bambuszäune/N
+Opt-Out-Link/S
+PayPals
+Kampagnendaten
+weg_schürfen
+aus_harren
+Caro Daur/S #name
+Puzzlemotive/N
+Puzzlemotiv/S
+Auftrags-Nr.
+Entzugssymptomatik
+Formalinfixierung
+Hennig-Wellsow/S #name
+Keywordanalyse/N
+Supportticket/S
+Kevin Trapp/S #name
+ab_modellieren
+Abnehmprozess
+Abnehmprozesse/SN
+grammatikinteressiert/A
+fußballinteressiert/A
+handballinteressiert/A
+basketballinteressiert/A
+sportinteressiert/A
+kunstinteressiert/A
+kulturinteressiert/A
+Karosseriebauerin
+Karosseriebauerinnen
+einbindbar/A
+einbettbar/A
+firmenextern/A
+logischste/NS
+logischster
+logischstem
+Inkassodienstleister/NS
+stecknadelgroß/A
+Stichtagsabrechnung
+Stichtagsabrechnungen
+umzugsbereit/A
+weg_radeln
+durch_winken
+durch_schleudern
+durch_checken
+durch_vögeln
+durch_mischen
+durch_planen
+durch_fegen
+durch_klettern
+Höflichkeitsbezeugung
+rein_investieren
+weg_funken
+aus_buhen
+Fehlericon/S
+Geschacher/S
+Einzelabo/S
+Wahlleutestimme/N
+Dokumentensichtung
+Dokumentensichtungen
+Polyesterwatte
+Data Scientist/S #eng
+reboote
+rebootete
+rebooteten
+rebooten
+verfeiern
+verfeiere
+verfeiert
+verfeierte
+verfeierten
+verfeierst
+Janine Wissler/S #name
+Altgenossin
+Altgenossinnen
+Altinternationale/N
+Bestarbeiter/NS
+Bestarbeiterin
+Bestarbeiterinnen
+Brauneisenerz/ES
+Graufischer/NS
+Graumarkt/ES
+Graumärkte/N
+Graumännchen/S
+Halbaffix/ES
+Halbstieg/ES
+Kleinkrämerei
+Kleinkrämereien
+Magerbeton/S
+Mehrfachbehinderte/N
+Nassgalle/N
+Neueinstudierung
+Neueinstudierungen
+Neuhegelianer/NS
+Neuhegelianerin
+Neuhegelianerinnen
+Neuplatonikerin
+Neuplatonikerinnen
+Neuthomist
+Neuthomisten
+Neuthomistin
+Neuthomistinnen
+Neukantianerin
+Neukantianerinnen
+Rotbusch/ES
+Rotbüsche/N
+Roteisenerz/ES
+Sauerwiese/N
+Schwarzfleckigkeit
+Schwarzbrennerin
+Schwarzbrennerinnen
+Totgewicht/ES
+Totlast
+Totlasten
+Totschlägerin
+Totschlägerinnen
+Trockenstarre
+Universalepiskopat/ES
+Universalsukzession
+Universalsukzessionen
+Weißgardistin
+Weißgardistinnen
+Bitterfäule
+Bitterlikör/ES
+Bittermittel/S
+Bitterwurz
+Bitterwurzen
+Bitterwurzel/N
+Spechtvögel/N
+Meißelschnabel/SN
+Helmspecht/S
+Helmspechte/SN
+Klopfbewegung
+Klopfbewegungen
+an_blinken
+Gender-Mainstreaming/S
+Gendermainstreaming/S
+frostarm/A
+frosttechnisch/A
+hinterher_hinken
+Spritzenpumpe/N
+Antiarrhythmikum/S
+Antiarrhythmika
+feuerbestattet/A
+Stationsapotheker/SN
+klinikintern/A
+krankenhausintern/A
+einrichtungsintern/A
+amharisch/A
+runter_schlucken
+rüber_kommen
+Genderstudie/N
+Genderdebatte/N
+Genderdeutsch
+Genderfeminismus
+Genderforschungen
+Genderfrau
+Genderfrauen
+Gendermist/S
+Genderforscher/NS
+Genderforscherin
+Genderforscherinnen
+bienenfeindlich/A
+insektenunfreundlich/A
+Mulchschicht
+Mulchschichten
+Mulchwirtschaft
+Mulchsaat
+Mulchsaaten
+Mulchart
+Mulcharten
+versch. #abk
+Adel Tawil/S #name
+zu_kaufen
+aus_lutschen
+weg_lutschen
+herab_lassen
+God Mode #eng
+weg_kaufen
+dienstberechtigt/A
+Selbstkontrahierung
+Jahresarbeitsentgeltgrenze/N
+Selbstkontrahierungsverbot/S
+Selbstkontrahierungsverbote/N
+rum_schmarotzen
+Achtkantmutter
+Achtkantmuttern
+Achtkantschlüssel
+Achtkantschlüssels
+Achtkantschlüsseln
+Achtkantschraube
+Achtkantschrauben
+rum_schludern
+herum_schludern
+rum_schlendern
+herum_schlendern
+durch_feuern
+bestsortiert/A
+bestsortierteste
+bestsortiertester
+bestsortiertestes
+bestsortiertesten
+bestsortiertestem
+Asia-Markt/S
+Asia-Märkte/N
+rein_kommen
+herein_kommen
+Staatsfeminismus
+staatsfeministisch/A
+raus_springen
+rein_springen
+Gamerin
+Gamerinnen
+an_kratzen
+auf_mischen
+ran_schieben
+heran_schieben
+herum_treiben
+hinein_würgen
+mit_trainieren
+rein_schneien
+herein_schneien
+rum_schnarchen
+zu_dröhnen
+informationspolitisch/A
+Schwielowsee/S
+hinein_werfen
+rein_werfen
+raus_werfen
+raus_fliegen
+raus_gehen
+rein_gehen
+raus_fahren
+rein_fahren
+rein_hauen
+raus_holen
+#rein_schmeißen
+#herein_schmeißen
+#raus_schmeißen
+rein_steigern
+hinein_steigern
+raus_suchen
+raus_fallen
+raus_dürfen
+rein_machen
+#rein_beißen
+rein_bringen
+#hinein_beißen
+rein_feiern
+raus_feiern
+rein_hängen
+rein_klicken
+rein_kriegen
+rein_legen
+rein_lassen
+rein_passen
+rein_rasseln
+raus_finden
+raus_glotzen
+raus_hängen
+raus_husten
+raus_jubeln
+raus_kotzen
+raus_kriegen
+raus_kommen
+raus_knobeln
+raus_kämmen
+raus_leiern
+raus_pulen
+raus_platzen
+raus_reden
+raus_rücken
+raus_schmuggeln
+raus_zupfen
+rein_schauen
+herein_schauen
+hinein_schauen
+herein_gucken
+hinein_gucken
+raus_lotsen
+heraus_lotsen
+hinein_lotsen
+rein_lotsen
+herein_lotsen
+herein_führen
+raus_brüllen
+weg_heizen
+schlecht_machen
+weis_machen
+herum_kommandieren
+rum_kommandieren
+vorher_sehen
+weiter_leben
+herein_lassen
+um_benennen
+still_halten
+um_parken
+still_sitzen
+dort_bleiben
+beieinander_stehen
+hinein_kippen
+heran_kommen
+ran_kommen
+vorbei_ziehen
+herein_legen
+herum_befehlen
+selbst_befriedigen
+sauber_machen
+tot_reden
+tot_kriegen
+sicher_gehen
+herum_tollen
+zu_decken
+herab_strömen
+zu_gucken
+hinein_mischen
+zwangs_rekrutieren
+hinein_versetzen
+aus_strecken
+mit_kommen
+mitan_sehen
+zu_nicken
+herab_schauen
+herein_tragen
+hinein_denken
+vor_eilen
+mit_verfolgen
+an_gucken
+mit_gehen
+dazu_gehören
+mit_lesen
+herum_plagen
+hinein_leben
+drin_bleiben
+klein_halten
+Asiamarkt/S
+Asiamärkte/N
+Elektrolytgehalt/S
+durch_säuern
+Burgermenü/S
+Orga-Team/S 
+durch_steuern
+ditschen
+ditsche
+ditschte
+ditscht
+weg_flutschen
+wettbewerbsstark/A
+Solarpanel/S
+resilienter/A
+resistenter/A
+vorwettbewerblich/A
+wettbewerbsfähiger/A
+Transformationsherausforderung
+Transformationsherausforderungen
+Plattformökonomielösung
+Plattformökonomielösungen
+Nachhaltigkeitspotenzial/S
+Nachhaltigkeitspotenziale/N
+Umweltcommunity/S
+Nachhaltigkeitscommunity/S
+lebensbegleitend/A
+Anbieterfeld/S
+Anbieterfeldes
+mitwirkungsoffen/A
+breitgenutzt/A
+Ermöglicher/SN
+Ermöglicherin
+Ermöglicherinnen
+vorüber_schleichen
+vorüber_schlendern
+vorüber_schlüpfen
+Stilunsicherheit
+Stilunsicherheiten
+urkundenecht/A
+verurkunden
+verurkunde
+verurkundete
+verurkundeten
+Genderbewegung
+Genderbewegungen
+Sudden Death #eng
+Vertical Farming #eng
+Schweinkram
+rum_überlegen #ugs
+Gendertheorie/N
+herum_ärgern
+Biersommelière/N
+Touchscreenfunktion
+Touchscreenfunktionen
+Gendergap/S
+Genderlücke/N
+Hampden Park/S #name
+Scottish Premiership #name
+van Bronckhorst/S #name
+Sassenheim/S #name
+Bettemburg/S #name
+Schifflingen/S #name
+Käerjeng/S #name
+Reality-Sternchen/S
+Shopübersicht
+Shopübersichten
+drauf_schauen
+weg_naschen
+weg_husten
+Sharm el Sheikh/S #name
+drauf_kloppen
+drauf_kritzeln
+drauf_gehen
+drauf_kommen
+drauf_hüpfen
+Semmelrogge/S #name
+Full-Stack-Webentwickler/SN
+Full-Stack-Webentwicklerin
+Full-Stack-Webentwicklerinnen
+Full-Stack-Entwickler/SN
+Full-Stack-Entwicklerin
+Full-Stack-Entwicklerinnen
+Allround-Entwickler/SN
+Allround-Entwicklerin
+Allround-Entwicklerinnen
+Full Stack Developer/SN
+offenlegungspflichtig/A
+Publizitätsgesetz
+Publizitätsgesetzes
+rechtsformspezifisch/A
+Publikationsentgelt/S
+Publikationsentgelte/NS
+Androhungsverfügung
+Androhungsverfügungen
+drauf_hämmern
+mit_heulen
+auf_sägen
+drauf_klopfen
+Partylinse/N
+Bernsteinlinse/N
+drauflos_arbeiten
+drauflos_fabulieren
+drauflos_feuern
+drauflos_schwatzen
+drauflosschießen
+drauflosschieße
+drauflosschießt
+drauflosschoss
+drauflosschossen
+drauflosgeschossen
+drauflos_rennen
+drauflos_schwimmen
+drauflos_laufen
+drauflos_schlagen
+drauflos_bauen
+drauflos_sprechen
+drauflos_hämmern
+drauflos_watscheln
+drauflos_wirtschaften
+drauflos_gehen
+drauflos_raten
+drauflos_starten
+drauflos_klicken
+drauflos_posten
+drauflos_malen
+drauflos_plappern
+FREE NOW/S #name
+Share Now/S #name
+rechtefrei/A
+Kratersuche/N
+Marsmond/S
+Marsmonde/SN
+Daniela Cavallo/S #name
+jungdynamisch/A
+manövrierbar/A
+Windjammer/NS
+Stagflationsszenario/S
+Holunderblütensirup/S
+Knappentätigkeit
+Knappentätigkeiten
+Aufwartedienste/N
+an_mustern
+Genossenschaftliche FinanzGruppe #name
+Genossenschaftlichen FinanzGruppe #name
+Bernsteininsel/N
+Partypizza/S
+Partypizzen
+Kletterschaukel/N
+Front-End/S
+Back-End/S
+Autorenfilmer/SN
+applauswürdig/A
+klatschwürdig/A
+Orthopoxvirus
+Orthopoxviren
+naturgeprägt/A
+Anfallsrate/N
+hin_gären
+Teamleiterrolle/N
+Affenpockeninfektion
+Affenpockeninfektionen
+Affenpockenausbruch/S
+Affenpockenausbrüche/N
+Pockenvakzin/S
+Pockenvakzine/N
+Pockenmedikament/S
+Pockenmedikamente/N
+Pockenmittel/S
+Postnasal-Drip-Syndrom/S
+nachtröpfelnd/A
+sinubronchial/A
+Säurerückfluss
+Säurerückflusses
+Säurerückflüsse/N
+Allergiemittel/NS
+Glukokortikoide/N
+Zuführungsgang/S
+Zuführungsgänge/N
+Inkognitofenster/SN
+Inkognitomodus
+Fynn Kliemann/S #name
+Butlerdienst/S
+Butlerdienste/N
+hochzeitserfahren/A
+Muttersprachenniveau/S
+Anstoßspur
+Anstoßspuren
+Group Policy
+Partymensch
+Partymenschen
+Amersfoort/S #name
+Asow-Stahlwerk/S
+Asow-Stahlwerkes
+Asowstal/S
+quetschbar/A
+Second-Level-Kundensupport/S
+First-Level-Kundensupport/S
+kriminalpräventiv/A
+Niklas Süle/S #name
+Controllingbereich/S
+rein_strömen
+raus_ekeln
+Fredi Bobic #name
+Muttersprachlerniveau/S
+bierverliebt/A
+weinverliebt/A
+erfolgsverliebt/A
+geldverliebt/A
+All-Hands-Meeting/S #eng
+First Responder/S #eng
+rausstoße
+rausgestoßen
+rausstoßen
+rausstößt
+anditscht
+angeditscht
+anditschten
+anditschst
+anditschen
+anditsche
+heraus_kommen
+vor_konfigurieren
+voraus_wählen
+vor_selektieren
+handhabst
+Objektbeschichter/SN
+Maisbier/S
+Maisbiere/N
+Heike Makatsch #name
+zeckenabwehrend/A
+insektenabwehrend/A
+Ober-Eschbach/S #name
+Naumburg-Altenstädt/S #name
+American-Football-Turnier/S
+American-Football-Turniere/N
+Alpen-Säuerling/S
+Alpen-Säuerlinge/N
+Al-Shehbaz #name
+Abformpfosten/S
+Abrechungsmethode/N
+Abperleffekt/S
+Abperleffekte/SN
+ambientartig/A
+Anzugsgewinde/SN
+US Army #eng
+U.S. Army #eng
+Ausleitungsverfahren/S
+schiffförmig/A
+selbstdarstellerisch/A
+selbstbohrend/A
+handselektiert/A
+druckabwehrend/A
+geräuschabwehrend/A
+durch_klicken
+trans
+durch_nässen
+onlinebasiert/A
+de Maizière
+hinaus_wachsen
+rein_hacken
+violettfarben/A
+orangefarbig/A
+purpurfarbig/A
+Geradeausfahren
+mit_einbeziehen
+Binissalem/S #name
+Fermi-Aufgabe/N
+Fermi-Problem/S
+Fermi-Probleme/N
+M.Sc. #abk
+Thunfischdose/N
+CCD-Technologie/N
+CCD-Sensor/S
+CCD-Sensoren
+eVB-Nummer/N
+eVB-Nr.
+HanseMerkur #name
+Kombistrahler/SN
+Michelstadt/S #name
+Pfeifenstrauch/S
+Stoßfängerträger/SN
+Abtönfarbe/N
+Auslagenerstattung
+Auslagenerstattungen
+Axtwerfen/S
+Chloé/S #name
+Dallmayr/S #name
+Dallmayr prodomo/S #name
+Effektfarbe/N
+Einmalversicherung
+Einmalversicherungen
+Erregerfrequenz
+Erregerfrequenzen
+Erzählphase/N
+Fensteraushänge/N
+Geschwisterzimmer/SN
+Graffitischutz
+Graffitischutzes
+Großbettlingen/S #name
+Großbottwar/S #name
+Inselhopping/S
+Mobilitätsbericht/S
+Mobilitätsberichte/SN
+Oberboihingen/S #name
+Sterneköchin
+Sterneköchinnen
+Abtönkonzentrat/S
+Abtönkonzentrate/SN
+Acetondicarbonsäure/N
+Acetylcholinrezeptor
+AHV-Nr. #abk
+Akkordeonorchester/S
+Alemannenstraße #name
+Alemannenstr. #name
+Albisriederplatz #name
+Albisriederplatzes
+Kündigungstermines
+single
+Spritengpass
+Spritengpasses
+Spritengpässe/N
+Rehmutter
+Rehmütter/N
+abschlecke
+abschleckst
+abschlecken
+abschleckt
+abschleckte/N
+abgeschleckt/A
+abzuschlecken
+beigefarbig/A
+Krauss-Maffei Wegmann/S #name
+Krauss-Maffei/S #name
+Minenausstoßrakete/N
+MLRS-Rakete/N
+fernverlegbar/A
+Ukrainepolitik
+Russlandpolitik
+genderinklusiv/A
+Sergej Lawrow/S
+S Immo/S #name
+S IMMO/S #name
+RTLZWEI #name
+Fack ju Göhte/S #name
+Luftbetankungsfähigkeit
+Luftbetankungsfähigkeiten
+marktverfügbar/A
+Kampagnenauswertung
+Kampagnenauswertungen
+säurehemmend/A
+herzhemmend/A
+wehenhemmend/A
+krampfhemmend/A
+schaumhemmend/A
+selbsthemmend/A
+flammenhemmend/A
+schweißhemmend/A
+ganglienhemmend/A
+prolaktinhemmend/A
+sekretionshemmend/A
+durchschusshemmend/A
+thrombozytenaggregationshemmend/A
+weg_schmettern
+raus_kramen
+Lahn-Dill-Kreis
+Lahn-Dill-Kreises
+dazu_verdienen
+hinzu_verdienen
+Erwerbsminderung
+Erwerbsminderungsrente/N
+Erwerbsminderungsschutz
+Erwerbsminderungsschutzes
+Erwerbsminderungsversicherung
+Erwerbsminderungsversicherungen
+Erdienbarkeit
+Erdienbarkeiten
+BBG-Dynamik
+BBG-Dynamiken
+Chronikseite/N
+vllt. #abk
+Ann-Sophie/S #name
+Bowls
+Eurythmieunterricht/S
+Sjewjerodonezk/S #name
+TikTok/S #name
+Schädigungsfolge/N
+Beschädigtenrente/N
+betriebsunüblich/A
+betriebsüblich/A
+Wegefähigkeit
+verweisbar/A
+Katalogfall/S
+Katalogfälle/N
+Einarmigkeit
+Ron Bielecki/S #name
+Blogosphäre
+Blogplattform
+Blogplattformen
+Hochvoltleitung
+Hochvoltleitungen
+Auditprogramm/S
+Auditprogramme/N
+Transponderpflicht
+Patenthalse/N
+Knorpelverlust/S
+Revisionsklappe/N
+Glykogenolyse
+Shampoonierung
+Salzdetfurth/S
+umfehdet/A
+Biodiversitätsverlust/S
+Hyperschallrakete/N
+Auditteam/S
+Felgenreiniger/NS
+Verjährungsbeginn/S
+Versichertenbetreuung
+Körperschaftsteuererklärung
+Körperschaftsteuererklärungen
+Bankrückläuferkosten
+Bookazine/S
+verspannungslösend/A
+Multiflexboard/S
+Plusleitung
+Plusleitungen
+Lederpuschen
+Mitmachangebot/S
+Mitmachangebote/N
+entwicklungsentsprechend/A
+Treibhausgasminderungsquote/N
+tierschutzrechtlich/A
+Hegelallee
+Faszienyoga/S
+Qualifizierungsplan/S
+Qualifizierungspläne/N
+nach_spionieren
+mondgesichtig/A
+Outdooraktivität
+Outdooraktivitäten
+Beklagtenseite
+Walfangkapitän/S
+Walfangkapitäne/N
+Personenstandsdaten
+eintausendmal
+zweitausendmal
+dreitausendmal
+viertausendmal
+fünftausendmal
+sechstausendmal
+siebentausendmal
+achttausendmal
+neuntausendmal
+Allstimmigkeit
+Allstimmigkeiten
+anschl. #abk
+abschl. #abk
+thyreotoxisch/A
+Gesundheits-Check-up/S
+einfaden #eng
+einfadet #eng
+eingefadet #eng
+ausfaden #eng
+ausfadet #eng
+ausgefadet #eng
+runter_drosseln
+Mailing/S #eng
+Mailingliste/N
+Mailingaktion
+Mailingaktionen
+herunter_drosseln
+BibisBeautyPalace #name
+rein_ziehen
+herein_ziehen
+raus_ziehen
+heraus_ziehen
+weiter_delegieren
+Lordosenfunktion
+Curved Display/S #eng
+Curved Monitor/S #eng
+Scharnhausen/S #name
+BMW Connected Charging #eng
+ladeoptimiert/A
+Verstaumöglichkeit
+Verstaumöglichkeiten
+End-to-End-Implementierung
+End-to-End-Implementierungen
+Konnektivitäts-Software
+Konnektivitätssoftware
+Newsletteranmeldung
+Newsletteranmeldungen
+Normverbrauch/S
+Normverbräuche/N
+Verbrennermodell/S
+Verbrennermodelle/N
+Ladeklappe/N
+Fondrückbank
+Fondrückbänke/N
+Drücksteller/SN
+Stauprognose/N
+staureich/A
+staureichste
+staureichster
+staureichstes
+staureichsten
+staureichstem
+Staukarte/N
+Gotthardroute/N
+San-Bernardino-Tunnel/S
+San-Bernardino-Pass
+San-Bernardino-Passes
+Mastodon/S #name
+Rotspitzigkeit
+Wiesenschnake/N
+Gräserwurzeln
+Plattformbruder/S
+Plattformbrüder/N
+standardisierter/A
+over-the-air #eng
+Starentwickler/SN
+Starentwicklerin
+Starentwicklerinnen
+Technikvorständin
+Technikvorständinnen
+Brain Drain/S #eng
+Brain-Drain/S #eng
+Talentflucht
+Talentschwund/S
+Talentvergeudung
+Talentvergeudungen
+Talentwanderung
+Talentwanderungen
+Talentwanderungsbewegung
+Talentwanderungsbewegungen
+TASD-Studie/N
+Talentkreislauf/S
+Abwerbeaktion
+Abwerbeaktionen
+Anwerbeaktion
+Anwerbeaktionen
+Talentaustausch/S
+Stauwarnanlage/N
+kapazitätslimitierend/A
+Stauentstehung
+Stauentstehungen
+Bettenwechsel/S
+FCD-Verfahren/S
+Evakuierungsmanagement/S
+Evakuierungsmanager/SN
+Evakuierungsmanagerin
+Evakuierungsmanagerinnen
+TMC-Bereich/S
+TMC-Bereiche/N
+TMC-Meldung
+TMC-Meldungen
+TMC #abk
+Bullet Point/S #eng
+Stauteilnehmer/SN
+staubedingt/A
+verhaltensbestimmend/A
+Wirkparameter/SN
+Stauursache/N
+geschwindigkeitsverändernd/A
+richtungsgleich/A
+Strömungsphysik
+Strömungseinheit
+Strömungseinheiten
+staureich/A
+staureichste
+staureichster
+staureichstes
+staureichsten
+staureichstem
+Dönertasche/N
+Dönerverkäufer/SN
+Schawarma
+Dönerproduktion
+Dönerindustrie/N
+entsehnt/A
+Bratenkegel/SN
+Pomm-Döner/SN
+Remzi Kaplan/S #name
+Guillemet/S
+Score/S #eng
+Leak/S #eng
+Verbrennerauto/S
+Herbstmailing/S
+Stauteich/S
+Stauteiche/SN
+Talentpflege
+Virtual-Reality-Headset/S
+ran_flanschen
+Cheaterin
+Cheaterinnen
+kostenbewehrt/A
+Abkochung
+Abkochungen
+Leaky-Gut-Syndrom/S
+ab_sieden
+hilfreicher/A
+vertwittern
+vertwittert
+vertwittere
+vertwitterte
+vertwitterten
+vertwitterst
+hochindividuell/A
+hochakademisch/A
+hochalkalisch/A
+hochbegeistert/A
+hochbrillant/A
+hochcharismatisch/A
+hochdiszipliniert/A
+hochengagiert/A
+hochversiert/A
+hochfeierlich/A
+hochfunktionell/A
+hochfürstlich/A
+hochgegriffen/A
+hochgenial/A
+hochkritisch/A
+hochliterarisch/A
+hochmathematisch/A
+hochminiaturisiert/A
+hochmobil/A
+hochnervös/A
+hochoktanig/A
+hochpolitisiert/A
+hochreguliert/A
+hochschulbezogen/A
+hochschulpädagogisch/A
+hochselektiv/A
+hochspannungssicher/A
+hochsportlich/A
+hochtrainiert/A
+hochtransparent/A
+hochvermögend/A
+hochkommerzialisiert/A
+hochvernetzt/A
+hochwasserbeschädigt/A
+hoch_türmen
+hoch_nehmen
+hoch_wehen
+runter_wehen
+hoch_zählen
+hoch_handeln
+hoch_kämmen
+hoch_skalieren
+runter_skalieren
+hoch_rasen
+hoch_schwingen
+hoch_reichen
+runter_reichen
+hoch_rutschen
+hoch_schleichen
+hoch_schleppen
+hoch_peitschen
+hoch_lagern
+hoch_schwappen
+hoch_spritzen
+hoch_starren
+hoch_spülen
+hoch_stylen
+hoch_wehen
+runter_wehen
+#hoch_takten
+hoch_hüpfen
+hoch_wandern
+hoch_kriechen
+hoch_jazzen
+hoch_kämpfen
+fresh #ugs #eng
+Slash/S
+Slashes
+Womanizer/SN
+Must-have/S
+Loserin
+Loserinnen
+fighten
+fightete
+fighteten
+fighte
+fightest
+gefightet/A
+zahlengetrieben/A
+lustgetrieben/A
+windgetrieben/A
+druckgetrieben/A
+sturmgetrieben/A
+atomangetrieben/A
+finanzgetrieben/A
+modellgetrieben/A
+schnurgetrieben/A
+alkoholgetrieben/A
+nukleargetrieben/A
+prozessgetrieben/A
+turbinengetrieben/A
+adrenalingetrieben/A
+bedürfnisgetrieben/A
+testosterongetrieben/A
+druckluftgetrieben/A
+maschinengetrieben/A
+muskelkraftgetrieben/A
+lokomotivbetrieben/A
+dampflokomotivbetrieben/A
+flaschenbetrieben/A
+wasserdampfbetrieben/A
+fremdbetrieben/A
+clientgesteuert/A
+spielergesteuert/A
+sponsorengesteuert/A
+skriptgesteuert/A
+servergesteuert/A
+dampfbetrieben/A
+funkferngesteuert/A
+benzinmotorbetrieben/A
+lobbygesteuert/A
+seitengesteuert/A
+raketenbetrieben/A
+Mobilcom/S #name
+Mobilcom-Debitel/S #name
+mobilcom-debitel/S #name
+Clash/S #eng
+Kulturclash/S
+FISH-Test/S
+Zlatko/S #name
+Verbrennerverbot/S
+Verbrennerverbote/SN
+Lebenszyklus
+Lebenszyklen
+hinein_investieren
+Zugabfertiger/SN
+Zugabfertigerin
+Zugabfertigerinnen
+Allergenhinweis
+Allergenhinweise/SN
+Eugen-Richter-Straße #name
+Eugen-Richter-Str. #name
+weg_schlingen
+hinunter_schlingen
+radargesteuert/A
+auf_splitten
+ab_splitten
+Absplittung
+Absplittungen
+anfallartig/A
+Lycamobile/S #name
+Buyer Persona/S #eng
+Livewette/N
+Live-Wette/N
+Beatriz #name
+All-Terrain-Bike/S
+YouGov/S #name
+Feel-Good-Management/S
+Gabrielsson/S #name
+Browserdaten
+Chronikseite/N
+lebenserfüllend/A
+Matrikel-Nr.
+Retouren
+Retourenbearbeitung
+Retourenbearbeitungen
+Bikeleasing/S
+Bönnigheim/S #name
+Chesterfield/S #name
+Cosmos Direkt
+Deplasmolyse/N
+Digitalisierungsvorhaben
+Umrüstungskosten
+Umrüstungstabelle/N
+Blinkerhalter/SN
+Britney/S #name
+Chromosulfatkarton/S
+Bonnie und Clyde
+Bonnie & Clyde
+Bonnie and Clyde
+Contentplan/S
+Contentpläne/N
+Contentplanung
+Contentplanungen
+durch_bewegen
+Falkennovelle/N
+Inklusiveinheit
+Inklusiveinheiten
+Kernpolymorphie
+Präventionsmodul/S
+Präventionsmodule/SN
+Sprachcoaching/S
+Sprachcoach/S
+Thierry/S #name
+Abistreich/S
+Abistreiche/SN
+ab_stemmen
+Absterbephase/N
+Abtauung
+Abtretbarkeit
+Abtretbarkeiten
+Abkühldauer
+Allergietyp/S
+Allergietypen
+Angreifermodell/S
+Angreifermodelle/NS
+Anmietzeitraum/S
+Anmietzeitraumes
+Anmietzeiträume/N
+Antoniuskirche #name
+an_turnen
+Atalanta Bergamo/S #name
+Private Family Office/S
+fachliterarisch/A
+fremdbetreuen
+fremdbetreut
+fremdbetreue
+fremdbetreute
+fremdbetreuten
+fremdbetreust
+runter_spazieren
+rein_spazieren
+hinunter_spazieren
+hoch_spazieren
+turbinenangetrieben/A
+hoch_stürmen
+runter_stürmen
+hinunter_stürmen
+kochbegeistert/A
+Couchstyle/S
+EACOP-Pipeline
+grundimmunisiert/A
+Grundimmunisierung
+Grundimmunisierungen
+missbrauchunabhängig/A
+Entflechtungsmöglichkeit
+Entflechtungsmöglichkeiten
+wurschteln
+wurschtelt
+wurschtelte
+wurschtelten
+wurschtelst
+gewurschtelt
+rumwurschteln
+rumwurschtelt
+rumwurschtelte
+rumwurschtelten
+rumwurschtelst
+rumgewurschtelt
+durchwurschteln
+durchwurschtelt
+durchwurschtelte
+durchwurschtelten
+durchwurschtelst
+durchgewurschtelt
+Grundversorgertarif/S
+Grundversorgertarife/NS
+Abstrichstäbchen/S
+Welterbestadt
+Sorgenthema/S
+Sorgenthemen
+Investorenrecht/S
+Abwerbeangebot/S
+Abwerbeangebote/N
+Hasso-Plattner-Stiftung
+Hasso-Plattner-Institut/S
+digitallastig/A
+unleistbar/A
+Grundlagenorientierung
+lösungsfokussiert/A
+Investorenrechte/N
+Vorteilsabschöpfung
+Vorteilsabschöpfungen
+Vattenfall/S #name
+Nutzergewinnung
+Owned Media #eng
+Paid Media #eng
+Stefanie Hertel/S #name
+Moderatorentätigkeit
+Moderatorentätigkeiten
+Stefan Mross #name
+Dirndlkollektion
+Dirndlkollektionen
+Männerversteher/SN
+Frauenversteher/SN
+Lars Eidinger/S #name
+Ariola Records #name
+Dirndlstrauch/S
+Dirndlstrauches
+Dirndlsträucher/N
+Hartriegelgewächs
+Hartriegelgewächse/N
+Kornelkirschenwasser
+gelbgrau/A
+Laubaustrieb/S
+Laubaustriebe/SN
+Hahnenhoden/S
+hartholzig/A
+Pyramidenwuchs
+Pyramidenwuchses
+Pyramidenwüchse/N
+violettrot/A
+Trockenmasse
+Trockenmassegehalt/S
+Trockenmassegehaltes
+langoval/A
+ovalzylindrisch/A
+Kornelkirschensorte/N
+Triesdorf/S #name
+Befruchter/SN
+runter_schlagen
+herunter_schlagen
+hartriegelartig/A
+Moselgebiet/S
+Saargebiet/S
+Rheingebiet/S
+Trägwüchsigkeit
+Trägwüchsigkeiten
+Herzwurzler/SN
+Adventivwurzel/N
+Adventivwurzelbildung
+pollenreich/A
+nektarreich/A
+Blattaustrieb/S
+Blattaustriebe/NS
+Kornelkirschenbaum/S
+Kornelkirschenbäume/N
+Eisleben-Helfta/S #name
+Kloster Helfta #name
+vanilleartig/A
+Schusternagel/S
+Schusternägel/N
+Kornelkirschenstrauch/S
+Kornelkirschensträucher/N
+vorblinkend/A
+ungestählt/A
+erdaufwühlend/A
+Ausrichtungspunkt/S
+Ausrichtungspunkte/SN
+Hildegard/S #name
+Kornelkirschenfrüchte/N
+Kornelkirschenfrucht
+pektinhaltig/A
+Kleinfrüchtigkeit
+Alkoholausbeute
+Absenker/SN
+stratifizieren
+stratifiziere
+stratifizierst
+stratifizierte
+stratifiziert/A
+stratifizierten
+Okulation
+drin_stecken
+zahlengesteuert/A
+Rickmer Rickmers #name
+Sandwich/S
+Sandwiche/SN
+Sandwichbelag/S
+Sandwichbeläge/N
+Sandwichparty/S
+Teichmühle/N
+awk-Anweisung
+awk-Anweisungen
+awk-Programm/S
+awk-Programme/N
+awk-Skript/S
+awk-Skripte/SN
+fake
+faken
+fakst
+dpa-Ticker/SN
+Philosophiesystem/S
+Philosophiesysteme/N
+Formenschule
+Lithiumverbrauch/S
+Lithiumverbrauche/S
+Kobaltbasis
+Prototypenfahrzeug/S
+Prototypenfahrzeuge/SN
+zinserhöhend/A
+Diktatfriede
+Diktatfrieden/S
+Zeichensetzungsregel/N
+runter_kriegen
+Müdigkeitsunfälle/N
+Müdigkeitsunfall/S
+Elektromobilitätsangebot/S
+Elektromobilitätsangebote/N
+hobbylos/A
+hinein_schicken
+raus_navigieren
+rein_navigieren
+weg_navigieren
+weg_lotsen
+weg_locken
+Air Jordan/S #name
+El Capitan
+Social Collaboration
+Batterieschütz
+Batterieschütze/NS
+Schaltschütz
+Schaltschütze/NS
+Begutachterin
+Begutachterinnen
+Zugehörigkeitsverhältnis
+Zugehörigkeitsverhältnisse/SN
+Spiritualitätsform
+Spiritualitätsformen
+kategorienbildend/A
+verfassungsgesetzlich/A
+ein_heben
+Patriarchate/N
+armenisch-apostolisch/A
+Statutenänderung
+Statutenänderungen
+Zeremonienhalle/N
+Gangestal/S
+Ritualtext/S
+Ritualtexte/SN
+hinduistischen/A
+Makrolon/S
+Britney-Spears-Fan/S
+Präventionsmodell/S
+Präventionsmodelle/SN
+Bahá’í
+Flachwurzler/SN
+Pfahlwurzler/SN
+Tiefwurzler/SN
+marktbewusst/A
+knickgelenkt/A
+Knicklenker/SN
+Wettercam/S
+zurück_mailen
+hin_mailen
+saugut/A
+Wintersneaker/SN
+Sommersneaker/SN
+Debitorenregister/SN
+bonitätsstark/A
+Lieferantenbonität
+handelsregisterlich/A
+Geomarketing/S
+B. Sc.
+Tight-Gas-Lagerstätte/N
+Verschlechterungsverbot/S
+Erschließungsaufwand/S
+Gender
+Gendergaga/S
+Genderneutralität
+weg_ignorieren
+Yeliz Koc/S #name
+saugeil/A
+sauschlecht/A
+Lunchtüte/N
+Virtual Desktop/S #eng
+saucool/A
+saufrech/A
+saukomisch/A
+sauteuer/A
+End of Life #eng
+End-of-Life #eng
+Nachserienphase/N
+Bernsteinart
+Bernsteinarten
+Bambusstreifen/S
+Ausstandsbegehren/S
+Aufrechterhaltungsgebühr
+Aufrechterhaltungsgebühren
+Achtsamkeitspause/N
+Bernsteinvorkommen/S
+Borkenkäferart
+Borkenkäferarten
+Bremsenart
+Bremsenarten
+Buchsbaumschere/N
+Fassadenbauschraube/N
+Heringsvorkommen/S
+Interviewrunde/N
+Krallenschraube/N
+Kugelschreiberfleck
+Kugelschreiberflecken
+Matratzenrahmen/S
+Mitgliedschaftsart
+Mitgliedschaftsarten
+Multiphasenpumpe/N
+Nahverkehrsbeförderungsgebühr
+Nahverkehrsbeförderungsgebühren
+Nylonstreifen/S
+Planvorlagefrist
+Planvorlagefristen
+Premiumreifen/S
+Rucksacktour
+Rucksacktouren
+Rüsselkäferart
+Rüsselkäferarten
+Sanktionsstufe/N
+Schusterladen/S
+Singlereise/N
+Verlaufsbahn
+Verlaufsbahnen
+Zahnpastafleck/S
+Zahnpastaflecken
+Zugvögelart
+Zugvögelarten
+um_formulieren
+Campino/S #name
+Wattverbrauch/S
+Kilowattverbrauch/S
+Götzer-Berg/S
+raus_korrigieren
+heraus_korrigieren
+aus_korrigieren
+Attachéausbildung
+Attachéausbildungen
+mit_akkreditieren
+Panthéon-Sorbonne #name
+Ronzheimer/S #name
+Lyssytschansk/S #name
+Johannes Boie/S #name
+Paid-Content-Angebot/S
+Paid-Content-Angebote/NS
+weiter_verarbeiten
+Call-Agent/S
+Callagent/S
+Track Pant/S
+Track Suit/S
+Bernsteinladen/S
+Bernsteinläden
+Bernsteinsorte/N
+Markentraffic/S
+Brand Traffic/S #eng
+PO-Nummer/N
+voll_labern
+weiter_schicken
+weiter_senden
+weiter_spielen
+weiter_drehen
+weiter_eilen
+weiter_existieren
+weiter_feiern
+weiter_forschen
+weiter_klicken
+weiter_kauen
+weiter_kriechen
+weiter_dürfen
+weiter_können
+weiter_melden
+weiter_paffen
+weiter_regieren
+weiter_reden
+weiter_rauchen
+weiter_rüsten
+weiter_reiten
+weiter_rutschen
+weiter_reichen
+weiter_streiken
+weiter_schieben
+weiter_sprechen
+weiter_studieren
+weiter_treiben
+weiter_tratschen
+weiter_verhandeln
+weiter_vererben
+weiter_vermitteln
+weiter_verhökern
+weiter_verscherbeln
+weiter_wandern
+weiter_wachsen
+weiter_winken
+weiter_wursteln
+weiter_wissen
+weiter_wirtschaften
+weiter_ziehen
+weiter_zahlen
+weiter_zechen
+Nachlassvermögen/S
+Nachlassverfahren/S
+Nachlasswert/S
+Nachlasswerte/SN
+Nachlassstelle/N
+weg_paddeln
+weiter_paddeln
+rum_paddeln
+raus_paddeln
+Testamentsanfechtung
+Testamentsanfechtungen
+Testamentseröffnung
+Testamentseröffnungen
+Erbenermittlung
+Erbenermittlungen
+privatschriftlich/A
+Testamentsregister/SN
+Testamentshinterlegung
+Testamentshinterlegungen
+Testamentseröffnungsprotokoll/S
+Testamentseröffnungsprotokolle/N
+Erbschaftssituation
+Erbschaftssituationen
+Gender Study
+Gender Studies
+Genderstudies
+Pionierwirkung
+Pionierwirkungen
+Transdisziplinarität
+Transdisziplinaritäten
+Weiblichkeitswahn/S
+National Laboratory #eng
+raus_parsen
+heraus_parsen
+Triple Entente
+Case-Nr.
+auf_stöpseln
+zu_stöpseln
+Villa Reale di Marlia
+Triple-Osteotomie
+Triple-E-Klasse/N
+Triple Crown/S #name #eng
+Zuffenhausener/SN
+Zuffenhausenerin
+Zuffenhausenerinnen
+Dreizackstern/S
+Dreizacksterne/N
+zehnmillionste
+zehnmillionster
+zehnmillionsten
+zehnmillionstem
+zehnmillionstes
+Renditeanstieg/S
+Renditeanstiege/N
+Logistikdrehscheibe/N
+Boxenfertigung
+Boxenfertigungen
+Lost Place/S #eng
+Multi-Level-Sicherheitssystem/S
+Multi-Level-Sicherheitssysteme/N
+blank_ziehen
+KiTa/S
+Machine-Learning-Model/S
+On-Premise-Kunde/N
+Programmatic Advertising
+Programmatic Ad/S
+Real Time Bidding/S #eng
+Realtime Bidding/S #eng
+Targeting/S
+Mediaeinkauf/S
+Adserver/SN
+Brand Safety #eng
+Gebotsprozess
+Kampagnen
+Naherholungsangebot/S
+Naherholungsangebote/NS
+Skulpturenpfad/ES
+Skulpturenpfade/N
+Akutaufnahme/N
+begünstigungsfähig/A
+prämienneutral/A
+Vorlesungsbeispiel/ES
+Vorlesungsbeispiele/N
+Reanimationssystem/S
+Reanimationssysteme/N
+Mezzanine
+Ertrinkungsrisiko/S
+Ertrinkungsrisiken
+Gebotsprozesse/SN
+Kampagneneigenschaft
+Kampagneneigenschaften
+produktionstheoretisch/A
+Outputseite/N
+Inputseite/N
+abzgl.
+seitenlos/A
+Samsø/S #name
+Sønderborg/S #name
+sonnenreichste
+sonnenreichster
+sonnenreichstes
+sonnenreichsten
+sonnenreichstem
+Kalundborg/S #name
+weiter_bauen
+weiter_springen
+weiter_befördern
+Culcha Candela/S #name
+entzwei_hacken
+acetonfrei/A
+Stilfunktion
+Stilfunktionen
+entzweireißen
+entzweigerissen/A
+entzweireißend/A
+präquartär/A
+Geopark/S
+Haupteinheitengruppe/N
+heraus_modellieren
+hinein_modellieren
+herausmodelliert/A
+hineinmodelliert/A
+ineinanderübergehend/A
+Quartärgeologie
+Neogen/S
+neogen/A
+LinkedIn/S
+streamline
+streamlinte
+streamlinten
+streamlinst
+streamlinen
+gestreamlint/A
+hautneutral/A
+Instagram Stories
+LinkedIn Stories
+Snapchat Stories
+Stepan Bandera/S #name
+Restaurantname
+Restaurantnamen/S
+Florentine/S #name
+Karatgewicht/S
+Karatgewichte/SN
+Enrique/S #name
+Fabrice #name
+Nachhaltigkeitspräferenz
+Nachhaltigkeitspräferenzen
+Antidiskriminierungsbeauftragte/N
+Antidiskriminierungsbeauftragter
+Akutphase/N
+hyperämisch/A
+MTV-Unplugged-Konzert/S
+MTV-Unplugged-Konzerte/NS
+Art-Déco-Ärä
+Entgiftungsprozess
+Entgiftungsprozesse/SN
+Freundesauswahl
+Genehmiger/SN
+Genehmigerin
+Genehmigerinnen
+Gurgelgeräusch/S
+Gurgelgeräusche/SN
+Karl-Wiechert-Allee #name
+Karlsdorf/S #name
+Portierungswunsch
+Portierungswunsches
+Portierungswünsche/N
+Poolwasser/S
+Abbuchungs-E-Mail/S
+Abverkaufsartikel/SN
+Aromaprofil/S
+Aromaprofile/N
+Auto-Suggest-Funktion #eng
+Auto-Suggest-Funktionen #eng
+bewerberzentriert/A
+Blockierungsmodus
+Chondrozyt
+Chondrozyten
+Demenzform
+Demenzformen
+Dimitrov/S #name
+Erstattungsanfrage/N
+Premiumpreis
+Premiumpreise/NS
+Wimmelbild/S
+Wimmelbildes
+Wimmelbilder/N
+Sternenleben/S
+weg_lächeln
+vor_prognostizieren
+entgegen_lächeln
+entgegen_funkeln
+nieder_bügeln
+entgegen_starren
+bauchemisch/A
+Bauchemie
+stadtklimatisch/A
+Erzählinstanz
+Erzählinstanzen
+weg_feiern
+E-Ink
+Nordheim/S #name
+um_orientieren
+schaumartig/A
+vordisponiert/A
+vor_disponieren
+Originaltemplate/S
+hagebaumarkt #name
+Glattbrugg/S #name
+Kd-Nr. #abk
+Kevlar/S
+Torsionsgeschütz
+Torsionsgeschütze/NS
+Waghäusel/S #name
+TNT SAT #abk
+Workplace #name
+Abonummer/N
+aktionsbasiert/A
+Anprallgeschwindigkeit
+Anprallgeschwindigkeiten
+Anprallheftigkeit
+Key-Accounter/SN
+Key-Accounterin
+Key-Accounterinnen
+Andrés #name
+Bewerbungscoaching/S
+cartoonartig/A
+Cyanwasserstoffgas
+Cyanwasserstoffgase/SN
+Domínguez #name
+endlosfaserverstärkt/A
+Euro-NCAP-Crashtest/S
+Enzweiler/S #name
+Event
+Eventinfo/S
+Eventseite/N
+Eventeingang/S
+Eventeingänge/N
+Extruderdüse/N
+faserintegriert/A
+FDM #abk
+Ferdinandshöfe/N
+gottverdammt/A
+Heilpraktikerschule/N
+hoch_kriegen
+Hospitalisierung
+Hospitalisierungen
+Illustrator/S
+Inklusionskonzept/S
+Inklusionskonzepte/SN
+Keimungshemmer/SN
+Klassenfahrtsprogramm/S
+Klassenfahrtsprogramme/N
+Kraniotomie
+Kulanzthema/S
+Kulanzthemen
+Leservorstellung
+Leservorstellungen
+Legionellose/N
+Melanineinlagerung
+Melanineinlagerungen
+Melaningehalt/S
+Mierendorffplatz
+Mierendorffplatzes
+netzdienlich/A
+Pigmentablagerung
+Pigmentablagerungen
+Polymerstrang/S
+Polymerstranges
+Polymerstränge/N
+Prinzessinnenschlüssel/SN
+prozessseitig/A
+Pulvermaterial/S
+Pulvermaterialien
+Pulverteilchen/S
+Rhizotomie
+Rohwedder/S #name
+Schwaighofer/S #name
+spartengerecht/A
+spurtfreudig/A
+Stoßfängerspoiler/SN
+Stereolithografie
+Unterkunftshaus
+Unterkunftshauses
+Unterkunftshäuser/N
+Verwirkung
+Verwirkungen
+Weberplatz
+Weberplatzes
+Weltkorallenriffkonferenz
+Weltkorallenriffkonferenzen
+Étienne/S #name
+ab_bohren
+weg_bohren
+Abfallbeseitiger/SN
+abholbereit/A
+Abnehmprodukt/S
+Abnehmprodukte/SN
+Abodaten
+Abschilferung
+Abschilferungen
+abziehsicher/A
+ab_stopfen
+ab_zügeln
+Administrator
+Administratoraccount/S
+Administratorenschulung
+Administratorenschulungen
+Administratormodus
+Administratorfunktion
+Administratorfunktionen
+Adminmodus
+Teamgrenze/N
+Afrohaare/N
+AKN-Bahnhof/S
+Aktorentest/S
+Alexanderstr. #name
+allergenhaltig/A
+Allokationsdaten
+Initialberatung
+Initialberatungen
+sicherheitszertifiziert/A
+JadeWeserPort/S #name
+Mariahilfplatz #name
+Mariahilfplatzes
+stockduster/A
+duster/A
+Qassym-Schomart/S #name
+Rückenmarkkanal/S
+Rückenmarkkanäle/N
+Kraniosakraltherapeut
+Kraniosakraltherapeutin
+Kraniosakraltherapeutinnen
+Kraniosakraltherapeuten
+Wirknachweis
+Wirknachweise/NS
+Pulsierung
+Pulsierungen
+schwimmfest/A
+tauchfest/A
+bruchsicherste
+bruchsicherstes
+bruchsicherster
+bruchsichersten
+bruchsicherstem
+Wellnessfeature/S
+Gesundheitsfeature/S
+Auto-Tune/S
+Autotune/S
+Auto-Tuning/S
+Autotuning/S
+Kevlar-Weste/N
+Stimmcoaching/S
+Vocal Coach/S
+Vocal Coaches
+aus_notieren
+Backingvocal/S
+Fahrzeugtuning/S
+Tuningszene
+Karosserietuning/S
+Audiotuning/S
+Fahrwerktuning/S
+Nachbauteil/S
+Nachbauteile/N
+Discotänzer/SN
+Discotänzerin
+Discotänzerinnen
+weg_rationalisieren
+Flash Sale/S #eng
+Fire Sale/S #eng
+Espressomarke/N
+sauerstoffgebleicht/A
+Motsi Mabuse/S #name
+de Ligt/S #name
+Vitesse Arnheim/S #name
+Stevanović #name
+Bounty/S #name
+Forschungszulagengesetz
+Forschungszulagengesetze/SN
+geclustert/A
+iCloud-Mail/S
+Jahnstr. #name
+Jahnstraße
+Longboarder/SN
+Mittelalterroman/S
+Mittelalterromane/SN
+Morschheim/S #name
+Plussymbol/S
+Plussymbole/N
+Preisrange/S
+schnürsenkellos/A
+Taillenbund/S
+Verhörlampe/N
+Zertifizierungsantrag/S
+Zertifizierungsanträge/N
+Abbuchungsversuch/S
+Abbuchungsversuche/N
+Abmeldungsbeitrag/S
+Abmeldungsbeiträge/N
+absatzstärkste
+absatzstärkster
+absatzstärkstes
+absatzstärksten
+absatzstärkstem
+ab_filtern
+Abmahnrunde/N
+Absteckung
+Absteckungen
+Accounterstellung
+Accounterstellungen
+Adminordner/NS
+Adminschulung
+Adminschulungen
+Agendaanpassung
+Agendaanpassungen
+agogisch/A
+Akneproblem/S
+Akneprobleme/N
+Allergeninformation
+Allergeninformationen
+Allergenvorkommen/S
+allergiegeplagt/A
+alubeschichtet/A
+anbieterbedingt/A
+Anbindungsprojekt/S
+Anbindungsprojekte/SN
+Anbindungsszenario
+Anbindungsszenarien
+Anfragespezifikation
+Anfragespezifikationen
+Angreiferseite/N
+anleiterbar/A
+Anschriftkorrektur
+Anschriftkorrekturen
+Aquariumsdeckel/SN
+Arabica-Mischung
+Arabica-Mischungen
+arbeitsschutzfachlich/A
+arbeitsvermeidend/A
+arschgefickt/A
+Arschritze/N
+asthmakrank/A
+Auberginenscheibe/N
+ausstattungstechnisch/A
+Ausstreichung
+Ausstreichungen
+autismusspezifisch/A
+Axialpumpe/N
+Babybauchshooting/S
+Babywiege/N
+Bambusblüte/N
+bankfrisch/A
+Baumbestandsverminderungsarbeit
+Baumbestandsverminderungsarbeiten
+Baustelleninfo/S
+Bayernhasser/SN
+Beerendünger/SN
+bemuskelt/A
+bepulvert/A
+Beschichtungsabteilung
+Beschichtungsabteilungen
+Bespaßung
+Bestehungsjahr/S
+Bestehungsjahre/SN
+betriebsbehindernd/A
+betriebshindernd/A
+betriebsverhindernd/A
+Bezahlangebot/S
+Bezahlangebote/SN
+Bezahlungsprozess
+Bezahlungsprozesse/SN
+Bezuschussungsplan/S
+Bezuschussungspläne/N
+Bierbrauerschnitzel/SN
+Blätterteigstück/S
+Blätterteigstücke/N
+Blühdauer
+Boardingbereich/S
+Boardingbereiche/SN
+Bohlen/S #name
+Brauerpfanne/N
+Brautkleidanprobe/N
+Brinkfeldstraße
+Brinkfeldstr.
+Browserintegration
+Browserintegrationen
+Burgerexperte/N
+Burgerexpertin
+Burgerexpertinnen
+Casinobereich/S
+Celluliteentstehung
+Closed-Source-Software
+Cloudregelung
+Cloudregelungen
+Cockpitseite/N
+Cockpitelement/S
+Cockpitelemente/N
+Communitybuilding/S
+Contentpflege
+Controllingaufgabe/N
+COR-TEN-Stahl/S #name
+Cortenstahl/S
+Cross-Site-Scripting/S
+Dachpfannenprofil/S
+Dachpfannenprofile/N
+Deep-Learning-Algorithmus
+Deep-Learning-Algorithmen
+Deichselträger/SN
+designverliebt/A
+Digitalisierungslösung
+Digitalisierungslösungen
+Dieselgate/S #name
+Doggystellung
+Doggystellungen
+Drahtlosfunktion
+Drahtlosfunktionen
+Drehmomentangabe/N
+Drehtürenschrank/S
+Drehtürenschränke/N
+druckbeständig/A
+Druckerhöhungspumpe/N
+Duldungsrecht/S
+durchdringungsfrei/A
+durch_rotieren
+Dämpfersystem/S
+Dämpfersysteme/NS
+Düngergabe/N
+Vennhausen/S #name
+Echsenkopf
+Echsenkopfes
+Echsenköpfe/N
+Echtgeldeinzahlung
+Echtgeldeinzahlungen
+eichenblättrig/A
+eigenbetrieblich/A
+Eigentümerpartei
+Eigentümerparteien
+Eigentümervertretung
+Eigentümervertretungen
+Einfriertemperatur
+Einfriertemperaturen
+Einrücker/SN
+Einsetzungsverfahren/S
+Einzahlungslimiterhöhung
+Einzahlungslimiterhöhungen
+Emotionsentstehung
+Emotionsentstehungen
+Emotionskontrolle/N
+Emotionsstudie/N
+endlosfaserintegriert/A
+endometrial/A
+energiereduziert/A
+Entdeckerinstinkt/S
+Entdeckerinstinkte/N
+Entstörzeit
+Entstörzeiten
+Entwicklungsframework/S
+EPP-Schnittstelle/N
+Erlebnisdecke/N
+Erotikfilmindustrie
+Eventgebäude/NS
+fachorientiert/A
+Fakturavorgang/S
+Fakturavorgänge/N
+faserintegriert/A
+feedbasiert/A
+Felgendesign/S
+fersenfrei/A
+Feuchthalteschale/N
+filmsprachlich/A
+Firewallhardware
+Fledermausbestand/S
+Fledermausbestände/N
+fleischreich/A
+fluffigste
+fluffigster
+fluffigstes
+fluffigsten
+fluffigstem
+Fokusmanagement/S
+Folgenlänge/N
+folienkaschiert/A
+Folsäuremangel/S
+Freischaltungsdauer/N
+Frontkollisionswarner/SN
+Fuhrparkmanagementsystem/S
+Fuhrparksteuerung
+Fuhrparksteuerungen
+führungskraftzentriert/A
+Fütterungsintervall/S
+Fütterungsintervalle/N
+Gamekonsole/N
+Gebotserstellung
+Gebotserstellungen
+Gebärdenübersetzung
+Gebärdenübersetzungen
+Gewerbeinfo/S
+geschäftsverändernd/A
+gesprächsfreudig/A
+Gewitterfront
+Gewitterfronten
+glasmattenverstärkt/A
+Gratiszugang/S
+Gratiszugänge/N
+grenzständig/A
+großlumig/A
+Guadalupe/S #name
+grundausstattend/A
+handtuchfeucht/A
+hartspröde
+hartsprödes
+hartspröden
+hartspröder
+hartsprödem
+hautmild/A
+Hebepunkt/S
+Hebepunkte/SN
+Hebertyp/S
+Hebertypen
+Hefebrötchen/S
+Hefeteigbrötchen/S
+heraus_beschleunigen
+heraus_räumen
+hirnelektrisch/A
+hochskalierbar/A
+Hostelzimmer/SN
+HVV-Proficard/S
+immertragend/A
+Implantatwechsel/S
+informationsreduziert/A
+Infusionsbeutel/SN
+Inhalationshilfe/N
+Inkassokonto/S
+Inkassokonten
+Intensivreiniger/SN
+Interviewformat/S
+Interviewformate/N
+Intradaymarkt/S
+Intradaymärkte/N
+intratendinös/A
+invasivere
+invasiveres
+invasiverer
+invasiveren
+invasiverem
+Infrastrukturdienstleistung
+Infrastrukturdienstleistungen
+Joggingsache/N
+Johannisbeerlikör/S
+Johannisbeerliköre/N
+Jungenname/N
+Kachelgrenze/N
+Kachelgröße/N
+Kachelrand/S
+Kachelränder/N
+Kaderbewegung
+Kaderbewegungen
+Katheterbeutel/SN
+Katzennassfutter/S
+Keywordvergleich/S
+Keywordvergleiche/N
+Kichererbsensalat/S
+kippelnd/A
+Klassifizierungsdaten
+Klassifizierungswerte/N
+klischeefrei/A
+Klemmfix
+Klemmfix-Rollo/S
+Klemmfix-Lösung
+knospenartig/A
+Knospenpaar/S
+Knospenpaare/N
+Kohlrabischeibe/N
+Kommabetrag/S
+Kommabeträge/N
+Konzeptionist
+Konzeptionistin
+Konzeptionistinnen
+Konzeptionisten
+konsumträchtig/A
+kommunikationspsychologisch/A
+kotgefüllt/A
+Kragenform
+Kragenformen
+kremlfreundlich/A
+Krimigeschichte/N
+Kältemittelverdichter/SN
+Lachsnudeln
+Lagesicherung
+Lagesicherungen
+Landingpageerstellung
+Landingpageerstellungen
+Laichgrube/N
+Layoutprüfung
+Layoutprüfungen
+Lean-Start-up
+Lean-Start-up-Methode
+leasingfähig/A
+Leergutautomat
+Leergutautomaten
+Leergutkiste/N
+Leergutbereich/S
+leistungsspezifisch/A
+lichtbringend/A
+Lieferantennachweis
+Lieferantennachweise/SN
+Lieferplanabruf/S
+Logistikplanung
+Logistikplanungen
+Logistikteam/S
+Logoschrift
+Lothar-Späth-Award/S
+Lothar-Späth-Preis
+Lothar-Späth-Preise/SN
+Low-Carb-Ernährung
+lustspendend/A
+Machbarkeitsüberprüfung
+Machbarkeitsüberprüfungen
+Machiavellist
+Machiavellistin
+Machiavellistinnen
+Machiavellisten
+Machiavellismus
+machiavellistisch/A
+Make-up-Fixierung
+Make-up-Fixierungen
+Malatelier/S
+mandatsspezifisch/A
+Mandatsverantwortung
+Mandatsverantwortungen
+Marienkäfergruppe/N
+marktgenau/A
+Masernimpfpflicht
+Masteraccount/S
+Masturbationstoy/S
+Mathenachhilfe
+Mauerdurchwurf/S
+Mauerdurchwürfe/N
+Meersalzspray/S
+Meersalznasenspray/S
+mehrfachvergütet/A
+Mehrgenerationenfamilie/N
+Meilenumbuchung
+Meilenumbuchungen
+Meilenanzahl
+Minderverbrauch/S
+Mitarbeitendenbindung
+Modellierungsstrategie/N
+Mobilitätsfunktion
+Mobilitätsfunktionen
+Mosaikfunktion
+Mosaikfunktionen
+Multifaktor/S
+Möhrenbrei/S
+Mörtelspritzer/SN
+nachbestellbar/A
+vorbestellbar/A
+Nachholklausur
+Nachholklausuren
+Narkoseverfahren/S
+Nennungspflicht
+Nennungspflichten
+Nesthüpfer/SN
+netzökonomisch/A
+neuroimmunologisch/A
+Newsletterversand/S
+Nostalgiegefühl/S
+Nostalgiegefühle/N
+Notrufdurchsage/N
+ofentrocken/A
+Offroadtauglichkeit
+Oversize-Bluse/N
+Pagespeed-Optimierung
+Palliativzentrum/S
+Pandemiebonus
+parasozial/A
+Partyfass
+Partyfässer/N
+Pastagewürz
+Pastagewürze/SN
+Pay-per-Use-Modell/S
+Pay-per-Use-Modelle/N
+Paypalzahlung
+Paypalzahlungen
+Pfannkuchen/S
+Pflanzstange/N
+Podcastwerkstatt
+Podcastwerkstätte/N
+Plug-in-Hybrid-Fahrzeug/S
+Plug-in-Hybrid-Fahrzeuge/N
+Plug-in-Hybrid-Technik
+Portalanwendung
+Portalanwendungen
+praxisüblich/A
+Preissturz
+Preissturzes
+Preisstürze/N
+Arabica-Bohne/N
+Problemverortung
+Problemverortungen
+Profitgedanke/N
+projektinvolviert/A
+Provisionserstattung
+Provisionserstattungen
+Provisionszahlung
+Provisionszahlungen
+Provisionsmitteilung
+Provisionsmitteilungen
+Provisionsentschädigung
+Provisionsentschädigungen
+Provisionsplan/S
+Provisionspläne/N
+Prüfungsunfähigkeitsbescheinigung
+Prüfungsunfähigkeitsbescheinigungen
+Pulvervariante/N
+Push-Benachrichtigung
+Push-Benachrichtigungen
+pyromanisch/A
+quasistatisch/A
+Rankingverlust/S
+Rankingüberwachung
+Rankingüberwachungen
+rasserein/A
+Ratenzahlungssystem/S
+Ratenzahlungssysteme/N
+Rechtsfolgenbelehrung
+Rechtsfolgenbelehrungen
+Redaktionsmeeting/S
+Referatsleitung
+Referatsleitungen
+Regressionsproblem/S
+Regressionsprobleme/N
+Rehatechnik
+rehatechnisch/A
+Reifebedingung
+Reifebedingungen
+reisekrank/A
+Reispfanne/N
+Releaseplanung
+Releaseplanungen
+Renovierungsrücklage/N
+Resetknopf
+Resetknopfes
+Resetknöpfe/N
+Retailpreis
+Retailpreise/NS
+Retourenabholung
+Retourenabholungen
+Rezertifizierung
+Rezertifizierungen
+risikomildernd/A
+risikomindernd/A
+rundohrig/A
+Rutschbrett/S
+Rutschbretter/N
+rückbelastet/A
+Rückgabezeit
+Rückgabezeiten
+Saalplan/S
+Sahnemischung
+Sahnemischungen
+salzwasserfest/A
+Samthochzeit
+Samthochzeiten
+Samthortensie/N
+schneefest/A
+Schnupftabak/S
+Schokostrudel/SN
+Schul-IT
+schwarzgebräunt/A
+Schätzungsangebot/S
+Schätzungsangebote/N
+Scroll-Animation
+Scroll-Animationen
+seelengeführt/A
+sehbeeinträchtigt/A
+selbstwärmend/A
+selbstkühlend/A
+Shoppingnacht
+Shoppingnächte/N
+sicherheitsunkritisch/A
+Sichtbarkeitsverlust/S
+sinnerfüllend/A
+Sitcom/S
+Skalierungsfehler/SN
+Skin-Care-Routine/N
+Sockenstutzen/S
+sonnengetränkt/A
+spezifikationskonform/A
+Spiegelfront
+Spiegelfronten
+staatsgeführt/A
+Stationsdienst
+Stationsdienste/SN
+Statistikserver/SN
+Daisy Duck/S
+Darkwing Duck/S
+Dagobert Duck/S
+Goofy/S #name
+metapherbeladen/A
+Nachbarssohn/S
+Nachbarssöhne/N
+Ekkehardt/S #name
+Tagline/S #eng
+zugriffsfreundlich/A
+Donald-Duck-Cartoon/S
+Donald-Duck-Comic/S
+Donald-Duck-Zeichentrickfilm/S
+Donald-Duck-Zeichentrickfilme/N
+Klarabella/S #name
+Minnie Maus #name
+Dengue-Fieber/S
+weg_shoppen
+durch_loggen
+Inkognito-Fenster/SN
+Casual Look #eng
+Smart Casual #eng
+feingemustert/A
+mittelweich/A
+mittelhart/A
+mittelgroß/A
+mittelklein/A
+los_donnern
+Shopausfall/S
+Shopausfälle/N
+Bachelorprüfung
+Bachelorprüfungen
+Indierock/S
+Indierock-Band/S
+Indie-Rock/S
+Indie Rock/S
+Indie-Folk/S
+Indie Folk/S
+New Wave/S #eng
+Smart Repair #eng

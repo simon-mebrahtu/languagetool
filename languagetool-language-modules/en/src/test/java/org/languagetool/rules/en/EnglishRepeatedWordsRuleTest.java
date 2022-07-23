@@ -60,6 +60,9 @@ public class EnglishRepeatedWordsRuleTest {
     // interesting
     assertCorrectText("I found it very interesting. An interesting fact about me is that I have a twin.");
 
+    // maybe
+    assertCorrectText("Maybe it's because I used to be a FLAMING LIBERAL? Or maybe it's because with age, I developed EYES THAT SEE!");
+
     // need
     assertCorrectText("It needs to be done. That needs to be done.");
     assertCorrectText("This was needed. There is a need to do it.");
@@ -86,6 +89,9 @@ public class EnglishRepeatedWordsRuleTest {
     assertCorrectText("I suggested that, but he also suggests that.");
     assertCorrectText("He suggested that we review them again. What do these suggest about the transaction history?");
     assertCorrectText("I suggested he look it over again. This strongly suggests that Mr. Batt is guilty.");
+
+    // whole
+    assertCorrectText("In this example, persons is used instead of people because the law applies to the individuals and never to the group as a whole.");
 
     // ignore sentences without period at the end
     assertCorrectText("I suggested this. She suggests that");

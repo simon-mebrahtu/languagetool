@@ -99,7 +99,6 @@ public class Spanish extends Language implements AutoCloseable {
   @Override
   public Contributor[] getMaintainers() {
     return new Contributor[] {
-            new Contributor("Juan Martorell", "http://languagetool-es.blogspot.com/"),
             new Contributor("Jaume Ortolà")
     };
   }
@@ -126,7 +125,7 @@ public class Spanish extends Language implements AutoCloseable {
             new MultipleWhitespaceRule(messages, this),
             new SpanishWikipediaRule(messages),
             new SpanishWrongWordInContextRule(messages),
-            new LongSentenceRule(messages, userConfig, 50),
+            new LongSentenceRule(messages, userConfig, 60),
             new LongParagraphRule(messages, this, userConfig),
             new SimpleReplaceRule(messages),
             new SimpleReplaceVerbsRule(messages, this),
@@ -215,6 +214,7 @@ public class Spanish extends Language implements AutoCloseable {
       case "SE_CREO": return 35; // greater than DIACRITICS --> or less than DIACRITICS_VERB_N_ADJ ????
       case "DIACRITICS": return 30;
       case "POR_CIERTO": return 30;
+      case "DEGREE_CHAR": return 30; // greater than SPACE_UNITIES
       case "LO_LOS": return 30;
       case "ES_SIMPLE_REPLACE": return 30; // greater than typography rules
       case "ETCETERA": return 30; // greater than other typography rules
@@ -231,6 +231,7 @@ public class Spanish extends Language implements AutoCloseable {
       case "AGREEMENT_DET_ADJ": return 10;
       case "HALLA_HAYA": return 10;
       case "VALLA_VAYA": return 10;
+      case "SI_AFIRMACION": return 10; // less than DIACRITICS
       case "TE_TILDE2": return 10; // less than PRONOMBRE_SIN_VERBO
       case "SINGLE_CHARACTER": return 5;
       case "SEPARADO": return 1;
@@ -245,6 +246,7 @@ public class Spanish extends Language implements AutoCloseable {
       case "AGREEMENT_PARTICIPLE_NOUN": return -30;
       case "AGREEMENT_POSTPONED_ADJ": return -30;
       case "MULTI_ADJ": return -30;
+      case "SUBJUNTIVO_INCORRECTO": return -40;
       case "COMMA_SINO": return -40;
       case "VOSEO": return -40;
       case "REPETITIONS_STYLE": return -50;
@@ -255,10 +257,7 @@ public class Spanish extends Language implements AutoCloseable {
     }
 
     if (id.startsWith("AI_ES_HYDRA_LEO")) { // prefer more specific rules (also speller)
-      if (id.startsWith("AI_ES_HYDRA_LEO_MISSING_COMMA")) {
-        return -51; // prefer comma style rules.
-      }
-      return -11;
+      return -101;
     }
 
     //STYLE is -50
@@ -286,16 +285,5 @@ public class Spanish extends Language implements AutoCloseable {
       newRuleMatches.add(newMatch);
     }
     return newRuleMatches;
-  }
-
-  @Override
-  public List<Rule> getRelevantRemoteRules(ResourceBundle messageBundle, List<RemoteRuleConfig> configs, GlobalConfig globalConfig, UserConfig userConfig, Language motherTongue, List<Language> altLanguages, boolean inputLogging) throws IOException {
-    List<Rule> rules = new ArrayList<>(super.getRelevantRemoteRules(
-      messageBundle, configs, globalConfig, userConfig, motherTongue, altLanguages, inputLogging));
-
-    // no description needed - matches based on automatically created rules with descriptions provided by remote server
-    rules.addAll(GRPCRule.createAll(this, configs, inputLogging,
-      "AI_ES_", "INTERNAL - dynamically loaded rule supported by remote server"));
-    return rules;
   }
 }

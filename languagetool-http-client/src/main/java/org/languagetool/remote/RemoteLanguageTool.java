@@ -102,6 +102,15 @@ public class RemoteLanguageTool {
     if (config.getRuleValues().size() > 0) {
       append(params, "ruleValues", String.join(",", config.getRuleValues()));
     }
+    if (config.getTextSessionID() != null) {
+      append(params, "textSessionId", config.getTextSessionID());
+    }
+    if (config.getUsername() != null) {
+      append(params, "username", config.getUsername());
+    }
+    if (config.getAPIKey() != null) {
+      append(params, "apiKey", config.getAPIKey());
+    }
     append(params, "useragent", "java-http-client");
     return params.toString();
   }

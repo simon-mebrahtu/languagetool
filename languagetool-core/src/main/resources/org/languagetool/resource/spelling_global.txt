@@ -16,7 +16,6 @@ planet3dnow
 people4project
 brands4friends
 car2go
-md5sum
 video2brain
 log4j
 ext2fs
@@ -578,6 +577,7 @@ Pokémon Go
 Björk
 Charles de Gaulle
 The Globe and Mail
+Madame Tussaud
 Madame Tussauds
 Microsoft Teams
 Microsoft Ads
@@ -1151,6 +1151,7 @@ Akamai
 Twilio
 Big Sur
 Monterey
+Ventura
 Final Cut Pro
 Patagonia
 NFC
@@ -1361,6 +1362,7 @@ Bang & Olufsen
 Sennheiser
 Germanwings
 Wizz Air
+WIZZ Air
 Daft Punk
 Qualcomm
 YouGov
@@ -2926,13 +2928,11 @@ Eric Cantona
 Dr. Dre
 Sophie Marceau
 Boba Fett
-Modern Family
 Jefferson Davis
 Logan Paul
 German Marshall Fund
 Novak Djokovic
 Novak Đoković
-StatCounter
 Sercomm
 OpenWrt
 Qualys SSL
@@ -2971,14 +2971,12 @@ Antonio Vivaldi
 Evan Spiegel
 Breitbart
 Breitbart News
-Ferruccio Lamborghini
 JUnit
 Daniel Kehlmann
 Patrick Süskind
 Spring Boot
 HCL Domino
 HCL Notes
-Lotus Notes
 MariaDB
 Citrix Workspace
 Citrix Workspace App
@@ -3017,7 +3015,6 @@ AmigaOne
 Merriam-Webster
 Prime Day
 Amazon Studios
-Writers Guild of America
 Dräger
 Drägerwerk
 GOPATH
@@ -3083,7 +3080,6 @@ Pedro Sánchez
 Obi-Wan Kenobi
 Obi-Wan
 Anakin Skywalker
-Skywalker
 Breitling
 Bentley Bentayga
 Biontech
@@ -3286,7 +3282,6 @@ Quantum Replica
 Apex Legends
 Among Us
 Modern Warfare
-Genshin Impact
 World of Tanks
 Rowan Atkinson
 Jean Todt
@@ -3359,7 +3354,6 @@ Rafael Nadal
 Billy Idol
 AltaVista
 UPnP
-Miss Moneypenny
 Moneypenny
 Miloš Zeman
 Andrej Babiš
@@ -3375,7 +3369,6 @@ Panama Papers
 Dragon Ball
 ICQ
 NortonLifeLock
-Symantec
 Alanis Morissette
 Neo4j
 Ford Falcon
@@ -3441,7 +3434,6 @@ Captain Morgan
 Norman Foster
 Personio
 Southern Comfort
-Sophie Scholl
 Hans Scholl
 Camp David
 Eisenhower
@@ -3554,7 +3546,6 @@ Aston Villa
 Blog2Social
 Speedy Gonzales
 BetterHelp
-Eric Clapton
 Hermann Göring
 Harry Macklowe
 Alberto Giacometti
@@ -3565,7 +3556,6 @@ Cy Twombly
 Tom Ellis
 Rudolf Steiner
 Tech N9ne
-ready2order
 Young Dolph
 Ars Electronica
 American Psycho
@@ -3619,7 +3609,6 @@ Parag Agrawal
 Ballon d'Or
 George Weah
 Brent Crude
-Jean Todt
 Damon Hill
 Silverstone
 Force India
@@ -3660,7 +3649,6 @@ Sebastian Vettel
 Valtteri Bottas
 Charles Leclerc
 Sergio Pérez
-Carlos Sainz
 Nico Rosberg
 Mick Schumacher
 Log4Shell
@@ -3689,6 +3677,7 @@ Ralf Rangnick
 Comirnaty
 Human Rights Watch
 UEFA Nations League
+Nations League
 Alexander McQueen
 Bradley Cooper
 Adobe Captivate
@@ -3708,7 +3697,6 @@ José Antonio Kast
 José Kast
 Tobey Maguire
 Bill Maher
-YubiKey
 AirPods Max
 Jean-Baptiste Accolay
 Emma Raducanu
@@ -3916,7 +3904,6 @@ Royal Caribbean Group
 3D Secure
 René Benko
 Peter Benchley
-Ferdinand Porsche
 iRobot Roomba
 Charlie Munger
 Keir Starmer
@@ -3971,6 +3958,8 @@ Katie Price
 Vitalik Buterin
 Hannibal Lecter
 Kevin Costner
+Dnipro
+Westinghouse
 Zoë Kravitz
 Elden Ring
 Paco Rabanne
@@ -3979,3 +3968,459 @@ State Street Corporation
 Fidelity Investments
 Thiago Alcântara
 Anna Netrebko
+Laura Ingraham
+Oleg Deripaska
+Lukoil
+Rosneft
+Surgutneftegas
+TurkStream
+Waldorf Astoria
+Jeffrey Epstein
+Jeff Epstein
+WebGPU
+Murasaki Shikibu
+CNY
+Kaja Kallas
+Ingrida Šimonytė
+Arturs Krišjānis Kariņš
+Arturs Kariņš
+Matteo Salvini
+Dunnhumby
+John Bolton
+Clive Myrie
+Christopher Walken
+Barnes & Noble
+Barnes and Noble
+Mac Studio
+Matt Reeves
+Apache NiFi
+M1 Ultra
+M1 Max
+M1 Pro
+Dyson Airwrap
+Dyson Airblade
+Gaspar Noé
+Yoon Seok-youl
+Ritz-Carlton
+John McWhorter
+Rishi Sunak
+ID.Buzz
+SBB Cargo
+SBB Cargo International
+Billy Bob Thornton
+Melanie Thornton
+Nasdaq Composite
+NASDAQ Composite
+Mario Draghi
+Adobe InCopy
+Novo Nordisk
+Jyske Bank
+Yvan Colonna
+Benedict Cumberbatch
+Eduard Heger
+Zuzana Čaputová
+Borut Pahor
+Janez Janša
+Petr Fiala
+Susanne Klatten
+Stefan Quandt
+Mevlüt Çavuşoğlu
+Real Betis
+Real Betis Balompié
+Camp Nou
+Karim Khan
+Memphis Depay
+Francis Ford Coppola
+Ford Coppola
+Ted Lieu
+Google Meet
+Signa Holding
+Khaby Lame
+Khabane Lame
+Fresenius Medical Care
+Mar-a-Lago
+Clarence Thomas
+Clarence Seedorf
+Ketanji Brown Jackson
+Brown Jackson
+George Russell
+Lando Norris
+Raiffeisen Bank
+Vistaprint
+Marie-Philip Poulin
+Alexanderplatz
+van Gogh
+Vincent van Gogh
+Ebenezer Scrooge
+Saint-Exupéry
+Jan Bytnar
+BSE SENSEX
+BSE Sensex
+Chloé Zhao
+Amazon Logistics
+Zoe Wees
+Chloe Ting
+Zoe Saldaña
+Simon Pegg
+Vanessa Kirby
+Ving Rhames
+Wolf Blitzer
+Michelle Monaghan
+Gracenote
+Robert Habeck
+Juventus Stadium
+Jane Goodall
+Gazprombank
+Chris Sununu
+Dom Pérignon
+Luigi Di Maio
+Jeffrey Sachs
+Jamie Dimon
+FBML
+QWERTY
+QWERTZ
+Weebly
+Boston Consulting Group
+Europcar
+Banque Internationale à Luxembourg
+Universal Ibogaine
+Axie Infinity
+Advent International
+PlayStation Plus
+PlayStation Now
+Paul Rudd
+Jean-Luc Mélenchon
+BMW Isetta
+Mike Huckabee
+Antoni Gaudí
+World Squash Federation
+Newt Gingrich
+Chris Christie
+Ben Sasse
+Jack & Jones
+JACK & JONES
+Lael Brainard
+Škoda Enyaq
+Hyundai Ioniq
+Filip Kostić
+Jordi Alba
+Arthur D. Little
+Ousmane Dembélé
+Ferran Torres
+Dani Alves
+Marc-André ter Stegen
+Gordon Ramsay
+Jamie Oliver
+Austin Fraser
+Steven Seagal
+Liebherr
+Tom Clancy
+Green Day
+O’Reilly
+LoopNet
+MaxMind
+Jeep Renegade
+Philips Airfryer
+Philips Senseo
+Peter Doocy
+PewDiePie
+Galaxy S5
+Galaxy S6
+Galaxy S7
+Galaxy S8
+Galaxy S9
+Galaxy S10
+Galaxy S11
+Galaxy S12
+Galaxy S13
+Galaxy S20
+Galaxy S21
+Galaxy S22
+Coachella
+Brian Chesky
+Urashima Tarō
+Simon Coveney
+Financiele Dagblad
+Prologis
+Pat Gelsinger
+Ralf Brandstätter
+Bernd Eichinger
+OTP Bank
+Reid Hoffman
+Bhad Bhabie
+Visa Infinite
+Julius Bär
+Bloomberg Businessweek
+Doug Heffernan
+Carrie Heffernan
+Qatar Telecom
+Qatar Holding
+Best Western
+Tôn Thất Tùng
+uBlock Origin
+Giovanni van Bronckhorst
+Intel NUC
+Eddy Cue
+Phil Schiller
+airBaltic
+Air Baltic
+Malik Harris
+Ava Max
+Patrick Vieira
+Michael Burry
+Dieter Rams
+Bill Ackmann
+Erin Brockovich
+Le Cordon Bleu
+Sinn Féin
+Adobe Presenter
+Anthony Albanese
+Ron Weasley
+RAV4
+Nick Clegg
+Renate Nyborg
+Robb Elementary School
+Salvador Ramos
+Steve Kerr
+Air Max
+Air Astana
+Sandy Hook
+Sandy Hook Elementary School
+Tech Mahindra
+NTT Data
+Sopra Steria
+HP Spectre
+Allen-Bradley
+Sadio Mané
+Billie Jean
+Chronopost
+John Strelecky
+Madison Square Garden
+Madison Square
+Madison Square Park
+Barclays Center
+realityOS
+Jean-Pierre Léaud
+Krauss-Maffei Wegmann
+Krauss-Maffei
+Berlin Ostbahnhof
+Javier Olivan
+NetBSD
+Phil Mickelson
+Tiger Woods
+Chico Flores
+Gore-Tex
+Apple Pay
+Motorola ROKR
+DALL-E
+Ace Ventura
+Chesa Boudin
+Ken Paxton
+Letitia James
+Ashley Moody
+Bob Ferguson
+Josh Shapiro
+Kwame Raoul
+Dave Yost
+Max Levchin
+Premal Shah
+Luke Nosek
+Ken Howery
+Keith Rabois
+Roelof Botha
+Jared Kopf
+Jack Selby
+Fairchild Semiconductor
+Renault Twingo
+Top Gun
+Li Shufu
+Cybersource
+Vanessa Hudgens
+Leatherman
+Ben Shapiro
+Audi e-tron
+Agence France-Presse
+Mario Strikers
+Carlos Tavares
+Anna Cavazzini
+Hugh Laurie
+QuillBot
+Course Hero
+Alan Shepard
+Friedrich von Weech
+World Community Grid
+Bonnie & Clyde
+Grigor Dimitrov
+Sriracha
+Florian Wirtz
+White Stripes
+Uwe Seeler
+Franz Beckenbauer
+Rudi Völler
+Lothar Matthäus
+Gerd Müller
+Meek Mill
+Rick Ross
+Kirstie Alley
+John McEnroe
+Pete Sampras
+Björn Borg
+Ivan Lendl
+Andy Murray
+picture alliance
+Picture Alliance
+Stanley Yelnats
+Metamask
+Anders Celsius
+Sony Music
+Sony Music Entertainment
+Bertelsmann Music Group
+Bertelsmann
+eSATA
+Feng shui
+Feng Shui
+Lex Luthor
+Romero Britto
+Young Jeezy
+TeamSpeak
+Air Cairo
+Black+Decker
+Black + Decker
+Black & Decker
+Black and Decker
+El Capitan
+Air Arabia
+Nile Air
+Bing Ads
+Mustang Mach-E
+Motown Records
+Nick Nolte
+Martin Lawrence
+Laurence Fishburne
+Peter Stuyvesant
+Porsche Cayman
+Kurt Gerstein
+Hawaiian Airlines
+Patrice Lumumba
+UEFA Youth League
+Tucai Group
+Super League
+GitHub Copilot
+Anna Wintour
+Met Gala
+Solange Knowles
+Tom Jones
+Thierry Mugler
+Lauda Air
+Opel Zafira
+Sepp Blatter
+Estée Lauder
+Bridgewater
+Kate Millett
+Giro d'Italia
+New Era
+OpenLayers
+IndexedDB
+Rudolf Caracciola
+Glastonbury
+Glastonbury Festival
+Hội An
+Charli D'Amelio
+Yolanda Díaz
+Ruja Ignatova
+Interactive Advertising Bureau
+Wassily Leontief
+Sheldon Cooper
+Kate Bush
+Starsky & Hutch
+Starsky and Hutch
+George Ezra
+Highland Park
+William Cronon
+Ambroise Vollard
+NTT DoCoMo
+NTT Docomo
+HSDPA
+Nintendo DS
+Sony Xperia
+Reeperbahn
+Pringles
+Sajid Javid
+Chris Pincher
+Christopher Pincher
+Nadine Dorries
+Vijay Mallya
+Technoblade
+LibreSSL
+Stephen Daldry
+Bruno Fernandes
+IrfanView
+Stepan Bandera
+Nick Kyrgios
+MTV Unplugged
+Timothy Chandler
+Cypress Hill
+Chrome DevTools
+Tottenham Hotspur
+Grigor Dimitrov
+Ice Cube
+Method Man
+Chris Pratt
+Anna Faris
+Cosmopolitan
+Robert Oppenheimer
+Three Arrows Capital
+Gianni Versace
+Raphinha
+SolarEdge
+ImageNet
+Álvaro Uribe
+Álvaro Uribe Vélez
+Jacob Burckhardt
+Edelweiss Air
+Notepad
+After Eight
+Penny Mordaunt
+Nadhim Zahawi
+Adam Neumann
+Billie Wesker
+Jade Wesker
+Albert Wesker
+Chris Redfield
+Jill Valentine
+Sheva Alomar
+Ada Wong
+Series 1
+Series 2
+Series 3
+Series 4
+Series 5
+Series 6
+Series 7
+Series 8
+Series 9
+Series 10
+Series 11
+Series 12
+Series 13
+Series 14
+Rafael Caro Quintero
+Lisandro Martínez
+Frenkie de Jong
+Dacia Duster
+Matthijs de Ligt
+Amazon Pay
+ByteDance
+Ferenc Puskás
+Darkwing Duck
+Daisy Duck
+Donald Duck
+Inspector Gadget
+Fauntleroy Duck
+Dacia Logan
+STMicroelectronics
+Renault Sandero
+GlobalFoundries
+Robbie Williams
+Champions Hockey League
+Tom Steyer

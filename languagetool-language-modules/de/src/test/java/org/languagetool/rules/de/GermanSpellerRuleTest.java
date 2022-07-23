@@ -86,10 +86,33 @@ public class GermanSpellerRuleTest {
   }
 
   @Test
+  public void testSplitWords() throws IOException {
+    GermanSpellerRule rule = new GermanSpellerRule(TestTools.getMessages("de"), GERMAN_DE);
+    JLanguageTool lt = new JLanguageTool(GERMAN_DE);
+    RuleMatch[] matches = rule.match(lt.getAnalyzedSentence("Das ist ein sher schöner Satz."));
+    assertThat(matches.length, is(1));
+    assertThat(matches[0].getSuggestedReplacements().get(0), is("sehr"));
+    assertThat(matches[0].getFromPos(), is(12));
+    assertThat(matches[0].getToPos(), is(16));
+    matches = rule.match(lt.getAnalyzedSentence("Das sin die Optionen."));
+    assertThat(matches.length, is(1));
+    assertThat(matches[0].getSuggestedReplacements().get(0), is("ein"));
+    assertThat(matches[0].getSuggestedReplacements().get(1), is("sind"));
+    matches = rule.match(lt.getAnalyzedSentence("Gibt es einen grund, dass…"));
+    assertThat(matches.length, is(1));
+    assertThat(matches[0].getSuggestedReplacements().get(0), is("Grund"));
+    
+    matches = rule.match(lt.getAnalyzedSentence("Kryptomarktplatzes"));
+    assertThat(matches.length, is(0));
+  }
+
+  @Test
   public void testGetOnlySuggestions() throws IOException {
     GermanSpellerRule rule = new GermanSpellerRule(TestTools.getMessages("de"), GERMAN_DE);
     assertThat(rule.getOnlySuggestions("autentisch").size(), is(1));
     assertThat(rule.getOnlySuggestions("autentisch").get(0).getReplacement(), is("authentisch"));
+    assertThat(rule.getOnlySuggestions("brillianter").size(), is(1));
+    assertThat(rule.getOnlySuggestions("brillianter").get(0).getReplacement(), is("brillanter"));
     assertThat(rule.getOnlySuggestions("autentischeres").size(), is(1));
     assertThat(rule.getOnlySuggestions("autentischeres").get(0).getReplacement(), is("authentischeres"));
     assertThat(rule.getOnlySuggestions("Autentischere").size(), is(1));
@@ -171,7 +194,7 @@ public class GermanSpellerRuleTest {
     assertThat(rule.match(lt.getAnalyzedSentence("Kleindung")).length, is(1));  // ignored due to ignoreCompoundWithIgnoredWord(), but still in ignore.txt -> ignore.txt must override this
     assertThat(rule.match(lt.getAnalyzedSentence("Majonäse."))[0].getSuggestedReplacements().toString(), is("[Mayonnaise]"));
     assertFirstSuggestion("Schöler-", "Schüler-", rule, lt);
-    assertFirstSuggestion("wars.", "war's", rule, lt);
+    assertFirstSuggestion("wars.", "war es", rule, lt);
     assertFirstSuggestion("konservierungsstoffe", "Konservierungsstoffe", rule, lt);
 //    assertFirstSuggestion("Ist Ventrolateral", "ventrolateral", rule, lt);
     assertFirstSuggestion("denkte", "dachte", rule, lt);
@@ -988,6 +1011,25 @@ public class GermanSpellerRuleTest {
     assertFalse(rule.isMisspelled("Eigenschaften"));
     assertFalse(rule.isMisspelled("wirtschafte"));
   }
+
+  @Test
+  public void testGenderCompound() throws IOException {
+    GermanSpellerRule rule = new GermanSpellerRule(TestTools.getMessages("de"), GERMAN_DE);
+    JLanguageTool lt = new JLanguageTool(GERMAN_DE);
+
+    assertThat(rule.match(lt.getAnalyzedSentence("Jurist:innenausbildunk")).length, is(1));
+    assertThat(rule.match(lt.getAnalyzedSentence("Jurrist:innenausbildung")).length, is(2));
+    assertThat(rule.match(lt.getAnalyzedSentence("Jurist:innenausbildung")).length, is(0));
+    assertThat(rule.match(lt.getAnalyzedSentence("Ein Satz. Die Jurist:innenausbildung und die Jurist*innenausbildung.")).length, is(0));
+
+    assertThat(rule.match(lt.getAnalyzedSentence("Jurist*innenausbildunk")).length, is(1));
+    assertThat(rule.match(lt.getAnalyzedSentence("Jurrist*innenausbildung")).length, is(2));
+    assertThat(rule.match(lt.getAnalyzedSentence("Jurist*innenausbildung")).length, is(0));
+
+    assertThat(rule.match(lt.getAnalyzedSentence("Jurist_innenausbildunk")).length, is(1));
+    assertThat(rule.match(lt.getAnalyzedSentence("Jurrist_innenausbildung")).length, is(2));
+    //assertThat(rule.match(lt.getAnalyzedSentence("Jurist_innenausbildung")).length, is(0));  // TODO
+  }
   
   @Test
   @Ignore("testing a potential bug in Morfologik")
@@ -1087,23 +1129,7 @@ public class GermanSpellerRuleTest {
       i++;
     }
   }
-
-  @Test
-  public void testErrorLimitReached() throws IOException {
-    HunspellRule rule1 = new GermanSpellerRule(TestTools.getMessages("de"), GERMAN_DE);
-    JLanguageTool lt = new JLanguageTool(GERMAN_DE);
-    RuleMatch[] matches1 = rule1.match(lt.getAnalyzedSentence("Ein schöner Satz."));
-    assertThat(matches1.length, is(0));
-    RuleMatch[] matches2 = rule1.match(lt.getAnalyzedSentence("But this is English."));
-    assertThat(matches2.length, is(4));
-    assertNull(matches2[0].getErrorLimitLang());
-    assertNull(matches2[1].getErrorLimitLang());
-    assertThat(matches2[2].getErrorLimitLang(), is("zz"));  // 'en' is not known in this module, thus 'zz'
-    RuleMatch[] matches3 = rule1.match(lt.getAnalyzedSentence("Und er sagte, this is a good test."));
-    assertThat(matches3.length, is(4));
-    assertNull(matches3[3].getErrorLimitLang());
-  }
-
+  
   /**
    * number of suggestions seems to depend on previously checked text.
    * fixed by not reusing morfologik Speller object

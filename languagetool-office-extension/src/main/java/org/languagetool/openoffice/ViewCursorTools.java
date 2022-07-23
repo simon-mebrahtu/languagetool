@@ -55,17 +55,19 @@ import com.sun.star.uno.XComponentContext;
  */
 public class ViewCursorTools {
   
-  private XDesktop xDesktop;
+  private XComponent xComponent;
 
-  ViewCursorTools(XComponentContext xContext) {
-    xDesktop = OfficeTools.getDesktop(xContext);
+  ViewCursorTools(XComponent xComponent) {
+    this.xComponent = xComponent;
+//    xDesktop = OfficeTools.getDesktop(xContext);
   }
 
   /**
    * document is disposed: set all class variables to null
    */
   public void setDisposed() {
-    xDesktop = null;
+//    xDesktop = null;
+    xComponent = null;
   }
 
   /** 
@@ -75,11 +77,12 @@ public class ViewCursorTools {
   @Nullable
   public XTextViewCursor getViewCursor() {
     try {
-      XComponent xCurrentComponent = xDesktop.getCurrentComponent();
-      if (xCurrentComponent == null) {
-        return null;
-      }
-      XModel xModel = UnoRuntime.queryInterface(XModel.class, xCurrentComponent);
+//      XComponent xCurrentComponent = xDesktop.getCurrentComponent();
+//      if (xCurrentComponent == null) {
+//        return null;
+//      }
+//      XModel xModel = UnoRuntime.queryInterface(XModel.class, xCurrentComponent);
+      XModel xModel = UnoRuntime.queryInterface(XModel.class, xComponent);
       if (xModel == null) {
         return null;
       }
@@ -196,7 +199,9 @@ public class ViewCursorTools {
       }
       xParagraphCursor.gotoStartOfParagraph(false);
       xParagraphCursor.goRight((short) nStart, false);
-      xParagraphCursor.goRight((short) nLength, true);
+      if (nLength > 0) {
+        xParagraphCursor.goRight((short) nLength, true);
+      }
       xParagraphCursor.setString(replace);
     } catch (Throwable t) {
       MessageHandler.printException(t);     // all Exceptions thrown by UnoRuntime.queryInterface are caught
@@ -207,10 +212,12 @@ public class ViewCursorTools {
    * Returns the text document for the current document
    */
   private XTextDocument getTextDocument() {
+/*
     if (xDesktop == null) {
       return null;
     }
     XComponent xComponent = xDesktop.getCurrentComponent();
+*/
     if (xComponent == null) {
       return null;
     }

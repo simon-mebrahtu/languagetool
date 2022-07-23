@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/print.xsl" ?>
+<?xml-stylesheet type="text/css" href="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.css"
+        title="Easy editing stylesheet" ?>
+<!--
+Tigrinya Rules for LanguageTool
+Copyright (C) 2022 tigrinyaNLP.github.io
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
+USA
+-->
+<!--suppress CheckTagEmptyBody -->
+<rules lang="ti"
+       xsi:noNamespaceSchemaLocation="../../../../../../../../../languagetool-core/src/main/resources/org/languagetool/rules/rules.xsd"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- ======================================================================  -->
+    <!-- መፈተንታ፥                                                                -->
+    <!--  ቅኑዕ -  ቤተ ክርስትያን, ቤተ መቕደስ                                         -->
+    <!-- ግጉይ -  ቤት ክርስትያን, በት ክርስትያን, ቤት መቕደስ, በት መቕደስ                  -->
+    <!-- ======================================================================  -->
+    <category id="CAT1" name="CAT1">
+        <rulegroup id="CompoundRule" name="GROUP1">
+            <rule id="BETE_KRSTIAN">
+                <pattern>
+                    <marker>
+                        <token regexp="yes">ቤት|በት</token>
+                    </marker>
+                    <token regexp="yes">መቕደስ|ክርስትያን</token>
+                </pattern>
+                <message>Did you mean <suggestion>ቤተ</suggestion>፧</message>
+                <example correction="ቤተ">ኣማኑኤል <marker>ቤተ</marker> ክርስትያን ኤርትራውያን ሳን ድየጎ።</example>
+                <example>ኣማኑኤል ቤተ ክርስትያን ኤርትራውያን ሳን ድየጎ።</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="POS_RULE" name="GROUP1">
+        <rule id="NO_NAY_BETWEEN_NOUN" name="no nay between nouns">
+            <pattern>
+                <token postag='NN'></token>
+                <token>ናይ</token>
+                <token postag='NN'></token>
+            </pattern>
+            <message>do you mean <suggestion><match no="1"/> <match no="3"/></suggestion></message>
+            <example correction='ኣድጊ በረኻ'><marker>ኣድጊ ናይ በረኻ</marker></example>
+            <example>ኣድጊ በረኻ</example>
+        </rule>
+        </rulegroup>
+    </category>
+</rules>
+

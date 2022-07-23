@@ -1,13 +1,90 @@
 # LanguageTool Change Log
 
-## 5.7 (release planned for 2022-03-28)
+## 5.9 (release planned for 2022-09-28)
 
 ...
+
+
+## 5.8 (2022-07-01)
+
+#### Catalan
+  * added and improved rules
+  * updated dictionary (catalan-pos-dict-2.19)
+
+#### English
+  * added and improved rules
+  * updated en_GB spellchecker dictionary from https://github.com/marcoagpinto/aoo-mozilla-en-dict (Version 2022.06.01, v.3.0.9)
+
+#### German
+  * added and improved rules
+  * extended dictionary
+
+#### French
+  * added and improved rules
+
+#### Polish
+  * updated the spelling dictionary to match changes in language (the current version is in sync with sjp.pl as of April 1, 2022)
+  * added and improved rules
+
+#### Portuguese
+  * added and improved rules
+  * added words and POS data
+  * fixed tons of false positives
+  * the tagger dictionary has been moved to an external dependency (portuguese-pos-dict)
+
+#### Russian
+  * improved some rules
+
+#### Spanish
+  * added and improved rules
+  * updated dictionary (spanish-pos-dict-1.7)
+
+#### Ukrainian
+  * new words in the POS dictionary
+  * added and improved several rules
+  * added numeric and adj/noun agreement
+  * improved tagging and disambiguation
+
+
+
+## 5.7 (2022-03-28)
+
+#### Catalan
+  * added and improved rules
+  * updated dictionary (catalan-pos-dict-2.18)
+
+#### French
+  * added and improved rules
+  * updated dictionary (french-pos-dict-0.5)
+
+#### German
+  * added and improved rules
+  * extended dictionary
 
 #### Polish
   * added and improved rules, especially for frequent mistakes
   * added a rule for spelling coherency (*menedżer* or *menadżer* but not both in the same document)
   * updated the user interface translation
+
+#### Portuguese
+  * added and improved rules
+  * added words and POS data
+  * fixed tons of false positives
+
+#### Russian
+  * added and improved rules
+  * improved disambiguation
+
+#### Spanish
+  * added and improved rules
+  * updated dictionary (spanish-pos-dict-1.6)
+
+#### Ukrainian
+  * new words in the POS dictionary
+  * added and improved several rules
+  * added pronoun checking for adj/noun agreement
+  * improved tagging and disambiguation
+
 
 ## 5.6 (2021-12-29)
 
@@ -1383,7 +1460,7 @@
     - grammar: general agreement rules, 'crase', pronomial colocations, impersonal verbs, fragment, and paronyms detection improvements
     - capitalization: AO90 and AO45 rules
     - style: repetitions and barbarism detection
-    - typography: number formating, chemical formulas, degrees signs, dash signs, and punctuation
+    - typography: number formatting, chemical formulas, degrees signs, dash signs, and punctuation
     - semantics: wrong words in the context (22 confusion pairs), url validator and date checker improvements
     - registered brands category added
     - translation errors category added

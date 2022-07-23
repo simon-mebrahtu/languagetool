@@ -570,6 +570,9 @@ public class MorfologikCatalanSpellerRuleTest {
         assertEquals(0, matches[0].getFromPos());
         assertEquals(6, matches[0].getToPos());
         
+        matches = rule.match(lt.getAnalyzedSentence("GranElefant")); 
+        assertEquals("Gran Elefant", matches[0].getSuggestedReplacements().get(0));
+        
         //don't split prefixes
         matches = rule.match(lt.getAnalyzedSentence("multiindisciplina")); 
         assertEquals(1, matches.length);
@@ -597,5 +600,10 @@ public class MorfologikCatalanSpellerRuleTest {
         assertEquals(1, matches.length);
         assertEquals("En 1993", matches[0].getSuggestedReplacements().get(0));
         
+        // camel case
+        matches = rule.match(lt.getAnalyzedSentence("polÃtiques")); 
+        assertEquals(1, matches.length);
+        assertEquals(3, matches[0].getSuggestedReplacements().size());
+        assertEquals("polítiques", matches[0].getSuggestedReplacements().get(0));
     }
 }

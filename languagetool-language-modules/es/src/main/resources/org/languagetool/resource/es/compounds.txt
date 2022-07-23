@@ -12,6 +12,32 @@
 
 # All correct words should be properly tagged in the tagger dictionary or in added.txt 
 
+corta-césped+
+corta-céspedes+
+económico-sociales*
+médico-legal*
+médico-legales*
+médico-asistencial*
+médico-asistenciales*
+médico-quirúrgico*
+médico-quirúrgica*
+médico-quirúrgicos*
+médico-quirúrgicas*
+electro-estimulación+
+electro-estimulaciones+
+saca-corchos+
+meta-análisis+
+eco-feminista+
+eco-feministas+
+eco-feminismo+
+giga-factoría+
+giga-factorías+
+anti-spam
+Anti-Spam$
+sub-sistema+
+sub-sistemas+
+ante-ayer+
+contra-oferta+
 corto-placista+
 corto-placistas+
 Millán-Astray*
@@ -393,3 +419,4 @@ zig-zags+
 #árabe-israelíes*
 #árabe-israelís*
 ex-libris+
+Ritz-Carlton*

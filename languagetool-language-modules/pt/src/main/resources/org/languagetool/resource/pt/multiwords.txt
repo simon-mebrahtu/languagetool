@@ -19,7 +19,11 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
 #
-#
+
+# IMPORTANT: This tagging removes all previous tags. It is not a good solution 
+# if the expression is ambiguous. If there is ambiguity, you probably need to
+# write rules in disambiguation.xml
+
 # Structure of this file:
 #  - Nomes próprios e comuns
 #  - Locuções
@@ -38,13 +42,28 @@
 #  - Universidades de Portugal
 #  - Universidades do Brasil
 #  - Interjeições
+#  - Conjunções coordenativas
 #
 #
 ####################################################
 ###        Nomes próprios e comuns               ###
 ####################################################
+
+K.O.	NCMN000
+K.-O.	NCMN000
+Far West	NCPSF00
+fair play	NCMS000
+esq.	AQ0CN0
+à borliú	RG
+art.º	NCMS000
+dto.	NCMS000
+dto.	AQ0MS0
+Free Software Foundation	NPFSO00
+WALL·E	NPMSO00
 Academia Militar	NPFS000
 Academia Militar Portuguesa	NPFS000
+Acrobat Reader	NPMS000
+Adobe Acrobat Reader	NPMS000
 Agência Central de Inteligência	NPFS000
 Agência Lusa	NPFS000
 Alegro Alfragide	NPMS000
@@ -65,12 +84,14 @@ beta testers	NCMP000
 Big Mac	NPMS000
 Bin Laden	NPMS000
 Bohemia Interactive	NPFS000
+Câmara Municipal	NPFS000
 Camilla Cabello	NPFS000
 Cartão Auchan	NPMS000
 Cartão JUMBO	NPMS000
 Cartão Oney	NPMS000
 Cartão Oney Auchan	NPMS000
 Casa Branca	NPFS000
+Centro de Saúde	NPMS000
 Chaves do Areeiro	NPFS000
 Círculo de Leitores	NPMS000
 Código de Processo Civil	NPMS000
@@ -91,6 +112,7 @@ cover disc	NCFS000
 cover discs	NCFP000
 cover disk	NCFS000
 cover disks	NCFP000
+Cruz Vermelha	NPFS000
 Dark Web	NPFS000
 Deep Web	NPFS000
 Defense Advanced Research Projects Agency	NPFS000
@@ -100,23 +122,30 @@ Dinâmicas Humanas e Sociais	NPFP000
 Disco de Estado Sólido	NPMS000
 Dolce Vita	NPMS000
 Dolce Vita Tejo	NPMS000
+Domingo Legal	NPMS000
 Domínio de Topo	NPMS000
 El Corte Inglés	NPMS000
 Equações de Lanchester	NPFP000
 Estados soberanos	NPMP000
 Estimação de Máxima Verosimilhança	NPFS000
+Europa Ocidental	NPFSG00
 Executive Education	NPFS000
 Extreme Physical Information	NPFS000
 Fisher Information	NPFS000
 Flash Player	NPMS000
 Força Aérea	NPFS000
 Força Aérea Norte-americana	NPFS000
+Forças Armadas	NPFP000
+Forças Militares	NPFP000
+Forças Policiais	NPFP000
 Google Chrome	NPMS000_
+Guarda Nacional Republicana	NPFS000
 Guerra de Comando e Controlo	NPFS000
 Guerra Fria	NPFS000
 Guerra Santa	NPFS000
 home office	NPMS000_
 Home Office	NPMS000_
+Idade Média	NPFS000
 Informação Física Extrema	NPFS000
 Inteligência Artificial	NPFS000
 James Webb	NPMS000
@@ -125,6 +154,7 @@ La Redoute	NPFS000
 Ladislau Netto	NPMS000
 Leroy Merlin	NPFS000
 Livraria Apeiron	NPFS000
+Machine Learning	NPFS000
 magic number	NCMS000
 Máquina Virtual	NPFS000
 Máquinas Virtuais	NPFP000
@@ -154,6 +184,7 @@ Planeta DeAgostini	NPMS000
 Polícia de Segurança Pública	NPFS000
 Polícia Federal	NPFS000
 Polícia Judiciária	NPFS000
+Polícia Judiciária Militar	NPFS000
 Polícia Metropolitana	NPFS000
 Polícia Municipal	NPFS000
 Pontos Por Polegada	NPMP000
@@ -164,6 +195,8 @@ Rede Privada Virtual	NPFS000
 Regulamento Geral de Proteção de Dados	NPMS000
 Rendimento Básico Universal	NPMS000
 Sega Saturn	NPFS000
+Serviços de Segurança	NPMP000
+Sexta-feira Santa	NPFS000
 Sinclair ZX Spectrum	NPMS000
 Sistema de Crenças	NPMS000
 Sistema Operativo	NPMS000
@@ -184,6 +217,12 @@ Teoria das Catástrofes	NPFS000
 Terabytes Escritos	NPMP000
 The Document Foundation	NPFS000
 Unidade Central de Processamento	NPFS000
+Unidade de Ação Fiscal	NPFS000
+Unidade de Controlo Costeiro	NPFS000
+Unidade de Emergência de Proteção e Socorro	NPFS000
+Unidade de Intervenção	NPFS000
+Unidade de Segurança e Honras de Estado	NPFS000
+Unidade Nacional de Trânsito	NPFS000
 user friendly	NCCS000
 Wall Street English	NPMS000
 Windows Live Messenger	NPMS000
@@ -206,6 +245,8 @@ ZX Spectrum	NPMS000
 # dezenas de	RG
 # É que	RG
 # é que	RG
+à tripa-forra	RG
+À tripa-forra	RG
 à beira de	SP000
 À beira de	SP000
 a bem dizer	RG
@@ -956,6 +997,8 @@ Porta a porta	RG
 porta a porta	RG
 Pouco a pouco	RG
 pouco a pouco	RG
+Pra onde	RG
+pra onde	RG
 Próximo de	SP000
 próximo de	SP000
 quando de	SP000
@@ -12681,3 +12724,23 @@ xau xau	I
 Xau Xau	I
 xô pra lá	I
 Xô pra lá	I
+##########################################################################################
+###                              Conjunções coordenativas                              ###
+### https://www.educamaisbrasil.com.br/enem/lingua-portuguesa/conjuncoes-coordenativas ###
+##########################################################################################
+#à face do exposto   CC
+#ante o exposto  CC
+#à vista disso CC
+#em síntese	CC
+#diante do exposto   CC
+#diante do exposto acima CC
+#isto posto  CC
+#perante o exposto   CC
+#por isso	CC
+#por isto	CC
+#por conseguinte	CC
+#por consequência	CC
+#posto isto  CC
+#no entanto	CC
+#não obstante	CC
+#sendo assim   CC

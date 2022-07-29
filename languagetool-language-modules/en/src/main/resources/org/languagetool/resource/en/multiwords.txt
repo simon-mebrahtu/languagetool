@@ -5788,3 +5788,77 @@ Renault Sandero	NNP
 Robbie Williams	NNP
 Champions Hockey League	NNP
 Tom Steyer	NNP
+Andrew Yang	NNP
+Cory Booker	NNP
+Klaus Schwab	NNP
+Oliver Blume	NNP
+Lady Bunny	NNP
+Arleigh Burke	NNP
+D. B. Cooper	NNP
+D.B. Cooper	NNP
+van Zant	NNP
+van Zandt	NNP
+Dell Technologies	NNP
+Toyota Crown	NNP
+Toyota Century	NNP
+Toyota Cressida	NNP
+Toyota bZ4X	NNP
+Pet Shop Boys	NNPS
+Jonas Vingegaard	NNP
+Wout van Aert	NNP
+Tadej Pogačar	NNP
+Primož Roglič	NNP
+Sepp Kuss	NNP
+Jakob Fuglsang	NNP
+Magnus Cort	NNP
+Geraint Thomas	NNP
+Filippo Ganna	NNP
+Britta Ernst	NNP
+Sami Slimani	NNP
+Drew McIntyre	NNP
+John Wick	NNP
+Jack Reacher	NNP
+Chris Evans	NNP
+Cinema EOS	NNP
+Three Mile Island	NNP
+Amazon SageMaker	NNP
+AWS SageMaker	NNP
+Amazon Lightsail	NNP
+AWS Lightsail	NNP
+Hacker News	NNP
+Benjamin Harrison	NNP
+Grover Cleveland	NNP
+Millard Fillmore	NNP
+Franklin Pierce	NNP
+Calvin Coolidge	NNP
+Herbert Hoover	NNP
+Zachary Taylor	NNP
+Lyndon Baines Johnson	NNP
+James Knox Polk	NNP
+James K. Polk	NNP
+Warren Gamaliel Harding	NNP
+Warren G. Harding	NNP
+William Henry Harrison	NNP
+William H. Harrison	NNP
+Martin Van Buren	NNP
+van Buren	NNP
+Franklin Delano Roosevelt	NNP
+Franklin D. Roosevelt	NNP
+James Abram Garfield	NNP
+James A. Garfield	NNP
+James Garfield	NNP
+Giorgia Meloni	NNP
+Fratelli d'Italia	NNP
+Via della	NNP
+Mario Monti	NNP
+Forza Italia	NNP
+Mara Carfagna	NNP
+Elisabetta Casellati	NNP
+Pier Ferdinando Casini	NNP
+Elisabetta Belloni	NNP
+Sabino Cassese	NNP
+Marta Cartabia	NNP
+Enrico Letta	NNP
+Terrence Howard	NNP
+Petro Doroshenko	NNP
+Darwin Núñez	NNP

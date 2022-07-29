@@ -92,7 +92,7 @@ public class AboutDialog {
       licensePane.setEditable(false);
       licensePane.setOpaque(false);
       licensePane.setText("<html>"
-              + "<p>Copyright (C) 2005-2022 the LanguageTool community and Daniel Naber<br>"
+              + "<p>Copyright (C) 2005-2022 the LanguageTool community and Daniel Naber.<br>"
               + "This software is licensed under the GNU Lesser General Public License.<br>"
               + "<a href=\"https://www.languagetool.org\">https://www.languagetool.org</a><br>"
               + "</html>");
@@ -136,7 +136,7 @@ public class AboutDialog {
       aboutPane.setEditable(false);
       aboutPane.setOpaque(false);
       aboutPane.setText(String.format("<html>"
-          + "<p>Maintainer of the office extension : %s</p>"
+          + "<p>Maintainer of the office extension: %s</p>"
           + "<p>Maintainers or former maintainers of the language modules -<br>"
           + "(*) means language is unmaintained in LanguageTool:</p><br>"
           + "</html>", OfficeTools.EXTENSION_MAINTAINER));
@@ -180,6 +180,7 @@ public class AboutDialog {
       dialog.setAutoRequestFocus(true);
 //      MessageHandler.printToLogFile("set dialog visible");
       dialog.setVisible(true);
+      dialog.setAlwaysOnTop(true);
       dialog.toFront();
     } catch (Throwable t) {
       MessageHandler.showError(t);

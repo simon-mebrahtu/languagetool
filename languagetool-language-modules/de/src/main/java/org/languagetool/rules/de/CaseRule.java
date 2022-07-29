@@ -110,6 +110,9 @@ public class CaseRule extends Rule {
     "Apart", // eng
     "Smart", // eng
     "Different", // eng
+    "Light", // eng
+    "Legal", // eng
+    "Fit", // eng
     "Fair", // eng
     "Viral", // eng
     "Tough", // eng
@@ -679,7 +682,11 @@ public class CaseRule extends Rule {
     "Eure",
     "Eurem",
     "Euren",
-    "Eures"
+    "Eures",
+    "Eueren",
+    "Euerem",
+    "Eueres",
+    "Euerer"
   };
   
   private static final Set<StringMatcher[]> exceptionPatterns = CaseRuleExceptions.getExceptionPatterns();

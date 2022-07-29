@@ -126,7 +126,7 @@ Bobb?a Fett
 Bochumer
 Body & Fits?
 Bögen
-Böhmischen? Schweiz|Knödeln?
+Böhmische[rn]? Schweiz|Knödeln?|Aufstands?|Ständeaufstands?
 Holsteinische? Schweiz
 Botanische[rnm]? Gartens?
 Booz Allen Hamiltons?
@@ -196,7 +196,7 @@ Director of Legal
 Die Toten Hosen
 Die Leiden des jungen Werthers
 [Dd]ie Schöne und das Biest
-Digital Assets?|IQ|Garage|Cockpits?|Ads?|Signals?|Designs?|Designer[ns]?|Engineerings?|Innovation|Media|Content|Community|Detox|Analyst|Leader[ns]?|Consultants?|Equipments?|Onboarding|Transformations?|Learnings?|Events?|Hubs?|Masterings?|Marketers?|Radios?|Experiences?|Kits?|Wallets?|Turbines?|Workspaces?|Leaderships?|Profiles?
+Digital Assets?|IQ|Garage|Pushs?|Pushing|Cockpits?|Ads?|Signals?|Designs?|Designer[ns]?|Engineerings?|Innovation|Media|Content|Community|Detox|Analyst|Leader[ns]?|Consultants?|Equipments?|Onboarding|Transformations?|Learnings?|Events?|Hubs?|Masterings?|Marketers?|Radios?|Experiences?|Kits?|Wallets?|Turbines?|Workspaces?|Leaderships?|Profiles?
 Digital Film Productions?
 Demokratischen? Republik|Partei|Volksrepublik
 Demokratischen? Sozialistischen? Republik
@@ -254,7 +254,7 @@ ein absolutes Muss
 ein paar Zerquetschte
 [eE]ine (gute|glatte|schlechte) Eins|Zwei|Drei|Vier|Fünf|Sechs
 [eE]ine Eins|Zwei|Drei|Vier|Fünf|Sechs
-Eiserne[nrsm]? Kreuz|Kreuzes?|Vorhangs?|Krone
+Eiserne[nrsm]? Kreuz|Kreuzes?|Vorhangs?|Krone|Tors?
 Emilie Flöge
 Englische[rnm]? Gartens?|Wochen
 Englischen? Bulldoggen?
@@ -282,7 +282,7 @@ European Alternatives
 Eurasische[snm]? Eichhörnchens?
 Evangelischen? Hochschule Berlin
 Evangelischen? Akademie (Loccum|Tutzing|Bad|Frankfurt|Baden|Wien)s?
-Evangelische[nrsm]? Kirchenkreis(es)?|Gesellschaft|Gemeindedienst|Versöhnungs.*|Grundschule|Schule|Gesamtschule|Gymnasiums?|Volkspartei|Krankenhaus(es)?|Schulzentrums?
+Evangelische[nrsm]? Kirchenkreis(es)?|Pressediente?s?|Gesellschaft|Gemeindedienst|Versöhnungs.*|Grundschule|Schule|Gesamtschule|Gymnasiums?|Volkspartei|Krankenhaus(es)?|Schulzentrums?
 Ewige[rn]? Stadt
 Exxon Mobils?
 (Foreign|World|Fair|European|EU) Trade
@@ -352,7 +352,7 @@ Gleicher unter Gleichen
 Gleiches mit Gleichem
 Global Goals?
 Global Site Tag
-Global Business|Pension|Geoparks?|News|Hubs?|Managements?|Junior|Senior|Head|Vice|President|Player[ns]?|Locations?|Targets?|Pass|Funds?|Sales?|Channels?|City|Times|Navigation|Offensive|Investors?|Real|Values?|Grade|Minimum|Revolution|Media
+Global Business|Pension|Rockstars?|Geoparks?|News|Hubs?|Managements?|Junior|Senior|Head|Vice|President|Player[ns]?|Locations?|Targets?|Pass|Funds?|Sales?|Channels?|City|Times|Navigation|Offensive|Investors?|Real|Values?|Grade|Minimum|Revolution|Media
 Global(er|en|em)? Süden|Norden
 Golden (Globes?|Delicious|Retrievers?|Goals?|Gates?|Tulip|Boys?|Age|Lager|Masters?|Eagles?|State|Toasts?|Tigers?)
 Goldene[nrsm]? Schnitte?s?|Bullen?|Palme|Bär(en)?|Spatz(en)?|Hirsch|Löwen?|Himbeeren?|Laus|Windbeuteln?|Chlorellas?|Zeitalters?|(Ehren|Verdienst)zeichens?|Zwanzigern?|Schallplatten?|Buchs?|Stadt|Vlies(es)?|Kamera|Horden?|Tore?s?|Ordnung|Schwans?
@@ -461,7 +461,7 @@ Inhouse Managers?
 Inhouse Managements?
 Inhouse Senior Consultants?
 Inhouse Junior Consultants?
-Innere[nrm]? Stadtgrabens?|Medizin|Gürtel|Mongolei
+Innere[nrm]? Stadtgrabens?|Medizin|Gürtel|Mongolei|Kanalstraße|Kanalstr
 Inoffizielle[rnm]? Mitarbeiter[sn]?
 Instituts? für .*
 Institutes für .*
@@ -535,13 +535,13 @@ Kubanischen? Revolution
 kaum Neues
 Kessel Buntes
 Kitchen Impossible
-Klein Nordendes?
+Klein (Nordendes?|Borstels?)
 Kleine[rnm]? Sauerampfers?
 Kleinen? Weser|Donau
 Knollige[rnm]? Hahnenfu(ß|ss)
-Lost Places?
+Lost (Places?|Islands?)
 Landesverband(e?s)? Baye?rischer? Omnibusunternehmen
-Groß Nordendes?
+Groß (Nordendes?|Borstels?)
 Großen? Elbstraße
 Großen? Schlote
 Großen? Elbstr.
@@ -568,7 +568,7 @@ Legal & Compliance
 Legal & Finance
 Legal und Finance
 Legal und Compliance
-Legal (Departments?|Abteilung|Partners?|Offices?|Techs?)
+Legal (Departments?|Abteilung|Partners?|Offices?|Techs?|Due|Diligence)
 Legend of Zelda
 Les Miserables
 Letzte[nrm]? Wille(n|ns)?
@@ -707,7 +707,7 @@ On Hold
 Organic Textile
 Osmanische[snm]? Reich(es|s)?
 Ökumenische[nrm]? Patriarch(en)?
-Österreichische[mnrs]? Klimaschutzpreis|Nationalbibliothek|Rundfunks?|Volkspartei|Post|Ärztekammer|Ärztekammertags?|Bauernbunds?
+Österreichische[mnrs]? Klimaschutzpreis|Nationalbibliothek|Rundfunks?|Volkspartei|Post|Ärztekammer|Ärztekammertags?|Bauernbunds?|Lebensmittelbuche?s?
 Österreichischen? Gesundheitskasse
 Österreichische[snm]? Archäologische[sn]? Instituts?
 Osteuropäische[rnm]? Ebene
@@ -831,7 +831,7 @@ Schwarzer? Bretter|Löcher|Körper|Kontinent|Witwe|Johannisbeeren?|Holunder|Pete
 Schwarzen Brettern?|Brette?s|Meere?s|Körpers?|Kontinents?|Lochs|Löchern|Witwen?|Johannisbeeren?|Freitags
 Schwarze[mns]? Brett|Meer|Loch
 Schwedischen? Modells?
-Schweizerischen? Post|Bundesbahn(en)?|Volkspartei|Nationalbank|Treuhandgesellschaft|Nordostbahn|Rettungsflugwacht|Bankiervereinigung|Sicherheitsuntersuchungsstelle
+Schweizerischen? Post|Bundesbahn(en)?|Volkspartei|Nationalbank|Treuhandgesellschaft|Nordostbahn|Rettungsflugwacht|Bankiervereinigung|Sicherheitsuntersuchungsstelle|Versicherungsgesellschaft
 Schweizerischen? Gesellschaft für
 Schweizerische[snm]? Institut(e?s)? für
 Schweizerischen? Eidgenossenschaft
@@ -864,7 +864,7 @@ Slim Fit
 Smart Cit(y|ies)|Cards?|Cabrios?|Homes?|Phones?|Watch(es)?|Meters?|Money|Tarif|TVs?|Living
 SK Rapid
 Skodas? Superbs?
-Sofort GmbH
+Sofort GmbH|Ident
 Soy Vegan
 Soziale[nrm]? (Arbeit|Jahre?s?)
 Sozialistischen? Sowjetrepublik(en)?|(Einheits|Arbeiter)?[pP]artei
@@ -1018,3 +1018,8 @@ Plättli Ganz
 Es Vedràs?
 Ägäischen? (Inseln|Meer(es)?)
 Vierte[snm]? Zeitalters?
+VW Wob
+V10 Absolute
+V12 Absolute
+V10 Slim Absolute
+V12 Slim Absolute

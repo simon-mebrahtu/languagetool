@@ -189,7 +189,9 @@ public class CaseRuleTest {
     assertGood("Unser Wärmestrom-Tarif WärmeKompakt im Detail");  // ignore so we don't suggest "wärmeKompakt" (#3779)
     assertGood("Autohaus Dornig GmbH");
     assertGood("Hans Pries GmbH");
+    assertGood("Der Kund*innenservice war auch sehr kulant und persönlich.");
     assertGood(":D Auf dieses Frl.");
+    assertGood("@b_fischer Der Bonussemester-Antrag oder der Widerspruch?");
     assertGood("Das Gedicht “Der Panther”.");  // quotes are not correct, but leave that to the quotes rule
     assertGood("Klar, dass wir das brauchen.");
     assertGood("Das wird Scholz' engster Vertrauter Wolfgang Schmidt übernehmen.");

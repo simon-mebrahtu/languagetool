@@ -10,4 +10,4 @@ fsa.dict.frequency-included=true
 
 fsa.dict.speller.ignore-all-uppercase=false
 
-fsa.dict.encoder=NONE
+fsa.dict.encoder=suffix

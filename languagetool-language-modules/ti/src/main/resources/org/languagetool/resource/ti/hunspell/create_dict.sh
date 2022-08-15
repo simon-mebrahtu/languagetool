@@ -36,7 +36,7 @@ TEMP_FILE=${PREFIX}.text
 echo  $CPATH
 
 java -cp $CPATH:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/languagetool.jar:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/libs/languagetool-tools.jar \
-  org.languagetool.tools.SpellDictionaryBuilder -i $DIC_FILE -info $INFO_FILE -o $OUTPUT_FILE  -freq $FREQ_FILE
+  org.languagetool.tools.POSDictionaryBuilder -i $DIC_FILE -info $INFO_FILE -o $OUTPUT_FILE  -freq $FREQ_FILE
 
 # Test the compiled dict by exporting it back to a text file (output text file is written in the current directory
 java -cp $CPATH:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/languagetool.jar:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/libs/languagetool-tools.jar   org.languagetool.tools.DictionaryExporter -i $OUTPUT_FILE -info $INFO_FILE -o $TEMP_FILE

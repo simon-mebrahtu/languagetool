@@ -61,7 +61,7 @@ public class Tigrinya extends Language {
 
   @Override
   public Contributor[] getMaintainers() {
-    return new Contributor[]{new Contributor("Biniam Gebremichael"),new Contributor("Ermias Zerazion")};
+    return new Contributor[]{new Contributor("Biniam Gebremichael"),new Contributor("Ermias Zerazion"),new Contributor("Simon Ogbamichael")};
   }
 
   @Override
@@ -69,8 +69,6 @@ public class Tigrinya extends Language {
     return Arrays.asList(
       new CommaWhitespaceRule(messages),
       new MultipleWhitespaceRule(messages, this),
-      new LongSentenceRule(messages, userConfig, 50),
-      new SentenceWhitespaceRule(messages),
       new MorfologikTigrinyaSpellerRule(messages, this, userConfig, altLanguages)
     );
   }

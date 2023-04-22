@@ -67,7 +67,6 @@ public class Tigrinya extends Language {
   @Override
   public List<Rule> getRelevantRules(ResourceBundle messages, UserConfig userConfig, Language motherTongue, List<Language> altLanguages) throws IOException {
     return Arrays.asList(
-      new CommaWhitespaceRule(messages),
       new MultipleWhitespaceRule(messages, this),
       new MorfologikTigrinyaSpellerRule(messages, this, userConfig, altLanguages)
     );

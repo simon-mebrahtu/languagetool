@@ -40,11 +40,11 @@ public class MorfologikTigrinyaSpellerRule extends MorfologikSpellerRule {
   }
 
   //ignore all characters except ሀ-ፚ
-  private static Pattern he2fie = Pattern.compile("[\\x{1200}-\\x{135A}]{1,20}") ;
+  private static final Pattern he2fie = Pattern.compile("[\\x{1200}-\\x{135A}]{1,20}") ;
   @Override
   protected boolean ignoreWord(String word) throws IOException {
     Matcher matcher = he2fie.matcher(word);
-    return super.ignoreWord(word) || !matcher.matches();
+    return super.ignoreWord(word) || !matcher.matches() || word.length()>1;
   }
 
 }

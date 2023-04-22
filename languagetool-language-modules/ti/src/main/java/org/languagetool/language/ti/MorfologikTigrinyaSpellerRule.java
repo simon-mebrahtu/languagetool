@@ -44,7 +44,7 @@ public class MorfologikTigrinyaSpellerRule extends MorfologikSpellerRule {
   @Override
   protected boolean ignoreWord(String word) throws IOException {
     Matcher matcher = he2fie.matcher(word);
-    return super.ignoreWord(word) || !matcher.matches() || word.length()>1;
+    return super.ignoreWord(word) || !matcher.matches() || word.length()<=1;
   }
 
 }

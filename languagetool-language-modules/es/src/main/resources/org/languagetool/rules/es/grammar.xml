@@ -1604,9 +1604,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="FALTA_ELEMENTO_ENTRE_VERBOS" name="Falta un elemento entre verbos: hay algo *(que) es claro">
             <antipattern>
                 <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer|acordar|ofrecer</token>
-                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
                 <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
                 <example>Solicito se tengan como pruebas.</example>
+                <example>Solicita se le dé respuesta.</example>
             </antipattern>
             <antipattern>
                 <token>ya</token>
@@ -6101,14 +6102,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token regexp="yes">[a-z]|\d+</token>
                 <token regexp="yes" skip="10">\p{P}<exception>,</exception></token>
                 <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
-                <example>1. Se envíe el teléfono.</example>
+                <!--<example>1. Se envíe el teléfono.</example> Problem: "1." is in a different sentence -->
                 <example>2.) Le sean asignados los números.</example>
                 <example>a) Se incapaciten física o intelectualmente.</example>
             </antipattern>
             <antipattern>
+                <token postag="SENT_START"/>
+                <!-- any bullet point character -->
+                <token regexp="yes" skip="10">.<exception regexp="yes">[a-z]</exception></token>
+                <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
+                <example>✅ Te desarrolles profesionalmente.</example>
+            </antipattern>
+            <antipattern>
                 <!-- rarely used as verbs -->
                 <token postag="SENT_START|_PUNCT.*" postag_regexp="yes"/>
-                <token regexp="yes">pasaportes|dimensiones|proporciones|reacciones|promociones</token>
+                <token regexp="yes">pasaportes|dimensiones|proporciones|reacciones|promociones|funciones|acciones|redes|tiendas</token>
                 <example>Promociones VIP</example>
                 <example>Reacciones ácido-base.</example>
             </antipattern>
@@ -6121,14 +6129,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </antipattern>
             <antipattern>
                 <token regexp="yes">solícito|solícita</token>
-                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
                 <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
-                <example>Deseando se encuentre bien.</example>
-                <example>Esperando se encuentre bien.</example>
             </antipattern>
             <antipattern>
                 <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer|acordar|ofrecer</token>
-                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
                 <token postag="VMS[IP](3S|3P|2S)0" postag_regexp="yes"/>
                 <example>Deseando se encuentre bien.</example>
                 <example>Esperando se encuentre bien.</example>
@@ -6143,9 +6149,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token postag="V.S.*" postag_regexp="yes"/>
             </antipattern>
             <antipattern>
-                <token regexp="yes">bunas|tampoco|ni|no|nunca|nadie|quizás?|probablemente|posiblemente|apenas</token>
+                <token regexp="yes">buenas|tampoco|ni|no|nunca|nadie|quizás?|probablemente|posiblemente|apenas</token>
                 <token postag_regexp="yes" postag="P.*|RG" min="0" max="4"/>
                 <token postag="V.S.*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token>mucho</token>
+                <token>menos</token>
+                <token postag_regexp="yes" postag="P.*|RG" min="0" max="4"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <example>Mucho menos me vuelvas a llamar.</example>
             </antipattern>
             <antipattern>
                 <token postag="RN"/>
@@ -6164,12 +6177,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token>o</token>
             </antipattern>
             <antipattern>
-                <token postag="SENT_START"/>
+                <token postag="SENT_START|_PUNCT.*" postag_regexp="yes"/>
                 <token postag_regexp="yes" postag="P.*" min="0" max="2"/>
                 <token postag="V.S.*" postag_regexp="yes"/>
                 <token>o</token>
                 <token postag_regexp="yes" postag="P.*" min="0" max="2"/>
                 <token postag="V.S.*" postag_regexp="yes"/>
+                <example>Ganes o pierdas, ¡disfruta!</example>
             </antipattern>
             <antipattern>
                 <token postag="SENT_START"/>
@@ -6223,7 +6237,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token>.</token>
             </antipattern>
             <antipattern>
-                <token skip="3" regexp="yes" case_sensitive="yes">DIOS|dios|Dios|cielo|Señor</token>
+                <token skip="3" regexp="yes" case_sensitive="yes">DIOS|dios|Dios|cielo|Señor|señor|Jehová|Alá</token>
                 <!--<token inflected="yes" regexp="yes">bendecir|permitir|perdonar|salvar</token>-->
                 <token postag="V.S.*" postag_regexp="yes"/>
                 <example>El cielo nos asista.</example>
@@ -6271,6 +6285,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <rule>
                 <!-- exceptions to next rule -->
                 <pattern>
+                    <marker>
+                        <token>estés</token>
+                    </marker>
+                    <token regexp="yes">atento|atenta|tranquilo|tranquila|quieto|quieta</token>
+                </pattern>
+                <message>Forma incorrecta de imperativo.</message>
+                <suggestion>estate</suggestion>
+                <suggestion>esté</suggestion>
+                <example correction="estate|esté">Por favor, <marker>estés</marker> atento a las novedades.</example>
+            </rule>
+            <rule>
+                <!-- exceptions to next rule -->
+                <pattern>
                     <token postag="SENT_START"/>
                     <marker>
                         <token>consumase</token>
@@ -6284,7 +6311,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <pattern>
                     <token postag="SENT_START" skip="-1"><exception scope="next" postag="V.[IM].*|P[TR].*|CS|LOC_CS" postag_regexp="yes"/></token>
                     <marker>
-                        <token postag="V.S.*" postag_regexp="yes"><exception postag="V.[IM].*|[NA].*|_possible_NP|R.*|LOC_.*|D.*|SENT_END" postag_regexp="yes"/><exception postag="V.SI.*" postag_regexp="yes" inflected="yes" regexp="yes">querer|haber|poder|deber|parecer</exception><exception regexp="yes">haya|uno|unas?</exception></token>
+                        <token postag="V.S.*" postag_regexp="yes"><exception postag="V.[IM].*|[NA].*|_possible_NP|R.*|LOC_.*|D.*|SENT_END" postag_regexp="yes"/><exception postag="V.SI.*" postag_regexp="yes" inflected="yes" regexp="yes">querer|haber|poder|deber|parecer</exception><exception regexp="yes">haya|uno|unas?</exception><exception regexp="yes">\p{Lu}+</exception></token>
                     </marker>
                 </pattern>
                 <filter class="org.languagetool.rules.es.FindSuggestionsFilter" args="wordFrom:marker desiredPostag:V.I.*|NC.*|A.*"/>
@@ -6387,6 +6414,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>New York Times</example>
                 <example>The New York Times</example>
                 <example>Times Square</example>
+                <example>- Ganes o pierdas, ¡disfruta!</example>
+                <example>ROAS (Retorno de la inversión).</example>
+                <example>23,19% impresiones respecto al mes pasado.</example>
+                <example>- Ganes o pierdas, ¡te encantará!</example>
             </rule>
         </rulegroup>
         <rulegroup id="SUBJUNTIVO_FUTURO" name="confusión cantara/cantará">
@@ -6439,7 +6470,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 </antipattern>
                 <antipattern>
                     <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer</token>
-                    <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                    <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
                     <token postag="VMSI(3S|3P|2S)0" postag_regexp="yes"/>
                 </antipattern>
                 <antipattern>
@@ -10617,20 +10648,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>Si es un verbo, se escribe sin tilde.</message>
                 <suggestion><match no="2" regexp_match="(?iu)í" regexp_replace="i" case_conversion="preserve"/></suggestion>
                 <example correction="Solicito"><marker>Solícito</marker>:</example>
-                <example correction="Solicito"><marker>Solícito</marker> que se ejecute la sentncia.</example>
+                <example correction="Solicito"><marker>Solícito</marker> que se ejecute la sentencia.</example>
             </rule>
             <rule>
                 <pattern>
                     <marker>
                         <token regexp="yes">solícito|solícita</token>
                     </marker>
-                    <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                    <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
                     <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
                 </pattern>
                 <message>Si es un verbo, se escribe sin tilde.</message>
                 <suggestion><match no="1" regexp_match="(?iu)í" regexp_replace="i" case_conversion="preserve"/></suggestion>
                 <example correction="solicita">El demandante <marker>solícita</marker> se presenten los documentos.</example>
                 <example correction="Solicito"><marker>Solícito</marker> me sean entregados los documentos.</example>
+                <example correction="Solicita"><marker>Solícita</marker> se le dé respuesta.</example>
             </rule>
         </rulegroup>
         <rulegroup id="MAS" name="mas/más">
@@ -14228,7 +14260,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rule id="DOS_VERBOS_MODALES" name="dos verbos modales seguidos" default="temp_off">
             <antipattern>
                 <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer|acordar|ofrecer</token>
-                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
                 <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
                 <example>Solicito se tengan como pruebas.</example>
             </antipattern>
@@ -14280,7 +14312,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <rulegroup id="DOS_VERBOS" name="dos verbos juntos" default="temp_off">
             <antipattern>
                 <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer|acordar|ofrecer</token>
-                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
                 <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
                 <example>Agradecería se mantenga en línea.</example>
             </antipattern>
@@ -28996,6 +29028,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token regexp="yes">0?[469]|11</token>
                     <example>N.º 31/09</example>
                 </antipattern>
+                <antipattern>
+                    <token>31</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?[469]|11</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">\d\d?\d?\d?</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">\d\d+</token>
+                    <example>31-6-55-32-22-87</example>
+                    <example>31-06-0-1234</example>
+                    <example>31 4 1234 5678</example>
+                </antipattern>
                 <pattern>
                     <marker>
                         <token>31</token>
@@ -29018,11 +29062,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token regexp="yes" min="0">-|/</token>
                     <token regexp="yes">0?2</token>
                     <token min="0">:</token>
-                    <token regexp="yes">\d\d?|pm|am</token>
+                    <token regexp="yes">\d\d?|pm|am|.*pm|.*am</token>
                     <example>01:30 - 02:30</example>
                     <example>12:30 - 2 pm pausa</example>
                     <example>hace 1:30/2:00 Hs</example>
                     <example>01:55 - 02:31 / 02:54 - 04:15</example>
+                    <example>10:30-2:30pm</example>
                 </antipattern>
                 <antipattern>
                     <token regexp="yes">\d\d?</token>
@@ -29070,8 +29115,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token regexp="yes">3[01]</token>
                     <token min="0" regexp="yes">-|/</token>
                     <token regexp="yes">0?2</token>
-                    <token regexp="yes">días|semanas|meses|años|toneladas</token>
+                    <token min="0">-</token>
+                    <token regexp="yes">horas|días|semanas|meses|años|toneladas|BFC</token>
                     <example>30 - 2 días</example>
+                    <example>1:30/2 horas</example>
                 </antipattern>
                 <antipattern>
                     <token regexp="yes">3[01]</token>
@@ -29098,6 +29145,32 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token regexp="yes" min="0">-|/</token>
                     <token regexp="yes">0?2</token>
                     <example>N.º 31/02</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">0?[1-9]|10|11|12</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">0?[1-9]|1[0-9]|2[0-9]|3[01]</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">\d\d\d\d</token>
+                    <token regexp="yes">-|a</token>
+                    <token regexp="yes">0?[1-9]|10|11|12</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">3[01]</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">0?2</token>
+                    <example>5/24/2022 - 06/30/2</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">0?[0-9]|1[0-9]|2[0-4]</token>
+                    <token>:</token>
+                    <token regexp="yes">[0-5][0-9]</token>
+                    <token regexp="yes">-|a</token>
+                    <token regexp="yes">0?[0-9]|1[0-9]|2[0-4]</token>
+                    <token>:</token>
+                    <token regexp="yes">3[01]</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">0?2</token>
+                    <example>19:45 a 22:31 / 2</example>
                 </antipattern>
                 <pattern>
                     <marker>
@@ -29179,7 +29252,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <example>9 41 OCT 16 2005</example>
                 </antipattern>
                 <antipattern>
-                    <token regexp="yes" inflected="yes" skip="-1">número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo</token>
+                    <token regexp="yes" inflected="yes" skip="-1">número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo|factura|sentencia</token>
                     <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
                     <token min="0" regexp="yes">[-/]|de|a</token>
                     <token regexp="yes" min="0">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
@@ -29189,9 +29262,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <example>resolución 142 de febrero de 2021 </example>
                     <example>el concepto 556 de mayo del 2022</example>
                     <example>el modelo 200 de julio.</example>
+                    <example>sentencia T-123 de junio de 2003</example>
                 </antipattern>
                 <antipattern>
-                    <token regexp="yes" inflected="yes">número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo</token>
+                    <token regexp="yes" inflected="yes">número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo|factura|sentencia</token>
                     <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
                     <token>/</token>
                     <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
@@ -29199,6 +29273,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token regexp="yes" min="0">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
                     <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
                     <example>resolución 57/249 de diciembre de 2002.</example>
+                    <example>ley 70/71 de octubre de 1989</example>
                 </antipattern>
                 <antipattern>
                     <token regexp="yes" min="0">&meses_ano;|&meses_ano_abrv;</token>
@@ -29229,7 +29304,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token min="0" regexp="yes">[-/]|de</token>
                     <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
                     <token>.</token>
-                    <example> (12) 345 67 89 58 mar.kape.2304</example>
+                    <example>(12) 345 67 89 58 mar.kape.2304</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes">\d\d+</token>
+                    <token regexp="yes">\d\d+</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <example>1 123 456 de mar</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token regexp="yes">&meses_ano;</token>
+                    <token regexp="yes">St|street</token>
+                    <example>405 Mayo St</example>
                 </antipattern>
                 <pattern>
                     <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
@@ -29258,7 +29347,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <example>ISBN 978-84-01-1074-83</example>
                 </antipattern>
                 <antipattern>
-                    <token regexp="yes">número|N°|nº|n\d+|\+|#|teléfono|expediente|FSE|URCG|CAD</token>
+                    <token regexp="yes" skip="-1">número|N°|nº|n\d+|\+|#|teléfono|expediente|FSE|URCG|CAD|VFID|salida|ZS|ds|línea</token>
                     <token regexp="yes" min="0">:|-|/</token>
                     <token regexp="yes">\d+</token>
                     <token regexp="yes" min="0">-|/</token>
@@ -29272,6 +29361,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <example>(S)FSE-123/07/2021/UE-</example>
                     <example>URCG-38-06-2019</example>
                     <example>CAD/123/12/2021</example>
+                    <example>oficio VFID/123/04/2016</example>
+                    <example>salida 1234-06-1890</example>
+                    <example>línea gratuita 800-12-2021</example>
                 </antipattern>
                 <antipattern>
                     <token regexp="yes">\d\d\d\d\d\d</token>
@@ -29395,7 +29487,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <example>02/19/1954.</example>
                 </antipattern>
                 <antipattern>
-                    <token regexp="yes" skip="-1">número?s|nº|Cel|Tel|n\d+|cédula|al|acuerdo|P</token>
+                    <token regexp="yes" skip="-1">número?s|nº|Cel|Tel|n\d+|cédula|al|acuerdo|P|N°</token>
                     <token regexp="yes">\d\d?</token>
                     <token regexp="yes" min="0">-|/</token>
                     <token regexp="yes">1[3-9]|[2-9]\d</token>
@@ -29408,6 +29500,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <example>al 01-800-2656-345</example>
                     <example>del Acuerdo 17-17-2020</example>
                     <example>P. 32-38-1970</example>
+                    <example>N° 99/73/2022</example>
                 </antipattern>
                 <antipattern>
                     <token>n</token>
@@ -29419,6 +29512,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <token regexp="yes">-|/</token>
                     <token regexp="yes">[12]\d{3}</token>
                     <example>N.º 93-07-2019</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes">-|/</token>
+                    <token regexp="yes">1[3-9]|[2-9]\d</token>
+                    <token regexp="yes">-|/</token>
+                    <token regexp="yes">[12]\d{3}</token>
+                    <token regexp="yes">-|/</token>
+                    <token regexp="yes">\d+</token>
+                    <example>13-46-2021-123</example>
                 </antipattern>
                 <pattern>
                     <token regexp="yes">\d\d?</token>
@@ -29593,64 +29696,58 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <rule>
                 <!--NUMBER_DAYS_MONTH[14]-->
-                <antipattern>
-                    <token regexp="yes">29\.02\.([13579][26]00|[2468][048]00)</token>
-                    <!-- 2000 is a leap year (divisible by 400) -->
-                    <example>Nació el <marker>29.02.2000</marker>.</example>
-                    <!-- 2004 is a leap year (divisible by 4) -->
-                    <example>Nació el<marker>29.02.2004</marker>.</example>
-                    <!-- 2008 is a leap year (divisible by 4) -->
-                    <example>Nació el<marker>29.02.2008</marker>.</example>
-                    <!-- 2012 is a leap year (divisible by 4) -->
-                    <example>Nació el<marker>29.02.2012</marker>.</example>
-                    <!-- 2016 is a leap year (divisible by 4) -->
-                    <example>Nació el <marker>29.02.2016</marker>.</example>
-                    <!-- 2020 is a leap year (divisible by 4) -->
-                    <example>Nació el <marker>29.02.2020</marker>.</example>
-                </antipattern>
                 <pattern>
                     <marker>
-                        <token regexp="yes">29\.02\.\d\d(00|\d[13579]|[02468][26]|[13579][048])</token>
+                        <token regexp="yes">29\.02\.\d\d(00|\d[13579]|[02468][26]|[13579][048]) <exception regexp="yes">29\.02\.([13579][26]00|[2468][048]00)</exception> </token>
                     </marker>
                 </pattern>
                 <message>El mes de febrero solo tiene 28 días, porque este año no es bisiesto.</message>
+                <!--1900 is not a leap year -->
                 <example correction="">Nació el <marker>29.02.1900</marker>.</example>
                 <example>Nació el <marker>28.02.1900</marker>.</example>
+                <!-- 2000 is a leap year (divisible by 400) -->
+                <example>Nació el <marker>29.02.2000</marker>.</example>
+                <!-- 2004 is a leap year (divisible by 4) -->
+                <example>Nació el<marker>29.02.2004</marker>.</example>
+                <!-- 2008 is a leap year (divisible by 4) -->
+                <example>Nació el<marker>29.02.2008</marker>.</example>
+                <!-- 2012 is a leap year (divisible by 4) -->
+                <example>Nació el<marker>29.02.2012</marker>.</example>
+                <!-- 2016 is a leap year (divisible by 4) -->
+                <example>Nació el <marker>29.02.2016</marker>.</example>
+                <!-- 2020 is a leap year (divisible by 4) -->
+                <example>Nació el <marker>29.02.2020</marker>.</example>
                 <!-- 2100 is not a leap year (divisible by 100) -->
-                <example correction="">El <marker>29.02.2100</marker>.</example>
+                <example correction="">Sucederá el <marker>29.02.2100</marker>.</example>
                 <example>Sucederá el <marker>28.02.2100</marker>.</example>
             </rule>
             <rule>
                 <!--NUMBER_DAYS_MONTH[15]-->
-                <antipattern>
-                    <token regexp="yes">29\.2</token>
-                    <token>.</token>
-                    <token regexp="yes">([13579][26]00|[2468][048]00)</token>
-                    <!-- 2000 is a leap year (divisible by 400) -->
-                    <example>Nació el <marker>29.2.2000</marker>.</example>
-                    <!-- 2004 is a leap year (divisible by 4) -->
-                    <example>Nació el<marker>29.2.2004</marker>.</example>
-                    <!-- 2008 is a leap year (divisible by 4) -->
-                    <example>Nació el<marker>29.2.2008</marker>.</example>
-                    <!-- 2012 is a leap year (divisible by 4) -->
-                    <example>Nació el<marker>29.2.2012</marker>.</example>
-                    <!-- 2016 is a leap year (divisible by 4) -->
-                    <example>Nació el <marker>29.2.2016</marker>.</example>
-                    <!-- 2020 is a leap year (divisible by 4) -->
-                    <example>Nació el <marker>29.2.2020</marker>.</example>
-                </antipattern>
                 <pattern>
                     <marker>
                         <token regexp="yes">29\.2</token>
                         <token>.</token>
-                        <token regexp="yes">\d\d(00|\d[13579]|[02468][26]|[13579][048])</token>
+                        <token regexp="yes">\d\d(00|\d[13579]|[02468][26]|[13579][048])<exception regexp="yes">([13579][26]00|[2468][048]00)</exception> </token>
                     </marker>
                 </pattern>
                 <message>El mes de febrero solo tiene 28 días, porque este año no es bisiesto.</message>
+                <!--1900 is not a leap year -->
                 <example correction="">Nació el <marker>29.2.1900</marker>.</example>
                 <example>Nació el <marker>28.2.1900</marker>.</example>
+                <!-- 2000 is a leap year (divisible by 400) -->
+                <example>Nació el <marker>29.2.2000</marker>.</example>
+                <!-- 2004 is a leap year (divisible by 4) -->
+                <example>Nació el<marker>29.2.2004</marker>.</example>
+                <!-- 2008 is a leap year (divisible by 4) -->
+                <example>Nació el<marker>29.2.2008</marker>.</example>
+                <!-- 2012 is a leap year (divisible by 4) -->
+                <example>Nació el<marker>29.2.2012</marker>.</example>
+                <!-- 2016 is a leap year (divisible by 4) -->
+                <example>Nació el <marker>29.2.2016</marker>.</example>
+                <!-- 2020 is a leap year (divisible by 4) -->
+                <example>Nació el <marker>29.2.2020</marker>.</example>
                 <!-- 2100 is not a leap year (divisible by 100) -->
-                <example correction="">El <marker>29.2.2100</marker>.</example>
+                <example correction="">Sucederá el <marker>29.2.2100</marker>.</example>
                 <example>Sucederá el <marker>28.2.2100</marker>.</example>
             </rule>
         </rulegroup>

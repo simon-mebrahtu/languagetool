@@ -915,3 +915,108 @@ Erpelsburg/S #name
 behalt #ugs
 gefällts #ugs
 ausfälle
+Vorsfelde/S #name
+Emmanuele/S #name
+queer/A
+Lennep/S #name
+Mengenich/S #name
+Urbach/S #name
+Bonames #name
+ODD #abk
+Hüsing/S #name
+Karasek/S #name
+Isetta/S #name
+durchkreuz #ugs
+werf #ugs
+Hellmuth/S #name
+verweiger #ugs
+verursach #ugs
+erhol #ugs
+bezahl #ugs
+erhoff #ugs
+Spas
+Squeeze #eng
+Moorfleet/S #name
+Billwerder-Moorfleet/S #name
+Donndorf/S #name
+Cunningham/S
+Fitzroy/S #name
+McIntyre/S #name
+BCSO #abk
+Endozytose
+McKay/S #name
+Natasha/S #name
+PSI #abk
+TDA #abk
+Wahlstedt/S #name
+Wellingholzhausen/S #name
+AFN #abk
+Bartmannshagen/S #name
+Bautzmann/S #name
+BCV #abk
+Blickensdorf/S #name
+Bratmaxe/N #name
+Carmichael/S #name
+CBT/S
+Countryman/S #name
+Craft-Bier/S
+Craft-Biere/N
+HSE #abk
+Compton/S #name
+APL #abk
+Borgwardt/S #name
+Elotrans #name
+UTP #abk
+Abensberg/S #name
+ACD #abk
+Ammelshain/S #name
+Anlassdauer
+Breadcrumb/S #eng
+BTO #abk
+CFX #abk
+chipTAN #name
+ChipTAN #name
+CNT/S #abk
+Kerry/S #name
+CMH #abk
+CMA/S #abk
+CRM/S #abk
+CPH #abk
+CRP #abk
+Berghausen/S #name
+CCH/S #name
+Docupedia/S #name
+Docupedia-Zeitgeschichte #name
+Topper/SN
+Cellular #eng
+Sedlaczek/S #name
+Upvote/S #eng
+upvote #eng
+upvotest #eng
+upvoten #eng
+geupvotet #eng
+Downvote/S #eng
+downvote #eng
+downvotest #eng
+downvoten #eng
+gedownvotet #eng
+Daum/S #name
+übersetz #ugs
+Mhl #abk
+Brockmeier/S #name
+EVV #abk
+UHS #abk
+ACSL #abk
+aDNA #abk
+AEP #abk
+AHC #abk
+Aschbach/S #name
+ASMU #abk
+ASMC #abk
+Aumühle/S #name
+AWB #abk
+Bohlmann/S #name
+Bottendorf/S #name
+euer/A
+euerm
+euern

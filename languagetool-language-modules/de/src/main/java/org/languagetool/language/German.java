@@ -39,6 +39,7 @@ import org.languagetool.tagging.disambiguation.Disambiguator;
 import org.languagetool.tagging.disambiguation.rules.de.GermanRuleDisambiguator;
 import org.languagetool.tokenizers.*;
 import org.languagetool.tokenizers.de.GermanCompoundTokenizer;
+import org.languagetool.tokenizers.de.GermanWordTokenizer;
 import org.languagetool.tools.Tools;
 
 import java.io.File;
@@ -230,6 +231,11 @@ public class German extends Language implements AutoCloseable {
     );
   }
 
+  @Override
+  public Tokenizer createDefaultWordTokenizer() {
+    return new GermanWordTokenizer();
+  }
+
   /** @since 4.0 */
   @Override
   public List<Rule> getRelevantWord2VecModelRules(ResourceBundle messages, Word2VecModel word2vecModel) throws IOException {
@@ -312,6 +318,7 @@ public class German extends Language implements AutoCloseable {
       case "ERNEUERBARE_ENERGIEN": return 1; // prefer over VEREINBAREN
       case "VOR_BEI": return 1; // prefer over BEI_BEHALTEN
       case "VERWANDET_VERWANDTE": return 1; // prefer over DE_CASE
+      case "IN_DEUTSCHE_SPRACHE": return 1; // prefer over most other rules
       case "SEIT_LAENGEREN": return 1; // prefer over DE_CASE
       case "SEIT_KLEIN_AUF": return 1; // prefer over agreement rules
       case "SEIT_GEBURT_AN": return 1; // prefer over agreement rules
@@ -354,6 +361,7 @@ public class German extends Language implements AutoCloseable {
       case "EBEN_FALLS": return 1;
       case "IN_UND_AUSWENDIG": return 1; // prefer over DE_CASE
       case "HIER_MIT": return 1; // prefer over agreement rules
+      case "HIER_FUER": return 1; // prefer over agreement rules
       case "MIT_REISSEN": return 1; // prefer over agreement rules
       case "JEDEN_FALLS": return 1;
       case "UST_ID": return 1;
@@ -379,6 +387,7 @@ public class German extends Language implements AutoCloseable {
       case "AB_TEST": return 1; // prefer over spell checker and agreement
       case "BZGL_ABK": return 1; // prefer over spell checker
       case "DURCH_WACHSEN": return 1; // prefer over SUBSTANTIVIERUNG_NACH_DURCH
+      case "ICH_WARTE": return 1; // prefer over verb agreement rules (e.g. SUBJECT_VERB_AGREEMENT)
       case "RUNDUM_SORGLOS_PAKET": return 1; // higher prio than DE_CASE
       case "MIT_FREUNDLICHEN_GRUESSE": return 1; // higher prio than MEIN_KLEIN_HAUS
       case "OK": return 1; // higher prio than KOMMA_NACH_PARTIKEL_SENT_START[3]
@@ -390,7 +399,6 @@ public class German extends Language implements AutoCloseable {
       case "DE_PROHIBITED_COMPOUNDS_PREMIUM": return -1; // prefer other rules (e.g. AUS_MITTEL)
       case "VER_INF_VER_INF": return -1; // prefer case rules
       case "DE_COMPOUND_COHERENCY": return -1;  // prefer EMAIL
-      case "VER_INFNOMEN": return -1;  // prefer other more specific rules
       case "GEFEATURED": return -1; // prefer over spell checker
       case "NUMBER_SUB": return -1; // prefer over spell checker
       case "VER123_VERAUXMOD": return -1; // prefer casing rules
@@ -404,6 +412,7 @@ public class German extends Language implements AutoCloseable {
       case "VER_ADJ_ZU_SCHLAFEN": return -1; // prefer ETWAS_GUTES
       case "IM_ERSCHEINUNG": return -1; // prefer ZUM_FEM_NOMEN
       case "SPACE_BEFORE_OG": return -1; // higher prio than spell checker
+      case "VERMOD_SKIP_VER_PKT": return -1; // less prio than casing rules
       case "EINZELBUCHSTABE_PREMIUM": return -1;  // lower prio than "A_LA_CARTE"
       case "SCHOENE_WETTER": return -2; // prefer more specific rules that offer a suggestion (e.g. DE_AGREEMENT)
       case "MEIN_KLEIN_HAUS": return -2; // prefer more specific rules that offer a suggestion (e.g. DIES_BEZÜGLICH)
@@ -455,6 +464,9 @@ public class German extends Language implements AutoCloseable {
       case "BEI_VERB": return -14; // prefer case, spelling and AI rules
       case "MODALVERB_FLEKT_VERB": return -14; // prefer case, spelling and AI rules
       case "DATIV_NACH_PRP": return -14; // spelling and AI rules
+      case "SENT_START_SIN_PLU": return -14; // prefer more specific rules that offer a suggestion (A.I., spelling)
+      case "SENT_START_PLU_SIN": return -14; // prefer more specific rules that offer a suggestion (A.I., spelling)
+      case "VER_INFNOMEN": return -14;  // prefer spelling and AI rules
       case "TOO_LONG_PARAGRAPH": return -15;
       case "ALL_UPPERCASE": return -15;
       case "COMMA_BEHIND_RELATIVE_CLAUSE": return -52; // less prio than AI_DE_HYDRA_LEO

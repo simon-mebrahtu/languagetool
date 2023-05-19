@@ -1,3 +1,12 @@
+síntoma=símptoma
+síntomes=símptomes
+certer=precís|segur|encertat|adequat
+certers=precisos|segurs|encertats|adequats
+certera=precisa|segura|encertada|adequada
+certeres=precises|segures|encertades|adequades
+animatrónica=animació electrònica
+kms=km
+tardeo|terraceo=fer un beure|copes|fer-se'n una
 camelo=enganyifa|ensarronada|engalipada
 pamema=romanço|galindaina|cançó|falòrnia
 postmortem|posportem=post mortem

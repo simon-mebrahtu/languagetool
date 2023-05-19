@@ -18,7 +18,7 @@ then
 fi
 
 REPO=$HOME/.m2/repository
-LT_VERSION=5.7-SNAPSHOT
+LT_VERSION=5.9-SNAPSHOT
 INPUT_ENCODING=utf8
 OUTPUT_ENCODING=utf8
 
@@ -29,15 +29,14 @@ PREFIX=${LANG_CODE}_${COUNTRY_CODE}
 LANG_MAIN_DIR=languagetool-language-modules/${LANG_CODE}/src/main/resources/org/languagetool/resource/$LANG_CODE
 CONTENT_DIR=${LANG_MAIN_DIR}/hunspell
 INFO_FILE=${LANG_MAIN_DIR}/${PREFIX}.info
+OUTPUT_FILE=${LANG_MAIN_DIR}/${PREFIX}.dict
 FREQ_FILE=${CONTENT_DIR}/${PREFIX}_wordlist.xml
 DIC_FILE=${CONTENT_DIR}/${PREFIX}.dic
 TEMP_FILE=${PREFIX}.text
-OUTPUT_FILE=${LANG_MAIN_DIR}/${PREFIX}.dict
 echo  $CPATH
 
 java -cp $CPATH:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/languagetool.jar:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/libs/languagetool-tools.jar \
-  org.languagetool.tools.SpellDictionaryBuilder -i $DIC_FILE -info $INFO_FILE -o $OUTPUT_FILE  -freq $FREQ_FILE
+  org.languagetool.tools.POSDictionaryBuilder -i $DIC_FILE -info $INFO_FILE -o $OUTPUT_FILE  -freq $FREQ_FILE
 
 # Test the compiled dict by exporting it back to a text file (output text file is written in the current directory
-#java -cp $CPATH:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/languagetool.jar:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/libs/languagetool-tools.jar \
-#  org.languagetool.tools.DictionaryExporter -i $OUTPUT_FILE -info $INFO_FILE -o $TEMP_FILE
+java -cp $CPATH:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/languagetool.jar:languagetool-standalone/target/LanguageTool-$LT_VERSION/LanguageTool-$LT_VERSION/libs/languagetool-tools.jar   org.languagetool.tools.DictionaryExporter -i $OUTPUT_FILE -info $INFO_FILE -o $TEMP_FILE

@@ -25,6 +25,7 @@ import org.languagetool.rules.patterns.PatternTokenBuilder;
 import java.util.*;
 
 import static org.languagetool.rules.patterns.PatternRuleBuilderHelper.*;
+import static org.languagetool.rules.patterns.PatternRuleBuilderHelper.tokenRegex;
 
 class AgreementRuleAntiPatterns1 {
 
@@ -36,32 +37,111 @@ class AgreementRuleAntiPatterns1 {
       posRegex("SUB:.*")
     ),
     Arrays.asList(
+      token("zu"),
+      tokenRegex("Kopfe?|Zwecken?|Ohren|Fü(ß|ss)en|Fu(ß|ss)|Händen|Beginn|Anfang|Geld|Gesicht|Recht|Unrecht|.*stein")
+    ),
+    Arrays.asList(
+      posRegex("ART.*|PRO:POS.*"),
+      token("zu"),
+      tokenRegex("gleichen|gro(ß|ss)en|kleinen"),
+      token("Teilen")
+    ),
+    Arrays.asList(  //"Bald läppert sich das zu richtigem Geld zusammen."
+      new PatternTokenBuilder().tokenRegex("läppern|summieren").matchInflectedForms().build(),
+      token("sich"),
+      posRegex("PRO:DEM.*"),
+      token("zu"),
+      posRegex("ADJ:DAT.*"),
+      posRegex("SUB:DAT.*")
+    ),
+    Arrays.asList(  //"Die Weimarer Parks laden ja förmlich ein zu Fotos im öffentlichen Raum."
+      new PatternTokenBuilder().token("laden").matchInflectedForms().setSkip(-1).build(),
+      token("ein"),
+      token("zu"),
+      posRegex("SUB:AKK.*")
+    ),
+    Arrays.asList( //"Es is schwierig für mich, diese zu Sätzen zu verbinden."
+      posRegex("PRO:DEM.*"),
+      token("zu"),
+      new PatternTokenBuilder().posRegex("ADJ:.*").min(0).build(),
+      posRegex("SUB.*"),
+      new PatternTokenBuilder().token("zu").min(0).build(),
+      tokenRegex("verbinden|verhelfen|fähig")
+    ),
+    Arrays.asList( //"Es kam zum einen zu technischen Problemen, zum anderen wurde es unübersichtlich."
+      token("zum"),
+      token("einen"),
+      token("zu"),
+      new PatternTokenBuilder().posRegex("ADJ:.*").min(0).build(),
+      new PatternTokenBuilder().posRegex("SUB.*").setSkip(-1).build(),
+      token("zum"),
+      token("anderen")
+    ),
+    Arrays.asList( //"Das Spiel wird durch den zu neuer Größe gewachsenen Torwart dominiert."
+      posRegex("ART.*|PRO:POS.*"),
+      token("zu"),
+      new PatternTokenBuilder().posRegex("ADJ:.*").min(0).max(2).build(),
+      posRegex("SUB.*"),
+      posRegex("PA2.*")
+    ),
+    Arrays.asList( //"Dort findet sich schlicht und einfach alles & das zu sagenhafter Hafenkulisse."
+      tokenRegex("und|&"),
+      posRegex("ART:DEF.*"),
+      token("zu"),
+      posRegex("ADJ:.*"),
+      posRegex("SUB:.*")
+    ),
+    Arrays.asList(  // "die zu basisdemokratischen Prozessen benötigte Mitbestimmung"
+      token("die"),
+      token("zu"),
+      posRegex("ADJ.*"),
+      posRegex("SUB:.*"),
+      tokenRegex("nötigen?|benötigten?|erforderlichen?")
+    ),
+    Arrays.asList(
+      posRegex("PRO:.*|ART.*"),
+      token("zu"),
+      tokenRegex("wenige|viele|verschiedene|höheren|günstigeren"),
+      posRegex("SUB:.*PLU.*")
+    ),
+    Arrays.asList(
+      posRegex("PRO:.*|ART.*"),
+      token("zu"),
+      token("Hause")
+    ),
+    Arrays.asList(  // "Und das zu guter Qualität."
+      posRegex("PRO:.*|ART.*"),
+      token("zu"),
+      posRegex("ADJ:DAT:SIN:FEM:GRU:SOL"),
+      token("Qualität")
+    ),
+    Arrays.asList(
       posRegex("PRO.*"),  // "Es gibt viele Stock Screener."
       posRegex("SUB:.*"),
-      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
     Arrays.asList(
       posRegex("PRP.*(DAT|AKK)"),  // "zur Learning Academy"
       posRegex("SUB:.*"),
-      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
     Arrays.asList(
       posRegex("PRP.*DAT"),  // "zur neuen Learning Academy"
       posRegex("ADJ.*DAT.*"),  
       posRegex("SUB:.*"),
-      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
     Arrays.asList(
       posRegex("PRP.*AKK"),  // "zur neuen Learning Academy"
       posRegex("ADJ.*AKK.*"),  
       posRegex("SUB:.*"),
-      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
     Arrays.asList(
       posRegex("PRO.*"),  // "Es gibt viele verschiedene Stock Screener."
       posRegex("(ADJ|PA2).*"),
       posRegex("SUB:.*"),
-      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
     Arrays.asList(
       tokenRegex("[(\\[]"),   // "... (ich meine Pfeil, nicht Raute) ..."
@@ -152,7 +232,7 @@ class AgreementRuleAntiPatterns1 {
       // "Die ersten Drei bekommen einen Preis." / "Die geheimen Sechs"
       tokenRegex("den|die"),
       tokenRegex(".+n"),
-      csRegex("Zwei|Drei|Vier|Fünf|Sechs|Sieben|Acht|Neun|Zehn|Elf|Zwölf|Zwanzig|Dreißig|Vierzig|Fünzig|Hundert|Tausend")
+      csRegex("Zwei|Drei|Vier|Fünf|Sechs|Sieben|Acht|Neun|Zehn|Elf|Zwölf|Zwanzig|Drei(ß|ss)ig|Vierzig|Fünzig|Hundert|Tausend")
     ),
     Arrays.asList(
       // "sie zog allem anderen kindliche Spiele vor"
@@ -293,7 +373,7 @@ class AgreementRuleAntiPatterns1 {
     ),
     Arrays.asList(
       token("der"),  // "der fließend Englisch sprechende Mitarbeiter"
-      token("fließend"),
+      tokenRegex("flie(ß|ss)end"),
       tokenRegex(".*"),
       token("sprechende")
     ),
@@ -416,7 +496,7 @@ class AgreementRuleAntiPatterns1 {
       regex("Waltons|Einen")
     ),
     Arrays.asList(
-      regex("Große[sn]?"),
+      regex("Gro(ß|ss)e[sn]?"),
       regex("(Bundes)?Verdienstkreuz(es)?")
     ),
     Arrays.asList( // "Adiponitril und Acetoncyanhydrin, beides Zwischenprodukte der Kunststoffproduktion."
@@ -689,10 +769,17 @@ class AgreementRuleAntiPatterns1 {
       token("?")
     ),
     Arrays.asList(
-      csRegex("w[äa]r|ist"),
+      csRegex("w[äa]r|ist|sei"),
       token("das"),
       csRegex("Zufall|Spa(ß|ss)"),
-      token(".")
+      csRegex("\\.|\\?|!|,|…")
+    ),
+    Arrays.asList(
+      // Dann sei das Zufall gewesen
+      csRegex("w[äa]r|ist|sei"),
+      token("das"),
+      csRegex("Zufall|Spa(ß|ss)"),
+      csRegex("gewesen")
     ),
     Arrays.asList(
        // "War das Zufall, dass es ging?"
@@ -734,14 +821,14 @@ class AgreementRuleAntiPatterns1 {
       posRegex("ADJ:NOM:.*")  // "Ein für viele wichtiges Anliegen."
     ),
     Arrays.asList(
-      new PatternTokenBuilder().tokenRegex("flößen|machen|jagen").matchInflectedForms().build(),
+      new PatternTokenBuilder().tokenRegex("flö(ß|ss)en|machen|jagen").matchInflectedForms().build(),
       csRegex("einem|jedem|keinem"),
       csToken("Angst")  // "Dinge, die/ Etwas, das einem Angst macht"
     ),
     Arrays.asList(
       tokenRegex("einem|jedem|keinem"),
       csToken("Angst"),  // "Was einem Angst macht"
-      new PatternTokenBuilder().tokenRegex("machen|ein(flößen|jagen)").matchInflectedForms().build()
+      new PatternTokenBuilder().tokenRegex("machen|ein(flö(ß|ss)en|jagen)").matchInflectedForms().build()
     ),
     Arrays.asList(
       token("einem"),
@@ -941,7 +1028,7 @@ class AgreementRuleAntiPatterns1 {
       tokenRegex("Schnee|Regen")
     ),
     Arrays.asList(
-      token("Außenring"),
+      tokenRegex("Au(ß|ss)enring"),
       token("Autobahn")
     ),
     Arrays.asList(
@@ -1097,57 +1184,57 @@ class AgreementRuleAntiPatterns1 {
       posRegex("(ART|PRO:POS).*NOM:PLU"),
       posRegex("(ADJ|PA[12]).*NOM:PLU.*"),
       posRegex("SUB.*SIN.*"),
-      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
     Arrays.asList(
       // die gegnerischen Shooting Guards
       posRegex("(ART|PRO:POS).*GEN:PLU"),
       posRegex("(ADJ|PA[12]).*GEN:PLU.*"),
       posRegex("SUB.*SIN.*"),
-      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
     Arrays.asList(
       // die gegnerischen Shooting Guards
       posRegex("(ART|PRO:POS).*DAT:PLU"),
       posRegex("(ADJ|PA[12]).*DAT:PLU.*"),
       posRegex("SUB.*SIN.*"),
-      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
     Arrays.asList(
       // die gegnerischen Shooting Guards
       posRegex("(ART|PRO:POS).*AKK:PLU"),
       posRegex("(ADJ|PA[12]).*AKK:PLU.*"),
       posRegex("SUB.*SIN.*"),
-      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
     ),
-    // Arrays.asList(
-    //   // den leidenschaftlichen Lobpreis der texanischen Gateway Church aus
-    //   posRegex("ART.*DAT:SIN.*"),
-    //   posRegex("(ADJ|PA[12]).*DAT:SIN.*"),
-    //   posRegex("SUB.*SIN.*"),
-    //   new PatternTokenBuilder().posRegex("UNKNOWN").tokenRegex("(?i)[A-ZÄÖÜ].+").build()
-    // ),
-    // Arrays.asList(
-    //   // den leidenschaftlichen Lobpreis des texanischen Gateway Church aus
-    //   posRegex("ART.*GEN:SIN.*"),
-    //   posRegex("(ADJ|PA[12]).*GEN:SIN.*"),
-    //   posRegex("SUB.*SIN.*"),
-    //   new PatternTokenBuilder().posRegex("UNKNOWN").tokenRegex("(?i)[A-ZÄÖÜ].+").build()
-    // ),
-    // Arrays.asList(
-    //   // den leidenschaftlichen Lobpreis des texanischen Gateway Church aus
-    //   posRegex("ART.*NOM:SIN.*"),
-    //   posRegex("(ADJ|PA[12]).*NOM:SIN.*"),
-    //   posRegex("SUB.*SIN.*"),
-    //   new PatternTokenBuilder().posRegex("UNKNOWN").tokenRegex("(?i)[A-ZÄÖÜ].+").build()
-    // ),
-    // Arrays.asList(
-    //   // den leidenschaftlichen Lobpreis des texanischen Gateway Church aus
-    //   posRegex("ART.*AKK:SIN.*"),
-    //   posRegex("(ADJ|PA[12]).*AKK:SIN.*"),
-    //   posRegex("SUB.*SIN.*"),
-    //   new PatternTokenBuilder().posRegex("UNKNOWN").tokenRegex("(?i)[A-ZÄÖÜ].+").build()
-    // ),
+    Arrays.asList(
+      // den leidenschaftlichen Lobpreis der texanischen Gateway Church aus
+      posRegex("(ART|PRO:POS).*DAT:SIN.*"),
+      posRegex("(ADJ|PA[12]).*DAT:SIN.*"),
+      posRegex("SUB.*SIN.*"),
+      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
+    ),
+    Arrays.asList(
+      // den leidenschaftlichen Lobpreis des texanischen Gateway Church aus
+      posRegex("(ART|PRO:POS).*GEN:SIN.*"),
+      posRegex("(ADJ|PA[12]).*GEN:SIN.*"),
+      posRegex("SUB.*SIN.*"),
+      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
+    ),
+    Arrays.asList(
+      // den leidenschaftlichen Lobpreis des texanischen Gateway Church aus
+      posRegex("(ART|PRO:POS).*NOM:SIN.*"),
+      posRegex("(ADJ|PA[12]).*NOM:SIN.*"),
+      posRegex("SUB.*SIN.*"),
+      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
+    ),
+    Arrays.asList(
+      // den leidenschaftlichen Lobpreis des texanischen Gateway Church aus
+      posRegex("(ART|PRO:POS).*AKK:SIN.*"),
+      posRegex("(ADJ|PA[12]).*AKK:SIN.*"),
+      posRegex("SUB.*SIN.*"),
+      new PatternTokenBuilder().posRegex("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][A-ZÖÄÜa-zöäüß\\-]+").build()
+    ),
     Arrays.asList(
       // Von der ersten Spielminute an machten die Münsteraner Druck und ...
       new PatternTokenBuilder().matchInflectedForms().tokenRegex("machen").build(),
@@ -1219,6 +1306,13 @@ class AgreementRuleAntiPatterns1 {
       new PatternTokenBuilder().posRegex("ADJ:.*PLU.*").min(0).build(),
       posRegex("SUB:.*PLU.*"),
       posRegex("VER.*INF:.*")
+    ),
+    Arrays.asList(
+      // 1944 eroberte diese weite Teile von Südosteuropa.
+      posRegex("VER.*"),
+      tokenRegex("diese[sr]?"),
+      token("weite"),
+      token("Teile")
     )
   );
 

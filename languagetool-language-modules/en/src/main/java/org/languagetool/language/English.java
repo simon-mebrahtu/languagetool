@@ -330,12 +330,14 @@ public class English extends Language implements AutoCloseable {
       case "ON_THE_LOOK_OUT":           return 1;   // higher prio than VERB_NOUN_CONFUSION
       case "APOSTROPHE_IN_DAYS":        return 1;   // higher prio than A_NNS
       case "PICTURE_PERFECT_HYPHEN":    return 1;   // higher prio than some agreement rules
+      case "SEEM_SEEN":    return 1;   // higher prio than some agreement rules (e.g. PRP_HAVE_VB)
       case "SAVE_SAFE":                 return 1;   // higher prio than agreement rules
       case "FEDEX":                     return 2;   // higher prio than many verb rules (e.g. MD_BASEFORM)
       case "DROP_DEAD_HYPHEN":          return 1;   // higher prio than agreement rules (e.g. I_AM_VB)
       case "HEAR_HERE":                 return 1;   // higher prio than agreement rules (e.g. I_AM_VB)
       case "THE_FRENCH":                return 1;   // higher prio than agreement rules (e.g. I_AM_VB)
       case "A_HEADS_UP":                return 1;   // higher prio than some plural agreement rules (e.g. THERE_S_MANY)
+      case "UNITES_UNITED":             return 1;   // higher prio than IS_VBZ
       case "THIS_MISSING_VERB":         return 1;   // higher priority than A_MY
       case "YOURE":                     return 1;   // prefer over EN_CONTRACTION_SPELLING
       case "LIFE_COMPOUNDS":            return 1;
@@ -545,6 +547,7 @@ public class English extends Language implements AutoCloseable {
       case "WOULD_A":                   return -2;  // prefer other more specific rules
       case "I_AM_VB":                   return -2;  // prefer other rules
       case "BE_VBP_IN":                 return -2;  // prefer over BEEN_PART_AGREEMENT
+      case "VBP_VBP":                 return -2;  // prefer more specific rules
       case "GONNA_TEMP":                return -3;
       case "A_INFINITIVE":              return -3;  // prefer other more specific rules (with suggestions, e.g. PREPOSITION_VERB, THE_TO)
       case "HE_VERB_AGR":               return -3;  // prefer other more specific rules (e.g. PRP_VBG)

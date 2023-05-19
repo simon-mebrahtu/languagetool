@@ -8120,3 +8120,9 @@ Feldbrandziege
 Betonziege
 Lochziege
 Fehlbrandziege
+Zahne
+Servervorschlag/S
+Servervorschläge/N
+Stellungsname/N
+Stellungname/N
+Vorzugsweisen

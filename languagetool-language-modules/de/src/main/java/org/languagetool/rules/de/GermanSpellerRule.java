@@ -62,7 +62,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
 
   private static final String adjSuffix = "(basiert|konform|widrig|fähig|haltig|bedingt|gerecht|würdig|relevant|" +
     "übergreifend|tauglich|artig|bezogen|orientiert|berechtigt|fremd|liebend|bildend|hemmend|abhängig|" +
-    "förmig|mäßig|pflichtig|ähnlich|spezifisch|technisch|typisch|frei|arm|freundlicher|gemäß)";
+    "förmig|mäßig|pflichtig|ähnlich|spezifisch|verträglich|technisch|typisch|frei|arm|freundlicher|gemäß|neutral|seitig)";
   private static final Pattern missingAdjPattern =
     Pattern.compile("[a-zöäüß]{3,25}" + adjSuffix + "(er|es|en|em|e)?");
 
@@ -87,7 +87,9 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
           "Kollier|Kommunikee|Masurka|Negligee|Nessessär|Poulard|Varietee|Wandalismus|kalvinist|[Ff]ick).*");
   
   private static final int MAX_TOKEN_LENGTH = 200;
-  private static final Pattern GENDER_STAR_PATTERN = Pattern.compile("[A-ZÖÄÜ][a-zöäüß]{1,25}[*:][a-zöäüß]{1,25}");  // z.B. "Jurist:innenausbildung"
+  private static final Pattern GENDER_STAR_PATTERN = Pattern.compile("[A-ZÖÄÜ][a-zöäüß]{1,25}[*:_][a-zöäüß]{1,25}");  // z.B. "Jurist:innenausbildung"
+  private static final Pattern FILE_UNDERLINE_PATTERN = Pattern.compile("[a-zA-Z0-9-]{1,25}_[a-zA-Z0-9-]{1,25}\\.[a-zA-Z]{1,5}");
+  private static final Pattern MENTION_UNDERLINE_PATTERN = Pattern.compile("@[a-zA-Z0-9-]{1,25}_[a-zA-Z0-9_-]{1,25}");
 
   private final Set<String> wordsToBeIgnoredInCompounds = new HashSet<>();
   private final Set<String> wordStartsToBeProhibited    = new HashSet<>();
@@ -1173,7 +1175,10 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     put("dis", w -> Arrays.asList("die", "dies"));
     put("veil", w -> Arrays.asList("viel", "weil", "teil"));
     put("mak", w -> Arrays.asList("mag", "mak", "lag"));
+    put("daum", w -> Arrays.asList("da um", "darum", "kaum", "Raum"));
+    put("gechickt", w -> Arrays.asList("geschickt", "gecheckt"));
     put("Wiso", "Wieso");
+    put("gebs", "gebe es");
     put("angefordet", "angefordert");
     put("onlein", "online");
     put("Studen", "Stunden");
@@ -1421,14 +1426,26 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
   @NotNull
   private RuleMatch[] removeGenderCompoundMatches(AnalyzedSentence sentence, RuleMatch[] matches) {
     List<RuleMatch> filteredMatches = Arrays.asList(matches);
-    Matcher m = GENDER_STAR_PATTERN.matcher(sentence.getText());  // Jurist:innenausbildung -> 'Jurist', ':innenausbildung'
+    Matcher genderPattern = GENDER_STAR_PATTERN.matcher(sentence.getText());  // Jurist:innenausbildung -> 'Jurist', ':innenausbildung'
     int pos = 0;
-    while (m.find(pos)) {
-      if (!isMisspelled(m.group().replaceFirst("[*:]", ""))) {  // "_" is not tokenized anyway, so no need to handle it here
+    while (genderPattern.find(pos)) {
+      if (!isMisspelled(genderPattern.group().replaceFirst("[*:_]", ""))) {  // "_" is not tokenized anyway, so no need to handle it here
         // e.g. "Jurist:innenausbildung" with the ":" removed should be accepted:
-        filteredMatches = filteredMatches.stream().filter(k -> !(m.start() < k.getFromPos() && m.end() == k.getToPos())).collect(Collectors.toList());
+        filteredMatches = filteredMatches.stream().filter(k -> !(genderPattern.start() < k.getFromPos() && genderPattern.end() == k.getToPos())).collect(Collectors.toList());
       }
-      pos = m.end();
+      pos = genderPattern.end();
+    }
+    Matcher filePattern = FILE_UNDERLINE_PATTERN.matcher(sentence.getText());
+    pos = 0;
+    while (filePattern.find(pos)) {
+      filteredMatches = filteredMatches.stream().filter(k -> !(filePattern.start() <= k.getFromPos() && filePattern.end() >= k.getToPos())).collect(Collectors.toList());
+      pos = filePattern.end();
+    }
+    Matcher mentionPattern = MENTION_UNDERLINE_PATTERN.matcher(sentence.getText());
+    pos = 0;
+    while (mentionPattern.find(pos)) {
+      filteredMatches = filteredMatches.stream().filter(k -> !(mentionPattern.start() <= k.getFromPos() && mentionPattern.end() >= k.getToPos())).collect(Collectors.toList());
+      pos = mentionPattern.end();
     }
     return filteredMatches.toArray(RuleMatch.EMPTY_ARRAY);
   }
@@ -2720,6 +2737,15 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
       case "Schwupps": return topMatch("Schwups");
       case "Massnahme": return topMatch("Maßnahme");
       case "Massnahmen": return topMatch("Maßnahmen");
+      case "Linkedin": return topMatch("LinkedIn");
+      case "Wordpress": return topMatch("WordPress");
+      case "gleichzeit": return topMatch("gleichzeitig");
+      case "DAnke": return topMatch("Danke");
+      case "trifftigen": return topMatch("triftigen");
+      case "trifftigem": return topMatch("triftigem");
+      case "trifftige": return topMatch("triftige");
+      case "trifftiges": return topMatch("triftiges");
+      case "trifftiger": return topMatch("triftiger");
       case "gehhrte": return topMatch("geehrte");
       case "gehhrten": return topMatch("geehrten");
       case "gehhrtes": return topMatch("geehrtes");

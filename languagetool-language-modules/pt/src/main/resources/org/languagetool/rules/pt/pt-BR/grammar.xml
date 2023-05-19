@@ -428,7 +428,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         <token>anexo</token>
         <token>os</token>
       </pattern>
-      <message>Anexo é um adjeito e deve concordar em gênero e número. Substitua «anexo os» por <suggestion>anexos os</suggestion>.</message>
+      <message>Anexo é um adjetivo e deve concordar em gênero e número. Substitua «anexo os» por <suggestion>anexos os</suggestion>.</message>
       <example correction="anexos os">Segue em <marker>anexo os</marker> documentos solicitados.</example>
     </rule>
 		
@@ -489,7 +489,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
     <!-- ********************************************************** -->
     <!-- CONFUNDIR EXISTEM (VARIOS) COM EXISTE (UM) -->
 		
-    <rule id="EXISTE_VARIOS_BR" name="Existem varios">
+    <rule id="EXISTE_VARIOS_BR" name="Existem vários">
       <pattern>
         <marker>
           <token>existe</token>
@@ -653,7 +653,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
     <!-- ********************************************************** -->
     <!-- CONFUNDIR AVISO PRÉVIO COM AVISO BREVE -->
 		
-    <rule id="AVISO_BREVE" name="Aviso_previo">
+    <rule id="AVISO_BREVE" name="Aviso prévio">
       <pattern>
         <token>aviso</token>
         <token>breve</token>
@@ -1052,6 +1052,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
   </category>
 
   <category id="STYLE" name="Style" type="style">
+    <rule id='FAZER_ESPORTE' name="Praticar esporte">
+    <!--      Created by Marco A.G.Pinto     -->
+    <pattern>
+      <marker>
+        <token inflected='yes'>fazer</token>
+      </marker>
+      <token min="0" regexp="yes">muito|pouco|algum|bastante|nenhum|mais|menos</token>
+      <token>esporte</token>
+    </pattern>
+    <message>Substitua por <suggestion><match no='1' postag='V.+' postag_regexp='yes'>praticar</match></suggestion>.</message>
+    <suggestion><match no='1' postag='V.+' postag_regexp='yes'>praticar</match></suggestion>
+    <example correction="praticar">Vou <marker>fazer</marker> muito esporte.</example>
+  </rule>
     <rulegroup id="EMAIL" name="E-mail (correio eletrônico)">
       <rule>
         <pattern>
@@ -1169,5 +1182,17 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
   </rule>
 	
   </category>
-
+  
+  <category id="BR_SPELLING" name="ortografia brasileira" type="misspelling">
+    
+    <rule id="PRETERITO_PERFEITO" name="Pretérito perfeito: provámos -> provamos" default="on">
+      <pattern>
+        <token postag="VMIS1P0P" regexp="yes">.*ámos</token>
+      </pattern>
+      <message>Em português do Brasil, se escreve sem acento.</message>
+      <suggestion><match no="1" postag="VMIS1P0P" postag_regexp="yes" postag_replace="VMIS1P0"/></suggestion>
+      <example correction="provamos"><marker>provámos</marker></example>
+    </rule>
+    
+  </category>
 </rules>
